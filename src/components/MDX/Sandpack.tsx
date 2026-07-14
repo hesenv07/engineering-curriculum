@@ -74,7 +74,7 @@ const Sandpack = ({ children }: ISandpackProps) => {
   });
 
   return (
-    <div className="mb-6 rounded-xl overflow-hidden border border-border dark:border-border-dark shadow-sm">
+    <div className="mb-6 rounded-xl overflow-hidden border border-border dark:border-border-dark shadow-sm lg:w-[min(calc(100vw-26rem),80rem)] 2xl:w-full">
       <SandpackProvider
         files={sandpackFiles}
         template="react"

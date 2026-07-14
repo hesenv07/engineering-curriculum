@@ -76,18 +76,20 @@ const Page = ({ children, toc = [], pageContext, showSidebar = true }: IPageProp
             </div>
 
             <main className="isolate min-w-0">
-              <article className="break-words text-primary dark:text-primary-dark">
-                <div className="prose-docs px-5 pb-4 pt-8 sm:px-12">
-                  {children}
-                </div>
-                {pageContext && (
-                  <div className="px-5 pb-8 sm:px-12">
-                    <DocsFooter prev={pageContext.prev} next={pageContext.next} />
+              <article className="font-normal break-words text-primary dark:text-primary-dark">
+                <div className="px-5 sm:px-12">
+                  <div className="max-w-7xl mx-auto">
+                    <div className="max-w-4xl ms-0 2xl:mx-auto pt-8 pb-4 prose-docs">
+                      {children}
+                    </div>
                   </div>
-                )}
+                  {pageContext && (
+                    <DocsFooter prev={pageContext.prev} next={pageContext.next} />
+                  )}
+                </div>
               </article>
-              <div className="w-full px-5 pt-8 sm:px-12">
-                <hr className="border-border dark:border-border-dark" />
+              <div className="w-full px-5 pt-8 sm:px-12 md:pt-10">
+                <hr className="mx-auto max-w-7xl border-border dark:border-border-dark" />
               </div>
               <div className="px-5 py-10 sm:px-12 md:py-12">
                 <Footer />
