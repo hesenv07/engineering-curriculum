@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #087EA4;
+    --color-primary-dark: #149ECA;
+    --color-wash: #F6F7F9;
+    --color-text: #23272F;
+    --color-text-secondary: #404756;
+    --color-border: #EBECF0;
+    --color-card: #FFFFFF;
+  }
+
+  .dark {
+    --color-primary: #149ECA;
+    --color-wash: #23272F;
+    --color-text: #F6F7F9;
+    --color-text-secondary: #99A1B3;
+    --color-border: #343A46;
+    --color-card: #2B3245;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  /* Article prose styles */
+  .prose-docs h1 {
+    @apply text-4xl font-bold text-[#23272F] dark:text-[#F6F7F9] mt-0 mb-4 leading-tight;
+    font-family: 'Optimistic Display', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+
+  .prose-docs h2 {
+    @apply text-2xl font-bold text-[#23272F] dark:text-[#F6F7F9] mt-10 mb-4 leading-tight;
+  }
+
+  .prose-docs h3 {
+    @apply text-xl font-bold text-[#23272F] dark:text-[#F6F7F9] mt-8 mb-3;
+  }
+
+  .prose-docs h4 {
+    @apply text-base font-bold text-[#23272F] dark:text-[#F6F7F9] mt-6 mb-2;
+  }
+
+  .prose-docs p {
+    @apply text-[17px] leading-[1.7] text-[#23272F] dark:text-[#F6F7F9] mb-4;
+  }
+
+  .prose-docs a {
+    @apply text-primary hover:underline;
+    color: #087EA4;
+  }
+
+  .prose-docs strong {
+    @apply font-semibold;
+  }
+
+  .prose-docs ul {
+    @apply list-disc pl-6 mb-4 space-y-1;
+  }
+
+  .prose-docs ol {
+    @apply list-decimal pl-6 mb-4 space-y-1;
+  }
+
+  .prose-docs li {
+    @apply text-[17px] leading-[1.7] text-[#23272F] dark:text-[#F6F7F9];
+  }
+
+  .prose-docs code {
+    @apply bg-[#EDF5FA] dark:bg-[#343A46] text-[#AD1A1A] dark:text-[#FF8080] rounded px-1.5 py-0.5 text-[0.875em] font-mono;
+  }
+
+  .prose-docs pre {
+    @apply bg-[#23272F] rounded-xl overflow-x-auto mb-4;
+  }
+
+  .prose-docs pre code {
+    @apply bg-transparent text-[#F6F7F9] p-0 rounded-none text-sm;
+  }
+
+  .prose-docs table {
+    @apply w-full border-collapse mb-6 text-[15px];
+  }
+
+  .prose-docs thead {
+    @apply bg-[#EDF5FA] dark:bg-[#343A46];
+  }
+
+  .prose-docs th {
+    @apply px-4 py-3 text-left font-semibold text-[#23272F] dark:text-[#F6F7F9] border-b border-[#EBECF0] dark:border-[#343A46];
+  }
+
+  .prose-docs td {
+    @apply px-4 py-3 border-b border-[#EBECF0] dark:border-[#343A46] text-[#404756] dark:text-[#99A1B3];
+  }
+
+  .prose-docs tr:last-child td {
+    @apply border-0;
+  }
+
+  .prose-docs blockquote {
+    @apply border-l-4 border-primary pl-4 italic text-[#404756] dark:text-[#99A1B3] my-4;
+  }
+
+  .prose-docs hr {
+    @apply border-[#EBECF0] dark:border-[#343A46] my-8;
+  }
+
+  /* Heading anchor links */
+  .prose-docs h2 a,
+  .prose-docs h3 a,
+  .prose-docs h4 a {
+    @apply no-underline text-inherit;
+  }
+
+  .prose-docs h2:hover .anchor,
+  .prose-docs h3:hover .anchor,
+  .prose-docs h4:hover .anchor {
+    @apply opacity-100;
+  }
+
+  .prose-docs .anchor {
+    @apply opacity-0 transition-opacity ml-2 text-[#087EA4] text-sm;
+  }
+}
+
+/* Sandpack overrides */
+.sp-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
