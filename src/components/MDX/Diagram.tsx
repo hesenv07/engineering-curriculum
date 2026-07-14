@@ -20,7 +20,7 @@ const Diagram = ({
 }: IDiagramProps) => {
   const [imgError, setImgError] = useState(false);
 
-  const imgSrc = `/images/docs/diagrams/${name}.png`;
+  const imgSrc = `/images/docs/diagrams/${name}.svg`;
 
   return (
     <figure className="my-6 text-center">

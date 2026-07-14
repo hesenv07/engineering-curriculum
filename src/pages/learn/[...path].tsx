@@ -6,7 +6,8 @@ import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import Page from '@/components/Layout/Page';
 import { MDXComponents } from '@/components/MDX/MDXComponents';
 import { getAllContentPaths, getContentByPath } from '@/utils/mdx';
-import sidebarData from '@/sidebar.json';
+import sidebarAz from '@/sidebar.json';
+import sidebarEn from '@/sidebar-en.json';
 
 import type { ITocItem, IPageContext, ISidebarRoute } from '@/types';
 
@@ -30,27 +31,38 @@ const LearnPage: NextPage<ILearnPageProps> = ({ mdxSource, meta, toc, pageContex
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllContentPaths();
+  const azPaths = getAllContentPaths('az');
+  const enPaths = getAllContentPaths('en');
 
   return {
-    paths: paths.map((segments) => ({
-      params: { path: segments.filter((s) => s !== 'learn') },
-    })),
+    paths: [
+      ...azPaths.map((segments) => ({
+        params: { path: segments.filter((s) => s !== 'learn') },
+        locale: 'az',
+      })),
+      ...enPaths.map((segments) => ({
+        params: { path: segments.filter((s) => s !== 'learn') },
+        locale: 'en',
+      })),
+    ],
     fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps<ILearnPageProps> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<ILearnPageProps> = async ({ params, locale }) => {
   const pathSegments = (params?.path as string[]) || [];
   const fullPath = ['learn', ...pathSegments];
 
-  const result = await getContentByPath(fullPath);
+  let result = await getContentByPath(fullPath, locale);
+  if (!result && locale !== 'az') {
+    result = await getContentByPath(fullPath, 'az');
+  }
 
   if (!result) {
     return { notFound: true };
   }
 
-  const pageContext = getPageContext(fullPath.join('/'));
+  const pageContext = getPageContext(fullPath.join('/'), locale);
 
   return {
     props: {
@@ -76,8 +88,9 @@ function flattenRoutes(routes: ISidebarRoute[]): { title: string; path: string }
   return result;
 }
 
-function getPageContext(currentPath: string): IPageContext {
-  const all = flattenRoutes((sidebarData as { routes: ISidebarRoute[] }).routes);
+function getPageContext(currentPath: string, locale?: string): IPageContext {
+  const sidebar = locale === 'en' ? sidebarEn : sidebarAz;
+  const all = flattenRoutes((sidebar as { routes: ISidebarRoute[] }).routes);
   const idx = all.findIndex((r) => r.path === `/${currentPath}` || r.path === currentPath);
 
   return {

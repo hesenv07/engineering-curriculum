@@ -6,9 +6,13 @@ import remarkGfm from 'remark-gfm';
 
 import type { ITocItem } from '@/types';
 
-const CONTENT_DIR = path.join(process.cwd(), 'src', 'content');
+function getContentDir(locale?: string): string {
+  const loc = locale === 'en' ? 'en' : 'az';
+  return path.join(process.cwd(), 'src', 'content', loc);
+}
 
-export function getAllContentPaths(): string[][] {
+export function getAllContentPaths(locale?: string): string[][] {
+  const contentDir = getContentDir(locale);
   const paths: string[][] = [];
 
   function walk(dir: string, segments: string[]) {
@@ -24,16 +28,17 @@ export function getAllContentPaths(): string[][] {
     }
   }
 
-  walk(CONTENT_DIR, []);
+  walk(contentDir, []);
   return paths;
 }
 
-export async function getContentByPath(slugParts: string[]) {
+export async function getContentByPath(slugParts: string[], locale?: string) {
+  const contentDir = getContentDir(locale);
   const tryExtensions = ['.md', '.mdx'];
   let filePath: string | null = null;
 
   for (const ext of tryExtensions) {
-    const candidate = path.join(CONTENT_DIR, ...slugParts) + ext;
+    const candidate = path.join(contentDir, ...slugParts) + ext;
     if (fs.existsSync(candidate)) {
       filePath = candidate;
       break;

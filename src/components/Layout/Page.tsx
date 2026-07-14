@@ -2,7 +2,8 @@ import * as React from 'react';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 
-import sidebarData from '@/sidebar.json';
+import sidebarAz from '@/sidebar.json';
+import sidebarEn from '@/sidebar-en.json';
 
 import TopNav from './TopNav';
 import Footer from './Footer';
@@ -41,10 +42,10 @@ function getBreadcrumbs(
 
 const Page = ({ children, toc = [], pageContext, showSidebar = true }: IPageProps) => {
   const [isMobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-  const { asPath } = useRouter();
+  const { asPath, locale } = useRouter();
   const currentPath = asPath.split(/[?#]/)[0];
 
-  const routeTree: ISidebarRoute = sidebarData as ISidebarRoute;
+  const routeTree: ISidebarRoute = (locale === 'en' ? sidebarEn : sidebarAz) as ISidebarRoute;
   const breadcrumbs = getBreadcrumbs(currentPath, routeTree);
 
   return (

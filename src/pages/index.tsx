@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import Page from '@/components/Layout/Page';
-import { useLanguage } from '@/context/LanguageContext';
 
 type TStats = { value: string; label: string };
 
@@ -112,7 +112,8 @@ const PHASES: { az: TPhase[]; en: TPhase[] } = {
 };
 
 const Home: NextPage = () => {
-  const { lang } = useLanguage();
+  const { locale } = useRouter();
+  const lang = (locale ?? 'az') as 'az' | 'en';
   const t = CONTENT[lang];
   const phaseList = PHASES[lang];
   const heroLines = t.hero.split('\n');
@@ -123,37 +124,36 @@ const Home: NextPage = () => {
         <title>{t.title}</title>
       </Head>
 
-      {/* Hero */}
-      <section className="py-20 px-6 text-center border-b border-[#EBECF0] dark:border-[#343A46]">
+      <section className="py-20 px-6 text-center border-b border-border dark:border-border-dark">
         <div className="max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-[#087EA4]/10 text-[#087EA4] dark:text-[#149ECA] rounded-full px-4 py-1.5 text-sm font-medium mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#087EA4] dark:bg-[#149ECA]" />
+          <div className="inline-flex items-center gap-2 bg-highlight dark:bg-highlight-dark text-link dark:text-link-dark rounded-full px-4 py-1.5 text-sm font-medium mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-link dark:bg-link-dark" />
             {t.badge}
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#23272F] dark:text-[#F6F7F9] leading-[1.1] mb-6 tracking-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary dark:text-primary-dark leading-[1.1] mb-6 tracking-tight">
             {heroLines.map((line, i) => (
               <span key={line}>
-                {i === 0 ? <span className="text-[#087EA4] dark:text-[#149ECA]">{line}</span> : line}
+                {i === 0 ? <span className="text-link dark:text-link-dark">{line}</span> : line}
                 {i < heroLines.length - 1 && <br />}
               </span>
             ))}
           </h1>
 
-          <p className="text-xl text-[#404756] dark:text-[#99A1B3] leading-relaxed mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-secondary dark:text-secondary-dark leading-relaxed mb-10 max-w-2xl mx-auto">
             {t.desc}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/learn/faza-0/modul-0-1/bit-ve-byte"
-              className="bg-[#087EA4] hover:bg-[#149ECA] text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-base shadow-sm"
+              className="bg-link hover:bg-link-dark text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-base shadow-sm"
             >
               {t.cta1} →
             </Link>
             <Link
               href="/learn"
-              className="border border-[#EBECF0] dark:border-[#343A46] text-[#404756] dark:text-[#99A1B3] hover:border-[#087EA4] hover:text-[#087EA4] dark:hover:text-[#149ECA] dark:hover:border-[#149ECA] font-semibold px-8 py-3.5 rounded-xl transition-colors text-base bg-white dark:bg-transparent"
+              className="border border-border dark:border-border-dark text-secondary dark:text-secondary-dark hover:border-link hover:text-link dark:hover:text-link-dark dark:hover:border-link-dark font-semibold px-8 py-3.5 rounded-xl transition-colors text-base bg-white dark:bg-transparent"
             >
               {t.cta2}
             </Link>
@@ -161,25 +161,23 @@ const Home: NextPage = () => {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-8 px-6 border-b border-[#EBECF0] dark:border-[#343A46] bg-[#F6F7F9] dark:bg-[#1A2333]">
+      <section className="py-8 px-6 border-b border-border dark:border-border-dark bg-wash dark:bg-wash-dark">
         <div className="max-w-3xl mx-auto flex flex-wrap justify-center gap-8 sm:gap-20">
           {t.stats.map(({ value, label }) => (
             <div key={label} className="text-center">
-              <div className="text-3xl font-bold text-[#087EA4] dark:text-[#149ECA] tabular-nums">{value}</div>
-              <div className="text-sm text-[#404756] dark:text-[#99A1B3] mt-1">{label}</div>
+              <div className="text-3xl font-bold text-link dark:text-link-dark tabular-nums">{value}</div>
+              <div className="text-sm text-secondary dark:text-secondary-dark mt-1">{label}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Phase grid */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#23272F] dark:text-[#F6F7F9] mb-2 text-center tracking-tight">
+          <h2 className="text-3xl font-bold text-primary dark:text-primary-dark mb-2 text-center tracking-tight">
             {t.mapTitle}
           </h2>
-          <p className="text-[#404756] dark:text-[#99A1B3] text-center mb-12 text-base">
+          <p className="text-secondary dark:text-secondary-dark text-center mb-12 text-base">
             {t.mapDesc}
           </p>
 
@@ -188,18 +186,18 @@ const Home: NextPage = () => {
               <Link
                 key={phase.id}
                 href={phase.path}
-                className="group rounded-xl border border-[#EBECF0] dark:border-[#343A46] bg-white dark:bg-[#2B3245] p-5 hover:border-[#087EA4] dark:hover:border-[#149ECA] hover:shadow-md transition-all"
+                className="group rounded-xl border border-border dark:border-border-dark bg-white dark:bg-card-dark p-5 hover:border-link dark:hover:border-link-dark hover:shadow-md transition-all"
               >
                 <div className="flex items-start justify-between mb-3">
-                  <span className="text-xs font-bold bg-[#EDF5FA] dark:bg-[#1A3344] text-[#087EA4] dark:text-[#149ECA] rounded-full px-2.5 py-1 leading-none">
+                  <span className="text-xs font-bold bg-highlight dark:bg-highlight-dark text-link dark:text-link-dark rounded-full px-2.5 py-1 leading-none">
                     {phase.label ?? `FAZA ${phase.id}`}
                   </span>
-                  <span className="text-xs text-[#99A1B3]">{phase.modules} {t.modules}</span>
+                  <span className="text-xs text-tertiary dark:text-tertiary-dark">{phase.modules} {t.modules}</span>
                 </div>
-                <h3 className="font-bold text-[#23272F] dark:text-[#F6F7F9] mb-1.5 group-hover:text-[#087EA4] dark:group-hover:text-[#149ECA] transition-colors leading-snug">
+                <h3 className="font-bold text-primary dark:text-primary-dark mb-1.5 group-hover:text-link dark:group-hover:text-link-dark transition-colors leading-snug">
                   {phase.title}
                 </h3>
-                <p className="text-sm text-[#404756] dark:text-[#99A1B3] leading-relaxed">
+                <p className="text-sm text-secondary dark:text-secondary-dark leading-relaxed">
                   {phase.desc}
                 </p>
               </Link>

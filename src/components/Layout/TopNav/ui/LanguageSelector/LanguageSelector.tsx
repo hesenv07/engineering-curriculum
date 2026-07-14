@@ -1,10 +1,8 @@
 import * as React from 'react';
-
-import { useLanguage } from '@/context/LanguageContext';
-import type { Language } from '@/context/LanguageContext';
+import { useRouter } from 'next/router';
 
 type TLanguageOption = {
-  code: Language | string;
+  code: string;
   label: string;
   isSoon?: boolean;
 };
@@ -17,7 +15,7 @@ const LANGUAGES: TLanguageOption[] = [
 ];
 
 const LanguageSelector = () => {
-  const { lang, setLang } = useLanguage();
+  const { locale, push, asPath } = useRouter();
   const [isOpen, setIsOpen] = React.useState(false);
   const ref = React.useRef<HTMLDivElement>(null);
 
@@ -31,14 +29,14 @@ const LanguageSelector = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const currentLabel = lang.toUpperCase();
+  const currentLabel = (locale ?? 'az').toUpperCase();
 
   return (
     <div ref={ref} className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-sm text-[#404756] dark:text-[#99A1B3] hover:bg-[#F6F7F9] dark:hover:bg-[#343A46] hover:text-[#23272F] dark:hover:text-[#F6F7F9] transition-colors"
-        aria-label="Dil seçin"
+        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-sm text-secondary dark:text-secondary-dark hover:bg-wash dark:hover:bg-wash-dark hover:text-primary dark:hover:text-primary-dark transition-colors"
+        aria-label="Select language"
         aria-expanded={isOpen}
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -60,31 +58,31 @@ const LanguageSelector = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 top-full mt-1 w-48 bg-white dark:bg-[#2B3245] border border-[#EBECF0] dark:border-[#343A46] rounded-xl shadow-lg overflow-hidden z-50">
+        <div className="absolute right-0 top-full mt-1 w-48 bg-white dark:bg-card-dark border border-border dark:border-border-dark rounded-xl shadow-lg overflow-hidden z-50">
           <div className="p-1">
             {LANGUAGES.map((l) => (
               <div key={l.code}>
                 {l.isSoon ? (
-                  <div className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-[#99A1B3] cursor-not-allowed select-none">
+                  <div className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-tertiary dark:text-tertiary-dark cursor-not-allowed select-none">
                     <span>{l.label}</span>
-                    <span className="text-[10px] bg-[#F6F7F9] dark:bg-[#343A46] text-[#99A1B3] rounded px-1.5 py-0.5 font-medium">
-                      tezliklə
+                    <span className="text-[10px] bg-wash dark:bg-wash-dark text-tertiary dark:text-tertiary-dark rounded px-1.5 py-0.5 font-medium">
+                      soon
                     </span>
                   </div>
                 ) : (
                   <button
                     onClick={() => {
-                      setLang(l.code as Language);
+                      push(asPath, asPath, { locale: l.code });
                       setIsOpen(false);
                     }}
                     className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
-                      lang === l.code
-                        ? 'bg-[#EDF5FA] dark:bg-[#1A3344] text-[#087EA4] dark:text-[#149ECA] font-semibold'
-                        : 'text-[#404756] dark:text-[#99A1B3] hover:bg-[#F6F7F9] dark:hover:bg-[#343A46]'
+                      locale === l.code
+                        ? 'bg-highlight dark:bg-highlight-dark text-link dark:text-link-dark font-semibold'
+                        : 'text-secondary dark:text-secondary-dark hover:bg-wash dark:hover:bg-wash-dark'
                     }`}
                   >
                     {l.label}
-                    {lang === l.code && (
+                    {locale === l.code && (
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                         <polyline points="20 6 9 17 4 12"/>
                       </svg>
