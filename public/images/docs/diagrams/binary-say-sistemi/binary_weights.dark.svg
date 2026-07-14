@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 310" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <defs>
+    <marker id="arrB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/>
+    </marker>
+  </defs>
+  <text x="340" y="34" text-anchor="middle" font-size="16" fill="#F6F7F9" font-family="system-ui, sans-serif">110101&#8322; = ?</text>
+
+  <!-- digit boxes -->
+  <g font-size="30" text-anchor="middle">
+    <rect x="75"  y="56" width="70" height="56" rx="8" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+    <rect x="165" y="56" width="70" height="56" rx="8" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+    <rect x="255" y="56" width="70" height="56" rx="8" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+    <rect x="345" y="56" width="70" height="56" rx="8" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+    <rect x="435" y="56" width="70" height="56" rx="8" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+    <rect x="525" y="56" width="70" height="56" rx="8" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+    <text x="110" y="95" fill="#149ECA">1</text>
+    <text x="200" y="95" fill="#149ECA">1</text>
+    <text x="290" y="95" fill="#99A1B3">0</text>
+    <text x="380" y="95" fill="#149ECA">1</text>
+    <text x="470" y="95" fill="#99A1B3">0</text>
+    <text x="560" y="95" fill="#149ECA">1</text>
+  </g>
+
+  <!-- powers row -->
+  <g font-size="14" text-anchor="middle" fill="#99A1B3">
+    <text x="110" y="138">2&#8309;</text>
+    <text x="200" y="138">2&#8308;</text>
+    <text x="290" y="138">2&#179;</text>
+    <text x="380" y="138">2&#178;</text>
+    <text x="470" y="138">2&#185;</text>
+    <text x="560" y="138">2&#8304;</text>
+  </g>
+  <!-- weights row -->
+  <g font-size="18" text-anchor="middle">
+    <text x="110" y="166" fill="#F6F7F9">32</text>
+    <text x="200" y="166" fill="#F6F7F9">16</text>
+    <text x="290" y="166" fill="#99A1B3">8</text>
+    <text x="380" y="166" fill="#F6F7F9">4</text>
+    <text x="470" y="166" fill="#99A1B3">2</text>
+    <text x="560" y="166" fill="#F6F7F9">1</text>
+  </g>
+
+  <!-- arrows from 1-columns to sum -->
+  <g stroke="#149ECA" stroke-width="1.5" fill="none">
+    <path d="M 110 176 C 110 215, 250 225, 300 238" marker-end="url(#arrB)"/>
+    <path d="M 200 176 C 200 212, 265 220, 305 236" marker-end="url(#arrB)"/>
+    <path d="M 380 176 C 380 210, 360 218, 345 234" marker-end="url(#arrB)"/>
+    <path d="M 560 176 C 560 215, 430 225, 380 238" marker-end="url(#arrB)"/>
+  </g>
+
+  <text x="340" y="272" text-anchor="middle" font-size="24" fill="#F6F7F9">32 + 16 + 4 + 1 = <tspan fill="#149ECA" font-weight="bold">53</tspan></text>
+  <text x="340" y="300" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">Only the columns with 1 contribute their weight</text>
+</svg>

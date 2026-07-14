@@ -26,7 +26,7 @@ Yes — you agree beforehand: "on" = yes, "off" = no. One switch gives you 2 pos
 
 Now take 2 switches. Combinations: on-on, on-off, off-on, off-off — that is already 4 messages. 3 switches = 8 messages. Every new switch **doubles** the possibilities.
 
-<Diagram name="light_switches" height={280} width={640} alt="Three rows of light switches: 1 switch gives two states (2 messages), 2 switches give four combinations (4 messages), 3 switches give eight combinations (8 messages). Each row shows switches in on/off positions with the count of possible messages.">
+<Diagram name="bit-ve-byte/light_switches" height={280} width={640} alt="Three rows of light switches: 1 switch gives two states (2 messages), 2 switches give four combinations (4 messages), 3 switches give eight combinations (8 messages). Each row shows switches in on/off positions with the count of possible messages.">
 
 Each additional switch doubles the number of possible combinations.
 
@@ -135,7 +135,7 @@ In an electronic circuit, a digit is represented by voltage. Suppose we want to 
 
 In binary there are only two states: "voltage present" and "voltage absent," with a wide empty zone between them. Even if the signal drifts significantly, confusing 0 and 1 is nearly impossible.
 
-<Diagram name="voltage_noise" height={340} width={720} alt="Two graphs side by side. Left: a 10-level system with voltage bands from 0V to 4.5V packed closely together; a noisy signal line crosses into adjacent bands in several places, marked with red X. Right: a binary system with only two wide zones (low = '0', high = '1') separated by a large buffer; the same level of noise never pushes the signal into the wrong zone, green check mark shown.">
+<Diagram name="bit-ve-byte/voltage_noise" height={340} width={720} alt="Two graphs side by side. Left: a 10-level system with voltage bands from 0V to 4.5V packed closely together; a noisy signal line crosses into adjacent bands in several places, marked with red X. Right: a binary system with only two wide zones (low = '0', high = '1') separated by a large buffer; the same level of noise never pushes the signal into the wrong zone, green check mark shown.">
 
 Noise shakes both signals equally — but in binary there is no room for an error.
 
@@ -196,7 +196,7 @@ Lowercase **b** = bit, uppercase **B** = byte. ISPs love this confusion — a "1
 
 The central idea of this lesson: to a computer there is **no difference** between text, an image, a song, and a program. They are all sequences of bytes. What creates the difference is *how* we read those bytes.
 
-<Diagram name="same_bytes_three_meanings" height={320} width={680} alt="In the center, two bytes are shown: 01001000 01101001. Three arrows branch from them. The first arrow labeled 'read as text (ASCII)' leads to the word Hi. The second arrow labeled 'read as a 16-bit number' leads to the number 18537. The third arrow labeled 'read as a pixel' leads to a gray-blue color sample.">
+<Diagram name="bit-ve-byte/same_bytes_three_meanings" height={320} width={680} alt="In the center, two bytes are shown: 01001000 01101001. Three arrows branch from them. The first arrow labeled 'read as text (ASCII)' leads to the word Hi. The second arrow labeled 'read as a 16-bit number' leads to the number 18537. The third arrow labeled 'read as a pixel' leads to a gray-blue color sample.">
 
 Same two bytes — three different meanings. A byte has no "type" of its own.
 

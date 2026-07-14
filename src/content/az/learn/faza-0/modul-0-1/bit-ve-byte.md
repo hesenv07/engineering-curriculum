@@ -26,7 +26,7 @@ Bəli — əvvəlcədən razılaşırsınız: "yanır" = hə, "sönüb" = yox. B
 
 İndi 2 açar götür. Kombinasiyalar: yanır-yanır, yanır-sönüb, sönüb-yanır, sönüb-sönüb — artıq 4 mesaj. 3 açar = 8 mesaj. Hər yeni açar imkanları **ikiqat** artırır.
 
-<Diagram name="light_switches" height={280} width={640} alt="Üç sıra işıq açarı: 1 açar iki hal verir (2 mesaj), 2 açar dörd kombinasiya verir (4 mesaj), 3 açar səkkiz kombinasiya verir (8 mesaj). Hər sırada açarların yanılı/sönülü vəziyyətləri və qarşısında mümkün mesaj sayı göstərilir.">
+<Diagram name="bit-ve-byte/light_switches" height={280} width={640} alt="Üç sıra işıq açarı: 1 açar iki hal verir (2 mesaj), 2 açar dörd kombinasiya verir (4 mesaj), 3 açar səkkiz kombinasiya verir (8 mesaj). Hər sırada açarların yanılı/sönülü vəziyyətləri və qarşısında mümkün mesaj sayı göstərilir.">
 
 Hər əlavə açar mümkün kombinasiyaların sayını ikiqat artırır.
 
@@ -135,7 +135,7 @@ Elektron dövrədə rəqəm gərginliklə (voltage) təmsil olunur. Tutaq ki, 10
 
 İkilik sistemdə isə cəmi iki hal var: "gərginlik var" və "gərginlik yoxdur", aralarında geniş boş zona. Siqnal xeyli əyilsə belə, 0-la 1-i qarışdırmaq demək olar mümkün deyil.
 
-<Diagram name="voltage_noise" height={340} width={720} alt="İki qrafik yan-yana. Solda: 10 səviyyəli sistem — 0V-dan 4.5V-a qədər sıx düzülmüş 10 zolaq, üstündə titrəyən (noise-lu) siqnal xətti bir neçə yerdə qonşu zolağa keçir, ora qırmızı X işarələri qoyulub. Sağda: binary sistem — yalnız iki geniş zona (aşağıda '0', yuxarıda '1'), ortada böyük boş buffer zonası; eyni dərəcədə titrəyən siqnal xətti heç vaxt yanlış zonaya düşmür, yaşıl ✓ işarəsi.">
+<Diagram name="bit-ve-byte/voltage_noise" height={340} width={720} alt="İki qrafik yan-yana. Solda: 10 səviyyəli sistem — 0V-dan 4.5V-a qədər sıx düzülmüş 10 zolaq, üstündə titrəyən (noise-lu) siqnal xətti bir neçə yerdə qonşu zolağa keçir, ora qırmızı X işarələri qoyulub. Sağda: binary sistem — yalnız iki geniş zona (aşağıda '0', yuxarıda '1'), ortada böyük boş buffer zonası; eyni dərəcədə titrəyən siqnal xətti heç vaxt yanlış zonaya düşmür, yaşıl ✓ işarəsi.">
 
 Noise hər iki siqnalı eyni qədər titrədir — amma binary-də səhv üçün yer qalmır.
 
@@ -196,7 +196,7 @@ Kiçik **b** = bit, böyük **B** = byte. Provayderlər bu qarışıqlığı ço
 
 Bu dərsin aparıcı ideyası: kompüter üçün mətn, şəkil, mahnı, proqram arasında **heç bir fərq yoxdur**. Hamısı byte ardıcıllığıdır. Fərqi yaradan — həmin byte-ları hansı qaydayla *oxumağımızdır*.
 
-<Diagram name="same_bytes_three_meanings" height={320} width={680} alt="Mərkəzdə iki byte göstərilir: 01001000 01101001. Ondan üç ox ayrılır. Birinci ox 'mətn kimi oxu (ASCII)' etiketi ilə 'Hi' sözünə aparır. İkinci ox '16-bit ədəd kimi oxu' etiketi ilə 18537 rəqəminə aparır. Üçüncü ox 'piksel kimi oxu' etiketi ilə boz-göy rəng nümunəsinə aparır.">
+<Diagram name="bit-ve-byte/same_bytes_three_meanings" height={320} width={680} alt="Mərkəzdə iki byte göstərilir: 01001000 01101001. Ondan üç ox ayrılır. Birinci ox 'mətn kimi oxu (ASCII)' etiketi ilə 'Hi' sözünə aparır. İkinci ox '16-bit ədəd kimi oxu' etiketi ilə 18537 rəqəminə aparır. Üçüncü ox 'piksel kimi oxu' etiketi ilə boz-göy rəng nümunəsinə aparır.">
 
 Eyni iki byte — üç fərqli məna. Byte-ın öz "tipi" yoxdur.
 

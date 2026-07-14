@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/>
+    </marker>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/>
+    </marker>
+  </defs>
+
+  <!-- title row -->
+  <text x="360" y="36" text-anchor="middle" font-size="16" fill="#23272F" font-family="system-ui, sans-serif">Binary odometer: each wheel has only 0 and 1</text>
+
+  <!-- odometer groups: 000 001 010 011 100 -->
+  <!-- group template: 3 boxes of 32x46, gap 4 -->
+  <!-- g1: 000 at x=30 -->
+  <g>
+    <rect x="30"  y="90" width="32" height="46" rx="6" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+    <rect x="66"  y="90" width="32" height="46" rx="6" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+    <rect x="102" y="90" width="32" height="46" rx="6" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+    <text x="46"  y="121" text-anchor="middle" font-size="24" fill="#23272F">0</text>
+    <text x="82"  y="121" text-anchor="middle" font-size="24" fill="#23272F">0</text>
+    <text x="118" y="121" text-anchor="middle" font-size="24" fill="#23272F">0</text>
+    <text x="82" y="162" text-anchor="middle" font-size="14" fill="#99A1B3">0</text>
+  </g>
+  <line x1="140" y1="113" x2="164" y2="113" stroke="#99A1B3" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="152" y="103" text-anchor="middle" font-size="12" fill="#99A1B3">+1</text>
+
+  <!-- g2: 001 at x=170 -->
+  <g>
+    <rect x="170" y="90" width="32" height="46" rx="6" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+    <rect x="206" y="90" width="32" height="46" rx="6" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+    <rect x="242" y="90" width="32" height="46" rx="6" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+    <text x="186" y="121" text-anchor="middle" font-size="24" fill="#23272F">0</text>
+    <text x="222" y="121" text-anchor="middle" font-size="24" fill="#23272F">0</text>
+    <text x="258" y="121" text-anchor="middle" font-size="24" fill="#23272F">1</text>
+    <text x="222" y="162" text-anchor="middle" font-size="14" fill="#99A1B3">1</text>
+  </g>
+  <line x1="280" y1="113" x2="304" y2="113" stroke="#99A1B3" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="292" y="103" text-anchor="middle" font-size="12" fill="#99A1B3">+1</text>
+
+  <!-- g3: 010 at x=310 -->
+  <g>
+    <rect x="310" y="90" width="32" height="46" rx="6" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+    <rect x="346" y="90" width="32" height="46" rx="6" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+    <rect x="382" y="90" width="32" height="46" rx="6" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+    <text x="326" y="121" text-anchor="middle" font-size="24" fill="#23272F">0</text>
+    <text x="362" y="121" text-anchor="middle" font-size="24" fill="#23272F">1</text>
+    <text x="398" y="121" text-anchor="middle" font-size="24" fill="#23272F">0</text>
+    <text x="362" y="162" text-anchor="middle" font-size="14" fill="#99A1B3">2</text>
+  </g>
+  <line x1="420" y1="113" x2="444" y2="113" stroke="#99A1B3" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="432" y="103" text-anchor="middle" font-size="12" fill="#99A1B3">+1</text>
+
+  <!-- g4: 011 at x=450 -->
+  <g>
+    <rect x="450" y="90" width="32" height="46" rx="6" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+    <rect x="486" y="90" width="32" height="46" rx="6" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+    <rect x="522" y="90" width="32" height="46" rx="6" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+    <text x="466" y="121" text-anchor="middle" font-size="24" fill="#23272F">0</text>
+    <text x="502" y="121" text-anchor="middle" font-size="24" fill="#23272F">1</text>
+    <text x="538" y="121" text-anchor="middle" font-size="24" fill="#23272F">1</text>
+    <text x="502" y="162" text-anchor="middle" font-size="14" fill="#99A1B3">3</text>
+  </g>
+  <line x1="560" y1="113" x2="584" y2="113" stroke="#087EA4" stroke-width="2" marker-end="url(#arrA)"/>
+  <text x="572" y="103" text-anchor="middle" font-size="12" fill="#087EA4">+1</text>
+
+  <!-- g5: 100 at x=590 highlighted -->
+  <g>
+    <rect x="590" y="90" width="32" height="46" rx="6" fill="#087EA4" fill-opacity="0.12" stroke="#087EA4" stroke-width="2"/>
+    <rect x="626" y="90" width="32" height="46" rx="6" fill="#087EA4" fill-opacity="0.12" stroke="#087EA4" stroke-width="2"/>
+    <rect x="662" y="90" width="32" height="46" rx="6" fill="#087EA4" fill-opacity="0.12" stroke="#087EA4" stroke-width="2"/>
+    <text x="606" y="121" text-anchor="middle" font-size="24" fill="#087EA4">1</text>
+    <text x="642" y="121" text-anchor="middle" font-size="24" fill="#087EA4">0</text>
+    <text x="678" y="121" text-anchor="middle" font-size="24" fill="#087EA4">0</text>
+    <text x="642" y="162" text-anchor="middle" font-size="14" fill="#087EA4">4</text>
+  </g>
+
+  <!-- carry note -->
+  <path d="M 640 190 Q 600 225 560 200" fill="none" stroke="#087EA4" stroke-width="1.5" marker-end="url(#arrA)"/>
+  <text x="360" y="235" text-anchor="middle" font-size="15" fill="#23272F" font-family="system-ui, sans-serif">Right wheels are full (11) → both roll back to 0, the left wheel steps forward: carry</text>
+  <text x="360" y="260" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">Exactly like 09 → 10 — the wheel just fills up at 2 digits instead of 10</text>
+</svg>

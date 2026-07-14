@@ -18,9 +18,13 @@ const Diagram = ({
   children,
   captionPosition = 'bottom',
 }: IDiagramProps) => {
-  const [imgError, setImgError] = useState(false);
+  const [lightError, setLightError] = useState(false);
+  const [darkError, setDarkError] = useState(false);
 
-  const imgSrc = `/images/docs/diagrams/${name}.svg`;
+  const lightSrc = `/images/docs/diagrams/${name}.svg`;
+  const darkSrc = `/images/docs/diagrams/${name}.dark.svg`;
+
+  const hasError = lightError && darkError;
 
   return (
     <figure className="my-6 text-center">
@@ -30,16 +34,27 @@ const Diagram = ({
         </figcaption>
       )}
 
-      {!imgError ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={imgSrc}
-          alt={alt}
-          width={width}
-          height={height}
-          className="rounded-xl border border-border dark:border-border-dark mx-auto max-w-full"
-          onError={() => setImgError(true)}
-        />
+      {!hasError ? (
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={lightSrc}
+            alt={alt}
+            width={width}
+            height={height}
+            className="rounded-xl border border-border dark:border-border-dark mx-auto max-w-full dark:hidden"
+            onError={() => setLightError(true)}
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={darkError ? lightSrc : darkSrc}
+            alt={alt}
+            width={width}
+            height={height}
+            className="rounded-xl border border-border dark:border-border-dark mx-auto max-w-full hidden dark:block"
+            onError={() => setDarkError(true)}
+          />
+        </>
       ) : (
         <div
           className="rounded-xl border border-border dark:border-border-dark bg-card dark:bg-card-dark mx-auto flex items-center justify-center p-8 max-w-full"
