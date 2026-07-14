@@ -1,30 +1,32 @@
-export interface SidebarRoute {
+export interface ISidebarRoute {
   title?: string;
   path?: string;
-  routes?: SidebarRoute[];
+  routes?: ISidebarRoute[];
+  heading?: boolean;
+  version?: 'canary' | 'major' | 'experimental' | 'rc';
   hasSectionHeader?: boolean;
   sectionHeader?: string;
   wip?: boolean;
 }
 
-export interface SidebarConfig {
+export interface ISidebarConfig {
   title: string;
   path: string;
-  routes: SidebarRoute[];
+  routes: ISidebarRoute[];
 }
 
-export interface PageMeta {
+export interface IPageMeta {
   title: string;
   description?: string;
 }
 
-export interface TocItem {
+export interface ITocItem {
   id: string;
   text: string;
   level: number;
 }
 
-export interface PageContext {
+export interface IPageContext {
   prev?: { title: string; path: string } | null;
   next?: { title: string; path: string } | null;
 }

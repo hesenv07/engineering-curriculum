@@ -1,48 +1,63 @@
-'use client';
+import { useState, useEffect } from 'react';
 import * as React from 'react';
 
-interface ChallengesProps {
+interface IChallengesProps {
   children: React.ReactNode;
 }
 
-interface ChallengeData {
-  title: string;
+interface IChallengeData {
   id: string;
+  title: string;
   content: React.ReactNode[];
-  solution: React.ReactNode | null;
   hint: React.ReactNode | null;
+  solution: React.ReactNode | null;
 }
 
-function parseChallenges(children: React.ReactNode): ChallengeData[] {
-  const result: ChallengeData[] = [];
-  const childArray = React.Children.toArray(children);
+type TElementProps = {
+  children?: React.ReactNode;
+  id?: string;
+};
 
-  let current: ChallengeData | null = null;
+type TWithMdxName = {
+  mdxName?: string;
+};
+
+function getComponentName(type: unknown): string {
+  if (typeof type !== 'function') return String(type);
+  const fn = type as { displayName?: string; name?: string };
+  return fn.displayName ?? fn.name ?? '';
+}
+
+function parseChallenges(children: React.ReactNode): IChallengeData[] {
+  const result: IChallengeData[] = [];
+  const childArray = React.Children.toArray(children);
+  let current: IChallengeData | null = null;
 
   for (const child of childArray) {
     if (!React.isValidElement(child)) continue;
 
     const type = child.type;
-    const props = child.props as any;
+    const props = child.props as TElementProps;
 
-    // h4 starts a new challenge
-    if (type === 'h4' || props?.mdxType === 'h4') {
+    const isH4 =
+      typeof type === 'function' && (type as TWithMdxName).mdxName === 'h4';
+
+    if (isH4) {
       if (current) result.push(current);
-      const titleText = String(props?.children || '');
-      const id = props?.id || titleText.toLowerCase().replace(/\s+/g, '-');
-      current = { title: titleText, id, content: [], solution: null, hint: null };
+      const titleText = String(props.children ?? '');
+      const id = props.id ?? titleText.toLowerCase().replace(/\s+/g, '-');
+      current = { id, title: titleText, content: [], hint: null, solution: null };
       continue;
     }
 
     if (!current) continue;
 
-    const componentName =
-      typeof type === 'function' ? (type as any).displayName || type.name : String(type);
+    const componentName = getComponentName(type);
 
     if (componentName === 'Solution') {
-      current.solution = props?.children;
+      current.solution = props.children ?? null;
     } else if (componentName === 'Hint') {
-      current.hint = props?.children;
+      current.hint = props.children ?? null;
     } else {
       current.content.push(child);
     }
@@ -52,15 +67,15 @@ function parseChallenges(children: React.ReactNode): ChallengeData[] {
   return result;
 }
 
-export function Challenges({ children }: ChallengesProps) {
+export function Challenges({ children }: IChallengesProps) {
   const challenges = parseChallenges(children);
-  const [current, setCurrent] = React.useState(0);
-  const [showSolution, setShowSolution] = React.useState(false);
-  const [showHint, setShowHint] = React.useState(false);
+  const [current, setCurrent] = useState(0);
+  const [showSolution, setShowSolution] = useState(false);
+  const [showHint, setShowHint] = useState(false);
 
   const challenge = challenges[current];
 
-  React.useEffect(() => {
+  useEffect(() => {
     setShowSolution(false);
     setShowHint(false);
   }, [current]);
@@ -68,23 +83,24 @@ export function Challenges({ children }: ChallengesProps) {
   if (challenges.length === 0) return null;
 
   return (
-    <div className="rounded-xl border border-[#EBECF0] dark:border-[#343A46] mb-8 overflow-hidden">
-      {/* Header */}
-      <div className="flex items-center justify-between bg-[#EDF5FA] dark:bg-[#1A2333] px-5 py-3 border-b border-[#EBECF0] dark:border-[#343A46]">
-        <span className="text-[#087EA4] dark:text-[#149ECA] font-bold uppercase text-xs tracking-widest">
-          {challenges.length > 1 ? `Tapşırıq ${current + 1} / ${challenges.length}` : 'Tapşırıq'}
+    <div className="rounded-xl border border-border dark:border-border-dark mb-8 overflow-hidden">
+      <div className="flex items-center justify-between bg-card dark:bg-card-dark px-5 py-3 border-b border-border dark:border-border-dark">
+        <span className="text-link dark:text-link-dark font-bold uppercase text-xs tracking-widest">
+          {challenges.length > 1
+            ? `Tapşırıq ${current + 1} / ${challenges.length}`
+            : 'Tapşırıq'}
         </span>
         {challenges.length > 1 && (
           <div className="flex gap-1">
-            {challenges.map((_, i) => (
+            {challenges.map((ch, i) => (
               <button
-                key={i}
+                key={ch.id}
                 onClick={() => setCurrent(i)}
-                className={`w-7 h-7 rounded-full text-xs font-medium transition-colors ${
+                className={
                   i === current
-                    ? 'bg-[#087EA4] text-white'
-                    : 'bg-white dark:bg-[#2B3245] text-[#404756] dark:text-[#99A1B3] border border-[#EBECF0] dark:border-[#343A46] hover:border-[#087EA4]'
-                }`}
+                    ? 'w-7 h-7 rounded-full text-xs font-medium bg-link text-white'
+                    : 'w-7 h-7 rounded-full text-xs font-medium bg-wash dark:bg-card-dark text-secondary dark:text-secondary-dark border border-border dark:border-border-dark hover:border-link'
+                }
               >
                 {i + 1}
               </button>
@@ -93,41 +109,38 @@ export function Challenges({ children }: ChallengesProps) {
         )}
       </div>
 
-      {/* Challenge content */}
       <div className="p-5">
-        <h4 className="font-bold text-[#23272F] dark:text-[#F6F7F9] text-lg mb-4">
+        <h4 className="font-bold text-primary dark:text-primary-dark text-lg mb-4">
           {challenge.title}
         </h4>
         <div className="prose-docs">{challenge.content}</div>
 
-        {/* Hint */}
         {challenge.hint && (
           <div className="mt-4">
             <button
               onClick={() => setShowHint(!showHint)}
-              className="text-sm text-[#087EA4] dark:text-[#149ECA] hover:underline font-medium"
+              className="text-sm text-link dark:text-link-dark hover:underline font-medium"
             >
               {showHint ? 'İpucunu gizlət' : 'İpucu göstər'}
             </button>
             {showHint && (
-              <div className="mt-2 rounded-lg bg-[#F9FBFC] dark:bg-[#2B3245] border border-[#EBECF0] dark:border-[#343A46] p-4 prose-docs">
+              <div className="mt-2 rounded-lg bg-card dark:bg-card-dark border border-border dark:border-border-dark p-4 prose-docs">
                 {challenge.hint}
               </div>
             )}
           </div>
         )}
 
-        {/* Solution */}
         {challenge.solution && (
           <div className="mt-4">
             <button
               onClick={() => setShowSolution(!showSolution)}
-              className="text-sm text-[#087EA4] dark:text-[#149ECA] hover:underline font-medium"
+              className="text-sm text-link dark:text-link-dark hover:underline font-medium"
             >
               {showSolution ? 'Cavabı gizlət' : 'Cavabı göstər'}
             </button>
             {showSolution && (
-              <div className="mt-2 rounded-lg bg-[#F9FBFC] dark:bg-[#2B3245] border border-[#EBECF0] dark:border-[#343A46] p-4 prose-docs">
+              <div className="mt-2 rounded-lg bg-card dark:bg-card-dark border border-border dark:border-border-dark p-4 prose-docs">
                 {challenge.solution}
               </div>
             )}
@@ -135,20 +148,19 @@ export function Challenges({ children }: ChallengesProps) {
         )}
       </div>
 
-      {/* Navigation */}
       {challenges.length > 1 && (
-        <div className="flex justify-between items-center px-5 py-3 border-t border-[#EBECF0] dark:border-[#343A46] bg-[#F9FBFC] dark:bg-[#2B3245]">
+        <div className="flex justify-between items-center px-5 py-3 border-t border-border dark:border-border-dark bg-card dark:bg-card-dark">
           <button
             onClick={() => setCurrent((c) => Math.max(0, c - 1))}
             disabled={current === 0}
-            className="text-sm text-[#087EA4] dark:text-[#149ECA] disabled:opacity-40 disabled:cursor-not-allowed hover:underline font-medium"
+            className="text-sm text-link dark:text-link-dark disabled:opacity-40 disabled:cursor-not-allowed hover:underline font-medium"
           >
             ← Əvvəlki
           </button>
           <button
             onClick={() => setCurrent((c) => Math.min(challenges.length - 1, c + 1))}
             disabled={current === challenges.length - 1}
-            className="text-sm text-[#087EA4] dark:text-[#149ECA] disabled:opacity-40 disabled:cursor-not-allowed hover:underline font-medium"
+            className="text-sm text-link dark:text-link-dark disabled:opacity-40 disabled:cursor-not-allowed hover:underline font-medium"
           >
             Növbəti →
           </button>

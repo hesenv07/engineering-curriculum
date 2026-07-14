@@ -1,27 +1,30 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { Page } from '@/components/Layout/Page';
+import { MDXRemote } from 'next-mdx-remote';
+import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
+
+import Page from '@/components/Layout/Page';
 import { MDXComponents } from '@/components/MDX/MDXComponents';
 import { getAllContentPaths, getContentByPath } from '@/utils/mdx';
-import { TocItem, PageContext, SidebarRoute } from '@/types';
 import sidebarData from '@/sidebar.json';
 
-interface LearnPageProps {
-  mdxSource: MDXRemoteSerializeResult;
+import type { ITocItem, IPageContext, ISidebarRoute } from '@/types';
+
+interface ILearnPageProps {
   meta: { title: string; description?: string };
-  toc: TocItem[];
-  pageContext: PageContext;
+  toc: ITocItem[];
+  mdxSource: MDXRemoteSerializeResult;
+  pageContext: IPageContext;
 }
 
-const LearnPage: NextPage<LearnPageProps> = ({ mdxSource, meta, toc, pageContext }) => {
+const LearnPage: NextPage<ILearnPageProps> = ({ mdxSource, meta, toc, pageContext }) => {
   return (
     <Page toc={toc} pageContext={pageContext}>
       <Head>
         <title>{meta.title} — Engineering Curriculum</title>
         {meta.description && <meta name="description" content={meta.description} />}
       </Head>
-      <MDXRemote {...mdxSource} components={MDXComponents as any} />
+      <MDXRemote {...mdxSource} components={MDXComponents as Record<string, React.ComponentType<object>>} />
     </Page>
   );
 };
@@ -37,7 +40,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<LearnPageProps> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<ILearnPageProps> = async ({ params }) => {
   const pathSegments = (params?.path as string[]) || [];
   const fullPath = ['learn', ...pathSegments];
 
@@ -59,7 +62,7 @@ export const getStaticProps: GetStaticProps<LearnPageProps> = async ({ params })
   };
 };
 
-function flattenRoutes(routes: SidebarRoute[]): { title: string; path: string }[] {
+function flattenRoutes(routes: ISidebarRoute[]): { title: string; path: string }[] {
   const result: { title: string; path: string }[] = [];
   for (const route of routes) {
     if (route.hasSectionHeader) continue;
@@ -73,8 +76,8 @@ function flattenRoutes(routes: SidebarRoute[]): { title: string; path: string }[
   return result;
 }
 
-function getPageContext(currentPath: string): PageContext {
-  const all = flattenRoutes((sidebarData as any).routes);
+function getPageContext(currentPath: string): IPageContext {
+  const all = flattenRoutes((sidebarData as { routes: ISidebarRoute[] }).routes);
   const idx = all.findIndex((r) => r.path === `/${currentPath}` || r.path === currentPath);
 
   return {

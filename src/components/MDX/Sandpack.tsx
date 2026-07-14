@@ -6,11 +6,20 @@ import {
   SandpackLayout,
 } from '@codesandbox/sandpack-react';
 
-interface FileEntry {
+interface IFileEntry {
   code: string;
   filename: string;
   language: string;
 }
+
+interface ISandpackProps {
+  children: React.ReactNode;
+}
+
+type TNodeProps = {
+  className?: string;
+  children?: React.ReactNode;
+};
 
 function getDefaultFilename(language: string, index: number): string {
   if (language === 'css') return '/src/styles.css';
@@ -19,18 +28,16 @@ function getDefaultFilename(language: string, index: number): string {
   return `/File${index}.js`;
 }
 
-// Traverse React children tree to find code elements with language-* className
-function extractFilesFromChildren(children: React.ReactNode): FileEntry[] {
-  const files: FileEntry[] = [];
+function extractFilesFromChildren(children: React.ReactNode): IFileEntry[] {
+  const files: IFileEntry[] = [];
 
   function findCode(node: React.ReactNode) {
     if (!React.isValidElement(node)) return;
-    const props = node.props as any;
+    const props = node.props as TNodeProps;
 
-    // Found a code element with language class (fenced code block)
     if (typeof props.className === 'string' && props.className.startsWith('language-')) {
       const language = props.className.replace('language-', '') || 'js';
-      const code = String(props.children || '').trimEnd();
+      const code = String(props.children ?? '').trimEnd();
       if (code) {
         files.push({
           code,
@@ -41,7 +48,6 @@ function extractFilesFromChildren(children: React.ReactNode): FileEntry[] {
       return;
     }
 
-    // Traverse children
     if (props.children) {
       React.Children.forEach(props.children, findCode);
     }
@@ -51,16 +57,12 @@ function extractFilesFromChildren(children: React.ReactNode): FileEntry[] {
   return files;
 }
 
-interface SandpackProps {
-  children: React.ReactNode;
-}
-
-export function Sandpack({ children }: SandpackProps) {
+const Sandpack = ({ children }: ISandpackProps) => {
   const files = extractFilesFromChildren(children);
 
   if (files.length === 0) {
     return (
-      <div className="rounded-xl border border-[#EBECF0] dark:border-[#343A46] p-4 mb-6 bg-[#F9FBFC] dark:bg-[#2B3245] text-sm text-[#404756] dark:text-[#99A1B3]">
+      <div className="rounded-xl border border-border dark:border-border-dark p-4 mb-6 bg-card dark:bg-card-dark text-sm text-secondary dark:text-secondary-dark">
         {children}
       </div>
     );
@@ -72,7 +74,7 @@ export function Sandpack({ children }: SandpackProps) {
   });
 
   return (
-    <div className="mb-6 rounded-xl overflow-hidden border border-[#EBECF0] dark:border-[#343A46] shadow-sm">
+    <div className="mb-6 rounded-xl overflow-hidden border border-border dark:border-border-dark shadow-sm">
       <SandpackProvider
         files={sandpackFiles}
         template="react"
@@ -89,4 +91,6 @@ export function Sandpack({ children }: SandpackProps) {
       </SandpackProvider>
     </div>
   );
-}
+};
+
+export default Sandpack;

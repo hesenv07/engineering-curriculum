@@ -1,20 +1,44 @@
+import { Suspense } from 'react';
 import * as React from 'react';
-import { SidebarRouteTree } from './SidebarRouteTree';
-import { SidebarRoute } from '@/types';
 
-interface SidebarNavProps {
-  routes: SidebarRoute[];
+import SidebarRouteTree from './SidebarRouteTree';
+
+import type { ISidebarRoute } from '@/types';
+
+interface ISidebarNavProps {
+  routeTree: ISidebarRoute;
+  breadcrumbs: ISidebarRoute[];
 }
 
-export function SidebarNav({ routes }: SidebarNavProps) {
+const SidebarNav = ({ routeTree, breadcrumbs }: ISidebarNavProps) => {
+  // HACK. Fix up the data structures instead.
+  let tree = routeTree;
+  if (tree.routes?.length === 1) {
+    tree = tree.routes[0];
+  }
+
   return (
-    <nav
-      className="h-full overflow-y-auto py-6 px-3"
-      aria-label="Kurs naviqasiyası"
-    >
-      <ul className="space-y-0.5">
-        <SidebarRouteTree routes={routes} level={0} />
-      </ul>
-    </nav>
+    <div className="sticky top-14 lg:bottom-0 lg:h-[calc(100vh-3.5rem)] flex flex-col">
+      <div className="overflow-y-scroll no-bg-scrollbar overscroll-contain lg:w-[342px] grow bg-wash dark:bg-wash-dark">
+        <aside className="lg:grow flex-col w-full pb-8 lg:pb-0 lg:max-w-custom-xs z-10 hidden lg:block">
+          <nav
+            role="navigation"
+            aria-label="Kurs naviqasiyası"
+            className="w-full pt-6 scrolling-touch lg:h-auto grow pe-0 lg:pe-5 lg:pb-16 md:pt-4 lg:pt-4 scrolling-gpu"
+          >
+            <Suspense fallback={null}>
+              <SidebarRouteTree
+                routeTree={tree}
+                breadcrumbs={breadcrumbs}
+                isForceExpanded={false}
+              />
+            </Suspense>
+            <div className="h-20" />
+          </nav>
+        </aside>
+      </div>
+    </div>
   );
-}
+};
+
+export default SidebarNav;

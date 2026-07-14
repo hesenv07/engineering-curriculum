@@ -1,13 +1,13 @@
-'use client';
 import * as React from 'react';
-import { TocItem } from '@/types';
 import clsx from 'clsx';
 
-interface TocProps {
-  toc: TocItem[];
+import type { ITocItem } from '@/types';
+
+interface ITocProps {
+  toc: ITocItem[];
 }
 
-export function Toc({ toc }: TocProps) {
+const Toc = ({ toc }: ITocProps) => {
   const [activeId, setActiveId] = React.useState<string>('');
 
   React.useEffect(() => {
@@ -22,7 +22,7 @@ export function Toc({ toc }: TocProps) {
           }
         }
       },
-      { rootMargin: '0% 0% -80% 0%', threshold: 0 }
+      { rootMargin: '0% 0% -80% 0%', threshold: 0 },
     );
 
     toc.forEach(({ id }) => {
@@ -40,7 +40,7 @@ export function Toc({ toc }: TocProps) {
       aria-label="Məzmun cədvəli"
       className="sticky top-20 max-h-[calc(100vh-5rem)] overflow-y-auto py-6 pr-4"
     >
-      <h4 className="text-xs font-bold uppercase tracking-widest text-[#404756] dark:text-[#99A1B3] mb-3 px-1">
+      <h4 className="mb-3 px-1 text-xs font-bold uppercase tracking-widest text-secondary dark:text-secondary-dark">
         Bu Səhifədə
       </h4>
       <ul className="space-y-1">
@@ -49,11 +49,11 @@ export function Toc({ toc }: TocProps) {
             <a
               href={`#${id}`}
               className={clsx(
-                'block text-sm transition-colors py-0.5 leading-snug',
+                'block py-0.5 text-sm leading-snug transition-colors',
                 level === 3 ? 'pl-4' : 'pl-1',
                 activeId === id
-                  ? 'text-[#087EA4] dark:text-[#149ECA] font-medium'
-                  : 'text-[#404756] dark:text-[#99A1B3] hover:text-[#23272F] dark:hover:text-[#F6F7F9]'
+                  ? 'font-medium text-link dark:text-link-dark'
+                  : 'text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark',
               )}
             >
               {text}
@@ -63,4 +63,6 @@ export function Toc({ toc }: TocProps) {
       </ul>
     </nav>
   );
-}
+};
+
+export default Toc;

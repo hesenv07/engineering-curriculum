@@ -3,7 +3,8 @@ import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkGfm from 'remark-gfm';
-import { TocItem } from '@/types';
+
+import type { ITocItem } from '@/types';
 
 const CONTENT_DIR = path.join(process.cwd(), 'src', 'content');
 
@@ -66,15 +67,14 @@ export async function getContentByPath(slugParts: string[]) {
   };
 }
 
-function extractToc(content: string): TocItem[] {
-  const toc: TocItem[] = [];
+function extractToc(content: string): ITocItem[] {
+  const toc: ITocItem[] = [];
   const headingRegex = /^(#{2,4})\s+(.+?)(?:\s*\{\/\*[\w-]+\*\/\})?\s*$/gm;
   let match;
 
   while ((match = headingRegex.exec(content)) !== null) {
     const level = match[1].length;
     let text = match[2].trim();
-    // Remove JSX comment syntax if present
     text = text.replace(/\{\/\*.*?\*\/\}/g, '').trim();
     const id = slugify(text);
     toc.push({ id, text, level });

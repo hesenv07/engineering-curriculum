@@ -188,6 +188,12 @@ Kursun hər bir dərsi üçün PR açılabilir. Dərs yazarkən aşağıdakı pr
 3. **Nümunə ilə:** Hər konsept real dünya nümunəsi ilə
 4. **İnteraktiv:** Mümkün olduqda `<Sandpack>` ilə canlı kod
 
+## Lisenziya
+
+[MIT License](./LICENSE) © 2025 Engineering Curriculum Contributors
+
+Məzmun (dərslər, diaqramlar) **CC BY 4.0** şərtləri altında paylaşıla bilər.
+
 ---
 
 Pulsuz · Açıq · Giriş tələb etmir

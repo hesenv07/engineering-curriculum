@@ -1,64 +1,71 @@
-'use client';
+import { useState } from 'react';
 import * as React from 'react';
+import clsx from 'clsx';
 
-interface DeepDiveProps {
+interface IDeepDiveProps {
   children: React.ReactNode;
 }
 
-export function DeepDive({ children }: DeepDiveProps) {
-  const [isOpen, setIsOpen] = React.useState(false);
+type TWithMdxName = {
+  mdxName?: string;
+};
 
-  // Extract h4 title from children
+const DeepDive = ({ children }: IDeepDiveProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const childArray = React.Children.toArray(children);
-  const heading = childArray.find(
+
+  const headingChild = childArray.find(
     (child) =>
       React.isValidElement(child) &&
-      (child.type === 'h4' || (child.props as any)?.mdxType === 'h4')
-  );
-  const rest = childArray.filter((child) => child !== heading);
+      typeof child.type === 'function' &&
+      (child.type as TWithMdxName).mdxName === 'h4',
+  ) as React.ReactElement<{ children?: React.ReactNode; id?: string }> | undefined;
 
-  const titleText =
-    React.isValidElement(heading)
-      ? String((heading.props as any)?.children || 'Dərinləmə')
-      : 'Dərinləmə';
+  const rest = childArray.filter((child) => child !== headingChild);
+
+  const titleText = headingChild
+    ? String(headingChild.props.children ?? 'Dərinləmə')
+    : 'Dərinləmə';
 
   return (
-    <div className="rounded-xl border border-[#E0EDF5] dark:border-[#2A3A4A] bg-[#F5FAFE] dark:bg-[#1A2533] mb-6 overflow-hidden">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-5 text-left hover:bg-[#EBF5FC] dark:hover:bg-[#1E2D3D] transition-colors"
-        aria-expanded={isOpen}
+    <details
+      open={isOpen}
+      onToggle={(e: React.SyntheticEvent<HTMLDetailsElement>) => {
+        setIsOpen(e.currentTarget.open);
+      }}
+      className="my-12 rounded-2xl shadow-inner-border dark:shadow-inner-border-dark relative bg-purple-5 dark:bg-purple-60/20"
+    >
+      <summary
+        className="list-none p-8"
+        tabIndex={-1}
+        onClick={(e: React.MouseEvent<HTMLElement>) => {
+          if (!(e.target instanceof SVGElement)) {
+            e.preventDefault();
+          }
+        }}
       >
-        <div>
-          <span className="text-[#087EA4] dark:text-[#149ECA] font-bold uppercase text-xs tracking-widest block mb-1">
-            Dərinləmə
-          </span>
-          <span className="font-semibold text-[#23272F] dark:text-[#F6F7F9] text-base">
-            {titleText}
-          </span>
-        </div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={`text-[#087EA4] dark:text-[#149ECA] flex-shrink-0 transition-transform duration-200 ${
-            isOpen ? 'rotate-180' : ''
-          }`}
+        <h5 className="mb-4 uppercase font-bold flex items-center text-sm text-purple-50 dark:text-purple-30">
+          Dərinləmə
+        </h5>
+        <h4 className="text-xl font-bold text-primary dark:text-primary-dark mb-4">
+          {titleText}
+        </h4>
+        <button
+          className={clsx(
+            'rounded-lg px-4 py-2 text-sm font-semibold transition-colors text-white',
+            'bg-purple-50 hover:bg-purple-40',
+          )}
+          onClick={() => setIsOpen((v) => !v)}
         >
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-      </button>
-      {isOpen && (
-        <div className="px-5 pb-5 prose-docs border-t border-[#E0EDF5] dark:border-[#2A3A4A] pt-4">
-          {rest}
-        </div>
-      )}
-    </div>
+          {isOpen ? 'Gizlət' : 'Ətraflı göstər'}
+        </button>
+      </summary>
+      <div className="p-8 pt-4 border-t border-purple-10 dark:border-purple-60">
+        {rest}
+      </div>
+    </details>
   );
-}
+};
+
+export default DeepDive;
