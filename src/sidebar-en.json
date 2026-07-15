@@ -13,8 +13,12 @@
         { "title": "The binary number system", "path": "/learn/faza-0/modul-0-1/binary-say-sistemi" },
         { "title": "Negative numbers: two's complement", "path": "/learn/faza-0/modul-0-1/menfi-ededler" },
         { "title": "Floating point (IEEE 754)", "path": "/learn/faza-0/modul-0-1/floating-point" },
+        { "title": "Endianness: byte order", "path": "/learn/faza-0/modul-0-1/endianness" },
         { "title": "Text representation: ASCII → UTF-8", "path": "/learn/faza-0/modul-0-1/metni-temsili" },
-        { "title": "Color, image, and audio in binary", "path": "/learn/faza-0/modul-0-1/reng-sekil-ses" }
+        { "title": "Color, image, and audio in binary", "path": "/learn/faza-0/modul-0-1/reng-sekil-ses" },
+        { "title": "Data integrity: parity, checksums, CRC", "path": "/learn/faza-0/modul-0-1/checksum-crc" },
+        { "title": "Compression: how ZIP works (Huffman, LZ)", "path": "/learn/faza-0/modul-0-1/compression" },
+        { "title": "Randomness: PRNG, seeds, entropy", "path": "/learn/faza-0/modul-0-1/randomness" }
       ]
     },
     {
@@ -32,6 +36,7 @@
         { "title": "Fetch–Decode–Execute cycle", "path": "/learn/faza-0/modul-0-3/fetch-decode-execute" },
         { "title": "Instruction Set Architecture", "path": "/learn/faza-0/modul-0-3/instruction-set-architecture" },
         { "title": "Pipeline and branch prediction", "path": "/learn/faza-0/modul-0-3/pipeline-branch-prediction" },
+        { "title": "Why CPUs stopped getting faster: Moore's law and the multicore turn", "path": "/learn/faza-0/modul-0-3/moore-law" },
         { "title": "Multi-core: core, thread, hyper-threading", "path": "/learn/faza-0/modul-0-3/coxnuvelilik" },
         { "title": "CPU cache: L1/L2/L3", "path": "/learn/faza-0/modul-0-3/cpu-cache" }
       ]
@@ -43,7 +48,7 @@
         { "title": "How RAM works", "path": "/learn/faza-0/modul-0-4/ram-nece-isleyir" },
         { "title": "Stack vs Heap", "path": "/learn/faza-0/modul-0-4/stack-vs-heap" },
         { "title": "HDD vs SSD", "path": "/learn/faza-0/modul-0-4/hdd-vs-ssd" },
-        { "title": "Memory leaks", "path": "/learn/faza-0/modul-0-4/yaddas-sizması" }
+        { "title": "Memory leaks", "path": "/learn/faza-0/modul-0-4/yaddas-sizmasi" }
       ]
     },
     {
@@ -64,11 +69,14 @@
       "title": "Module 1.1 — Data Structures",
       "routes": [
         { "title": "Arrays and memory layout", "path": "/learn/faza-1/modul-1-1/array-memory-layout" },
+        { "title": "Strings and their hidden costs", "path": "/learn/faza-1/modul-1-1/strings" },
         { "title": "Linked list, stack, queue", "path": "/learn/faza-1/modul-1-1/linked-list-stack-queue" },
         { "title": "Hash table", "path": "/learn/faza-1/modul-1-1/hash-table" },
         { "title": "Trees: binary tree, BST, B-tree", "path": "/learn/faza-1/modul-1-1/agaclar" },
+        { "title": "Trie and prefix structures", "path": "/learn/faza-1/modul-1-1/trie" },
         { "title": "Heap and priority queue", "path": "/learn/faza-1/modul-1-1/heap-priority-queue" },
-        { "title": "Graph: BFS/DFS", "path": "/learn/faza-1/modul-1-1/graph-bfs-dfs" }
+        { "title": "Graph: BFS/DFS", "path": "/learn/faza-1/modul-1-1/graph-bfs-dfs" },
+        { "title": "Bloom filter and probabilistic structures", "path": "/learn/faza-1/modul-1-1/bloom-filter" }
       ]
     },
     {
@@ -78,6 +86,7 @@
         { "title": "Search: linear vs binary search", "path": "/learn/faza-1/modul-1-2/axtaris" },
         { "title": "Ideas behind sorting algorithms", "path": "/learn/faza-1/modul-1-2/siralama" },
         { "title": "Recursion and its trade-offs", "path": "/learn/faza-1/modul-1-2/recursion" },
+        { "title": "Dynamic programming: the core idea", "path": "/learn/faza-1/modul-1-2/dynamic-programming" },
         { "title": "Space vs time trade-off", "path": "/learn/faza-1/modul-1-2/space-time-tradeoff" }
       ]
     },
@@ -86,8 +95,26 @@
       "routes": [
         { "title": "Paradigms: imperative, OOP, functional", "path": "/learn/faza-1/modul-1-3/paradiqmalar" },
         { "title": "Immutability, pure function, side effect", "path": "/learn/faza-1/modul-1-3/immutability" },
+        { "title": "Value vs reference semantics", "path": "/learn/faza-1/modul-1-3/value-vs-reference" },
+        { "title": "Error handling: exceptions vs result values", "path": "/learn/faza-1/modul-1-3/error-handling" },
+        { "title": "State machines: modeling behavior with FSMs", "path": "/learn/faza-1/modul-1-3/state-machines" },
         { "title": "Synchronous vs asynchronous code", "path": "/learn/faza-1/modul-1-3/sinxron-asinxron" },
         { "title": "What is regex", "path": "/learn/faza-1/modul-1-3/regex" }
+      ]
+    },
+    {
+      "title": "Module 1.4 — Software Craft",
+      "routes": [
+        { "title": "Git mental model: commits, branches, merging", "path": "/learn/faza-1/modul-1-4/git-mental-model" },
+        { "title": "The testing pyramid: unit, integration, e2e", "path": "/learn/faza-1/modul-1-4/testing-pyramid" },
+        { "title": "TDD, mocking, and test doubles", "path": "/learn/faza-1/modul-1-4/tdd-mocking" },
+        { "title": "Debugging techniques: print → debugger → bisect", "path": "/learn/faza-1/modul-1-4/debugging" },
+        { "title": "Design patterns: the essential ones", "path": "/learn/faza-1/modul-1-4/design-patterns" },
+        { "title": "SOLID and clean architecture ideas", "path": "/learn/faza-1/modul-1-4/solid-clean-architecture" },
+        { "title": "Code review and refactoring", "path": "/learn/faza-1/modul-1-4/code-review-refactoring" },
+        { "title": "Documentation: READMEs, ADRs, RFC culture", "path": "/learn/faza-1/modul-1-4/documentation-adr" },
+        { "title": "Dependencies: lock files, vendoring, dependency hell", "path": "/learn/faza-1/modul-1-4/dependencies" },
+        { "title": "How teams ship: agile ideas without the cargo cult", "path": "/learn/faza-1/modul-1-4/how-teams-ship" }
       ]
     },
     {
@@ -120,7 +147,8 @@
         { "title": "Mutex, semaphore, lock", "path": "/learn/faza-2/modul-2-3/mutex-semaphore" },
         { "title": "Deadlock", "path": "/learn/faza-2/modul-2-3/deadlock" },
         { "title": "Atomic operations", "path": "/learn/faza-2/modul-2-3/atomic" },
-        { "title": "Concurrency vs Parallelism", "path": "/learn/faza-2/modul-2-3/concurrency-parallelism" }
+        { "title": "Concurrency vs Parallelism", "path": "/learn/faza-2/modul-2-3/concurrency-parallelism" },
+        { "title": "Green threads, coroutines, async runtimes", "path": "/learn/faza-2/modul-2-3/coroutines" }
       ]
     },
     {
@@ -129,6 +157,7 @@
         { "title": "Virtual memory", "path": "/learn/faza-2/modul-2-4/virtual-memory" },
         { "title": "Paging, page table, page fault", "path": "/learn/faza-2/modul-2-4/paging" },
         { "title": "Swap: what happens when RAM is full", "path": "/learn/faza-2/modul-2-4/swap" },
+        { "title": "mmap: memory-mapped files", "path": "/learn/faza-2/modul-2-4/mmap" },
         { "title": "OOM killer", "path": "/learn/faza-2/modul-2-4/oom-killer" }
       ]
     },
@@ -149,7 +178,9 @@
         { "title": "Signals: SIGTERM vs SIGKILL", "path": "/learn/faza-2/modul-2-6/signals" },
         { "title": "Environment variables", "path": "/learn/faza-2/modul-2-6/env-variables" },
         { "title": "cron, systemd, daemon", "path": "/learn/faza-2/modul-2-6/cron-systemd" },
-        { "title": "How SSH works", "path": "/learn/faza-2/modul-2-6/ssh" }
+        { "title": "Computer time: UTC, timezones, NTP", "path": "/learn/faza-2/modul-2-6/time-ntp" },
+        { "title": "How SSH works", "path": "/learn/faza-2/modul-2-6/ssh" },
+        { "title": "eBPF: programming the kernel", "path": "/learn/faza-2/modul-2-6/ebpf" }
       ]
     },
     {
@@ -159,6 +190,7 @@
     {
       "title": "Module 3.1 — Network Fundamentals",
       "routes": [
+        { "title": "How the internet is wired: ISPs, IXPs, BGP", "path": "/learn/faza-3/modul-3-1/internet-fiziki" },
         { "title": "OSI vs TCP/IP model", "path": "/learn/faza-3/modul-3-1/osi-tcpip" },
         { "title": "Ethernet, MAC address, ARP", "path": "/learn/faza-3/modul-3-1/ethernet-mac-arp" },
         { "title": "IP address: IPv4, subnet, CIDR", "path": "/learn/faza-3/modul-3-1/ip-address" },
@@ -188,6 +220,7 @@
       "title": "Module 3.4 — HTTP",
       "routes": [
         { "title": "HTTP anatomy", "path": "/learn/faza-3/modul-3-4/http-anatomiyasi" },
+        { "title": "Cookies: state on a stateless protocol", "path": "/learn/faza-3/modul-3-4/cookies" },
         { "title": "HTTP/1.1 → HTTP/2 → HTTP/3", "path": "/learn/faza-3/modul-3-4/http-versiyalar" },
         { "title": "Caching headers", "path": "/learn/faza-3/modul-3-4/http-caching" },
         { "title": "Content negotiation, compression", "path": "/learn/faza-3/modul-3-4/content-negotiation" }
@@ -211,6 +244,15 @@
       ]
     },
     {
+      "title": "Module 3.7 — Edges and Everyday Protocols",
+      "routes": [
+        { "title": "Forward vs reverse proxy", "path": "/learn/faza-3/modul-3-7/proxy" },
+        { "title": "CDN: how content gets close to you", "path": "/learn/faza-3/modul-3-7/cdn" },
+        { "title": "How email works: SMTP, SPF, DKIM, DMARC", "path": "/learn/faza-3/modul-3-7/email" },
+        { "title": "Network debugging: ping, traceroute, curl, tcpdump", "path": "/learn/faza-3/modul-3-7/network-debugging" }
+      ]
+    },
+    {
       "hasSectionHeader": true,
       "sectionHeader": "PHASE 4 — Databases"
     },
@@ -219,7 +261,9 @@
       "routes": [
         { "title": "Why a DB is better than a file", "path": "/learn/faza-4/modul-4-1/db-niye" },
         { "title": "SQL: what happens behind a SELECT", "path": "/learn/faza-4/modul-4-1/sql-konsept" },
-        { "title": "Normalization and denormalization", "path": "/learn/faza-4/modul-4-1/normalizasiya" }
+        { "title": "Data modeling: from requirements to schema", "path": "/learn/faza-4/modul-4-1/data-modeling" },
+        { "title": "Normalization and denormalization", "path": "/learn/faza-4/modul-4-1/normalizasiya" },
+        { "title": "ORM vs raw SQL and the N+1 problem", "path": "/learn/faza-4/modul-4-1/orm-n-plus-1" }
       ]
     },
     {
@@ -227,9 +271,12 @@
       "routes": [
         { "title": "Query path: parser → planner → executor", "path": "/learn/faza-4/modul-4-2/sorgu-yolu" },
         { "title": "Index: B-tree, why it speeds things up", "path": "/learn/faza-4/modul-4-2/indeks" },
+        { "title": "LSM trees and SSTables: write-optimized storage", "path": "/learn/faza-4/modul-4-2/lsm-trees" },
         { "title": "Reading EXPLAIN", "path": "/learn/faza-4/modul-4-2/explain" },
         { "title": "WAL: why data is never lost", "path": "/learn/faza-4/modul-4-2/wal" },
-        { "title": "Connection pool", "path": "/learn/faza-4/modul-4-2/connection-pool" }
+        { "title": "Connection pool", "path": "/learn/faza-4/modul-4-2/connection-pool" },
+        { "title": "Migrations: evolving a live schema", "path": "/learn/faza-4/modul-4-2/migrations" },
+        { "title": "Backups and point-in-time recovery", "path": "/learn/faza-4/modul-4-2/backup-pitr" }
       ]
     },
     {
@@ -246,7 +293,9 @@
       "routes": [
         { "title": "Why NoSQL was created", "path": "/learn/faza-4/modul-4-4/nosql-niye" },
         { "title": "Key-value, Document, Wide-column, Graph", "path": "/learn/faza-4/modul-4-4/nosql-novleri" },
-        { "title": "Schema-on-read vs schema-on-write", "path": "/learn/faza-4/modul-4-4/schema" }
+        { "title": "Schema-on-read vs schema-on-write", "path": "/learn/faza-4/modul-4-4/schema" },
+        { "title": "SQLite and embedded databases", "path": "/learn/faza-4/modul-4-4/sqlite-embedded" },
+        { "title": "Time-series databases", "path": "/learn/faza-4/modul-4-4/time-series-db" }
       ]
     },
     {
@@ -266,7 +315,8 @@
         { "title": "Sharding/partitioning", "path": "/learn/faza-4/modul-4-6/sharding" },
         { "title": "CAP theorem", "path": "/learn/faza-4/modul-4-6/cap-teoremi" },
         { "title": "Consistency models", "path": "/learn/faza-4/modul-4-6/consistency" },
-        { "title": "Search engines: inverted index", "path": "/learn/faza-4/modul-4-6/axtaris-muherkikleri" }
+        { "title": "OLTP vs OLAP and columnar storage", "path": "/learn/faza-4/modul-4-6/oltp-olap" },
+        { "title": "Search engines: inverted index", "path": "/learn/faza-4/modul-4-6/axtaris-muherrikleri" }
       ]
     },
     {
@@ -278,9 +328,12 @@
       "routes": [
         { "title": "The full life of a request", "path": "/learn/faza-5/modul-5-1/request-heyyati" },
         { "title": "REST API design", "path": "/learn/faza-5/modul-5-1/rest-api" },
+        { "title": "Pagination, filtering, sorting", "path": "/learn/faza-5/modul-5-1/pagination" },
+        { "title": "API versioning and deprecation", "path": "/learn/faza-5/modul-5-1/api-versioning" },
         { "title": "Idempotency — critical in payments", "path": "/learn/faza-5/modul-5-1/idempotency" },
-        { "title": "GraphQL: what problem it solves", "path": "/learn/faza-5/modul-5-1/graphql" },
-        { "title": "When to choose gRPC", "path": "/learn/faza-5/modul-5-1/grpc" }
+        { "title": "ID generation: auto-increment, UUID, Snowflake", "path": "/learn/faza-5/modul-5-1/id-generation" },
+        { "title": "OpenAPI: documenting APIs", "path": "/learn/faza-5/modul-5-1/openapi" },
+        { "title": "GraphQL: what problem it solves", "path": "/learn/faza-5/modul-5-1/graphql" }
       ]
     },
     {
@@ -290,6 +343,7 @@
         { "title": "Session-based auth", "path": "/learn/faza-5/modul-5-2/session-auth" },
         { "title": "JWT: structure and trade-offs", "path": "/learn/faza-5/modul-5-2/jwt" },
         { "title": "OAuth 2.0: Sign in with Google", "path": "/learn/faza-5/modul-5-2/oauth2" },
+        { "title": "Passkeys and WebAuthn", "path": "/learn/faza-5/modul-5-2/passkeys-webauthn" },
         { "title": "RBAC, API keys", "path": "/learn/faza-5/modul-5-2/rbac" }
       ]
     },
@@ -307,9 +361,20 @@
       "title": "Module 5.4 — Async Work",
       "routes": [
         { "title": "Background job, task queue, worker", "path": "/learn/faza-5/modul-5-4/task-queue" },
-        { "title": "Cron and scheduled jobs", "path": "/learn/faza-5/modul-5-4/cron" },
+        { "title": "Scheduled jobs in distributed systems", "path": "/learn/faza-5/modul-5-4/scheduled-jobs" },
         { "title": "Webhook: how systems call each other", "path": "/learn/faza-5/modul-5-4/webhook" },
+        { "title": "Long-running operations: the async API pattern", "path": "/learn/faza-5/modul-5-4/long-running-operations" },
+        { "title": "File uploads and object storage flow", "path": "/learn/faza-5/modul-5-4/file-uploads" },
         { "title": "Serialization: JSON vs Protobuf", "path": "/learn/faza-5/modul-5-4/serialization" }
+      ]
+    },
+    {
+      "title": "Module 5.5 — Production-Ready Backend",
+      "routes": [
+        { "title": "The Twelve-Factor App", "path": "/learn/faza-5/modul-5-5/twelve-factor" },
+        { "title": "Configuration and environments", "path": "/learn/faza-5/modul-5-5/config-environments" },
+        { "title": "Structured logging and error tracking", "path": "/learn/faza-5/modul-5-5/logging-error-tracking" },
+        { "title": "Multi-tenancy models", "path": "/learn/faza-5/modul-5-5/multi-tenancy" }
       ]
     },
     {
@@ -359,7 +424,16 @@
         { "title": "Cookie vs localStorage vs IndexedDB", "path": "/learn/faza-6/modul-6-5/cookie-storage" },
         { "title": "Same-Origin Policy", "path": "/learn/faza-6/modul-6-5/same-origin-policy" },
         { "title": "CORS: what is a preflight", "path": "/learn/faza-6/modul-6-5/cors" },
-        { "title": "XSS and CSP; CSRF", "path": "/learn/faza-6/modul-6-5/xss-csrf" }
+        { "title": "Browser defenses: CSP and SameSite", "path": "/learn/faza-6/modul-6-5/csp-samesite" }
+      ]
+    },
+    {
+      "title": "Module 6.6 — Beyond the Basics",
+      "routes": [
+        { "title": "Service workers and offline (PWA)", "path": "/learn/faza-6/modul-6-6/service-workers-pwa" },
+        { "title": "Accessibility: engineering for everyone", "path": "/learn/faza-6/modul-6-6/accessibility" },
+        { "title": "i18n and l10n", "path": "/learn/faza-6/modul-6-6/i18n" },
+        { "title": "WebAssembly: what and why", "path": "/learn/faza-6/modul-6-6/webassembly" }
       ]
     },
     {
@@ -391,6 +465,8 @@
         { "title": "Pub/Sub pattern: topic, subscriber", "path": "/learn/faza-7/modul-7-3/pubsub" },
         { "title": "Kafka: log, partition, offset", "path": "/learn/faza-7/modul-7-3/kafka" },
         { "title": "Delivery guarantees", "path": "/learn/faza-7/modul-7-3/delivery-zemaneti" },
+        { "title": "Schema evolution: forward/backward compatibility", "path": "/learn/faza-7/modul-7-3/schema-evolution" },
+        { "title": "The outbox pattern", "path": "/learn/faza-7/modul-7-3/outbox-pattern" },
         { "title": "Dead letter queue, backpressure", "path": "/learn/faza-7/modul-7-3/dlq-backpressure" }
       ]
     },
@@ -417,8 +493,18 @@
       "routes": [
         { "title": "Logical clock, vector clock", "path": "/learn/faza-7/modul-7-6/logical-clock" },
         { "title": "Consensus: the idea behind Raft", "path": "/learn/faza-7/modul-7-6/raft" },
+        { "title": "Quorum and split-brain", "path": "/learn/faza-7/modul-7-6/quorum-split-brain" },
         { "title": "Distributed lock", "path": "/learn/faza-7/modul-7-6/distributed-lock" },
         { "title": "Consistent hashing", "path": "/learn/faza-7/modul-7-6/consistent-hashing" }
+      ]
+    },
+    {
+      "title": "Module 7.7 — Data at Scale",
+      "routes": [
+        { "title": "Batch processing: the MapReduce idea", "path": "/learn/faza-7/modul-7-7/batch-mapreduce" },
+        { "title": "Stream processing concept", "path": "/learn/faza-7/modul-7-7/stream-processing" },
+        { "title": "ETL, data warehouse, data lake", "path": "/learn/faza-7/modul-7-7/etl-warehouse-lake" },
+        { "title": "Multi-region: geo-replication and data residency", "path": "/learn/faza-7/modul-7-7/multi-region" }
       ]
     },
     {
@@ -449,7 +535,8 @@
         { "title": "Pod, Deployment, Service, Ingress", "path": "/learn/faza-8/modul-8-3/k8s-objeler" },
         { "title": "Desired state and reconciliation loop", "path": "/learn/faza-8/modul-8-3/desired-state" },
         { "title": "Autoscaling: HPA", "path": "/learn/faza-8/modul-8-3/autoscaling" },
-        { "title": "Rolling update", "path": "/learn/faza-8/modul-8-3/rolling-update" }
+        { "title": "Rolling update", "path": "/learn/faza-8/modul-8-3/rolling-update" },
+        { "title": "Service mesh: the sidecar pattern", "path": "/learn/faza-8/modul-8-3/service-mesh" }
       ]
     },
     {
@@ -457,6 +544,7 @@
       "routes": [
         { "title": "Continuous Integration", "path": "/learn/faza-8/modul-8-4/ci" },
         { "title": "Pipeline: build → test → deploy", "path": "/learn/faza-8/modul-8-4/pipeline" },
+        { "title": "Semver and artifact versioning", "path": "/learn/faza-8/modul-8-4/semver" },
         { "title": "Blue-green, canary, rolling deploy", "path": "/learn/faza-8/modul-8-4/deploy-strategiyalar" },
         { "title": "Feature flags", "path": "/learn/faza-8/modul-8-4/feature-flags" }
       ]
@@ -466,8 +554,12 @@
       "routes": [
         { "title": "IaaS / PaaS / SaaS", "path": "/learn/faza-8/modul-8-5/iaas-paas-saas" },
         { "title": "Region, Availability Zone", "path": "/learn/faza-8/modul-8-5/region-az" },
+        { "title": "VPC: cloud networking", "path": "/learn/faza-8/modul-8-5/vpc" },
+        { "title": "IAM: identity in the cloud", "path": "/learn/faza-8/modul-8-5/iam" },
         { "title": "Object storage (S3 model)", "path": "/learn/faza-8/modul-8-5/object-storage" },
-        { "title": "Serverless/FaaS: Lambda", "path": "/learn/faza-8/modul-8-5/serverless" }
+        { "title": "Serverless/FaaS: Lambda", "path": "/learn/faza-8/modul-8-5/serverless" },
+        { "title": "Edge computing: running code at the edge", "path": "/learn/faza-8/modul-8-5/edge-computing" },
+        { "title": "Cloud costs: FinOps basics", "path": "/learn/faza-8/modul-8-5/finops" }
       ]
     },
     {
@@ -476,7 +568,9 @@
         { "title": "Logs, metrics, traces: 3 pillars", "path": "/learn/faza-8/modul-8-6/observability-sutunlar" },
         { "title": "Prometheus: pull-based metrics", "path": "/learn/faza-8/modul-8-6/prometheus" },
         { "title": "Distributed tracing", "path": "/learn/faza-8/modul-8-6/distributed-tracing" },
-        { "title": "SLI / SLO / SLA", "path": "/learn/faza-8/modul-8-6/sli-slo-sla" }
+        { "title": "SLI / SLO / SLA", "path": "/learn/faza-8/modul-8-6/sli-slo-sla" },
+        { "title": "Alerting, on-call, and postmortems", "path": "/learn/faza-8/modul-8-6/incident-response" },
+        { "title": "Chaos engineering", "path": "/learn/faza-8/modul-8-6/chaos-engineering" }
       ]
     },
     {
@@ -484,7 +578,16 @@
       "routes": [
         { "title": "Infrastructure as Code: Terraform", "path": "/learn/faza-8/modul-8-7/terraform" },
         { "title": "Git internals: commit, branch, merge vs rebase", "path": "/learn/faza-8/modul-8-7/git-daxilden" },
-        { "title": "GitOps concept", "path": "/learn/faza-8/modul-8-7/gitops" }
+        { "title": "GitOps concept", "path": "/learn/faza-8/modul-8-7/gitops" },
+        { "title": "Platform engineering: the IDP idea", "path": "/learn/faza-8/modul-8-7/platform-engineering" }
+      ]
+    },
+    {
+      "title": "Module 8.8 — Performance Engineering",
+      "routes": [
+        { "title": "Profiling and flame graphs", "path": "/learn/faza-8/modul-8-8/profiling" },
+        { "title": "Load testing", "path": "/learn/faza-8/modul-8-8/load-testing" },
+        { "title": "Capacity planning", "path": "/learn/faza-8/modul-8-8/capacity-planning" }
       ]
     },
     {
@@ -498,7 +601,8 @@
         { "title": "Symmetric encryption (AES)", "path": "/learn/faza-9/modul-9-1/simetrik-sifreleme" },
         { "title": "Asymmetric encryption: public/private key", "path": "/learn/faza-9/modul-9-1/asimetrik-sifreleme" },
         { "title": "Digital signature", "path": "/learn/faza-9/modul-9-1/digital-signature" },
-        { "title": "Diffie-Hellman: secret agreement over a public channel", "path": "/learn/faza-9/modul-9-1/diffie-hellman" }
+        { "title": "Diffie-Hellman: secret agreement over a public channel", "path": "/learn/faza-9/modul-9-1/diffie-hellman" },
+        { "title": "Encryption in transit vs at rest; mTLS", "path": "/learn/faza-9/modul-9-1/transit-at-rest-mtls" }
       ]
     },
     {
@@ -508,16 +612,22 @@
         { "title": "XSS types, CSRF", "path": "/learn/faza-9/modul-9-2/xss-csrf" },
         { "title": "SSRF, path traversal", "path": "/learn/faza-9/modul-9-2/ssrf" },
         { "title": "Broken auth, IDOR", "path": "/learn/faza-9/modul-9-2/broken-auth" },
-        { "title": "Supply chain: npm package hack", "path": "/learn/faza-9/modul-9-2/supply-chain" }
+        { "title": "Auth attacks: credential stuffing, session hijacking", "path": "/learn/faza-9/modul-9-2/auth-attacks" },
+        { "title": "Supply chain: npm package hack", "path": "/learn/faza-9/modul-9-2/supply-chain" },
+        { "title": "Memory safety: buffer overflow, use-after-free", "path": "/learn/faza-9/modul-9-2/memory-safety" }
       ]
     },
     {
       "title": "Module 9.3 — Infrastructure Security",
       "routes": [
+        { "title": "Threat modeling", "path": "/learn/faza-9/modul-9-3/threat-modeling" },
         { "title": "How firewall and VPN work", "path": "/learn/faza-9/modul-9-3/firewall-vpn" },
         { "title": "DDoS protection", "path": "/learn/faza-9/modul-9-3/ddos" },
         { "title": "Zero trust concept", "path": "/learn/faza-9/modul-9-3/zero-trust" },
-        { "title": "Secrets management", "path": "/learn/faza-9/modul-9-3/secrets" }
+        { "title": "Secrets management", "path": "/learn/faza-9/modul-9-3/secrets" },
+        { "title": "Container security and SBOM", "path": "/learn/faza-9/modul-9-3/container-security" },
+        { "title": "Audit logging and compliance basics", "path": "/learn/faza-9/modul-9-3/audit-compliance" },
+        { "title": "Handling PII: privacy engineering basics", "path": "/learn/faza-9/modul-9-3/privacy-pii" }
       ]
     },
     {
@@ -529,7 +639,8 @@
       "routes": [
         { "title": "Training vs inference", "path": "/learn/faza-10/modul-10-1/training-inference" },
         { "title": "What is a model: weights, parameters", "path": "/learn/faza-10/modul-10-1/model-nedir" },
-        { "title": "Why GPU matters", "path": "/learn/faza-10/modul-10-1/gpu" }
+        { "title": "Why GPU matters", "path": "/learn/faza-10/modul-10-1/gpu" },
+        { "title": "MLOps: deploying and monitoring models", "path": "/learn/faza-10/modul-10-1/mlops" }
       ]
     },
     {
@@ -538,7 +649,8 @@
         { "title": "Token, tokenization", "path": "/learn/faza-10/modul-10-2/tokenization" },
         { "title": "Embedding: converting meaning to vectors", "path": "/learn/faza-10/modul-10-2/embedding" },
         { "title": "Transformer/attention — intuition", "path": "/learn/faza-10/modul-10-2/transformer" },
-        { "title": "Context window, temperature, hallucination", "path": "/learn/faza-10/modul-10-2/llm-konseptler" }
+        { "title": "Context window, temperature, hallucination", "path": "/learn/faza-10/modul-10-2/llm-konseptler" },
+        { "title": "Inference mechanics: KV cache, quantization, streaming", "path": "/learn/faza-10/modul-10-2/inference-mechanics" }
       ]
     },
     {
@@ -549,6 +661,8 @@
         { "title": "Vector DB: similarity search, HNSW", "path": "/learn/faza-10/modul-10-3/vector-db" },
         { "title": "Fine-tuning vs RAG vs prompting", "path": "/learn/faza-10/modul-10-3/fine-tuning-vs-rag" },
         { "title": "Agent and tool use, MCP", "path": "/learn/faza-10/modul-10-3/agent-tool-use" },
+        { "title": "Coding agents and AI-assisted development", "path": "/learn/faza-10/modul-10-3/coding-agents" },
+        { "title": "LLM security: prompt injection and guardrails", "path": "/learn/faza-10/modul-10-3/guardrails" },
         { "title": "Cost, latency, evaluation", "path": "/learn/faza-10/modul-10-3/xerc-latency-eval" }
       ]
     },
@@ -559,17 +673,23 @@
     {
       "title": "Case Studies",
       "routes": [
+        { "title": "How to approach a system design problem", "path": "/learn/faza-11/system-design-method" },
         { "title": "URL shortener", "path": "/learn/faza-11/url-shortener" },
         { "title": "Rate limiter design", "path": "/learn/faza-11/rate-limiter" },
+        { "title": "Distributed key-value store (Dynamo)", "path": "/learn/faza-11/kv-store" },
         { "title": "Notification system", "path": "/learn/faza-11/notification-system" },
         { "title": "Chat system (WhatsApp)", "path": "/learn/faza-11/chat-system" },
         { "title": "Instagram feed", "path": "/learn/faza-11/instagram-feed" },
         { "title": "Video streaming (YouTube)", "path": "/learn/faza-11/video-streaming" },
+        { "title": "Web crawler", "path": "/learn/faza-11/web-crawler" },
         { "title": "Payment system", "path": "/learn/faza-11/payment-system" },
         { "title": "Uber/Bolt — geospatial", "path": "/learn/faza-11/uber-bolt" },
         { "title": "Search autocomplete", "path": "/learn/faza-11/search-autocomplete" },
+        { "title": "File sync (Dropbox/Google Drive)", "path": "/learn/faza-11/file-sync" },
+        { "title": "Distributed job scheduler", "path": "/learn/faza-11/job-scheduler" },
         { "title": "Google Docs — CRDT", "path": "/learn/faza-11/google-docs" },
-        { "title": "High-traffic e-commerce (flash sale)", "path": "/learn/faza-11/flash-sale" }
+        { "title": "High-traffic e-commerce (flash sale)", "path": "/learn/faza-11/flash-sale" },
+        { "title": "RAG at scale: an LLM chatbot platform", "path": "/learn/faza-11/rag-at-scale" }
       ]
     }
   ]

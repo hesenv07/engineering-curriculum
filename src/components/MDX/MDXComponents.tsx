@@ -119,6 +119,8 @@ function Divider() {
   return <hr className="my-6 block border-b border-t-0 border-border dark:border-border-dark" />;
 }
 
+const InsidePreContext = React.createContext(false);
+
 function Code({
   children,
   className,
@@ -126,9 +128,10 @@ function Code({
   children: React.ReactNode;
   className?: string;
 }) {
-  if (className && className.startsWith('language-')) {
+  const isInsidePre = React.useContext(InsidePreContext);
+  if (isInsidePre || (className && className.startsWith('language-'))) {
     return (
-      <code className={`${className} text-[#d4d4d4] font-mono text-sm leading-relaxed`}>
+      <code className={`${className ?? ''} text-[#d4d4d4] font-mono text-sm leading-relaxed`}>
         {children}
       </code>
     );
@@ -142,9 +145,11 @@ function Code({
 
 function Pre({ children }: { children: React.ReactNode }) {
   return (
-    <pre className="bg-wash-dark rounded-xl overflow-x-auto mb-4 p-5 text-sm leading-relaxed">
-      {children}
-    </pre>
+    <InsidePreContext.Provider value={true}>
+      <pre className="bg-wash-dark rounded-xl overflow-x-auto mb-4 p-5 text-sm leading-relaxed">
+        {children}
+      </pre>
+    </InsidePreContext.Provider>
   );
 }
 

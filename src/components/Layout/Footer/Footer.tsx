@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import NextLink from 'next/link';
 
 import FooterLink from './ui/FooterLink';
@@ -18,12 +19,11 @@ const Footer = () => {
                 <path d="M2 12l10 5 10-5"/>
               </svg>
             </div>
-            <span className="font-bold text-[#23272F] dark:text-[#F6F7F9] text-base">
+            <div className="font-bold  leading-5 text-[#23272F] dark:text-[#F6F7F9] text-base">
               Engineering Curriculum
-            </span>
+            </div>
           </NextLink>
           <div className="text-xs mt-2 pe-0.5">No frameworks. Engineering.</div>
-          <div className="text-xs mt-1">Pulsuz · Açıq mənbə · Giriş tələb etmir</div>
         </div>
 
         {/* Kurslar I */}

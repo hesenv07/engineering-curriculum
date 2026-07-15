@@ -25,6 +25,7 @@ const LearnPage: NextPage<ILearnPageProps> = ({ mdxSource, meta, toc, pageContex
         <title>{meta.title} — Engineering Curriculum</title>
         {meta.description && <meta name="description" content={meta.description} />}
       </Head>
+      <h1>{meta.title}</h1>
       <MDXRemote {...mdxSource} components={MDXComponents as Record<string, React.ComponentType<object>>} />
     </Page>
   );
