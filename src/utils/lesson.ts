@@ -1,3 +1,5 @@
+import { resolveLocale } from '@/utils/locale';
+
 import type { TLessonLevel } from '@/types';
 
 export function getLessonLevel(urlPath: string): TLessonLevel | undefined {
@@ -11,5 +13,5 @@ export function getLessonLevel(urlPath: string): TLessonLevel | undefined {
 
 export function computeDuration(lineCount: number, locale?: string): string {
   const minutes = Math.ceil(lineCount / 75) * 5;
-  return locale === 'en' ? `${minutes} min` : `${minutes} dəq`;
+  return resolveLocale(locale) === 'en' ? `${minutes} min` : `${minutes} dəq`;
 }

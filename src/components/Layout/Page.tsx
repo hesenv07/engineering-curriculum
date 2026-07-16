@@ -2,8 +2,7 @@ import * as React from 'react';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 
-import sidebarAz from '@/sidebar.json';
-import sidebarEn from '@/sidebar-en.json';
+import { getSidebarRouteTree } from '@/utils/sidebar';
 
 import TopNav from './TopNav';
 import Footer from './Footer';
@@ -45,7 +44,7 @@ const Page = ({ children, toc = [], pageContext, showSidebar = true }: IPageProp
   const { asPath, locale } = useRouter();
   const currentPath = asPath.split(/[?#]/)[0];
 
-  const routeTree: ISidebarRoute = (locale === 'en' ? sidebarEn : sidebarAz) as ISidebarRoute;
+  const routeTree = getSidebarRouteTree(locale);
   const breadcrumbs = getBreadcrumbs(currentPath, routeTree);
 
   return (

@@ -1,4 +1,13 @@
+import sidebarAz from '@/sidebar.json';
+import sidebarEn from '@/sidebar-en.json';
+
+import { resolveLocale } from '@/utils/locale';
+
 import type { ISidebarRoute } from '@/types';
+
+export function getSidebarRouteTree(locale?: string): ISidebarRoute {
+  return (resolveLocale(locale) === 'en' ? sidebarEn : sidebarAz) as ISidebarRoute;
+}
 
 export interface IPhaseCard {
   id: string;

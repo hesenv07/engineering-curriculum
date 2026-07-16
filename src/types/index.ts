@@ -1,5 +1,7 @@
 export type TLessonLevel = 'Fundamental' | 'Intermediate' | 'Deep';
 
+export type TLocale = 'az' | 'en';
+
 export interface ISidebarRoute {
   path?: string;
   wip?: boolean;

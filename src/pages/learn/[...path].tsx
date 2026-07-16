@@ -1,91 +1,117 @@
-import type { NextPage, GetStaticProps, GetStaticPaths } from 'next';
-import Head from 'next/head';
-import { MDXRemote } from 'next-mdx-remote';
-import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import Head from "next/head";
+import { MDXRemote } from "next-mdx-remote";
 
-import Page from '@/components/Layout/Page';
-import { MDXComponents } from '@/components/MDX/MDXComponents';
-import { getAllContentPaths, getContentByPath } from '@/utils/mdx';
-import { getLessonLevel, computeDuration } from '@/utils/lesson';
-import sidebarAz from '@/sidebar.json';
-import sidebarEn from '@/sidebar-en.json';
+import Page from "@/components/Layout/Page";
 
-import type { ITocItem, IPageContext, ISidebarRoute, TLessonLevel } from '@/types';
+import { MDXComponents } from "@/components/MDX/MDXComponents";
+import { getLessonLevel, computeDuration } from "@/utils/lesson";
+import { getAllContentPaths, getContentByPath } from "@/utils/mdx";
+import { getSidebarRouteTree } from "@/utils/sidebar";
+
+import type { MDXRemoteSerializeResult } from "next-mdx-remote";
+import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
+import type {
+  ITocItem,
+  TLessonLevel,
+  IPageContext,
+  ISidebarRoute,
+} from "@/types";
 
 const LEVEL_STYLES: Record<TLessonLevel, string> = {
-  Fundamental: 'text-blue-50 dark:text-blue-30 bg-blue-5 dark:bg-blue-80',
-  Intermediate: 'text-green-60 dark:text-green-40 bg-green-5 dark:bg-green-10',
-  Deep: 'text-purple-60 dark:text-purple-30 bg-purple-5 dark:bg-purple-10',
+  Fundamental: "text-blue-50 dark:text-blue-30 bg-blue-5 dark:bg-blue-80",
+  Intermediate: "text-green-60 dark:text-green-40 bg-green-5 dark:bg-green-10",
+  Deep: "text-purple-60 dark:text-purple-30 bg-purple-5 dark:bg-purple-10",
 };
 
 interface ILearnPageProps {
-  meta: { title: string; description?: string };
   toc: ITocItem[];
-  mdxSource: MDXRemoteSerializeResult;
+  duration: string;
   pageContext: IPageContext;
   lessonLevel: TLessonLevel | null;
-  duration: string;
+  mdxSource: MDXRemoteSerializeResult;
+  meta: { title: string; description?: string };
 }
 
-const LearnPage: NextPage<ILearnPageProps> = ({ mdxSource, meta, toc, pageContext, lessonLevel, duration }) => {
+const LearnPage: NextPage<ILearnPageProps> = ({
+  toc,
+  meta,
+  duration,
+  mdxSource,
+  pageContext,
+  lessonLevel,
+}) => {
   return (
     <Page toc={toc} pageContext={pageContext}>
       <Head>
         <title>{meta.title} — Engineering Curriculum</title>
-        {meta.description && <meta name="description" content={meta.description} />}
+        {meta.description && (
+          <meta name="description" content={meta.description} />
+        )}
       </Head>
       <h1>{meta.title}</h1>
       {(lessonLevel || duration) && (
         <div className="flex items-center gap-2 mb-6 -mt-4">
           {lessonLevel && (
-            <span className={`text-xs font-medium rounded px-1.5 py-0.5 leading-none ${LEVEL_STYLES[lessonLevel]}`}>
+            <span
+              className={`text-xs font-medium rounded px-1.5 py-0.5 leading-none ${LEVEL_STYLES[lessonLevel]}`}
+            >
               {lessonLevel}
             </span>
           )}
           {duration && (
-            <span className="text-xs text-tertiary dark:text-tertiary-dark">{duration}</span>
+            <span className="text-xs text-tertiary dark:text-tertiary-dark">
+              {duration}
+            </span>
           )}
         </div>
       )}
-      <MDXRemote {...mdxSource} components={MDXComponents as Record<string, React.ComponentType<object>>} />
+      <MDXRemote
+        {...mdxSource}
+        components={
+          MDXComponents as Record<string, React.ComponentType<object>>
+        }
+      />
     </Page>
   );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const azPaths = getAllContentPaths('az');
-  const enPaths = getAllContentPaths('en');
+  const azPaths = getAllContentPaths("az");
+  const enPaths = getAllContentPaths("en");
 
   return {
     paths: [
       ...azPaths.map((segments) => ({
-        params: { path: segments.filter((s) => s !== 'learn') },
-        locale: 'az',
+        params: { path: segments.filter((s) => s !== "learn") },
+        locale: "az",
       })),
       ...enPaths.map((segments) => ({
-        params: { path: segments.filter((s) => s !== 'learn') },
-        locale: 'en',
+        params: { path: segments.filter((s) => s !== "learn") },
+        locale: "en",
       })),
     ],
     fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps<ILearnPageProps> = async ({ params, locale }) => {
+export const getStaticProps: GetStaticProps<ILearnPageProps> = async ({
+  params,
+  locale,
+}) => {
   const pathSegments = (params?.path as string[]) || [];
-  const fullPath = ['learn', ...pathSegments];
+  const fullPath = ["learn", ...pathSegments];
 
   let result = await getContentByPath(fullPath, locale);
-  if (!result && locale !== 'az') {
-    result = await getContentByPath(fullPath, 'az');
+  if (!result && locale !== "az") {
+    result = await getContentByPath(fullPath, "az");
   }
 
   if (!result) {
     return { notFound: true };
   }
 
-  const pageContext = getPageContext(fullPath.join('/'), locale);
-  const lessonLevel = getLessonLevel(`/${fullPath.join('/')}/`);
+  const pageContext = getPageContext(fullPath.join("/"), locale);
+  const lessonLevel = getLessonLevel(`/${fullPath.join("/")}/`);
   const duration = computeDuration(result.lineCount, locale);
 
   return {
@@ -100,7 +126,9 @@ export const getStaticProps: GetStaticProps<ILearnPageProps> = async ({ params, 
   };
 };
 
-function flattenRoutes(routes: ISidebarRoute[]): { title: string; path: string }[] {
+function flattenRoutes(
+  routes: ISidebarRoute[],
+): { title: string; path: string }[] {
   const result: { title: string; path: string }[] = [];
   for (const route of routes) {
     if (route.hasSectionHeader) continue;
@@ -115,9 +143,10 @@ function flattenRoutes(routes: ISidebarRoute[]): { title: string; path: string }
 }
 
 function getPageContext(currentPath: string, locale?: string): IPageContext {
-  const sidebar = locale === 'en' ? sidebarEn : sidebarAz;
-  const all = flattenRoutes((sidebar as { routes: ISidebarRoute[] }).routes);
-  const idx = all.findIndex((r) => r.path === `/${currentPath}` || r.path === currentPath);
+  const all = flattenRoutes(getSidebarRouteTree(locale).routes ?? []);
+  const idx = all.findIndex(
+    (r) => r.path === `/${currentPath}` || r.path === currentPath,
+  );
 
   return {
     prev: idx > 0 ? all[idx - 1] : null,
