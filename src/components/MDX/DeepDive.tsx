@@ -2,13 +2,11 @@ import { useState } from 'react';
 import * as React from 'react';
 import clsx from 'clsx';
 
+import { isMdxTag } from './mdxTag.utils';
+
 interface IDeepDiveProps {
   children: React.ReactNode;
 }
-
-type TWithMdxName = {
-  mdxName?: string;
-};
 
 const DeepDive = ({ children }: IDeepDiveProps) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,10 +14,7 @@ const DeepDive = ({ children }: IDeepDiveProps) => {
   const childArray = React.Children.toArray(children);
 
   const headingChild = childArray.find(
-    (child) =>
-      React.isValidElement(child) &&
-      typeof child.type === 'function' &&
-      (child.type as TWithMdxName).mdxName === 'h4',
+    (child) => React.isValidElement(child) && isMdxTag(child.type, 'h4'),
   ) as React.ReactElement<{ children?: React.ReactNode; id?: string }> | undefined;
 
   const rest = childArray.filter((child) => child !== headingChild);

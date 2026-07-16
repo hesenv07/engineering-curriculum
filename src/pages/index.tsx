@@ -4,11 +4,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import Page from '@/components/Layout/Page';
-import sidebarAz from '@/sidebar.json';
-import sidebarEn from '@/sidebar-en.json';
-import { parseSidebar } from '@/utils/sidebar';
+import { resolveLocale } from '@/utils/locale';
+import { parseSidebar, getSidebarRouteTree } from '@/utils/sidebar';
 
-import type { ISidebarRoute } from '@/types';
 import type { ISidebarStats } from '@/utils/sidebar';
 
 const CONTENT = {
@@ -39,14 +37,13 @@ const CONTENT = {
 };
 
 export const getStaticProps: GetStaticProps<ISidebarStats> = async ({ locale }) => {
-  const sidebar = locale === 'en' ? sidebarEn : sidebarAz;
-  const routes = (sidebar as { routes: ISidebarRoute[] }).routes;
+  const routes = getSidebarRouteTree(locale).routes ?? [];
   return { props: parseSidebar(routes) };
 };
 
 const Home: NextPage<ISidebarStats> = ({ phases, totalPhases, totalModules, totalLessons }) => {
   const { locale } = useRouter();
-  const lang = (locale ?? 'az') as 'az' | 'en';
+  const lang = resolveLocale(locale);
   const t = CONTENT[lang];
   const heroLines = t.hero.split('\n');
 

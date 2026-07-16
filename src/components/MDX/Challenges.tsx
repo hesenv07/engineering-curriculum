@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import * as React from 'react';
 
+import { isMdxTag } from './mdxTag.utils';
+
 interface IChallengesProps {
   children: React.ReactNode;
 }
@@ -16,10 +18,6 @@ interface IChallengeData {
 type TElementProps = {
   children?: React.ReactNode;
   id?: string;
-};
-
-type TWithMdxName = {
-  mdxName?: string;
 };
 
 function getComponentName(type: unknown): string {
@@ -39,10 +37,7 @@ function parseChallenges(children: React.ReactNode): IChallengeData[] {
     const type = child.type;
     const props = child.props as TElementProps;
 
-    const isH4 =
-      typeof type === 'function' && (type as TWithMdxName).mdxName === 'h4';
-
-    if (isH4) {
+    if (isMdxTag(type, 'h4')) {
       if (current) result.push(current);
       const titleText = String(props.children ?? '');
       const id = props.id ?? titleText.toLowerCase().replace(/\s+/g, '-');

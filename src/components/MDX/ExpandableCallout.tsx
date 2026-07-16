@@ -2,6 +2,10 @@ import * as React from 'react';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 
+import { resolveLocale } from '@/utils/locale';
+
+import type { TLocale } from '@/types';
+
 type TCalloutType = 'note' | 'pitfall';
 
 interface IExpandableCalloutProps {
@@ -9,7 +13,7 @@ interface IExpandableCalloutProps {
   children: React.ReactNode;
 }
 
-const titles: Record<'az' | 'en', Record<TCalloutType, string>> = {
+const titles: Record<TLocale, Record<TCalloutType, string>> = {
   az: { note: 'Qeyd', pitfall: 'Diqqət' },
   en: { note: 'Note', pitfall: 'Pitfall' },
 };
@@ -31,7 +35,7 @@ const variantMap: Record<
 
 const ExpandableCallout = ({ type, children }: IExpandableCalloutProps) => {
   const { locale } = useRouter();
-  const lang = (locale === 'en' ? 'en' : 'az') as 'az' | 'en';
+  const lang = resolveLocale(locale);
   const title = titles[lang][type];
   const variant = variantMap[type];
 

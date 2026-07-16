@@ -4,11 +4,12 @@ import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkGfm from 'remark-gfm';
 
+import { resolveLocale } from '@/utils/locale';
+
 import type { ITocItem } from '@/types';
 
 function getContentDir(locale?: string): string {
-  const loc = locale === 'en' ? 'en' : 'az';
-  return path.join(process.cwd(), 'src', 'content', loc);
+  return path.join(process.cwd(), 'src', 'content', resolveLocale(locale));
 }
 
 export function getAllContentPaths(locale?: string): string[][] {
