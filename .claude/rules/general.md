@@ -15,13 +15,7 @@
 |---------|---------|-------|
 | `[Name].tsx` | `Button.tsx` | React components |
 | `[Name].types.ts` | `Button.types.ts` | Type & interface definitions |
-| `[Name].styles.ts` | `Button.styles.ts` | Styled-components |
 | `[Name].model.ts` | `Prisoner.model.ts` | Data model types |
-| `[Name].service.ts` | `Auth.service.ts` | Service classes |
-| `[Name].repo.ts` | `Auth.repo.ts` | Repository files |
-| `use[Name]Query.ts` | `usePrisonerQuery.ts` | React Query read hooks |
-| `use[Name]Mutation.ts` | `useCreateMutation.ts` | React Query write hooks |
-| `generate[Name]Mock.ts` | `generatePrisonerMock.ts` | Mock data generators |
 | `[resource].atom.ts` | `dictionary.atom.ts` | Jotai atoms |
 
 ## Naming — Identifiers

@@ -130,7 +130,7 @@ const SidebarRouteTree = ({
   return (
     <ul>
       {currentRoutes.map(
-        ({ path, title, routes, version, heading, hasSectionHeader, sectionHeader }, index) => {
+        ({ path, title, routes, version, heading, hasSectionHeader, sectionHeader, duration }, index) => {
           const selected = slug === path;
           let listItem = null;
 
@@ -195,6 +195,7 @@ const SidebarRouteTree = ({
                   level={level}
                   title={title ?? ''}
                   version={version}
+                  duration={duration}
                 />
               </li>
             );

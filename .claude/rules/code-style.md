@@ -8,7 +8,9 @@ paths:
 
 ## Import Order
 
-Blank line between each group. Within a group, sort by path length — shortest first.
+Blank line between each group. **Within a group, sort by the total length of the full import
+statement line — shortest first** (collapse a wrapped/multi-line import to one line to measure it).
+Equal length — keep original relative order, do not alphabetize.
 
 ```typescript
 // 1. External packages (react, react-router-dom, antd, zod, etc.)
@@ -16,21 +18,29 @@ import { z } from 'zod';
 import { useState, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-// 2. Internal packages (~/packages/*, ~/app/_shared/*)
+// 2. ~/packages/* imports
 import Button from '~/packages/ui-kit/components/Button';
-import { useUserQuery } from '~/app/_shared/api/user/queries/useUserQuery';
 
-// 3. Feature-relative imports (./ ../)
+// 3. ~/app/* imports (both ~/app/_shared/* and other app-feature imports)
+import ReportsPaths from '~/app/reports/routing/enums/ReportsPaths.enum';
+import { useUserQuery } from '~/app/_shared/api/user/queries/useUserQuery';
+import { reportsPageConfigs } from '~/app/reports/routing/reportsPageConfig';
+import ModuleErrorBoundary from '~/app/_shared/components/ModuleErrorBoundary';
+
+// 4. Feature-relative imports (./ ../)
 import PrisonerForm from './ui/PrisonerForm';
 import { PrisonerFields } from './shared/constants/PrisonerFields';
 
-// 4. Type-only imports (same grouping rules, blank line between sources)
+// 5. Type-only imports (same grouping rules, blank line between sources)
 import type { IUser } from '~/app/_shared/api/user/user.types';
 import type { IPrisonerFormProps } from './PrisonerForm.types';
 
-// 5. Style imports (always last)
-import { StyledWrapper } from './PrisonerForm.styles';
+// 6. Style imports (always last)
+import S from './PrisonerForm.styles';
 ```
+
+`~/packages/*` and `~/app/*` are separate groups — do not merge or interleave them, even though
+both use the `~/` alias.
 
 ## File Naming
 
@@ -38,14 +48,8 @@ import { StyledWrapper } from './PrisonerForm.styles';
 |---------|---------|-------|
 | `[Name].tsx` | `Button.tsx` | React components |
 | `[Name].types.ts` | `Button.types.ts` | Type & interface definitions |
-| `[Name].styles.ts` | `Button.styles.ts` | Styled-components |
-| `[Name].model.ts` | `Prisoner.model.ts` | Data model types |
-| `[Name].service.ts` | `Auth.service.ts` | Service classes |
-| `[Name].repo.ts` | `Auth.repo.ts` | Repository files |
-| `use[Name]Query.ts` | `usePrisonerQuery.ts` | React Query read hooks |
-| `use[Name]Mutation.ts` | `useCreatePrisonerMutation.ts` | React Query write hooks |
-| `generate[Name]Mock.ts` | `generatePrisonerMock.ts` | Mock data generators |
-| `[resource].atom.ts` | `dictionary.atom.ts` | Jotai atoms |
+| `[Name].const.ts` | `PrisonerContactInfo.const.ts` | Component-scoped constants & derived/computed data |
+| `[Name].utils.ts` | `PrisonerSocialInfo.utils.ts` | Component-scoped pure helper functions parameterized by props/runtime values |
 
 ## Component Structure
 
@@ -80,27 +84,44 @@ export default UserCard;
 
 ## Field / Prop Ordering — length ascending (shortest first)
 
-Applies everywhere: interface fields, type fields, destructuring, JSX props, object literals.
+Applies everywhere: interface fields, type fields, destructuring, JSX props, object literals,
+enum members.
+
+**Sort by the total rendered length of the whole item — not just the identifier name.** For a
+JSX prop that means `name={value}` / `name="value"` together; for an interface field it means
+`name: Type;` together. A short name with a long value/type sorts *after* a long name with a short
+value/type.
 
 ```typescript
-// ✅ interface
+// ✅ interface — sorted by "name: Type;" length, not by name length alone
+// (uiKeys has the shortest name but the longest type, so it sorts last)
 interface RoleDetailsType {
-  id: number;
-  name: string;
-  structure: string;
-  createdAt: string;
-  createdBy: number;
-  uiKeys: PermissionItem[];
+  id: number;                 // 11 chars
+  name: string;                // 13 chars
+  structure: string;           // 18 chars
+  createdAt: string;           // 18 chars
+  createdBy: number;           // 18 chars
+  uiKeys: PermissionItem[];    // 25 chars
 }
 
-// ✅ destructuring
-const { id, name, formState, openEdit, openSchedule, deleteStructure } = props;
+// ✅ JSX — sorted by "name={value}" length, not by prop-name length alone
+<StatCard
+  value="12,842"                                                          // 14 chars
+  icon={BaseIcons.SCHEDULE}                                                // 25 chars
+  iconVariant={StatCardIconVariant.ERROR}                                  // 39 chars
+  label="Cəmi ödənilməmiş cərimələr (AZN)"                                 // 40 chars
+  change={{ value: 4.2, trend: StatCardTrend.DOWN, period: '(aylıq)' }}    // 69 chars
+/>
 
-// ✅ JSX
-<Table onEdit={fn} onDelete={fn} onAddChild={fn} onOpenSchedule={fn} />
+// ✅ enum — sorted by member name length, not declaration order
+enum StatCardIconVariant {
+  ERROR = 'error',      // 5 chars
+  PURPLE = 'purple',    // 6 chars
+  SUCCESS = 'success',  // 7 chars
+}
 ```
 
-Equal-length names — alphabetical between them.
+Equal length — keep original relative order, do not alphabetize.
 
 ## Key Rules
 - **Named `export`** for enums, constants, and multiple exports
@@ -109,3 +130,6 @@ Equal-length names — alphabetical between them.
 - Never define a component inside another component — create a separate file
 - React Query mutations: pessimistic only (no optimistic updates)
 - Always use `~/` alias for absolute imports from `src/`
+- Imports: shortest full-line-length-first within each group; `~/packages/*` and `~/app/*` are separate groups
+- Fields/props/destructures/object literals/enum members: shortest full-rendered-length-first, not alphabetical on ties
+

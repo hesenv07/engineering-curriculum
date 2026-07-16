@@ -50,6 +50,7 @@ export async function getContentByPath(slugParts: string[], locale?: string) {
   }
 
   const raw = fs.readFileSync(filePath, 'utf-8');
+  const lineCount = raw.split('\n').length;
   const { content, data } = matter(raw);
 
   const toc = extractToc(content);
@@ -69,6 +70,7 @@ export async function getContentByPath(slugParts: string[], locale?: string) {
       description: (data.description as string) || '',
     },
     toc,
+    lineCount,
   };
 }
 

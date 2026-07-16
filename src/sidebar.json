@@ -4,692 +4,1716 @@
   "routes": [
     {
       "hasSectionHeader": true,
-      "sectionHeader": "FAZA 0 — Kompüterlər necə işləyir"
+      "sectionHeader": "FAZA 0 — Kompüterlər necə işləyir",
+      "description": "Transistordan CPU-ya, RAM-dan diskə — metal səviyyəsindən başla."
     },
     {
       "title": "Modul 0.1 — Məlumatın Təmsili",
       "routes": [
-        { "title": "Bit və bayt: informasiya nədir", "path": "/learn/faza-0/modul-0-1/bit-ve-byte" },
-        { "title": "İkilik say sistemi", "path": "/learn/faza-0/modul-0-1/binary-say-sistemi" },
-        { "title": "Mənfi ədədlər: ikili komplement", "path": "/learn/faza-0/modul-0-1/menfi-ededler" },
-        { "title": "Üzən vergül (IEEE 754)", "path": "/learn/faza-0/modul-0-1/floating-point" },
-        { "title": "Endianness: bayt sırası", "path": "/learn/faza-0/modul-0-1/endianness" },
-        { "title": "Mətnin təmsili: ASCII → UTF-8", "path": "/learn/faza-0/modul-0-1/metni-temsili" },
-        { "title": "Rəng, şəkil və səs ikilik kodda", "path": "/learn/faza-0/modul-0-1/reng-sekil-ses" },
-        { "title": "Məlumat bütövlüyü: parite, yoxlama cəmləri, CRC", "path": "/learn/faza-0/modul-0-1/checksum-crc" },
-        { "title": "Sıxışdırma: ZIP necə işləyir (Huffman, LZ)", "path": "/learn/faza-0/modul-0-1/compression" },
-        { "title": "Təsadüfilik: PRNG, toxum, entropiya", "path": "/learn/faza-0/modul-0-1/randomness" }
+        {
+          "title": "Bit və bayt: informasiya nədir",
+          "path": "/learn/faza-0/modul-0-1/bit-ve-byte"
+        },
+        {
+          "title": "İkilik say sistemi",
+          "path": "/learn/faza-0/modul-0-1/binary-say-sistemi"
+        },
+        {
+          "title": "Mənfi ədədlər: ikili komplement",
+          "path": "/learn/faza-0/modul-0-1/menfi-ededler"
+        },
+        {
+          "title": "Üzən vergül (IEEE 754)",
+          "path": "/learn/faza-0/modul-0-1/floating-point"
+        },
+        {
+          "title": "Endianness: bayt sırası",
+          "path": "/learn/faza-0/modul-0-1/endianness"
+        },
+        {
+          "title": "Mətnin təmsili: ASCII → UTF-8",
+          "path": "/learn/faza-0/modul-0-1/metni-temsili"
+        },
+        {
+          "title": "Rəng, şəkil və səs ikilik kodda",
+          "path": "/learn/faza-0/modul-0-1/reng-sekil-ses"
+        },
+        {
+          "title": "Məlumat bütövlüyü: parite, yoxlama cəmləri, CRC",
+          "path": "/learn/faza-0/modul-0-1/checksum-crc"
+        },
+        {
+          "title": "Sıxışdırma: ZIP necə işləyir (Huffman, LZ)",
+          "path": "/learn/faza-0/modul-0-1/compression"
+        },
+        {
+          "title": "Təsadüfilik: PRNG, toxum, entropiya",
+          "path": "/learn/faza-0/modul-0-1/randomness"
+        }
       ]
     },
     {
       "title": "Modul 0.2 — Tranzistorlardan Prosessorlara",
       "routes": [
-        { "title": "Tranzistorlar və məntiqi qapılar", "path": "/learn/faza-0/modul-0-2/tranzistor-logic-geyts" },
-        { "title": "Qapılardan toplama dövrəsi qurmaq", "path": "/learn/faza-0/modul-0-2/adder-qurmaq" },
-        { "title": "Saat siqnalı və sinxronizasiya", "path": "/learn/faza-0/modul-0-2/clock-sinxronizasiya" }
+        {
+          "title": "Tranzistorlar və məntiqi qapılar",
+          "path": "/learn/faza-0/modul-0-2/tranzistor-logic-geyts"
+        },
+        {
+          "title": "Qapılardan toplama dövrəsi qurmaq",
+          "path": "/learn/faza-0/modul-0-2/adder-qurmaq"
+        },
+        {
+          "title": "Saat siqnalı və sinxronizasiya",
+          "path": "/learn/faza-0/modul-0-2/clock-sinxronizasiya"
+        }
       ]
     },
     {
       "title": "Modul 0.3 — CPU",
       "routes": [
-        { "title": "CPU-nun anatomiyası", "path": "/learn/faza-0/modul-0-3/cpu-anatomiyasi" },
-        { "title": "Fetch–Decode–Execute dövrü", "path": "/learn/faza-0/modul-0-3/fetch-decode-execute" },
-        { "title": "Instruction Set Architecture", "path": "/learn/faza-0/modul-0-3/instruction-set-architecture" },
-        { "title": "Pipeline və branch prediction", "path": "/learn/faza-0/modul-0-3/pipeline-branch-prediction" },
-        { "title": "CPU-lar niyə sürətlənməyi dayandırdı: Moore's law və multicore dövrü", "path": "/learn/faza-0/modul-0-3/moore-law" },
-        { "title": "Multi-core: core, thread, hyper-threading", "path": "/learn/faza-0/modul-0-3/coxnuvelilik" },
-        { "title": "CPU cache: L1/L2/L3", "path": "/learn/faza-0/modul-0-3/cpu-cache" }
+        {
+          "title": "CPU-nun anatomiyası",
+          "path": "/learn/faza-0/modul-0-3/cpu-anatomiyasi"
+        },
+        {
+          "title": "Fetch–Decode–Execute dövrü",
+          "path": "/learn/faza-0/modul-0-3/fetch-decode-execute"
+        },
+        {
+          "title": "Instruction Set Architecture",
+          "path": "/learn/faza-0/modul-0-3/instruction-set-architecture"
+        },
+        {
+          "title": "Pipeline və branch prediction",
+          "path": "/learn/faza-0/modul-0-3/pipeline-branch-prediction"
+        },
+        {
+          "title": "CPU-lar niyə sürətlənməyi dayandırdı: Moore's law və multicore dövrü",
+          "path": "/learn/faza-0/modul-0-3/moore-law"
+        },
+        {
+          "title": "Multi-core: core, thread, hyper-threading",
+          "path": "/learn/faza-0/modul-0-3/coxnuvelilik"
+        },
+        {
+          "title": "CPU cache: L1/L2/L3",
+          "path": "/learn/faza-0/modul-0-3/cpu-cache"
+        }
       ]
     },
     {
       "title": "Modul 0.4 — Yaddaş",
       "routes": [
-        { "title": "Yaddaş iyerarxiyası", "path": "/learn/faza-0/modul-0-4/yaddas-iyerarsiyasi" },
-        { "title": "RAM necə işləyir", "path": "/learn/faza-0/modul-0-4/ram-nece-isleyir" },
-        { "title": "Stack vs Heap", "path": "/learn/faza-0/modul-0-4/stack-vs-heap" },
-        { "title": "HDD vs SSD", "path": "/learn/faza-0/modul-0-4/hdd-vs-ssd" },
-        { "title": "Yaddaş sızması", "path": "/learn/faza-0/modul-0-4/yaddas-sizmasi" }
+        {
+          "title": "Yaddaş iyerarxiyası",
+          "path": "/learn/faza-0/modul-0-4/yaddas-iyerarsiyasi"
+        },
+        {
+          "title": "RAM necə işləyir",
+          "path": "/learn/faza-0/modul-0-4/ram-nece-isleyir"
+        },
+        {
+          "title": "Stack vs Heap",
+          "path": "/learn/faza-0/modul-0-4/stack-vs-heap"
+        },
+        {
+          "title": "HDD vs SSD",
+          "path": "/learn/faza-0/modul-0-4/hdd-vs-ssd"
+        },
+        {
+          "title": "Yaddaş sızması",
+          "path": "/learn/faza-0/modul-0-4/yaddas-sizmasi"
+        }
       ]
     },
     {
       "title": "Modul 0.5 — Koddan Maşın Koduna",
       "routes": [
-        { "title": "Kompilyator nə edir", "path": "/learn/faza-0/modul-0-5/compiler-ne-edir" },
-        { "title": "İnterpreter vs Kompilyator vs JIT", "path": "/learn/faza-0/modul-0-5/interpreter-compiler-jit" },
-        { "title": "Bayt kodu və virtual maşınlar", "path": "/learn/faza-0/modul-0-5/bytecode-virtual-masinlar" },
-        { "title": "Assembler, linker, icra olunan fayl", "path": "/learn/faza-0/modul-0-5/assembler-linker-executable" },
-        { "title": "Zibil toplama", "path": "/learn/faza-0/modul-0-5/garbage-collection" }
+        {
+          "title": "Kompilyator nə edir",
+          "path": "/learn/faza-0/modul-0-5/compiler-ne-edir"
+        },
+        {
+          "title": "İnterpreter vs Kompilyator vs JIT",
+          "path": "/learn/faza-0/modul-0-5/interpreter-compiler-jit"
+        },
+        {
+          "title": "Bayt kodu və virtual maşınlar",
+          "path": "/learn/faza-0/modul-0-5/bytecode-virtual-masinlar"
+        },
+        {
+          "title": "Assembler, linker, icra olunan fayl",
+          "path": "/learn/faza-0/modul-0-5/assembler-linker-executable"
+        },
+        {
+          "title": "Zibil toplama",
+          "path": "/learn/faza-0/modul-0-5/garbage-collection"
+        }
       ]
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "FAZA 1 — Proqramlaşdırmanın Əsasları"
+      "sectionHeader": "FAZA 1 — Proqramlaşdırmanın Əsasları",
+      "description": "Data strukturlar, alqoritmlər, proqram anlayışları — dilsiz, konsept olaraq."
     },
     {
       "title": "Modul 1.1 — Məlumat Strukturları",
       "routes": [
-        { "title": "Massivlər və yaddaş düzülüşü", "path": "/learn/faza-1/modul-1-1/array-memory-layout" },
-        { "title": "Sətirlər və onların gizli xərcləri", "path": "/learn/faza-1/modul-1-1/strings" },
-        { "title": "Linked list, stack, queue", "path": "/learn/faza-1/modul-1-1/linked-list-stack-queue" },
-        { "title": "Hash table", "path": "/learn/faza-1/modul-1-1/hash-table" },
-        { "title": "Ağaclar: ikili ağac, BST, B-ağac", "path": "/learn/faza-1/modul-1-1/agaclar" },
-        { "title": "Trie və prefiks strukturları", "path": "/learn/faza-1/modul-1-1/trie" },
-        { "title": "Heap və priority queue", "path": "/learn/faza-1/modul-1-1/heap-priority-queue" },
-        { "title": "Qraf: BFS/DFS", "path": "/learn/faza-1/modul-1-1/graph-bfs-dfs" },
-        { "title": "Blum filtresi və ehtimallı strukturlar", "path": "/learn/faza-1/modul-1-1/bloom-filter" }
+        {
+          "title": "Massivlər və yaddaş düzülüşü",
+          "path": "/learn/faza-1/modul-1-1/array-memory-layout"
+        },
+        {
+          "title": "Sətirlər və onların gizli xərcləri",
+          "path": "/learn/faza-1/modul-1-1/strings"
+        },
+        {
+          "title": "Linked list, stack, queue",
+          "path": "/learn/faza-1/modul-1-1/linked-list-stack-queue"
+        },
+        {
+          "title": "Hash table",
+          "path": "/learn/faza-1/modul-1-1/hash-table"
+        },
+        {
+          "title": "Ağaclar: ikili ağac, BST, B-ağac",
+          "path": "/learn/faza-1/modul-1-1/agaclar"
+        },
+        {
+          "title": "Trie və prefiks strukturları",
+          "path": "/learn/faza-1/modul-1-1/trie"
+        },
+        {
+          "title": "Heap və priority queue",
+          "path": "/learn/faza-1/modul-1-1/heap-priority-queue"
+        },
+        {
+          "title": "Qraf: BFS/DFS",
+          "path": "/learn/faza-1/modul-1-1/graph-bfs-dfs"
+        },
+        {
+          "title": "Blum filtresi və ehtimallı strukturlar",
+          "path": "/learn/faza-1/modul-1-1/bloom-filter"
+        }
       ]
     },
     {
       "title": "Modul 1.2 — Alqoritmik Düşüncə",
       "routes": [
-        { "title": "Böyük O işarəsi", "path": "/learn/faza-1/modul-1-2/big-o-notation" },
-        { "title": "Axtarış: xətti vs ikili axtarış", "path": "/learn/faza-1/modul-1-2/axtaris" },
-        { "title": "Sıralama alqoritmlərinin ideyaları", "path": "/learn/faza-1/modul-1-2/siralama" },
-        { "title": "Rekursiya və onun kompromisləri", "path": "/learn/faza-1/modul-1-2/recursion" },
-        { "title": "Dinamik proqramlaşdırma: əsas ideya", "path": "/learn/faza-1/modul-1-2/dynamic-programming" },
-        { "title": "Yaddaş vs vaxt kompromisi", "path": "/learn/faza-1/modul-1-2/space-time-tradeoff" }
+        {
+          "title": "Böyük O işarəsi",
+          "path": "/learn/faza-1/modul-1-2/big-o-notation"
+        },
+        {
+          "title": "Axtarış: xətti vs ikili axtarış",
+          "path": "/learn/faza-1/modul-1-2/axtaris"
+        },
+        {
+          "title": "Sıralama alqoritmlərinin ideyaları",
+          "path": "/learn/faza-1/modul-1-2/siralama"
+        },
+        {
+          "title": "Rekursiya və onun kompromisləri",
+          "path": "/learn/faza-1/modul-1-2/recursion"
+        },
+        {
+          "title": "Dinamik proqramlaşdırma: əsas ideya",
+          "path": "/learn/faza-1/modul-1-2/dynamic-programming"
+        },
+        {
+          "title": "Yaddaş vs vaxt kompromisi",
+          "path": "/learn/faza-1/modul-1-2/space-time-tradeoff"
+        }
       ]
     },
     {
       "title": "Modul 1.3 — Proqramlaşdırma Konseptləri",
       "routes": [
-        { "title": "Paradiqmalar: imperativ, OOP, funksional", "path": "/learn/faza-1/modul-1-3/paradiqmalar" },
-        { "title": "Dəyişməzlik, saf funksiya, yan effekt", "path": "/learn/faza-1/modul-1-3/immutability" },
-        { "title": "Dəyər vs istinad semantikası", "path": "/learn/faza-1/modul-1-3/value-vs-reference" },
-        { "title": "Xəta idarəsi: istisnalar vs nəticə dəyərləri", "path": "/learn/faza-1/modul-1-3/error-handling" },
-        { "title": "Vəziyyət maşınları: FSM ilə davranışın modelləşdirilməsi", "path": "/learn/faza-1/modul-1-3/state-machines" },
-        { "title": "Sinxron vs asinxron kod", "path": "/learn/faza-1/modul-1-3/sinxron-asinxron" },
-        { "title": "Regex nədir", "path": "/learn/faza-1/modul-1-3/regex" }
+        {
+          "title": "Paradiqmalar: imperativ, OOP, funksional",
+          "path": "/learn/faza-1/modul-1-3/paradiqmalar"
+        },
+        {
+          "title": "Dəyişməzlik, saf funksiya, yan effekt",
+          "path": "/learn/faza-1/modul-1-3/immutability"
+        },
+        {
+          "title": "Dəyər vs istinad semantikası",
+          "path": "/learn/faza-1/modul-1-3/value-vs-reference"
+        },
+        {
+          "title": "Xəta idarəsi: istisnalar vs nəticə dəyərləri",
+          "path": "/learn/faza-1/modul-1-3/error-handling"
+        },
+        {
+          "title": "Vəziyyət maşınları: FSM ilə davranışın modelləşdirilməsi",
+          "path": "/learn/faza-1/modul-1-3/state-machines"
+        },
+        {
+          "title": "Sinxron vs asinxron kod",
+          "path": "/learn/faza-1/modul-1-3/sinxron-asinxron"
+        },
+        {
+          "title": "Regex nədir",
+          "path": "/learn/faza-1/modul-1-3/regex"
+        }
       ]
     },
     {
       "title": "Modul 1.4 — Proqram Sənəti",
       "routes": [
-        { "title": "Git mental modeli: commitlər, şaxələr, birləşdirmə", "path": "/learn/faza-1/modul-1-4/git-mental-model" },
-        { "title": "Test piramidası: vahid, inteqrasiya, e2e", "path": "/learn/faza-1/modul-1-4/testing-pyramid" },
-        { "title": "TDD, mokinq və test dublikatları", "path": "/learn/faza-1/modul-1-4/tdd-mocking" },
-        { "title": "Sazlama üsulları: çap → sazlayıcı → bisect", "path": "/learn/faza-1/modul-1-4/debugging" },
-        { "title": "Dizayn nümunələri: əsas olanlar", "path": "/learn/faza-1/modul-1-4/design-patterns" },
-        { "title": "SOLID və təmiz arxitektura ideyaları", "path": "/learn/faza-1/modul-1-4/solid-clean-architecture" },
-        { "title": "Kod nəzərdən keçirmə və refaktorinq", "path": "/learn/faza-1/modul-1-4/code-review-refactoring" },
-        { "title": "Sənədləşdirmə: README, ADR, RFC mədəniyyəti", "path": "/learn/faza-1/modul-1-4/documentation-adr" },
-        { "title": "Asılılıqlar: kilit faylları, vendor, asılılıq cəhənnəmi", "path": "/learn/faza-1/modul-1-4/dependencies" },
-        { "title": "Komandalar necə çatdırır: kult olmadan agile ideyaları", "path": "/learn/faza-1/modul-1-4/how-teams-ship" }
+        {
+          "title": "Git mental modeli: commitlər, şaxələr, birləşdirmə",
+          "path": "/learn/faza-1/modul-1-4/git-mental-model"
+        },
+        {
+          "title": "Test piramidası: vahid, inteqrasiya, e2e",
+          "path": "/learn/faza-1/modul-1-4/testing-pyramid"
+        },
+        {
+          "title": "TDD, mokinq və test dublikatları",
+          "path": "/learn/faza-1/modul-1-4/tdd-mocking"
+        },
+        {
+          "title": "Sazlama üsulları: çap → sazlayıcı → bisect",
+          "path": "/learn/faza-1/modul-1-4/debugging"
+        },
+        {
+          "title": "Dizayn nümunələri: əsas olanlar",
+          "path": "/learn/faza-1/modul-1-4/design-patterns"
+        },
+        {
+          "title": "SOLID və təmiz arxitektura ideyaları",
+          "path": "/learn/faza-1/modul-1-4/solid-clean-architecture"
+        },
+        {
+          "title": "Kod nəzərdən keçirmə və refaktorinq",
+          "path": "/learn/faza-1/modul-1-4/code-review-refactoring"
+        },
+        {
+          "title": "Sənədləşdirmə: README, ADR, RFC mədəniyyəti",
+          "path": "/learn/faza-1/modul-1-4/documentation-adr"
+        },
+        {
+          "title": "Asılılıqlar: kilit faylları, vendor, asılılıq cəhənnəmi",
+          "path": "/learn/faza-1/modul-1-4/dependencies"
+        },
+        {
+          "title": "Komandalar necə çatdırır: kult olmadan agile ideyaları",
+          "path": "/learn/faza-1/modul-1-4/how-teams-ship"
+        }
       ]
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "FAZA 2 — Əməliyyat Sistemləri"
+      "sectionHeader": "FAZA 2 — Əməliyyat Sistemləri",
+      "description": "Proseslər, thread-lər, concurrency, yaddaş, fayl sistemi, Linux."
     },
     {
       "title": "Modul 2.1 — Əməliyyat Sisteminin Rolu",
       "routes": [
-        { "title": "Əməliyyat sistemi nədir", "path": "/learn/faza-2/modul-2-1/os-nedir" },
-        { "title": "Kernel vs user space", "path": "/learn/faza-2/modul-2-1/kernel-user-space" },
-        { "title": "Yükləmə prosesi", "path": "/learn/faza-2/modul-2-1/boot-prosesi" },
-        { "title": "Fərqlər: Linux, Windows, macOS", "path": "/learn/faza-2/modul-2-1/os-ferqleri" }
+        {
+          "title": "Əməliyyat sistemi nədir",
+          "path": "/learn/faza-2/modul-2-1/os-nedir"
+        },
+        {
+          "title": "Kernel vs user space",
+          "path": "/learn/faza-2/modul-2-1/kernel-user-space"
+        },
+        {
+          "title": "Yükləmə prosesi",
+          "path": "/learn/faza-2/modul-2-1/boot-prosesi"
+        },
+        {
+          "title": "Fərqlər: Linux, Windows, macOS",
+          "path": "/learn/faza-2/modul-2-1/os-ferqleri"
+        }
       ]
     },
     {
       "title": "Modul 2.2 — Proseslər və Thread-lər",
       "routes": [
-        { "title": "Proses nədir", "path": "/learn/faza-2/modul-2-2/process-nedir" },
-        { "title": "Thread nədir", "path": "/learn/faza-2/modul-2-2/thread-nedir" },
-        { "title": "Context switching", "path": "/learn/faza-2/modul-2-2/context-switching" },
-        { "title": "Scheduler: CPU vaxtı necə bölünür", "path": "/learn/faza-2/modul-2-2/scheduler" },
-        { "title": "Zombie və orphan proseslər", "path": "/learn/faza-2/modul-2-2/zombie-orphan" }
+        {
+          "title": "Proses nədir",
+          "path": "/learn/faza-2/modul-2-2/process-nedir"
+        },
+        {
+          "title": "Thread nədir",
+          "path": "/learn/faza-2/modul-2-2/thread-nedir"
+        },
+        {
+          "title": "Context switching",
+          "path": "/learn/faza-2/modul-2-2/context-switching"
+        },
+        {
+          "title": "Scheduler: CPU vaxtı necə bölünür",
+          "path": "/learn/faza-2/modul-2-2/scheduler"
+        },
+        {
+          "title": "Zombie və orphan proseslər",
+          "path": "/learn/faza-2/modul-2-2/zombie-orphan"
+        }
       ]
     },
     {
       "title": "Modul 2.3 — Concurrency",
       "routes": [
-        { "title": "Race condition", "path": "/learn/faza-2/modul-2-3/race-condition" },
-        { "title": "Mutex, semaphore, lock", "path": "/learn/faza-2/modul-2-3/mutex-semaphore" },
-        { "title": "Deadlock", "path": "/learn/faza-2/modul-2-3/deadlock" },
-        { "title": "Atom əməliyyatları", "path": "/learn/faza-2/modul-2-3/atomic" },
-        { "title": "Concurrency vs Parallelism", "path": "/learn/faza-2/modul-2-3/concurrency-parallelism" },
-        { "title": "Green threads, coroutines, async runtime-lar", "path": "/learn/faza-2/modul-2-3/coroutines" }
+        {
+          "title": "Race condition",
+          "path": "/learn/faza-2/modul-2-3/race-condition"
+        },
+        {
+          "title": "Mutex, semaphore, lock",
+          "path": "/learn/faza-2/modul-2-3/mutex-semaphore"
+        },
+        {
+          "title": "Deadlock",
+          "path": "/learn/faza-2/modul-2-3/deadlock"
+        },
+        {
+          "title": "Atom əməliyyatları",
+          "path": "/learn/faza-2/modul-2-3/atomic"
+        },
+        {
+          "title": "Concurrency vs Parallelism",
+          "path": "/learn/faza-2/modul-2-3/concurrency-parallelism"
+        },
+        {
+          "title": "Green threads, coroutines, async runtime-lar",
+          "path": "/learn/faza-2/modul-2-3/coroutines"
+        }
       ]
     },
     {
       "title": "Modul 2.4 — Yaddaş İdarəetməsi",
       "routes": [
-        { "title": "Virtual yaddaş", "path": "/learn/faza-2/modul-2-4/virtual-memory" },
-        { "title": "Səhifələmə, səhifə cədvəli, səhifə xətası", "path": "/learn/faza-2/modul-2-4/paging" },
-        { "title": "Swap: RAM dolduqda nə olur", "path": "/learn/faza-2/modul-2-4/swap" },
-        { "title": "mmap: yaddaşa əsaslanan fayllar", "path": "/learn/faza-2/modul-2-4/mmap" },
-        { "title": "OOM killer", "path": "/learn/faza-2/modul-2-4/oom-killer" }
+        {
+          "title": "Virtual yaddaş",
+          "path": "/learn/faza-2/modul-2-4/virtual-memory"
+        },
+        {
+          "title": "Səhifələmə, səhifə cədvəli, səhifə xətası",
+          "path": "/learn/faza-2/modul-2-4/paging"
+        },
+        {
+          "title": "Swap: RAM dolduqda nə olur",
+          "path": "/learn/faza-2/modul-2-4/swap"
+        },
+        {
+          "title": "mmap: yaddaşa əsaslanan fayllar",
+          "path": "/learn/faza-2/modul-2-4/mmap"
+        },
+        {
+          "title": "OOM killer",
+          "path": "/learn/faza-2/modul-2-4/oom-killer"
+        }
       ]
     },
     {
       "title": "Modul 2.5 — Fayl Sistemi və Giriş/Çıxış",
       "routes": [
-        { "title": "Fayl sistemi: inode, icazələr", "path": "/learn/faza-2/modul-2-5/fayl-sistemi" },
-        { "title": "Hər şey fayldır: /proc, /dev, pipe", "path": "/learn/faza-2/modul-2-5/her-sey-fayl" },
-        { "title": "Blocking vs non-blocking I/O", "path": "/learn/faza-2/modul-2-5/blocking-io" },
-        { "title": "epoll/kqueue — C10K problemi", "path": "/learn/faza-2/modul-2-5/epoll-kqueue" },
-        { "title": "io_uring", "path": "/learn/faza-2/modul-2-5/io-uring" }
+        {
+          "title": "Fayl sistemi: inode, icazələr",
+          "path": "/learn/faza-2/modul-2-5/fayl-sistemi"
+        },
+        {
+          "title": "Hər şey fayldır: /proc, /dev, pipe",
+          "path": "/learn/faza-2/modul-2-5/her-sey-fayl"
+        },
+        {
+          "title": "Blocking vs non-blocking I/O",
+          "path": "/learn/faza-2/modul-2-5/blocking-io"
+        },
+        {
+          "title": "epoll/kqueue — C10K problemi",
+          "path": "/learn/faza-2/modul-2-5/epoll-kqueue"
+        },
+        {
+          "title": "io_uring",
+          "path": "/learn/faza-2/modul-2-5/io-uring"
+        }
       ]
     },
     {
       "title": "Modul 2.6 — Praktikada Linux",
       "routes": [
-        { "title": "Qabıq və terminal", "path": "/learn/faza-2/modul-2-6/shell-terminal" },
-        { "title": "Siqnallar: SIGTERM vs SIGKILL", "path": "/learn/faza-2/modul-2-6/signals" },
-        { "title": "Mühit dəyişənləri", "path": "/learn/faza-2/modul-2-6/env-variables" },
-        { "title": "cron, systemd, daemon", "path": "/learn/faza-2/modul-2-6/cron-systemd" },
-        { "title": "Kompüter vaxtı: UTC, vaxt qurşaqları, NTP", "path": "/learn/faza-2/modul-2-6/time-ntp" },
-        { "title": "SSH necə işləyir", "path": "/learn/faza-2/modul-2-6/ssh" },
-        { "title": "eBPF: kernel proqramlaşdırması", "path": "/learn/faza-2/modul-2-6/ebpf" }
+        {
+          "title": "Qabıq və terminal",
+          "path": "/learn/faza-2/modul-2-6/shell-terminal"
+        },
+        {
+          "title": "Siqnallar: SIGTERM vs SIGKILL",
+          "path": "/learn/faza-2/modul-2-6/signals"
+        },
+        {
+          "title": "Mühit dəyişənləri",
+          "path": "/learn/faza-2/modul-2-6/env-variables"
+        },
+        {
+          "title": "cron, systemd, daemon",
+          "path": "/learn/faza-2/modul-2-6/cron-systemd"
+        },
+        {
+          "title": "Kompüter vaxtı: UTC, vaxt qurşaqları, NTP",
+          "path": "/learn/faza-2/modul-2-6/time-ntp"
+        },
+        {
+          "title": "SSH necə işləyir",
+          "path": "/learn/faza-2/modul-2-6/ssh"
+        },
+        {
+          "title": "eBPF: kernel proqramlaşdırması",
+          "path": "/learn/faza-2/modul-2-6/ebpf"
+        }
       ]
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "FAZA 3 — Şəbəkələr"
+      "sectionHeader": "FAZA 3 — Şəbəkələr",
+      "description": "TCP/IP, DNS, HTTP, TLS, WebSocket — protokolların içindən keç."
     },
     {
       "title": "Modul 3.1 — Şəbəkənin Əsasları",
       "routes": [
-        { "title": "İnternet necə birləşdirilir: ISP, IXP, BGP", "path": "/learn/faza-3/modul-3-1/internet-fiziki" },
-        { "title": "OSI vs TCP/IP modeli", "path": "/learn/faza-3/modul-3-1/osi-tcpip" },
-        { "title": "Ethernet, MAC ünvanı, ARP", "path": "/learn/faza-3/modul-3-1/ethernet-mac-arp" },
-        { "title": "IP ünvan: IPv4, alt şəbəkə, CIDR", "path": "/learn/faza-3/modul-3-1/ip-address" },
-        { "title": "NAT: bir IP necə paylaşılır", "path": "/learn/faza-3/modul-3-1/nat" },
-        { "title": "IPv6 niyə lazımdır", "path": "/learn/faza-3/modul-3-1/ipv6" },
-        { "title": "DHCP: cihaz IP ünvanını haradan alır", "path": "/learn/faza-3/modul-3-1/dhcp" }
+        {
+          "title": "İnternet necə birləşdirilir: ISP, IXP, BGP",
+          "path": "/learn/faza-3/modul-3-1/internet-fiziki"
+        },
+        {
+          "title": "OSI vs TCP/IP modeli",
+          "path": "/learn/faza-3/modul-3-1/osi-tcpip"
+        },
+        {
+          "title": "Ethernet, MAC ünvanı, ARP",
+          "path": "/learn/faza-3/modul-3-1/ethernet-mac-arp"
+        },
+        {
+          "title": "IP ünvan: IPv4, alt şəbəkə, CIDR",
+          "path": "/learn/faza-3/modul-3-1/ip-address"
+        },
+        {
+          "title": "NAT: bir IP necə paylaşılır",
+          "path": "/learn/faza-3/modul-3-1/nat"
+        },
+        {
+          "title": "IPv6 niyə lazımdır",
+          "path": "/learn/faza-3/modul-3-1/ipv6"
+        },
+        {
+          "title": "DHCP: cihaz IP ünvanını haradan alır",
+          "path": "/learn/faza-3/modul-3-1/dhcp"
+        }
       ]
     },
     {
       "title": "Modul 3.2 — Nəqliyyat Qatı",
       "routes": [
-        { "title": "TCP: 3 addımlı əl sıxışma", "path": "/learn/faza-3/modul-3-2/tcp-handshake" },
-        { "title": "TCP flow control", "path": "/learn/faza-3/modul-3-2/tcp-flow-control" },
-        { "title": "UDP: etibarsız olanın daha yaxşı olduğu vaxt", "path": "/learn/faza-3/modul-3-2/udp" },
-        { "title": "Port nədir, socket nədir", "path": "/learn/faza-3/modul-3-2/port-socket" }
+        {
+          "title": "TCP: 3 addımlı əl sıxışma",
+          "path": "/learn/faza-3/modul-3-2/tcp-handshake"
+        },
+        {
+          "title": "TCP flow control",
+          "path": "/learn/faza-3/modul-3-2/tcp-flow-control"
+        },
+        {
+          "title": "UDP: etibarsız olanın daha yaxşı olduğu vaxt",
+          "path": "/learn/faza-3/modul-3-2/udp"
+        },
+        {
+          "title": "Port nədir, socket nədir",
+          "path": "/learn/faza-3/modul-3-2/port-socket"
+        }
       ]
     },
     {
       "title": "Modul 3.3 — DNS",
       "routes": [
-        { "title": "DNS həlletmə zənciri", "path": "/learn/faza-3/modul-3-3/dns-resolution" },
-        { "title": "Yazı növləri: A, CNAME, MX, TXT", "path": "/learn/faza-3/modul-3-3/dns-records" },
-        { "title": "TTL və DNS caching", "path": "/learn/faza-3/modul-3-3/dns-caching" }
+        {
+          "title": "DNS həlletmə zənciri",
+          "path": "/learn/faza-3/modul-3-3/dns-resolution"
+        },
+        {
+          "title": "Yazı növləri: A, CNAME, MX, TXT",
+          "path": "/learn/faza-3/modul-3-3/dns-records"
+        },
+        {
+          "title": "TTL və DNS caching",
+          "path": "/learn/faza-3/modul-3-3/dns-caching"
+        }
       ]
     },
     {
       "title": "Modul 3.4 — HTTP",
       "routes": [
-        { "title": "HTTP anatomiyası", "path": "/learn/faza-3/modul-3-4/http-anatomiyasi" },
-        { "title": "Kukiler: vəziyyətsiz protokolda vəziyyət", "path": "/learn/faza-3/modul-3-4/cookies" },
-        { "title": "HTTP/1.1 → HTTP/2 → HTTP/3", "path": "/learn/faza-3/modul-3-4/http-versiyalar" },
-        { "title": "Caching headers", "path": "/learn/faza-3/modul-3-4/http-caching" },
-        { "title": "Kontent danışıqları, sıxışdırma", "path": "/learn/faza-3/modul-3-4/content-negotiation" }
+        {
+          "title": "HTTP anatomiyası",
+          "path": "/learn/faza-3/modul-3-4/http-anatomiyasi"
+        },
+        {
+          "title": "Kukiler: vəziyyətsiz protokolda vəziyyət",
+          "path": "/learn/faza-3/modul-3-4/cookies"
+        },
+        {
+          "title": "HTTP/1.1 → HTTP/2 → HTTP/3",
+          "path": "/learn/faza-3/modul-3-4/http-versiyalar"
+        },
+        {
+          "title": "Caching headers",
+          "path": "/learn/faza-3/modul-3-4/http-caching"
+        },
+        {
+          "title": "Kontent danışıqları, sıxışdırma",
+          "path": "/learn/faza-3/modul-3-4/content-negotiation"
+        }
       ]
     },
     {
       "title": "Modul 3.5 — TLS və HTTPS",
       "routes": [
-        { "title": "Şifrələmə niyə lazımdır", "path": "/learn/faza-3/modul-3-5/sifreleme-niye" },
-        { "title": "TLS əl sıxışması addım-addım", "path": "/learn/faza-3/modul-3-5/tls-handshake" },
-        { "title": "Sertifikatlar, CA, etibar zənciri", "path": "/learn/faza-3/modul-3-5/sertifikatlar" },
-        { "title": "Let's Encrypt necə işləyir", "path": "/learn/faza-3/modul-3-5/lets-encrypt" }
+        {
+          "title": "Şifrələmə niyə lazımdır",
+          "path": "/learn/faza-3/modul-3-5/sifreleme-niye"
+        },
+        {
+          "title": "TLS əl sıxışması addım-addım",
+          "path": "/learn/faza-3/modul-3-5/tls-handshake"
+        },
+        {
+          "title": "Sertifikatlar, CA, etibar zənciri",
+          "path": "/learn/faza-3/modul-3-5/sertifikatlar"
+        },
+        {
+          "title": "Let's Encrypt necə işləyir",
+          "path": "/learn/faza-3/modul-3-5/lets-encrypt"
+        }
       ]
     },
     {
       "title": "Modul 3.6 — Gerçək Vaxt Protokolları",
       "routes": [
-        { "title": "Təkamül: Polling → SSE → WebSocket", "path": "/learn/faza-3/modul-3-6/realtime-tekamul" },
-        { "title": "gRPC və ikili protokollar", "path": "/learn/faza-3/modul-3-6/grpc" },
-        { "title": "WebRTC konsepti", "path": "/learn/faza-3/modul-3-6/webrtc" }
+        {
+          "title": "Təkamül: Polling → SSE → WebSocket",
+          "path": "/learn/faza-3/modul-3-6/realtime-tekamul"
+        },
+        {
+          "title": "gRPC və ikili protokollar",
+          "path": "/learn/faza-3/modul-3-6/grpc"
+        },
+        {
+          "title": "WebRTC konsepti",
+          "path": "/learn/faza-3/modul-3-6/webrtc"
+        }
       ]
     },
     {
       "title": "Modul 3.7 — Kənar Sistemlər və Gündəlik Protokollar",
       "routes": [
-        { "title": "Birbaşa vs əks proxy", "path": "/learn/faza-3/modul-3-7/proxy" },
-        { "title": "CDN: kontent sizə necə yaxınlaşır", "path": "/learn/faza-3/modul-3-7/cdn" },
-        { "title": "E-poçt necə işləyir: SMTP, SPF, DKIM, DMARC", "path": "/learn/faza-3/modul-3-7/email" },
-        { "title": "Şəbəkə sazlaması: ping, traceroute, curl, tcpdump", "path": "/learn/faza-3/modul-3-7/network-debugging" }
+        {
+          "title": "Birbaşa vs əks proxy",
+          "path": "/learn/faza-3/modul-3-7/proxy"
+        },
+        {
+          "title": "CDN: kontent sizə necə yaxınlaşır",
+          "path": "/learn/faza-3/modul-3-7/cdn"
+        },
+        {
+          "title": "E-poçt necə işləyir: SMTP, SPF, DKIM, DMARC",
+          "path": "/learn/faza-3/modul-3-7/email"
+        },
+        {
+          "title": "Şəbəkə sazlaması: ping, traceroute, curl, tcpdump",
+          "path": "/learn/faza-3/modul-3-7/network-debugging"
+        }
       ]
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "FAZA 4 — Verilənlər Bazası"
+      "sectionHeader": "FAZA 4 — Verilənlər Bazası",
+      "description": "SQL, B-tree indeks, ACID, NoSQL, Redis caching, sharding."
     },
     {
       "title": "Modul 4.1 — Əlaqəli Verilənlər Bazasının Əsasları",
       "routes": [
-        { "title": "VB fayldan niyə yaxşıdır", "path": "/learn/faza-4/modul-4-1/db-niye" },
-        { "title": "SQL: SELECT arxasında nə baş verir", "path": "/learn/faza-4/modul-4-1/sql-konsept" },
-        { "title": "Məlumat modelləşdirməsi: tələblərdən sxemə", "path": "/learn/faza-4/modul-4-1/data-modeling" },
-        { "title": "Normalizasiya və denormalizasiya", "path": "/learn/faza-4/modul-4-1/normalizasiya" },
-        { "title": "ORM vs xam SQL və N+1 problemi", "path": "/learn/faza-4/modul-4-1/orm-n-plus-1" }
+        {
+          "title": "VB fayldan niyə yaxşıdır",
+          "path": "/learn/faza-4/modul-4-1/db-niye"
+        },
+        {
+          "title": "SQL: SELECT arxasında nə baş verir",
+          "path": "/learn/faza-4/modul-4-1/sql-konsept"
+        },
+        {
+          "title": "Məlumat modelləşdirməsi: tələblərdən sxemə",
+          "path": "/learn/faza-4/modul-4-1/data-modeling"
+        },
+        {
+          "title": "Normalizasiya və denormalizasiya",
+          "path": "/learn/faza-4/modul-4-1/normalizasiya"
+        },
+        {
+          "title": "ORM vs xam SQL və N+1 problemi",
+          "path": "/learn/faza-4/modul-4-1/orm-n-plus-1"
+        }
       ]
     },
     {
       "title": "Modul 4.2 — VB-nin Daxili Quruluşu",
       "routes": [
-        { "title": "Sorğu yolu: parser → planner → executor", "path": "/learn/faza-4/modul-4-2/sorgu-yolu" },
-        { "title": "İndeks: B-ağac, niyə sürətləndirir", "path": "/learn/faza-4/modul-4-2/indeks" },
-        { "title": "LSM ağacları və SSTable: yazmaya optimallaşdırılmış yaddaş", "path": "/learn/faza-4/modul-4-2/lsm-trees" },
-        { "title": "EXPLAIN oxumaq", "path": "/learn/faza-4/modul-4-2/explain" },
-        { "title": "WAL: məlumat niyə heç vaxt itmir", "path": "/learn/faza-4/modul-4-2/wal" },
-        { "title": "Connection pool", "path": "/learn/faza-4/modul-4-2/connection-pool" },
-        { "title": "Miqrasiyalar: canlı sxemin inkişafı", "path": "/learn/faza-4/modul-4-2/migrations" },
-        { "title": "Ehtiyat nüsxələr və müəyyən anın bərpası", "path": "/learn/faza-4/modul-4-2/backup-pitr" }
+        {
+          "title": "Sorğu yolu: parser → planner → executor",
+          "path": "/learn/faza-4/modul-4-2/sorgu-yolu"
+        },
+        {
+          "title": "İndeks: B-ağac, niyə sürətləndirir",
+          "path": "/learn/faza-4/modul-4-2/indeks"
+        },
+        {
+          "title": "LSM ağacları və SSTable: yazmaya optimallaşdırılmış yaddaş",
+          "path": "/learn/faza-4/modul-4-2/lsm-trees"
+        },
+        {
+          "title": "EXPLAIN oxumaq",
+          "path": "/learn/faza-4/modul-4-2/explain"
+        },
+        {
+          "title": "WAL: məlumat niyə heç vaxt itmir",
+          "path": "/learn/faza-4/modul-4-2/wal"
+        },
+        {
+          "title": "Connection pool",
+          "path": "/learn/faza-4/modul-4-2/connection-pool"
+        },
+        {
+          "title": "Miqrasiyalar: canlı sxemin inkişafı",
+          "path": "/learn/faza-4/modul-4-2/migrations"
+        },
+        {
+          "title": "Ehtiyat nüsxələr və müəyyən anın bərpası",
+          "path": "/learn/faza-4/modul-4-2/backup-pitr"
+        }
       ]
     },
     {
       "title": "Modul 4.3 — Tranzaksiyalar",
       "routes": [
-        { "title": "ACID — hər hərf ayrıca", "path": "/learn/faza-4/modul-4-3/acid" },
-        { "title": "İzolyasiya səviyyələri", "path": "/learn/faza-4/modul-4-3/isolation-levels" },
-        { "title": "Optimist vs pessimist kilit", "path": "/learn/faza-4/modul-4-3/locking" },
-        { "title": "MVCC: Postgres oxucuları niyə bloklamır", "path": "/learn/faza-4/modul-4-3/mvcc" }
+        {
+          "title": "ACID — hər hərf ayrıca",
+          "path": "/learn/faza-4/modul-4-3/acid"
+        },
+        {
+          "title": "İzolyasiya səviyyələri",
+          "path": "/learn/faza-4/modul-4-3/isolation-levels"
+        },
+        {
+          "title": "Optimist vs pessimist kilit",
+          "path": "/learn/faza-4/modul-4-3/locking"
+        },
+        {
+          "title": "MVCC: Postgres oxucuları niyə bloklamır",
+          "path": "/learn/faza-4/modul-4-3/mvcc"
+        }
       ]
     },
     {
       "title": "Modul 4.4 — NoSQL Dünyası",
       "routes": [
-        { "title": "NoSQL niyə yaradıldı", "path": "/learn/faza-4/modul-4-4/nosql-niye" },
-        { "title": "Açar-dəyər, Sənəd, Geniş-sütun, Qraf", "path": "/learn/faza-4/modul-4-4/nosql-novleri" },
-        { "title": "Oxumada sxem vs yazmada sxem", "path": "/learn/faza-4/modul-4-4/schema" },
-        { "title": "SQLite və daxili verilənlər bazaları", "path": "/learn/faza-4/modul-4-4/sqlite-embedded" },
-        { "title": "Zaman sırası verilənlər bazaları", "path": "/learn/faza-4/modul-4-4/time-series-db" }
+        {
+          "title": "NoSQL niyə yaradıldı",
+          "path": "/learn/faza-4/modul-4-4/nosql-niye"
+        },
+        {
+          "title": "Açar-dəyər, Sənəd, Geniş-sütun, Qraf",
+          "path": "/learn/faza-4/modul-4-4/nosql-novleri"
+        },
+        {
+          "title": "Oxumada sxem vs yazmada sxem",
+          "path": "/learn/faza-4/modul-4-4/schema"
+        },
+        {
+          "title": "SQLite və daxili verilənlər bazaları",
+          "path": "/learn/faza-4/modul-4-4/sqlite-embedded"
+        },
+        {
+          "title": "Zaman sırası verilənlər bazaları",
+          "path": "/learn/faza-4/modul-4-4/time-series-db"
+        }
       ]
     },
     {
       "title": "Modul 4.5 — Caching",
       "routes": [
-        { "title": "Cache nədir: sürət vs təzəlik", "path": "/learn/faza-4/modul-4-5/cache-nedir" },
-        { "title": "Redis: yaddaşda VB konsepti", "path": "/learn/faza-4/modul-4-5/redis" },
-        { "title": "Cache strategiyaları", "path": "/learn/faza-4/modul-4-5/cache-strategiyalar" },
-        { "title": "Xaric etmə: LRU, LFU, TTL", "path": "/learn/faza-4/modul-4-5/eviction" },
-        { "title": "Cache stampede problemi", "path": "/learn/faza-4/modul-4-5/cache-stampede" }
+        {
+          "title": "Cache nədir: sürət vs təzəlik",
+          "path": "/learn/faza-4/modul-4-5/cache-nedir"
+        },
+        {
+          "title": "Redis: yaddaşda VB konsepti",
+          "path": "/learn/faza-4/modul-4-5/redis"
+        },
+        {
+          "title": "Cache strategiyaları",
+          "path": "/learn/faza-4/modul-4-5/cache-strategiyalar"
+        },
+        {
+          "title": "Xaric etmə: LRU, LFU, TTL",
+          "path": "/learn/faza-4/modul-4-5/eviction"
+        },
+        {
+          "title": "Cache stampede problemi",
+          "path": "/learn/faza-4/modul-4-5/cache-stampede"
+        }
       ]
     },
     {
       "title": "Modul 4.6 — Miqyaslandırma",
       "routes": [
-        { "title": "Replikasiya: əsas-replika", "path": "/learn/faza-4/modul-4-6/replication" },
-        { "title": "Parçalanma/bölmə", "path": "/learn/faza-4/modul-4-6/sharding" },
-        { "title": "CAP teoremi", "path": "/learn/faza-4/modul-4-6/cap-teoremi" },
-        { "title": "Ardıcıllıq modelləri", "path": "/learn/faza-4/modul-4-6/consistency" },
-        { "title": "OLTP vs OLAP və sütunlu saxlama", "path": "/learn/faza-4/modul-4-6/oltp-olap" },
-        { "title": "Axtarış mühərrikləri: tərs indeks", "path": "/learn/faza-4/modul-4-6/axtaris-muherrikleri" }
+        {
+          "title": "Replikasiya: əsas-replika",
+          "path": "/learn/faza-4/modul-4-6/replication"
+        },
+        {
+          "title": "Parçalanma/bölmə",
+          "path": "/learn/faza-4/modul-4-6/sharding"
+        },
+        {
+          "title": "CAP teoremi",
+          "path": "/learn/faza-4/modul-4-6/cap-teoremi"
+        },
+        {
+          "title": "Ardıcıllıq modelləri",
+          "path": "/learn/faza-4/modul-4-6/consistency"
+        },
+        {
+          "title": "OLTP vs OLAP və sütunlu saxlama",
+          "path": "/learn/faza-4/modul-4-6/oltp-olap"
+        },
+        {
+          "title": "Axtarış mühərrikləri: tərs indeks",
+          "path": "/learn/faza-4/modul-4-6/axtaris-muherrikleri"
+        }
       ]
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "FAZA 5 — Backend Mühəndisliyi"
+      "sectionHeader": "FAZA 5 — Backend Mühəndisliyi",
+      "description": "API dizaynı, auth, load balancer, rate limiting, async işlər."
     },
     {
       "title": "Modul 5.1 — Client-Server və API-lər",
       "routes": [
-        { "title": "Sorğunun tam həyatı", "path": "/learn/faza-5/modul-5-1/request-heyyati" },
-        { "title": "REST API dizaynı", "path": "/learn/faza-5/modul-5-1/rest-api" },
-        { "title": "Səhifələmə, filtirləmə, sıralama", "path": "/learn/faza-5/modul-5-1/pagination" },
-        { "title": "API versiyalaşdırma və köhnəlmə", "path": "/learn/faza-5/modul-5-1/api-versioning" },
-        { "title": "İdempotentlik — ödənişlərdə kritik", "path": "/learn/faza-5/modul-5-1/idempotency" },
-        { "title": "ID yaratma: avtomatik artım, UUID, Snowflake", "path": "/learn/faza-5/modul-5-1/id-generation" },
-        { "title": "OpenAPI: API sənədləşdirməsi", "path": "/learn/faza-5/modul-5-1/openapi" },
-        { "title": "GraphQL: hansı problemi həll edir", "path": "/learn/faza-5/modul-5-1/graphql" }
+        {
+          "title": "Sorğunun tam həyatı",
+          "path": "/learn/faza-5/modul-5-1/request-heyyati"
+        },
+        {
+          "title": "REST API dizaynı",
+          "path": "/learn/faza-5/modul-5-1/rest-api"
+        },
+        {
+          "title": "Səhifələmə, filtirləmə, sıralama",
+          "path": "/learn/faza-5/modul-5-1/pagination"
+        },
+        {
+          "title": "API versiyalaşdırma və köhnəlmə",
+          "path": "/learn/faza-5/modul-5-1/api-versioning"
+        },
+        {
+          "title": "İdempotentlik — ödənişlərdə kritik",
+          "path": "/learn/faza-5/modul-5-1/idempotency"
+        },
+        {
+          "title": "ID yaratma: avtomatik artım, UUID, Snowflake",
+          "path": "/learn/faza-5/modul-5-1/id-generation"
+        },
+        {
+          "title": "OpenAPI: API sənədləşdirməsi",
+          "path": "/learn/faza-5/modul-5-1/openapi"
+        },
+        {
+          "title": "GraphQL: hansı problemi həll edir",
+          "path": "/learn/faza-5/modul-5-1/graphql"
+        }
       ]
     },
     {
       "title": "Modul 5.2 — Autentifikasiya",
       "routes": [
-        { "title": "AuthN vs AuthZ", "path": "/learn/faza-5/modul-5-2/authn-authz" },
-        { "title": "Sessiyaya əsaslanan autentifikasiya", "path": "/learn/faza-5/modul-5-2/session-auth" },
-        { "title": "JWT: struktur və kompromislər", "path": "/learn/faza-5/modul-5-2/jwt" },
-        { "title": "OAuth 2.0: Google ilə daxil olmaq", "path": "/learn/faza-5/modul-5-2/oauth2" },
-        { "title": "Keçid açarları və WebAuthn", "path": "/learn/faza-5/modul-5-2/passkeys-webauthn" },
-        { "title": "RBAC, API açarları", "path": "/learn/faza-5/modul-5-2/rbac" }
+        {
+          "title": "AuthN vs AuthZ",
+          "path": "/learn/faza-5/modul-5-2/authn-authz"
+        },
+        {
+          "title": "Sessiyaya əsaslanan autentifikasiya",
+          "path": "/learn/faza-5/modul-5-2/session-auth"
+        },
+        {
+          "title": "JWT: struktur və kompromislər",
+          "path": "/learn/faza-5/modul-5-2/jwt"
+        },
+        {
+          "title": "OAuth 2.0: Google ilə daxil olmaq",
+          "path": "/learn/faza-5/modul-5-2/oauth2"
+        },
+        {
+          "title": "Keçid açarları və WebAuthn",
+          "path": "/learn/faza-5/modul-5-2/passkeys-webauthn"
+        },
+        {
+          "title": "RBAC, API açarları",
+          "path": "/learn/faza-5/modul-5-2/rbac"
+        }
       ]
     },
     {
       "title": "Modul 5.3 — Backend İnfrastrukturu",
       "routes": [
-        { "title": "Əks proxy və Nginx", "path": "/learn/faza-5/modul-5-3/nginx" },
-        { "title": "Yük balanslaşdırıcı: L4 vs L7", "path": "/learn/faza-5/modul-5-3/load-balancer" },
-        { "title": "API Şlüzu", "path": "/learn/faza-5/modul-5-3/api-gateway" },
-        { "title": "Sürət məhdudlaşdırması: nişan kova", "path": "/learn/faza-5/modul-5-3/rate-limiting" },
-        { "title": "Sağlamlıq yoxlaması, zərif dayanma", "path": "/learn/faza-5/modul-5-3/health-check" }
+        {
+          "title": "Əks proxy və Nginx",
+          "path": "/learn/faza-5/modul-5-3/nginx"
+        },
+        {
+          "title": "Yük balanslaşdırıcı: L4 vs L7",
+          "path": "/learn/faza-5/modul-5-3/load-balancer"
+        },
+        {
+          "title": "API Şlüzu",
+          "path": "/learn/faza-5/modul-5-3/api-gateway"
+        },
+        {
+          "title": "Sürət məhdudlaşdırması: nişan kova",
+          "path": "/learn/faza-5/modul-5-3/rate-limiting"
+        },
+        {
+          "title": "Sağlamlıq yoxlaması, zərif dayanma",
+          "path": "/learn/faza-5/modul-5-3/health-check"
+        }
       ]
     },
     {
       "title": "Modul 5.4 — Asinxron İş",
       "routes": [
-        { "title": "Arxa plan işi, tapşırıq növbəsi, işçi", "path": "/learn/faza-5/modul-5-4/task-queue" },
-        { "title": "Paylanmış sistemlərdə planlaşdırılmış işlər", "path": "/learn/faza-5/modul-5-4/scheduled-jobs" },
-        { "title": "Webhook: sistemlər bir-birini necə çağırır", "path": "/learn/faza-5/modul-5-4/webhook" },
-        { "title": "Uzunmüddətli əməliyyatlar: asinxron API nümunəsi", "path": "/learn/faza-5/modul-5-4/long-running-operations" },
-        { "title": "Fayl yükləmə və obyekt yaddaşı axını", "path": "/learn/faza-5/modul-5-4/file-uploads" },
-        { "title": "Serializasiya: JSON vs Protobuf", "path": "/learn/faza-5/modul-5-4/serialization" }
+        {
+          "title": "Arxa plan işi, tapşırıq növbəsi, işçi",
+          "path": "/learn/faza-5/modul-5-4/task-queue"
+        },
+        {
+          "title": "Paylanmış sistemlərdə planlaşdırılmış işlər",
+          "path": "/learn/faza-5/modul-5-4/scheduled-jobs"
+        },
+        {
+          "title": "Webhook: sistemlər bir-birini necə çağırır",
+          "path": "/learn/faza-5/modul-5-4/webhook"
+        },
+        {
+          "title": "Uzunmüddətli əməliyyatlar: asinxron API nümunəsi",
+          "path": "/learn/faza-5/modul-5-4/long-running-operations"
+        },
+        {
+          "title": "Fayl yükləmə və obyekt yaddaşı axını",
+          "path": "/learn/faza-5/modul-5-4/file-uploads"
+        },
+        {
+          "title": "Serializasiya: JSON vs Protobuf",
+          "path": "/learn/faza-5/modul-5-4/serialization"
+        }
       ]
     },
     {
       "title": "Modul 5.5 — İstehsala Hazır Backend",
       "routes": [
-        { "title": "On İki Amil Tətbiqi", "path": "/learn/faza-5/modul-5-5/twelve-factor" },
-        { "title": "Konfiqurasiya və mühitlər", "path": "/learn/faza-5/modul-5-5/config-environments" },
-        { "title": "Strukturlaşdırılmış jurnallama və xəta izləmə", "path": "/learn/faza-5/modul-5-5/logging-error-tracking" },
-        { "title": "Çox kiracılıq modelləri", "path": "/learn/faza-5/modul-5-5/multi-tenancy" }
+        {
+          "title": "On İki Amil Tətbiqi",
+          "path": "/learn/faza-5/modul-5-5/twelve-factor"
+        },
+        {
+          "title": "Konfiqurasiya və mühitlər",
+          "path": "/learn/faza-5/modul-5-5/config-environments"
+        },
+        {
+          "title": "Strukturlaşdırılmış jurnallama və xəta izləmə",
+          "path": "/learn/faza-5/modul-5-5/logging-error-tracking"
+        },
+        {
+          "title": "Çox kiracılıq modelləri",
+          "path": "/learn/faza-5/modul-5-5/multi-tenancy"
+        }
       ]
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "FAZA 6 — Frontendin Daxili İşi"
+      "sectionHeader": "FAZA 6 — Frontendin Daxili İşi",
+      "description": "Browser, event loop, rendering, CSR/SSR, CORS, XSS."
     },
     {
       "title": "Modul 6.1 — Brauzer Necə İşləyir",
       "routes": [
-        { "title": "URL → Enter → Ekran: tam yolculuq", "path": "/learn/faza-6/modul-6-1/url-enter-ekran" },
-        { "title": "HTML → DOM, CSS → CSSOM", "path": "/learn/faza-6/modul-6-1/dom-cssom" },
-        { "title": "Kritik Render Yolu", "path": "/learn/faza-6/modul-6-1/critical-rendering-path" },
-        { "title": "Reflow vs repaint", "path": "/learn/faza-6/modul-6-1/reflow-repaint" },
-        { "title": "JavaScript mühərriki: V8, JIT", "path": "/learn/faza-6/modul-6-1/js-engine" }
+        {
+          "title": "URL → Enter → Ekran: tam yolculuq",
+          "path": "/learn/faza-6/modul-6-1/url-enter-ekran"
+        },
+        {
+          "title": "HTML → DOM, CSS → CSSOM",
+          "path": "/learn/faza-6/modul-6-1/dom-cssom"
+        },
+        {
+          "title": "Kritik Render Yolu",
+          "path": "/learn/faza-6/modul-6-1/critical-rendering-path"
+        },
+        {
+          "title": "Reflow vs repaint",
+          "path": "/learn/faza-6/modul-6-1/reflow-repaint"
+        },
+        {
+          "title": "JavaScript mühərriki: V8, JIT",
+          "path": "/learn/faza-6/modul-6-1/js-engine"
+        }
       ]
     },
     {
       "title": "Modul 6.2 — Hadisə Dövrü",
       "routes": [
-        { "title": "Tək thread, amma asinxron — necə?", "path": "/learn/faza-6/modul-6-2/event-loop" },
-        { "title": "Call stack, task queue, microtask", "path": "/learn/faza-6/modul-6-2/call-stack" },
-        { "title": "Donmuş UI nə deməkdir", "path": "/learn/faza-6/modul-6-2/ui-dondu" },
-        { "title": "Web Workers", "path": "/learn/faza-6/modul-6-2/web-workers" }
+        {
+          "title": "Tək thread, amma asinxron — necə?",
+          "path": "/learn/faza-6/modul-6-2/event-loop"
+        },
+        {
+          "title": "Call stack, task queue, microtask",
+          "path": "/learn/faza-6/modul-6-2/call-stack"
+        },
+        {
+          "title": "Donmuş UI nə deməkdir",
+          "path": "/learn/faza-6/modul-6-2/ui-dondu"
+        },
+        {
+          "title": "Web Workers",
+          "path": "/learn/faza-6/modul-6-2/web-workers"
+        }
       ]
     },
     {
       "title": "Modul 6.3 — Yükləmə Performansı",
       "routes": [
-        { "title": "Render bloklama, async/defer", "path": "/learn/faza-6/modul-6-3/render-blocking" },
-        { "title": "Tənbəl yükləmə, kod bölmə", "path": "/learn/faza-6/modul-6-3/lazy-loading" },
-        { "title": "Core Web Vitals: LCP, CLS, INP", "path": "/learn/faza-6/modul-6-3/web-vitals" },
-        { "title": "Şəkil optimallaşdırması", "path": "/learn/faza-6/modul-6-3/image-optimization" }
+        {
+          "title": "Render bloklama, async/defer",
+          "path": "/learn/faza-6/modul-6-3/render-blocking"
+        },
+        {
+          "title": "Tənbəl yükləmə, kod bölmə",
+          "path": "/learn/faza-6/modul-6-3/lazy-loading"
+        },
+        {
+          "title": "Core Web Vitals: LCP, CLS, INP",
+          "path": "/learn/faza-6/modul-6-3/web-vitals"
+        },
+        {
+          "title": "Şəkil optimallaşdırması",
+          "path": "/learn/faza-6/modul-6-3/image-optimization"
+        }
       ]
     },
     {
       "title": "Modul 6.4 — Render Strategiyaları",
       "routes": [
-        { "title": "CSR vs SSR vs SSG vs ISR", "path": "/learn/faza-6/modul-6-4/rendering-strategiyalar" },
-        { "title": "Hidratasiya nədir", "path": "/learn/faza-6/modul-6-4/hydration" },
-        { "title": "Islands arxitekturası, streaming SSR", "path": "/learn/faza-6/modul-6-4/islands-streaming" },
-        { "title": "SEO ilə əlaqəsi", "path": "/learn/faza-6/modul-6-4/seo" }
+        {
+          "title": "CSR vs SSR vs SSG vs ISR",
+          "path": "/learn/faza-6/modul-6-4/rendering-strategiyalar"
+        },
+        {
+          "title": "Hidratasiya nədir",
+          "path": "/learn/faza-6/modul-6-4/hydration"
+        },
+        {
+          "title": "Islands arxitekturası, streaming SSR",
+          "path": "/learn/faza-6/modul-6-4/islands-streaming"
+        },
+        {
+          "title": "SEO ilə əlaqəsi",
+          "path": "/learn/faza-6/modul-6-4/seo"
+        }
       ]
     },
     {
       "title": "Modul 6.5 — Brauzer Məlumatları və Təhlükəsizlik",
       "routes": [
-        { "title": "Cookie vs localStorage vs IndexedDB", "path": "/learn/faza-6/modul-6-5/cookie-storage" },
-        { "title": "Eyni Mənşə Siyasəti", "path": "/learn/faza-6/modul-6-5/same-origin-policy" },
-        { "title": "CORS: preflight nədir", "path": "/learn/faza-6/modul-6-5/cors" },
-        { "title": "Brauzer müdafiəsi: CSP və SameSite", "path": "/learn/faza-6/modul-6-5/csp-samesite" }
+        {
+          "title": "Cookie vs localStorage vs IndexedDB",
+          "path": "/learn/faza-6/modul-6-5/cookie-storage"
+        },
+        {
+          "title": "Eyni Mənşə Siyasəti",
+          "path": "/learn/faza-6/modul-6-5/same-origin-policy"
+        },
+        {
+          "title": "CORS: preflight nədir",
+          "path": "/learn/faza-6/modul-6-5/cors"
+        },
+        {
+          "title": "Brauzer müdafiəsi: CSP və SameSite",
+          "path": "/learn/faza-6/modul-6-5/csp-samesite"
+        }
       ]
     },
     {
       "title": "Modul 6.6 — Əsasların Ötəsində",
       "routes": [
-        { "title": "Xidmət işçiləri və oflayn (PWA)", "path": "/learn/faza-6/modul-6-6/service-workers-pwa" },
-        { "title": "Əlçatanlıq: hamı üçün mühəndislik", "path": "/learn/faza-6/modul-6-6/accessibility" },
-        { "title": "i18n və l10n", "path": "/learn/faza-6/modul-6-6/i18n" },
-        { "title": "WebAssembly: nədir və niyə", "path": "/learn/faza-6/modul-6-6/webassembly" }
+        {
+          "title": "Xidmət işçiləri və oflayn (PWA)",
+          "path": "/learn/faza-6/modul-6-6/service-workers-pwa"
+        },
+        {
+          "title": "Əlçatanlıq: hamı üçün mühəndislik",
+          "path": "/learn/faza-6/modul-6-6/accessibility"
+        },
+        {
+          "title": "i18n və l10n",
+          "path": "/learn/faza-6/modul-6-6/i18n"
+        },
+        {
+          "title": "WebAssembly: nədir və niyə",
+          "path": "/learn/faza-6/modul-6-6/webassembly"
+        }
       ]
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "FAZA 7 — Paylanmış Sistemlər"
+      "sectionHeader": "FAZA 7 — Paylanmış Sistemlər",
+      "description": "Mikroservislər, Kafka, event-driven, circuit breaker, Raft."
     },
     {
       "title": "Modul 7.1 — Niyə Paylanmış",
       "routes": [
-        { "title": "Şaquli vs üfüqi miqyaslandırma", "path": "/learn/faza-7/modul-7-1/scaling" },
-        { "title": "Vəziyyətsiz xidmət prinsipi", "path": "/learn/faza-7/modul-7-1/stateless" },
-        { "title": "Paylanmış hesablamanın 8 yanlış fərziyyəsi", "path": "/learn/faza-7/modul-7-1/8-yanlis-ferziyye" },
-        { "title": "Gecitmə ədədləri", "path": "/learn/faza-7/modul-7-1/latency" }
+        {
+          "title": "Şaquli vs üfüqi miqyaslandırma",
+          "path": "/learn/faza-7/modul-7-1/scaling"
+        },
+        {
+          "title": "Vəziyyətsiz xidmət prinsipi",
+          "path": "/learn/faza-7/modul-7-1/stateless"
+        },
+        {
+          "title": "Paylanmış hesablamanın 8 yanlış fərziyyəsi",
+          "path": "/learn/faza-7/modul-7-1/8-yanlis-ferziyye"
+        },
+        {
+          "title": "Gecitmə ədədləri",
+          "path": "/learn/faza-7/modul-7-1/latency"
+        }
       ]
     },
     {
       "title": "Modul 7.2 — Mikroservislər",
       "routes": [
-        { "title": "Monolit vs mikroservislər", "path": "/learn/faza-7/modul-7-2/monolith-microservices" },
-        { "title": "Service discovery", "path": "/learn/faza-7/modul-7-2/service-discovery" },
-        { "title": "Sinxron vs asinxron ünsiyyət", "path": "/learn/faza-7/modul-7-2/sync-async" },
-        { "title": "Paylanmış monolit anti-nümunəsi", "path": "/learn/faza-7/modul-7-2/distributed-monolith" }
+        {
+          "title": "Monolit vs mikroservislər",
+          "path": "/learn/faza-7/modul-7-2/monolith-microservices"
+        },
+        {
+          "title": "Service discovery",
+          "path": "/learn/faza-7/modul-7-2/service-discovery"
+        },
+        {
+          "title": "Sinxron vs asinxron ünsiyyət",
+          "path": "/learn/faza-7/modul-7-2/sync-async"
+        },
+        {
+          "title": "Paylanmış monolit anti-nümunəsi",
+          "path": "/learn/faza-7/modul-7-2/distributed-monolith"
+        }
       ]
     },
     {
       "title": "Modul 7.3 — Mesaj Növbəsi və Pub/Sub",
       "routes": [
-        { "title": "Növbə: istehsalçı, istehlakçı, ayrışma", "path": "/learn/faza-7/modul-7-3/queue" },
-        { "title": "Pub/Sub nümunəsi: mövzu, abunəçi", "path": "/learn/faza-7/modul-7-3/pubsub" },
-        { "title": "Kafka: jurnal, bölmə, ofset", "path": "/learn/faza-7/modul-7-3/kafka" },
-        { "title": "Çatdırma zəmanətləri", "path": "/learn/faza-7/modul-7-3/delivery-zemaneti" },
-        { "title": "Sxem inkişafı: irəli/geri uyğunluq", "path": "/learn/faza-7/modul-7-3/schema-evolution" },
-        { "title": "Outbox nümunəsi", "path": "/learn/faza-7/modul-7-3/outbox-pattern" },
-        { "title": "Ölü məktub növbəsi, əks təzyiq", "path": "/learn/faza-7/modul-7-3/dlq-backpressure" }
+        {
+          "title": "Növbə: istehsalçı, istehlakçı, ayrışma",
+          "path": "/learn/faza-7/modul-7-3/queue"
+        },
+        {
+          "title": "Pub/Sub nümunəsi: mövzu, abunəçi",
+          "path": "/learn/faza-7/modul-7-3/pubsub"
+        },
+        {
+          "title": "Kafka: jurnal, bölmə, ofset",
+          "path": "/learn/faza-7/modul-7-3/kafka"
+        },
+        {
+          "title": "Çatdırma zəmanətləri",
+          "path": "/learn/faza-7/modul-7-3/delivery-zemaneti"
+        },
+        {
+          "title": "Sxem inkişafı: irəli/geri uyğunluq",
+          "path": "/learn/faza-7/modul-7-3/schema-evolution"
+        },
+        {
+          "title": "Outbox nümunəsi",
+          "path": "/learn/faza-7/modul-7-3/outbox-pattern"
+        },
+        {
+          "title": "Ölü məktub növbəsi, əks təzyiq",
+          "path": "/learn/faza-7/modul-7-3/dlq-backpressure"
+        }
       ]
     },
     {
       "title": "Modul 7.4 — Hadisəyə Əsaslanan Arxitektura",
       "routes": [
-        { "title": "Hadisə nədir, əmr nədir", "path": "/learn/faza-7/modul-7-4/event-command" },
-        { "title": "Hadisə mənbəyi konsepti", "path": "/learn/faza-7/modul-7-4/event-sourcing" },
-        { "title": "CQRS: oxuma və yazmanı ayırmaq", "path": "/learn/faza-7/modul-7-4/cqrs" },
-        { "title": "Saga nümunəsi", "path": "/learn/faza-7/modul-7-4/saga" }
+        {
+          "title": "Hadisə nədir, əmr nədir",
+          "path": "/learn/faza-7/modul-7-4/event-command"
+        },
+        {
+          "title": "Hadisə mənbəyi konsepti",
+          "path": "/learn/faza-7/modul-7-4/event-sourcing"
+        },
+        {
+          "title": "CQRS: oxuma və yazmanı ayırmaq",
+          "path": "/learn/faza-7/modul-7-4/cqrs"
+        },
+        {
+          "title": "Saga nümunəsi",
+          "path": "/learn/faza-7/modul-7-4/saga"
+        }
       ]
     },
     {
       "title": "Modul 7.5 — Dayanıqlılıq",
       "routes": [
-        { "title": "Vaxt aşımı, yenidən cəhd, eksponensial gecikmə", "path": "/learn/faza-7/modul-7-5/timeout-retry" },
-        { "title": "Dövrə kəsici nümunəsi", "path": "/learn/faza-7/modul-7-5/circuit-breaker" },
-        { "title": "Bölmə divarı, zərif deqradasiya", "path": "/learn/faza-7/modul-7-5/bulkhead" },
-        { "title": "Kaskad uğursuzluq", "path": "/learn/faza-7/modul-7-5/cascading-failure" }
+        {
+          "title": "Vaxt aşımı, yenidən cəhd, eksponensial gecikmə",
+          "path": "/learn/faza-7/modul-7-5/timeout-retry"
+        },
+        {
+          "title": "Dövrə kəsici nümunəsi",
+          "path": "/learn/faza-7/modul-7-5/circuit-breaker"
+        },
+        {
+          "title": "Bölmə divarı, zərif deqradasiya",
+          "path": "/learn/faza-7/modul-7-5/bulkhead"
+        },
+        {
+          "title": "Kaskad uğursuzluq",
+          "path": "/learn/faza-7/modul-7-5/cascading-failure"
+        }
       ]
     },
     {
       "title": "Modul 7.6 — Koordinasiya",
       "routes": [
-        { "title": "Məntiqi saat, vektor saatı", "path": "/learn/faza-7/modul-7-6/logical-clock" },
-        { "title": "Konsensus: Raft arxasındakı ideya", "path": "/learn/faza-7/modul-7-6/raft" },
-        { "title": "Kvorum və beyin parçalanması", "path": "/learn/faza-7/modul-7-6/quorum-split-brain" },
-        { "title": "Paylanmış kilit", "path": "/learn/faza-7/modul-7-6/distributed-lock" },
-        { "title": "Consistent hashing", "path": "/learn/faza-7/modul-7-6/consistent-hashing" }
+        {
+          "title": "Məntiqi saat, vektor saatı",
+          "path": "/learn/faza-7/modul-7-6/logical-clock"
+        },
+        {
+          "title": "Konsensus: Raft arxasındakı ideya",
+          "path": "/learn/faza-7/modul-7-6/raft"
+        },
+        {
+          "title": "Kvorum və beyin parçalanması",
+          "path": "/learn/faza-7/modul-7-6/quorum-split-brain"
+        },
+        {
+          "title": "Paylanmış kilit",
+          "path": "/learn/faza-7/modul-7-6/distributed-lock"
+        },
+        {
+          "title": "Consistent hashing",
+          "path": "/learn/faza-7/modul-7-6/consistent-hashing"
+        }
       ]
     },
     {
       "title": "Modul 7.7 — Miqyasda Məlumat",
       "routes": [
-        { "title": "Toplu emal: MapReduce ideyası", "path": "/learn/faza-7/modul-7-7/batch-mapreduce" },
-        { "title": "Axın emalı konsepti", "path": "/learn/faza-7/modul-7-7/stream-processing" },
-        { "title": "ETL, məlumat anbarı, məlumat gölü", "path": "/learn/faza-7/modul-7-7/etl-warehouse-lake" },
-        { "title": "Çox region: coğrafi replikasiya və məlumat qalıcılığı", "path": "/learn/faza-7/modul-7-7/multi-region" }
+        {
+          "title": "Toplu emal: MapReduce ideyası",
+          "path": "/learn/faza-7/modul-7-7/batch-mapreduce"
+        },
+        {
+          "title": "Axın emalı konsepti",
+          "path": "/learn/faza-7/modul-7-7/stream-processing"
+        },
+        {
+          "title": "ETL, məlumat anbarı, məlumat gölü",
+          "path": "/learn/faza-7/modul-7-7/etl-warehouse-lake"
+        },
+        {
+          "title": "Çox region: coğrafi replikasiya və məlumat qalıcılığı",
+          "path": "/learn/faza-7/modul-7-7/multi-region"
+        }
       ]
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "FAZA 8 — DevOps və İnfrastruktur"
+      "sectionHeader": "FAZA 8 — DevOps və İnfrastruktur",
+      "description": "Docker, Kubernetes, CI/CD, cloud, observability, IaC."
     },
     {
       "title": "Modul 8.1 — Yerləşdirmənin Təkamülü",
       "routes": [
-        { "title": "FTP-dən Kubernetes-ə: tarixi yol", "path": "/learn/faza-8/modul-8-1/deploy-tekamul" },
-        { "title": "Bare metal → VM → konteyner → serversiz", "path": "/learn/faza-8/modul-8-1/infra-evolyutsiya" },
-        { "title": "Virtualizasiya: hipervizor", "path": "/learn/faza-8/modul-8-1/virtualizasiya" }
+        {
+          "title": "FTP-dən Kubernetes-ə: tarixi yol",
+          "path": "/learn/faza-8/modul-8-1/deploy-tekamul"
+        },
+        {
+          "title": "Bare metal → VM → konteyner → serversiz",
+          "path": "/learn/faza-8/modul-8-1/infra-evolyutsiya"
+        },
+        {
+          "title": "Virtualizasiya: hipervizor",
+          "path": "/learn/faza-8/modul-8-1/virtualizasiya"
+        }
       ]
     },
     {
       "title": "Modul 8.2 — Docker",
       "routes": [
-        { "title": "Konteyner nədir: ad fəzası + cgroup", "path": "/learn/faza-8/modul-8-2/container" },
-        { "title": "Şəkil, qat, reyestr", "path": "/learn/faza-8/modul-8-2/image-layer" },
-        { "title": "Dockerfile, çoxmərhələli quruluş", "path": "/learn/faza-8/modul-8-2/dockerfile" },
-        { "title": "Həcm və şəbəkə", "path": "/learn/faza-8/modul-8-2/volume-network" }
+        {
+          "title": "Konteyner nədir: ad fəzası + cgroup",
+          "path": "/learn/faza-8/modul-8-2/container"
+        },
+        {
+          "title": "Şəkil, qat, reyestr",
+          "path": "/learn/faza-8/modul-8-2/image-layer"
+        },
+        {
+          "title": "Dockerfile, çoxmərhələli quruluş",
+          "path": "/learn/faza-8/modul-8-2/dockerfile"
+        },
+        {
+          "title": "Həcm və şəbəkə",
+          "path": "/learn/faza-8/modul-8-2/volume-network"
+        }
       ]
     },
     {
       "title": "Modul 8.3 — Kubernetes",
       "routes": [
-        { "title": "Orkestrasiya niyə lazımdır", "path": "/learn/faza-8/modul-8-3/orchestration" },
-        { "title": "Pod, Deployment, Service, Ingress", "path": "/learn/faza-8/modul-8-3/k8s-objeler" },
-        { "title": "İstənilən vəziyyət və uzlaşdırma dövrü", "path": "/learn/faza-8/modul-8-3/desired-state" },
-        { "title": "Avtomatik miqyaslandırma: HPA", "path": "/learn/faza-8/modul-8-3/autoscaling" },
-        { "title": "Yuvarlanan yeniləmə", "path": "/learn/faza-8/modul-8-3/rolling-update" },
-        { "title": "Servis şəbəkəsi: araba nümunəsi", "path": "/learn/faza-8/modul-8-3/service-mesh" }
+        {
+          "title": "Orkestrasiya niyə lazımdır",
+          "path": "/learn/faza-8/modul-8-3/orchestration"
+        },
+        {
+          "title": "Pod, Deployment, Service, Ingress",
+          "path": "/learn/faza-8/modul-8-3/k8s-objeler"
+        },
+        {
+          "title": "İstənilən vəziyyət və uzlaşdırma dövrü",
+          "path": "/learn/faza-8/modul-8-3/desired-state"
+        },
+        {
+          "title": "Avtomatik miqyaslandırma: HPA",
+          "path": "/learn/faza-8/modul-8-3/autoscaling"
+        },
+        {
+          "title": "Yuvarlanan yeniləmə",
+          "path": "/learn/faza-8/modul-8-3/rolling-update"
+        },
+        {
+          "title": "Servis şəbəkəsi: araba nümunəsi",
+          "path": "/learn/faza-8/modul-8-3/service-mesh"
+        }
       ]
     },
     {
       "title": "Modul 8.4 — CI/CD",
       "routes": [
-        { "title": "Davamlı İnteqrasiya", "path": "/learn/faza-8/modul-8-4/ci" },
-        { "title": "Pipeline: build → test → deploy", "path": "/learn/faza-8/modul-8-4/pipeline" },
-        { "title": "Semver və artifact versiyalaşdırma", "path": "/learn/faza-8/modul-8-4/semver" },
-        { "title": "Mavi-yaşıl, kanarya, yuvarlanan yerləşdirmə", "path": "/learn/faza-8/modul-8-4/deploy-strategiyalar" },
-        { "title": "Xüsusiyyət bayraqları", "path": "/learn/faza-8/modul-8-4/feature-flags" }
+        {
+          "title": "Davamlı İnteqrasiya",
+          "path": "/learn/faza-8/modul-8-4/ci"
+        },
+        {
+          "title": "Pipeline: build → test → deploy",
+          "path": "/learn/faza-8/modul-8-4/pipeline"
+        },
+        {
+          "title": "Semver və artifact versiyalaşdırma",
+          "path": "/learn/faza-8/modul-8-4/semver"
+        },
+        {
+          "title": "Mavi-yaşıl, kanarya, yuvarlanan yerləşdirmə",
+          "path": "/learn/faza-8/modul-8-4/deploy-strategiyalar"
+        },
+        {
+          "title": "Xüsusiyyət bayraqları",
+          "path": "/learn/faza-8/modul-8-4/feature-flags"
+        }
       ]
     },
     {
       "title": "Modul 8.5 — Bulud",
       "routes": [
-        { "title": "IaaS / PaaS / SaaS", "path": "/learn/faza-8/modul-8-5/iaas-paas-saas" },
-        { "title": "Region, Mövcudluq Zonası", "path": "/learn/faza-8/modul-8-5/region-az" },
-        { "title": "VPC: bulud şəbəkəsi", "path": "/learn/faza-8/modul-8-5/vpc" },
-        { "title": "IAM: buludda kimlik", "path": "/learn/faza-8/modul-8-5/iam" },
-        { "title": "Obyekt yaddaşı (S3 modeli)", "path": "/learn/faza-8/modul-8-5/object-storage" },
-        { "title": "Serversiz/FaaS: Lambda", "path": "/learn/faza-8/modul-8-5/serverless" },
-        { "title": "Kənar hesablama: kənar nöqtədə kod icra", "path": "/learn/faza-8/modul-8-5/edge-computing" },
-        { "title": "Bulud xərcləri: FinOps əsasları", "path": "/learn/faza-8/modul-8-5/finops" }
+        {
+          "title": "IaaS / PaaS / SaaS",
+          "path": "/learn/faza-8/modul-8-5/iaas-paas-saas"
+        },
+        {
+          "title": "Region, Mövcudluq Zonası",
+          "path": "/learn/faza-8/modul-8-5/region-az"
+        },
+        {
+          "title": "VPC: bulud şəbəkəsi",
+          "path": "/learn/faza-8/modul-8-5/vpc"
+        },
+        {
+          "title": "IAM: buludda kimlik",
+          "path": "/learn/faza-8/modul-8-5/iam"
+        },
+        {
+          "title": "Obyekt yaddaşı (S3 modeli)",
+          "path": "/learn/faza-8/modul-8-5/object-storage"
+        },
+        {
+          "title": "Serversiz/FaaS: Lambda",
+          "path": "/learn/faza-8/modul-8-5/serverless"
+        },
+        {
+          "title": "Kənar hesablama: kənar nöqtədə kod icra",
+          "path": "/learn/faza-8/modul-8-5/edge-computing"
+        },
+        {
+          "title": "Bulud xərcləri: FinOps əsasları",
+          "path": "/learn/faza-8/modul-8-5/finops"
+        }
       ]
     },
     {
       "title": "Modul 8.6 — Müşahidəlik",
       "routes": [
-        { "title": "Jurnallar, metrikalar, izlər: 3 sütun", "path": "/learn/faza-8/modul-8-6/observability-sutunlar" },
-        { "title": "Prometheus: çəkməyə əsaslanan metrikalar", "path": "/learn/faza-8/modul-8-6/prometheus" },
-        { "title": "Paylanmış izləmə", "path": "/learn/faza-8/modul-8-6/distributed-tracing" },
-        { "title": "SLI / SLO / SLA", "path": "/learn/faza-8/modul-8-6/sli-slo-sla" },
-        { "title": "Xəbərdarlıq, növbə, postmortem", "path": "/learn/faza-8/modul-8-6/incident-response" },
-        { "title": "Xaos mühəndisliyi", "path": "/learn/faza-8/modul-8-6/chaos-engineering" }
+        {
+          "title": "Jurnallar, metrikalar, izlər: 3 sütun",
+          "path": "/learn/faza-8/modul-8-6/observability-sutunlar"
+        },
+        {
+          "title": "Prometheus: çəkməyə əsaslanan metrikalar",
+          "path": "/learn/faza-8/modul-8-6/prometheus"
+        },
+        {
+          "title": "Paylanmış izləmə",
+          "path": "/learn/faza-8/modul-8-6/distributed-tracing"
+        },
+        {
+          "title": "SLI / SLO / SLA",
+          "path": "/learn/faza-8/modul-8-6/sli-slo-sla"
+        },
+        {
+          "title": "Xəbərdarlıq, növbə, postmortem",
+          "path": "/learn/faza-8/modul-8-6/incident-response"
+        },
+        {
+          "title": "Xaos mühəndisliyi",
+          "path": "/learn/faza-8/modul-8-6/chaos-engineering"
+        }
       ]
     },
     {
       "title": "Modul 8.7 — IaC və Git",
       "routes": [
-        { "title": "Kod Kimi İnfrastruktur: Terraform", "path": "/learn/faza-8/modul-8-7/terraform" },
-        { "title": "Git daxilindən: commit, şaxə, birləşdirmə vs rebaz", "path": "/learn/faza-8/modul-8-7/git-daxilden" },
-        { "title": "GitOps konsepti", "path": "/learn/faza-8/modul-8-7/gitops" },
-        { "title": "Platform mühəndisliyi: IDP ideyası", "path": "/learn/faza-8/modul-8-7/platform-engineering" }
+        {
+          "title": "Kod Kimi İnfrastruktur: Terraform",
+          "path": "/learn/faza-8/modul-8-7/terraform"
+        },
+        {
+          "title": "Git daxilindən: commit, şaxə, birləşdirmə vs rebaz",
+          "path": "/learn/faza-8/modul-8-7/git-daxilden"
+        },
+        {
+          "title": "GitOps konsepti",
+          "path": "/learn/faza-8/modul-8-7/gitops"
+        },
+        {
+          "title": "Platform mühəndisliyi: IDP ideyası",
+          "path": "/learn/faza-8/modul-8-7/platform-engineering"
+        }
       ]
     },
     {
       "title": "Modul 8.8 — Performans Mühəndisliyi",
       "routes": [
-        { "title": "Profilləmə və alov qrafları", "path": "/learn/faza-8/modul-8-8/profiling" },
-        { "title": "Yük testi", "path": "/learn/faza-8/modul-8-8/load-testing" },
-        { "title": "Tutum planlaması", "path": "/learn/faza-8/modul-8-8/capacity-planning" }
+        {
+          "title": "Profilləmə və alov qrafları",
+          "path": "/learn/faza-8/modul-8-8/profiling"
+        },
+        {
+          "title": "Yük testi",
+          "path": "/learn/faza-8/modul-8-8/load-testing"
+        },
+        {
+          "title": "Tutum planlaması",
+          "path": "/learn/faza-8/modul-8-8/capacity-planning"
+        }
       ]
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "FAZA 9 — Təhlükəsizlik"
+      "sectionHeader": "FAZA 9 — Təhlükəsizlik",
+      "description": "Kriptoqrafiya, OWASP, firewall, zero trust, secrets management."
     },
     {
       "title": "Modul 9.1 — Kriptoqrafiyanın Əsasları",
       "routes": [
-        { "title": "Hashing: SHA-256, şifrə saxlama", "path": "/learn/faza-9/modul-9-1/hashing" },
-        { "title": "Simmetrik şifrələmə (AES)", "path": "/learn/faza-9/modul-9-1/simetrik-sifreleme" },
-        { "title": "Asimmetrik şifrələmə: açıq/gizli açar", "path": "/learn/faza-9/modul-9-1/asimetrik-sifreleme" },
-        { "title": "Rəqəmsal imza", "path": "/learn/faza-9/modul-9-1/digital-signature" },
-        { "title": "Diffie-Hellman: açıq kanalda gizli razılaşma", "path": "/learn/faza-9/modul-9-1/diffie-hellman" },
-        { "title": "Ötürmədə vs istirahətdə şifrələmə; mTLS", "path": "/learn/faza-9/modul-9-1/transit-at-rest-mtls" }
+        {
+          "title": "Hashing: SHA-256, şifrə saxlama",
+          "path": "/learn/faza-9/modul-9-1/hashing"
+        },
+        {
+          "title": "Simmetrik şifrələmə (AES)",
+          "path": "/learn/faza-9/modul-9-1/simetrik-sifreleme"
+        },
+        {
+          "title": "Asimmetrik şifrələmə: açıq/gizli açar",
+          "path": "/learn/faza-9/modul-9-1/asimetrik-sifreleme"
+        },
+        {
+          "title": "Rəqəmsal imza",
+          "path": "/learn/faza-9/modul-9-1/digital-signature"
+        },
+        {
+          "title": "Diffie-Hellman: açıq kanalda gizli razılaşma",
+          "path": "/learn/faza-9/modul-9-1/diffie-hellman"
+        },
+        {
+          "title": "Ötürmədə vs istirahətdə şifrələmə; mTLS",
+          "path": "/learn/faza-9/modul-9-1/transit-at-rest-mtls"
+        }
       ]
     },
     {
       "title": "Modul 9.2 — Web Hücumları (OWASP)",
       "routes": [
-        { "title": "SQL İnyeksiyası", "path": "/learn/faza-9/modul-9-2/sql-injection" },
-        { "title": "XSS növləri, CSRF", "path": "/learn/faza-9/modul-9-2/xss-csrf" },
-        { "title": "SSRF, yol keçidi", "path": "/learn/faza-9/modul-9-2/ssrf" },
-        { "title": "Qırıq autentifikasiya, IDOR", "path": "/learn/faza-9/modul-9-2/broken-auth" },
-        { "title": "Auth hücumları: etimadnamə doldurma, sessiya oğurluğu", "path": "/learn/faza-9/modul-9-2/auth-attacks" },
-        { "title": "Təchizat zənciri: npm paket sındırma", "path": "/learn/faza-9/modul-9-2/supply-chain" },
-        { "title": "Memory safety: buffer overflow, use-after-free", "path": "/learn/faza-9/modul-9-2/memory-safety" }
+        {
+          "title": "SQL İnyeksiyası",
+          "path": "/learn/faza-9/modul-9-2/sql-injection"
+        },
+        {
+          "title": "XSS növləri, CSRF",
+          "path": "/learn/faza-9/modul-9-2/xss-csrf"
+        },
+        {
+          "title": "SSRF, yol keçidi",
+          "path": "/learn/faza-9/modul-9-2/ssrf"
+        },
+        {
+          "title": "Qırıq autentifikasiya, IDOR",
+          "path": "/learn/faza-9/modul-9-2/broken-auth"
+        },
+        {
+          "title": "Auth hücumları: etimadnamə doldurma, sessiya oğurluğu",
+          "path": "/learn/faza-9/modul-9-2/auth-attacks"
+        },
+        {
+          "title": "Təchizat zənciri: npm paket sındırma",
+          "path": "/learn/faza-9/modul-9-2/supply-chain"
+        },
+        {
+          "title": "Memory safety: buffer overflow, use-after-free",
+          "path": "/learn/faza-9/modul-9-2/memory-safety"
+        }
       ]
     },
     {
       "title": "Modul 9.3 — İnfrastruktur Təhlükəsizliyi",
       "routes": [
-        { "title": "Təhdid modelləşdirməsi", "path": "/learn/faza-9/modul-9-3/threat-modeling" },
-        { "title": "Firewall və VPN necə işləyir", "path": "/learn/faza-9/modul-9-3/firewall-vpn" },
-        { "title": "DDoS qorunması", "path": "/learn/faza-9/modul-9-3/ddos" },
-        { "title": "Sıfır etibar konsepti", "path": "/learn/faza-9/modul-9-3/zero-trust" },
-        { "title": "Sirr idarəetməsi", "path": "/learn/faza-9/modul-9-3/secrets" },
-        { "title": "Konteyner təhlükəsizliyi və SBOM", "path": "/learn/faza-9/modul-9-3/container-security" },
-        { "title": "Audit jurnallama və uyğunluq əsasları", "path": "/learn/faza-9/modul-9-3/audit-compliance" },
-        { "title": "PII idarəsi: məxfilik mühəndisliyinin əsasları", "path": "/learn/faza-9/modul-9-3/privacy-pii" }
+        {
+          "title": "Təhdid modelləşdirməsi",
+          "path": "/learn/faza-9/modul-9-3/threat-modeling"
+        },
+        {
+          "title": "Firewall və VPN necə işləyir",
+          "path": "/learn/faza-9/modul-9-3/firewall-vpn"
+        },
+        {
+          "title": "DDoS qorunması",
+          "path": "/learn/faza-9/modul-9-3/ddos"
+        },
+        {
+          "title": "Sıfır etibar konsepti",
+          "path": "/learn/faza-9/modul-9-3/zero-trust"
+        },
+        {
+          "title": "Sirr idarəetməsi",
+          "path": "/learn/faza-9/modul-9-3/secrets"
+        },
+        {
+          "title": "Konteyner təhlükəsizliyi və SBOM",
+          "path": "/learn/faza-9/modul-9-3/container-security"
+        },
+        {
+          "title": "Audit jurnallama və uyğunluq əsasları",
+          "path": "/learn/faza-9/modul-9-3/audit-compliance"
+        },
+        {
+          "title": "PII idarəsi: məxfilik mühəndisliyinin əsasları",
+          "path": "/learn/faza-9/modul-9-3/privacy-pii"
+        }
       ]
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "FAZA 10 — AI Mühəndisliyi"
+      "sectionHeader": "FAZA 10 — AI Mühəndisliyi",
+      "description": "ML əsasları, LLM-lər, RAG, vector DB, agent sistemləri."
     },
     {
       "title": "Modul 10.1 — ML-nin Əsasları",
       "routes": [
-        { "title": "Öyrənmə vs çıxarım", "path": "/learn/faza-10/modul-10-1/training-inference" },
-        { "title": "Model nədir: çəkilər, parametrlər", "path": "/learn/faza-10/modul-10-1/model-nedir" },
-        { "title": "GPU niyə vacibdir", "path": "/learn/faza-10/modul-10-1/gpu" },
-        { "title": "MLOps: modellərin yerləşdirilməsi və izlənməsi", "path": "/learn/faza-10/modul-10-1/mlops" }
+        {
+          "title": "Öyrənmə vs çıxarım",
+          "path": "/learn/faza-10/modul-10-1/training-inference"
+        },
+        {
+          "title": "Model nədir: çəkilər, parametrlər",
+          "path": "/learn/faza-10/modul-10-1/model-nedir"
+        },
+        {
+          "title": "GPU niyə vacibdir",
+          "path": "/learn/faza-10/modul-10-1/gpu"
+        },
+        {
+          "title": "MLOps: modellərin yerləşdirilməsi və izlənməsi",
+          "path": "/learn/faza-10/modul-10-1/mlops"
+        }
       ]
     },
     {
       "title": "Modul 10.2 — Böyük Dil Modelləri",
       "routes": [
-        { "title": "Token, tokenləşdirmə", "path": "/learn/faza-10/modul-10-2/tokenization" },
-        { "title": "Embedding: mənani vektorlara çevirmək", "path": "/learn/faza-10/modul-10-2/embedding" },
-        { "title": "Transformer/diqqət — intuisiya", "path": "/learn/faza-10/modul-10-2/transformer" },
-        { "title": "Kontekst pəncərəsi, temperatur, halüsinasiya", "path": "/learn/faza-10/modul-10-2/llm-konseptler" },
-        { "title": "Çıxarım mexanikası: KV cache, quantization, streaming", "path": "/learn/faza-10/modul-10-2/inference-mechanics" }
+        {
+          "title": "Token, tokenləşdirmə",
+          "path": "/learn/faza-10/modul-10-2/tokenization"
+        },
+        {
+          "title": "Embedding: mənani vektorlara çevirmək",
+          "path": "/learn/faza-10/modul-10-2/embedding"
+        },
+        {
+          "title": "Transformer/diqqət — intuisiya",
+          "path": "/learn/faza-10/modul-10-2/transformer"
+        },
+        {
+          "title": "Kontekst pəncərəsi, temperatur, halüsinasiya",
+          "path": "/learn/faza-10/modul-10-2/llm-konseptler"
+        },
+        {
+          "title": "Çıxarım mexanikası: KV cache, quantization, streaming",
+          "path": "/learn/faza-10/modul-10-2/inference-mechanics"
+        }
       ]
     },
     {
       "title": "Modul 10.3 — LLM ilə Sistem Qurmaq",
       "routes": [
-        { "title": "Prompt mühəndisliyinin əsasları", "path": "/learn/faza-10/modul-10-3/prompt-engineering" },
-        { "title": "RAG: tam pipeline", "path": "/learn/faza-10/modul-10-3/rag" },
-        { "title": "Vektor VB: oxşarlıq axtarışı, HNSW", "path": "/learn/faza-10/modul-10-3/vector-db" },
-        { "title": "İncə tənzimləmə vs RAG vs prompting", "path": "/learn/faza-10/modul-10-3/fine-tuning-vs-rag" },
-        { "title": "Agent və alət istifadəsi, MCP", "path": "/learn/faza-10/modul-10-3/agent-tool-use" },
-        { "title": "Kodlaşdırma agentləri və AI yardımlı inkişaf", "path": "/learn/faza-10/modul-10-3/coding-agents" },
-        { "title": "LLM təhlükəsizliyi: prompt inyeksiyası və mühafizə", "path": "/learn/faza-10/modul-10-3/guardrails" },
-        { "title": "Xərc, gecitmə, qiymətləndirmə", "path": "/learn/faza-10/modul-10-3/xerc-latency-eval" }
+        {
+          "title": "Prompt mühəndisliyinin əsasları",
+          "path": "/learn/faza-10/modul-10-3/prompt-engineering"
+        },
+        {
+          "title": "RAG: tam pipeline",
+          "path": "/learn/faza-10/modul-10-3/rag"
+        },
+        {
+          "title": "Vektor VB: oxşarlıq axtarışı, HNSW",
+          "path": "/learn/faza-10/modul-10-3/vector-db"
+        },
+        {
+          "title": "İncə tənzimləmə vs RAG vs prompting",
+          "path": "/learn/faza-10/modul-10-3/fine-tuning-vs-rag"
+        },
+        {
+          "title": "Agent və alət istifadəsi, MCP",
+          "path": "/learn/faza-10/modul-10-3/agent-tool-use"
+        },
+        {
+          "title": "Kodlaşdırma agentləri və AI yardımlı inkişaf",
+          "path": "/learn/faza-10/modul-10-3/coding-agents"
+        },
+        {
+          "title": "LLM təhlükəsizliyi: prompt inyeksiyası və mühafizə",
+          "path": "/learn/faza-10/modul-10-3/guardrails"
+        },
+        {
+          "title": "Xərc, gecitmə, qiymətləndirmə",
+          "path": "/learn/faza-10/modul-10-3/xerc-latency-eval"
+        }
       ]
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "FAZA 11 — Sistem Dizaynı (Final)"
+      "sectionHeader": "FAZA 11 — Sistem Dizaynı (Final)",
+      "description": "URL shortener-dən payment sistemə — bütün biliklər birləşir.",
+      "label": "Finallar"
     },
     {
       "title": "Keys Tədqiqatları",
       "routes": [
-        { "title": "Sistem dizaynı problemine necə yanaşmaq", "path": "/learn/faza-11/system-design-method" },
-        { "title": "URL qısaldıcı", "path": "/learn/faza-11/url-shortener" },
-        { "title": "Sürət məhdudlaşdırıcı dizaynı", "path": "/learn/faza-11/rate-limiter" },
-        { "title": "Paylanmış açar-dəyər mağazası (Dynamo)", "path": "/learn/faza-11/kv-store" },
-        { "title": "Bildiriş sistemi", "path": "/learn/faza-11/notification-system" },
-        { "title": "Söhbət sistemi (WhatsApp)", "path": "/learn/faza-11/chat-system" },
-        { "title": "Instagram lenti", "path": "/learn/faza-11/instagram-feed" },
-        { "title": "Video axını (YouTube)", "path": "/learn/faza-11/video-streaming" },
-        { "title": "Web crawler", "path": "/learn/faza-11/web-crawler" },
-        { "title": "Ödəniş sistemi", "path": "/learn/faza-11/payment-system" },
-        { "title": "Uber/Bolt — coğrafi məkan", "path": "/learn/faza-11/uber-bolt" },
-        { "title": "Axtarış avtomatik tamamlama", "path": "/learn/faza-11/search-autocomplete" },
-        { "title": "Fayl sinxronizasiyası (Dropbox/Google Drive)", "path": "/learn/faza-11/file-sync" },
-        { "title": "Paylanmış iş planlayıcısı", "path": "/learn/faza-11/job-scheduler" },
-        { "title": "Google Docs — CRDT", "path": "/learn/faza-11/google-docs" },
-        { "title": "Yüksək trafikli e-ticarət (flash satış)", "path": "/learn/faza-11/flash-sale" },
-        { "title": "Miqyasda RAG: LLM chatbot platforması", "path": "/learn/faza-11/rag-at-scale" }
+        {
+          "title": "Sistem dizaynı problemine necə yanaşmaq",
+          "path": "/learn/faza-11/system-design-method"
+        },
+        {
+          "title": "URL qısaldıcı",
+          "path": "/learn/faza-11/url-shortener"
+        },
+        {
+          "title": "Sürət məhdudlaşdırıcı dizaynı",
+          "path": "/learn/faza-11/rate-limiter"
+        },
+        {
+          "title": "Paylanmış açar-dəyər mağazası (Dynamo)",
+          "path": "/learn/faza-11/kv-store"
+        },
+        {
+          "title": "Bildiriş sistemi",
+          "path": "/learn/faza-11/notification-system"
+        },
+        {
+          "title": "Söhbət sistemi (WhatsApp)",
+          "path": "/learn/faza-11/chat-system"
+        },
+        {
+          "title": "Instagram lenti",
+          "path": "/learn/faza-11/instagram-feed"
+        },
+        {
+          "title": "Video axını (YouTube)",
+          "path": "/learn/faza-11/video-streaming"
+        },
+        {
+          "title": "Web crawler",
+          "path": "/learn/faza-11/web-crawler"
+        },
+        {
+          "title": "Ödəniş sistemi",
+          "path": "/learn/faza-11/payment-system"
+        },
+        {
+          "title": "Uber/Bolt — coğrafi məkan",
+          "path": "/learn/faza-11/uber-bolt"
+        },
+        {
+          "title": "Axtarış avtomatik tamamlama",
+          "path": "/learn/faza-11/search-autocomplete"
+        },
+        {
+          "title": "Fayl sinxronizasiyası (Dropbox/Google Drive)",
+          "path": "/learn/faza-11/file-sync"
+        },
+        {
+          "title": "Paylanmış iş planlayıcısı",
+          "path": "/learn/faza-11/job-scheduler"
+        },
+        {
+          "title": "Google Docs — CRDT",
+          "path": "/learn/faza-11/google-docs"
+        },
+        {
+          "title": "Yüksək trafikli e-ticarət (flash satış)",
+          "path": "/learn/faza-11/flash-sale"
+        },
+        {
+          "title": "Miqyasda RAG: LLM chatbot platforması",
+          "path": "/learn/faza-11/rag-at-scale"
+        }
       ]
     }
   ]

@@ -8,11 +8,12 @@ interface ISidebarLinkProps {
   href: string;
   level: number;
   title: string;
-  version?: 'canary' | 'major' | 'experimental' | 'rc';
+  duration?: string;
   selected?: boolean;
-  hideArrow?: boolean;
   isPending: boolean;
+  hideArrow?: boolean;
   isExpanded?: boolean;
+  version?: 'canary' | 'major' | 'experimental' | 'rc';
 }
 
 const SidebarLink = ({
@@ -23,6 +24,7 @@ const SidebarLink = ({
   hideArrow,
   isPending,
   isExpanded,
+  duration,
 }: ISidebarLinkProps) => {
   const ref = useRef<HTMLAnchorElement>(null);
 
@@ -40,6 +42,8 @@ const SidebarLink = ({
   if (href.startsWith('https://')) {
     target = '_blank';
   }
+
+  const isLeaf = isExpanded === undefined;
 
   return (
     <Link
@@ -63,7 +67,12 @@ const SidebarLink = ({
         },
       )}
     >
-      <div>{title}</div>
+      <div className="flex flex-col min-w-0">
+        <span>{title}</span>
+        {isLeaf && duration && (
+          <span className="text-[10px] text-tertiary dark:text-tertiary-dark mt-0.5">{duration}</span>
+        )}
+      </div>
       {isExpanded != null && !hideArrow && (
         <span
           className={clsx('pe-1', {

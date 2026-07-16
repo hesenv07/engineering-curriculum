@@ -6,19 +6,28 @@ import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import Page from '@/components/Layout/Page';
 import { MDXComponents } from '@/components/MDX/MDXComponents';
 import { getAllContentPaths, getContentByPath } from '@/utils/mdx';
+import { getLessonLevel, computeDuration } from '@/utils/lesson';
 import sidebarAz from '@/sidebar.json';
 import sidebarEn from '@/sidebar-en.json';
 
-import type { ITocItem, IPageContext, ISidebarRoute } from '@/types';
+import type { ITocItem, IPageContext, ISidebarRoute, TLessonLevel } from '@/types';
+
+const LEVEL_STYLES: Record<TLessonLevel, string> = {
+  Fundamental: 'text-blue-50 dark:text-blue-30 bg-blue-5 dark:bg-blue-80',
+  Intermediate: 'text-green-60 dark:text-green-40 bg-green-5 dark:bg-green-10',
+  Deep: 'text-purple-60 dark:text-purple-30 bg-purple-5 dark:bg-purple-10',
+};
 
 interface ILearnPageProps {
   meta: { title: string; description?: string };
   toc: ITocItem[];
   mdxSource: MDXRemoteSerializeResult;
   pageContext: IPageContext;
+  lessonLevel: TLessonLevel | null;
+  duration: string;
 }
 
-const LearnPage: NextPage<ILearnPageProps> = ({ mdxSource, meta, toc, pageContext }) => {
+const LearnPage: NextPage<ILearnPageProps> = ({ mdxSource, meta, toc, pageContext, lessonLevel, duration }) => {
   return (
     <Page toc={toc} pageContext={pageContext}>
       <Head>
@@ -26,6 +35,18 @@ const LearnPage: NextPage<ILearnPageProps> = ({ mdxSource, meta, toc, pageContex
         {meta.description && <meta name="description" content={meta.description} />}
       </Head>
       <h1>{meta.title}</h1>
+      {(lessonLevel || duration) && (
+        <div className="flex items-center gap-2 mb-6 -mt-4">
+          {lessonLevel && (
+            <span className={`text-xs font-medium rounded px-1.5 py-0.5 leading-none ${LEVEL_STYLES[lessonLevel]}`}>
+              {lessonLevel}
+            </span>
+          )}
+          {duration && (
+            <span className="text-xs text-tertiary dark:text-tertiary-dark">{duration}</span>
+          )}
+        </div>
+      )}
       <MDXRemote {...mdxSource} components={MDXComponents as Record<string, React.ComponentType<object>>} />
     </Page>
   );
@@ -64,6 +85,8 @@ export const getStaticProps: GetStaticProps<ILearnPageProps> = async ({ params, 
   }
 
   const pageContext = getPageContext(fullPath.join('/'), locale);
+  const lessonLevel = getLessonLevel(`/${fullPath.join('/')}/`);
+  const duration = computeDuration(result.lineCount, locale);
 
   return {
     props: {
@@ -71,6 +94,8 @@ export const getStaticProps: GetStaticProps<ILearnPageProps> = async ({ params, 
       meta: result.meta,
       toc: result.toc,
       pageContext,
+      lessonLevel: lessonLevel ?? null,
+      duration,
     },
   };
 };

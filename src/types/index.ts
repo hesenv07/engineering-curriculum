@@ -1,12 +1,18 @@
+export type TLessonLevel = 'Fundamental' | 'Intermediate' | 'Deep';
+
 export interface ISidebarRoute {
-  title?: string;
   path?: string;
-  routes?: ISidebarRoute[];
-  heading?: boolean;
-  version?: 'canary' | 'major' | 'experimental' | 'rc';
-  hasSectionHeader?: boolean;
-  sectionHeader?: string;
   wip?: boolean;
+  title?: string;
+  label?: string;
+  heading?: boolean;
+  duration?: string;
+  level?: TLessonLevel;
+  description?: string;
+  sectionHeader?: string;
+  routes?: ISidebarRoute[];
+  hasSectionHeader?: boolean;
+  version?: 'canary' | 'major' | 'experimental' | 'rc';
 }
 
 export interface ISidebarConfig {
