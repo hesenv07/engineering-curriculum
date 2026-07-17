@@ -38,3 +38,19 @@ export interface IPageContext {
   prev?: { title: string; path: string } | null;
   next?: { title: string; path: string } | null;
 }
+
+export interface IPhaseCard {
+  id: string;
+  desc: string;
+  path: string;
+  title: string;
+  badgeText: string;
+  lessonCount: number;
+}
+
+export interface ISidebarStats {
+  totalPhases: number;
+  phases: IPhaseCard[];
+  totalModules: number;
+  totalLessons: number;
+}

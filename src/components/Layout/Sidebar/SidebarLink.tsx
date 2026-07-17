@@ -1,8 +1,10 @@
-import { useRef, useEffect } from 'react';
+'use client';
+
+import { useRef, useEffect, useTransition } from 'react';
 import clsx from 'clsx';
-import Link from 'next/link';
 
 import IconNavArrow from '@/components/Icon/IconNavArrow';
+import { Link, useRouter } from '@/i18n/navigation';
 
 interface ISidebarLinkProps {
   href: string;
@@ -10,7 +12,6 @@ interface ISidebarLinkProps {
   title: string;
   duration?: string;
   selected?: boolean;
-  isPending: boolean;
   hideArrow?: boolean;
   isExpanded?: boolean;
   version?: 'canary' | 'major' | 'experimental' | 'rc';
@@ -22,11 +23,12 @@ const SidebarLink = ({
   title,
   selected = false,
   hideArrow,
-  isPending,
   isExpanded,
   duration,
 }: ISidebarLinkProps) => {
   const ref = useRef<HTMLAnchorElement>(null);
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     if (selected && ref && ref.current) {
@@ -38,35 +40,33 @@ const SidebarLink = ({
     }
   }, [ref, selected]);
 
-  let target = '';
-  if (href.startsWith('https://')) {
-    target = '_blank';
-  }
-
+  const isExternal = href.startsWith('https://');
   const isLeaf = isExpanded === undefined;
 
-  return (
-    <Link
-      href={href}
-      ref={ref}
-      title={title}
-      target={target}
-      passHref
-      aria-current={selected ? 'page' : undefined}
-      className={clsx(
-        'p-2 pe-2 w-full rounded-none lg:rounded-e-2xl text-start hover:bg-gray-5 dark:hover:bg-gray-80 relative flex items-center justify-between',
-        {
-          'text-sm ps-6': level > 0,
-          'ps-5': level < 2,
-          'text-base font-bold': level === 0,
-          'text-primary dark:text-primary-dark': level === 0 && !selected,
-          'text-base text-secondary dark:text-secondary-dark': level > 0 && !selected,
-          'text-base text-link dark:text-link-dark bg-highlight dark:bg-highlight-dark border-blue-40 hover:bg-highlight hover:text-link dark:hover:bg-highlight-dark dark:hover:text-link-dark':
-            selected,
-          'dark:bg-gray-70 bg-gray-3 dark:hover:bg-gray-70 hover:bg-gray-3': isPending,
-        },
-      )}
-    >
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) {
+      return;
+    }
+    e.preventDefault();
+    startTransition(() => router.push(href));
+  };
+
+  const className = clsx(
+    'p-2 pe-2 w-full rounded-none lg:rounded-e-2xl text-start hover:bg-gray-5 dark:hover:bg-gray-80 relative flex items-center justify-between',
+    {
+      'text-sm ps-6': level > 0,
+      'ps-5': level < 2,
+      'text-base font-bold': level === 0,
+      'text-primary dark:text-primary-dark': level === 0 && !selected,
+      'text-base text-secondary dark:text-secondary-dark': level > 0 && !selected,
+      'text-base text-link dark:text-link-dark bg-highlight dark:bg-highlight-dark border-blue-40 hover:bg-highlight hover:text-link dark:hover:bg-highlight-dark dark:hover:text-link-dark':
+        selected,
+      'dark:bg-gray-70 bg-gray-3 dark:hover:bg-gray-70 hover:bg-gray-3': isPending,
+    },
+  );
+
+  const content = (
+    <>
       <div className="flex flex-col min-w-0">
         <span>{title}</span>
         {isLeaf && duration && (
@@ -83,6 +83,34 @@ const SidebarLink = ({
           <IconNavArrow displayDirection={isExpanded ? 'down' : 'end'} />
         </span>
       )}
+    </>
+  );
+
+  if (isExternal) {
+    return (
+      <a
+        href={href}
+        ref={ref}
+        title={title}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link
+      href={href}
+      ref={ref}
+      title={title}
+      onClick={handleClick}
+      aria-current={selected ? 'page' : undefined}
+      className={className}
+    >
+      {content}
     </Link>
   );
 };

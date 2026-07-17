@@ -1,8 +1,7 @@
 import fs from 'fs';
 import path from 'path';
+import { cache } from 'react';
 import matter from 'gray-matter';
-import { serialize } from 'next-mdx-remote/serialize';
-import remarkGfm from 'remark-gfm';
 
 import { resolveLocale } from '@/utils/locale';
 
@@ -33,7 +32,7 @@ export function getAllContentPaths(locale?: string): string[][] {
   return paths;
 }
 
-export async function getContentByPath(slugParts: string[], locale?: string) {
+export const getContentByPath = cache(async (slugParts: string[], locale?: string) => {
   const contentDir = getContentDir(locale);
   const tryExtensions = ['.md', '.mdx'];
   let filePath: string | null = null;
@@ -56,16 +55,8 @@ export async function getContentByPath(slugParts: string[], locale?: string) {
 
   const toc = extractToc(content);
 
-  const mdxSource = await serialize(content, {
-    mdxOptions: {
-      remarkPlugins: [remarkGfm],
-      format: 'mdx',
-    },
-    scope: data,
-  });
-
   return {
-    mdxSource,
+    content,
     meta: {
       title: (data.title as string) || slugParts[slugParts.length - 1],
       description: (data.description as string) || '',
@@ -73,7 +64,7 @@ export async function getContentByPath(slugParts: string[], locale?: string) {
     toc,
     lineCount,
   };
-}
+});
 
 function extractToc(content: string): ITocItem[] {
   const toc: ITocItem[] = [];

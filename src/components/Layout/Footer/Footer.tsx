@@ -1,9 +1,8 @@
 import * as React from 'react';
 
-import NextLink from 'next/link';
-
 import IconLogo from '@/components/Icon/IconLogo';
 import IconGithub from '@/components/Icon/IconGithub';
+import { Link as NextLink } from '@/i18n/navigation';
 
 import FooterLink from './ui/FooterLink';
 

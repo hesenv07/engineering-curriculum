@@ -1,6 +1,10 @@
+"use client";
+
 import * as React from "react";
 
-import { useRouter } from "next/router";
+import { useParams } from "next/navigation";
+
+import { usePathname, useRouter } from "@/i18n/navigation";
 
 type TLanguageOption = {
   code: string;
@@ -14,7 +18,9 @@ const LANGUAGES: TLanguageOption[] = [
 ];
 
 const LanguageSelector = () => {
-  const { locale, push, asPath } = useRouter();
+  const { locale } = useParams<{ locale: string }>();
+  const pathname = usePathname();
+  const router = useRouter();
   const [isOpen, setIsOpen] = React.useState(false);
   const ref = React.useRef<HTMLDivElement>(null);
 
@@ -80,7 +86,7 @@ const LanguageSelector = () => {
                 ) : (
                   <button
                     onClick={() => {
-                      push(asPath, asPath, { locale: l.code });
+                      router.replace(pathname, { locale: l.code });
                       setIsOpen(false);
                     }}
                     className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${

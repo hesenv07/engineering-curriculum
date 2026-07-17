@@ -1,6 +1,7 @@
 import * as React from 'react';
-import NextLink from 'next/link';
 import clsx from 'clsx';
+
+import { Link as NextLink } from '@/i18n/navigation';
 
 interface IFooterLinkProps {
   href?: string;

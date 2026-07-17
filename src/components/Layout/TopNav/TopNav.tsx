@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Link from 'next/link';
 
 import IconLogo from '@/components/Icon/IconLogo';
 import IconGithub from '@/components/Icon/IconGithub';
+import { Link } from '@/i18n/navigation';
 
 import ThemeToggle from './ui/ThemeToggle';
 import LanguageSelector from './ui/LanguageSelector';

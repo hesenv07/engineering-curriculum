@@ -1,14 +1,15 @@
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import Link from 'next/link';
 import Page from '@/components/Layout/Page';
+import { Link } from '@/i18n/navigation';
 
-const LearnIndex: NextPage = () => {
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Öyrən — Engineering Curriculum',
+};
+
+const LearnIndex = () => {
   return (
     <Page>
-      <Head>
-        <title>Öyrən — Engineering Curriculum</title>
-      </Head>
       <div className="py-4">
         <h1 className="text-4xl font-bold text-[#23272F] dark:text-[#F6F7F9] mb-4">
           Engineering Curriculum
