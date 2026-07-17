@@ -1,28 +1,14 @@
-import sidebarAz from '@/sidebar.json';
-import sidebarEn from '@/sidebar-en.json';
+import sidebarAz from "@/sidebar.json";
+import sidebarEn from "@/sidebar-en.json";
 
-import { resolveLocale } from '@/utils/locale';
+import { resolveLocale } from "@/utils/locale";
 
-import type { ISidebarRoute } from '@/types';
+import type { IPhaseCard, ISidebarRoute, ISidebarStats } from "@/types";
 
 export function getSidebarRouteTree(locale?: string): ISidebarRoute {
-  return (resolveLocale(locale) === 'en' ? sidebarEn : sidebarAz) as ISidebarRoute;
-}
-
-export interface IPhaseCard {
-  id: string;
-  badgeText: string;
-  title: string;
-  desc: string;
-  lessonCount: number;
-  path: string;
-}
-
-export interface ISidebarStats {
-  phases: IPhaseCard[];
-  totalPhases: number;
-  totalModules: number;
-  totalLessons: number;
+  return (
+    resolveLocale(locale) === "en" ? sidebarEn : sidebarAz
+  ) as ISidebarRoute;
 }
 
 export function parseSidebar(routes: ISidebarRoute[]): ISidebarStats {
@@ -33,25 +19,25 @@ export function parseSidebar(routes: ISidebarRoute[]): ISidebarStats {
   function flush() {
     if (!header) return;
 
-    const raw = header.sectionHeader ?? '';
+    const raw = header.sectionHeader ?? "";
     const match = raw.match(/^((?:FAZA|PHASE)\s+\d+)\s*[—–-]\s*(.+)$/i);
     const badgeText = header.label ?? (match ? match[1] : raw);
-    const title = match ? match[2].replace(/\s*\(.*\)$/, '').trim() : raw;
+    const title = match ? match[2].replace(/\s*\(.*\)$/, "").trim() : raw;
 
     let lessonCount = 0;
-    let firstPath = '/learn';
+    let firstPath = "/learn";
 
     for (const mod of bucket) {
       if (mod.routes) {
         for (const lesson of mod.routes) {
           if (lesson.path) {
             lessonCount++;
-            if (firstPath === '/learn') firstPath = lesson.path;
+            if (firstPath === "/learn") firstPath = lesson.path;
           }
         }
       } else if (mod.path) {
         lessonCount++;
-        if (firstPath === '/learn') firstPath = mod.path;
+        if (firstPath === "/learn") firstPath = mod.path;
       }
     }
 
@@ -59,7 +45,7 @@ export function parseSidebar(routes: ISidebarRoute[]): ISidebarStats {
       id: String(phases.length),
       badgeText,
       title,
-      desc: header.description ?? '',
+      desc: header.description ?? "",
       lessonCount,
       path: firstPath,
     });

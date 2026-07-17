@@ -1,6 +1,8 @@
 import * as React from 'react';
-import Link from 'next/link';
 
+import { Link } from '@/i18n/navigation';
+
+import { Code, Pre } from './CodeBlock';
 import DeepDive from './DeepDive';
 import Diagram from './Diagram';
 import Intro from './Intro';
@@ -119,40 +121,6 @@ function Divider() {
   return <hr className="my-6 block border-b border-t-0 border-border dark:border-border-dark" />;
 }
 
-const InsidePreContext = React.createContext(false);
-
-function Code({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  const isInsidePre = React.useContext(InsidePreContext);
-  if (isInsidePre || (className && className.startsWith('language-'))) {
-    return (
-      <code className={`${className ?? ''} text-[#d4d4d4] font-mono text-sm leading-relaxed`}>
-        {children}
-      </code>
-    );
-  }
-  return (
-    <code className="bg-blue-5 dark:bg-card-dark text-red-40 dark:text-red-30 rounded px-1.5 py-0.5 text-[0.875em] font-mono">
-      {children}
-    </code>
-  );
-}
-
-function Pre({ children }: { children: React.ReactNode }) {
-  return (
-    <InsidePreContext.Provider value={true}>
-      <pre className="bg-wash-dark rounded-xl overflow-x-auto mb-4 p-5 text-sm leading-relaxed">
-        {children}
-      </pre>
-    </InsidePreContext.Provider>
-  );
-}
-
 function CustomLink({
   href,
   children,
@@ -160,7 +128,7 @@ function CustomLink({
 }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { href?: string }) {
   if (href && href.startsWith('/')) {
     return (
-      <Link href={href} {...props}>
+      <Link href={href} {...(props as Omit<React.ComponentProps<typeof Link>, 'href'>)}>
         {children}
       </Link>
     );

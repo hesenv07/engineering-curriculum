@@ -1,13 +1,9 @@
-import type { NextPage, GetStaticProps } from 'next';
-import Head from 'next/head';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-
 import Page from '@/components/Layout/Page';
+import { Link } from '@/i18n/navigation';
 import { resolveLocale } from '@/utils/locale';
 import { parseSidebar, getSidebarRouteTree } from '@/utils/sidebar';
 
-import type { ISidebarStats } from '@/utils/sidebar';
+import type { Metadata } from 'next';
 
 const CONTENT = {
   az: {
@@ -36,16 +32,21 @@ const CONTENT = {
   },
 };
 
-export const getStaticProps: GetStaticProps<ISidebarStats> = async ({ locale }) => {
-  const routes = getSidebarRouteTree(locale).routes ?? [];
-  return { props: parseSidebar(routes) };
-};
+interface IHomeProps {
+  params: { locale: string };
+}
 
-const Home: NextPage<ISidebarStats> = ({ phases, totalPhases, totalModules, totalLessons }) => {
-  const { locale } = useRouter();
-  const lang = resolveLocale(locale);
+export function generateMetadata({ params }: IHomeProps): Metadata {
+  return { title: CONTENT[resolveLocale(params.locale)].title };
+}
+
+const Home = ({ params }: IHomeProps) => {
+  const lang = resolveLocale(params.locale);
   const t = CONTENT[lang];
   const heroLines = t.hero.split('\n');
+
+  const routes = getSidebarRouteTree(params.locale).routes ?? [];
+  const { phases, totalPhases, totalModules, totalLessons } = parseSidebar(routes);
 
   const stats = [
     { value: String(totalPhases), label: t.stat.phases },
@@ -56,10 +57,6 @@ const Home: NextPage<ISidebarStats> = ({ phases, totalPhases, totalModules, tota
 
   return (
     <Page showSidebar={false}>
-      <Head>
-        <title>{t.title}</title>
-      </Head>
-
       <section className="py-20 px-6 text-center border-b border-border dark:border-border-dark">
         <div className="max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-highlight dark:bg-highlight-dark text-link dark:text-link-dark rounded-full px-4 py-1.5 text-sm font-medium mb-8">

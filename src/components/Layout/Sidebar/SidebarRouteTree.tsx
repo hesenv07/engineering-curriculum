@@ -1,10 +1,11 @@
+'use client';
+
 import { useRef, useLayoutEffect, useState, useEffect, Fragment } from 'react';
 import * as React from 'react';
 import clsx from 'clsx';
-import { useRouter } from 'next/router';
 import { useCollapse } from 'react-collapsed';
 
-import usePendingRoute from '@/hooks/usePendingRoute';
+import { usePathname } from '@/i18n/navigation';
 
 import SidebarLink from './SidebarLink';
 import SidebarButton from './SidebarButton';
@@ -123,8 +124,7 @@ const SidebarRouteTree = ({
   routeTree,
   level = 0,
 }: ISidebarRouteTreeProps) => {
-  const slug = useRouter().asPath.split(/[?#]/)[0];
-  const pendingRoute = usePendingRoute();
+  const slug = usePathname();
   const currentRoutes = routeTree.routes ?? [];
 
   return (
@@ -167,7 +167,6 @@ const SidebarRouteTree = ({
                 <SidebarLink
                   key={`${title}-${path}-${level}-link`}
                   href={path}
-                  isPending={pendingRoute === path}
                   selected={selected}
                   level={level}
                   title={title ?? ''}
@@ -189,7 +188,6 @@ const SidebarRouteTree = ({
             listItem = (
               <li key={`${title}-${path}-${level}-link`}>
                 <SidebarLink
-                  isPending={pendingRoute === path}
                   href={path}
                   selected={selected}
                   level={level}

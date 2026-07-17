@@ -1,6 +1,8 @@
+'use client';
+
 import * as React from 'react';
 import clsx from 'clsx';
-import { useRouter } from 'next/router';
+import { useParams } from 'next/navigation';
 
 import { resolveLocale } from '@/utils/locale';
 
@@ -34,7 +36,7 @@ const variantMap: Record<
 };
 
 const ExpandableCallout = ({ type, children }: IExpandableCalloutProps) => {
-  const { locale } = useRouter();
+  const { locale } = useParams<{ locale: string }>();
   const lang = resolveLocale(locale);
   const title = titles[lang][type];
   const variant = variantMap[type];

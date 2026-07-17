@@ -1,7 +1,10 @@
+'use client';
+
 import * as React from 'react';
 import clsx from 'clsx';
-import { useRouter } from 'next/router';
+import { useParams } from 'next/navigation';
 
+import { usePathname } from '@/i18n/navigation';
 import { getSidebarRouteTree } from '@/utils/sidebar';
 
 import TopNav from './TopNav';
@@ -41,8 +44,8 @@ function getBreadcrumbs(
 
 const Page = ({ children, toc = [], pageContext, showSidebar = true }: IPageProps) => {
   const [isMobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-  const { asPath, locale } = useRouter();
-  const currentPath = asPath.split(/[?#]/)[0];
+  const currentPath = usePathname();
+  const { locale } = useParams<{ locale: string }>();
 
   const routeTree = getSidebarRouteTree(locale);
   const breadcrumbs = getBreadcrumbs(currentPath, routeTree);
