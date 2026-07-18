@@ -1,8 +1,6 @@
-import React from "react";
-
 import { Link } from "@/i18n/navigation";
-import BaseIcons from "@/shared/resources/constants/BaseIcons";
-import Icon from "@/shared/ui/Icon/Icon";
+
+import { LINK_CLASS, CHEVRON_LEFT, CHEVRON_RIGHT } from "./DocsFooter.const";
 
 import type { IDocsFooterProps } from "./DocsFooter.types";
 
@@ -10,18 +8,15 @@ const DocsFooter = ({ prev, next }: IDocsFooterProps) => {
   if (!prev && !next) return null;
 
   return (
-    <div className="flex justify-between items-center mt-12 pt-8 border-t border-[#EBECF0] dark:border-[#343A46]">
+    <div className="grid grid-cols-2 gap-4 mt-12 pt-8 border-t border-border dark:border-border-dark">
       {prev ? (
-        <Link
-          href={prev.path}
-          className="flex items-center gap-2 text-sm text-[#404756] dark:text-[#99A1B3] hover:text-[#087EA4] dark:hover:text-[#149ECA] transition-colors group max-w-[45%]"
-        >
-          <Icon name={BaseIcons.ARROW} className="flex-shrink-0" />
-          <div>
-            <div className="text-xs text-[#087EA4] dark:text-[#149ECA] mb-0.5">
+        <Link href={prev.path} className={LINK_CLASS}>
+          {CHEVRON_LEFT}
+          <div className="min-w-0">
+            <div className="text-xs font-semibold text-link dark:text-link-dark mb-0.5 uppercase tracking-wide">
               Əvvəlki
             </div>
-            <div className="font-medium text-[#23272F] dark:text-[#F6F7F9] group-hover:text-[#087EA4] dark:group-hover:text-[#149ECA] leading-snug">
+            <div className="text-sm font-medium text-primary dark:text-primary-dark group-hover:text-link dark:group-hover:text-link-dark leading-snug line-clamp-2 transition-colors">
               {prev.title}
             </div>
           </div>
@@ -31,19 +26,16 @@ const DocsFooter = ({ prev, next }: IDocsFooterProps) => {
       )}
 
       {next ? (
-        <Link
-          href={next.path}
-          className="flex items-center gap-2 text-sm text-[#404756] dark:text-[#99A1B3] hover:text-[#087EA4] dark:hover:text-[#149ECA] transition-colors group max-w-[45%] text-right"
-        >
-          <div>
-            <div className="text-xs text-[#087EA4] dark:text-[#149ECA] mb-0.5">
+        <Link href={next.path} className={`${LINK_CLASS} justify-end`}>
+          <div className="min-w-0 text-right">
+            <div className="text-xs font-semibold text-link dark:text-link-dark mb-0.5 uppercase tracking-wide">
               Növbəti
             </div>
-            <div className="font-medium text-[#23272F] dark:text-[#F6F7F9] group-hover:text-[#087EA4] dark:group-hover:text-[#149ECA] leading-snug">
+            <div className="text-sm font-medium text-primary dark:text-primary-dark group-hover:text-link dark:group-hover:text-link-dark leading-snug line-clamp-2 transition-colors">
               {next.title}
             </div>
           </div>
-          <Icon name={BaseIcons.ARROW} className="flex-shrink-0 rotate-180" />
+          {CHEVRON_RIGHT}
         </Link>
       ) : (
         <div />

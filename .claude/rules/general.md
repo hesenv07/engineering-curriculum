@@ -47,4 +47,10 @@
 - Confirm plan before writing code for tasks touching 3+ files
 - Ask before making changes outside the described scope
 - Read `.husky/pre-commit` and `.husky/commit-msg` for branch/commit format
-- Run `npm run type-check` before committing
+- Run `npx tsc --noEmit` before committing
+
+## MDX / Lesson Files
+- MDX components live in `src/shared/ui/MDX/` — see CLAUDE.md §9 for full reference
+- Sidebar JSON files are at `src/shared/resources/json/sidebar.json` and `sidebar-en.json`
+- Utilities are at `src/shared/lib/utils/` (not `src/utils/`)
+- App Router pages are at `src/app/[locale]/` (not `src/pages/`)
