@@ -1,24 +1,20 @@
-import * as React from 'react';
-import { notFound } from 'next/navigation';
-import { NextIntlClientProvider } from 'next-intl';
+import React from "react";
+import { notFound } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
 
-import '@/styles/globals.css';
+import "@/styles/globals.css";
 
-import { routing } from '@/i18n/routing';
+import { routing } from "@/i18n/routing";
 
-import type { TLocale } from '@/types';
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
+import type { TLocale } from "@/shared/types";
+import type { ILocaleLayoutProps } from "@/shared/types/ILayoutTypes";
 
 export const metadata: Metadata = {
   description:
-    'No frameworks. Engineering. A public, free, login-free site for software engineers who want to understand how things actually work — from transistors to distributed systems.',
-  icons: { icon: '/favicon.ico' },
+    "No frameworks. Engineering. A public, free, login-free site for software engineers who want to understand how things actually work — from transistors to distributed systems.",
+  icons: { icon: "/favicon.ico" },
 };
-
-interface ILocaleLayoutProps {
-  children: React.ReactNode;
-  params: { locale: string };
-}
 
 function isSupportedLocale(locale: string): locale is TLocale {
   return (routing.locales as readonly string[]).includes(locale);
