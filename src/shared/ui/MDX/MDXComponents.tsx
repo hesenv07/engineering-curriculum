@@ -2,16 +2,28 @@ import * as React from "react";
 
 import { Link } from "@/i18n/navigation";
 
+import { Wip } from "./Wip";
 import { Note } from "./Note";
 import { Intro } from "./Intro";
 import { Recap } from "./Recap";
-import { Diagram } from "./Diagram";
 import { Pitfall } from "./Pitfall";
+import { Diagram } from "./Diagram";
 import { DeepDive } from "./DeepDive";
 import { Sandpack } from "./Sandpack";
-import { Code, Pre } from "./CodeBlock";
+import { InlineToc } from "./InlineToc";
+import { LearnMore } from "./LearnMore";
+import { CodeStep } from "./CodeStep";
+import { CodeDiagram } from "./CodeDiagram";
+import { DiagramGroup } from "./DiagramGroup";
 import { YouWillLearn } from "./YouWillLearn";
+import { TerminalBlock } from "./TerminalBlock";
+import { PackageImport } from "./PackageImport";
+import { YouTubeIframe } from "./YouTubeIframe";
+import { Code, Pre } from "./CodeBlock";
+import { YouWillLearnCard } from "./YouWillLearnCard";
 import { Challenges, Hint, Solution } from "./Challenges";
+import { Illustration, IllustrationBlock } from "./Illustration";
+import { ConsoleBlock, ConsoleBlockMulti, ConsoleLogLine } from "./ConsoleBlock";
 
 function slugify(text: string): string {
   return text
@@ -125,6 +137,17 @@ function Divider() {
   );
 }
 
+function Image({ alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      alt={alt ?? ""}
+      className="max-w-full rounded-xl my-4"
+      {...props}
+    />
+  );
+}
+
 function CustomLink({
   href,
   children,
@@ -166,21 +189,37 @@ export const MDXComponents = {
   h2: H2,
   h3: H3,
   h4: H4,
+  img: Image,
   code: Code,
   pre: Pre,
   a: CustomLink,
   blockquote: Blockquote,
+  Wip,
   Intro,
-  YouWillLearn,
-  Recap,
   Note,
   Pitfall,
+  Recap,
   DeepDive,
+  Diagram,
+  DiagramGroup,
+  Sandpack,
+  YouWillLearn,
+  YouWillLearnCard,
+  LearnMore,
+  InlineToc,
+  TerminalBlock,
+  ConsoleBlock,
+  ConsoleBlockMulti,
+  ConsoleLogLine,
+  PackageImport,
+  YouTubeIframe,
+  CodeStep,
+  CodeDiagram,
+  Illustration,
+  IllustrationBlock,
   Challenges,
   Solution,
   Hint,
-  Diagram,
-  Sandpack,
 };
 
 for (const key of Object.keys(MDXComponents)) {
