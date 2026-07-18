@@ -1,57 +1,62 @@
-import * as React from 'react';
+'use client';
 
+import { Link } from '@/i18n/navigation';
 import IconLogo from '@/shared/resources/icons/svgs/logo';
 import IconGithub from '@/shared/resources/icons/svgs/github';
-import { Link } from '@/i18n/navigation';
 
 import ThemeToggle from './ui/ThemeToggle';
 import LanguageSelector from './ui/LanguageSelector';
 
-interface ITopNavProps {
-  isMenuOpen?: boolean;
-  onMenuToggle?: () => void;
-}
+import { ICON_PROPS, TOGGLE_BTN_CLASS } from './TopNav.const';
 
-const TopNav = ({ isMenuOpen, onMenuToggle }: ITopNavProps) => {
+import type { ITopNavProps } from './TopNav.types';
+
+const TopNav = ({
+  isMenuOpen,
+  onMenuToggle,
+  isDesktopSidebarOpen,
+  onDesktopSidebarToggle,
+}: ITopNavProps) => {
   return (
-    <header className="sticky top-0 z-50 bg-wash dark:bg-wash-dark border-b border-border dark:border-border-dark h-14 flex items-center">
-      <div className="flex items-center justify-between w-full px-4 lg:px-6 max-w-screen-2xl mx-auto">
+    <header className="sticky top-0 z-50 flex h-14 items-center border-b border-border bg-wash dark:border-border-dark dark:bg-wash-dark">
+      <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between px-4 lg:px-6">
         <div className="flex items-center gap-3">
-          <button
-            onClick={onMenuToggle}
-            className="lg:hidden p-1.5 rounded-lg hover:bg-gray-5 dark:hover:bg-gray-80 text-secondary dark:text-secondary-dark"
-            aria-label="Menyu"
-          >
-            {isMenuOpen ? (
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M18 6L6 18M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M3 12h18M3 6h18M3 18h18" />
-              </svg>
-            )}
-          </button>
+          {onMenuToggle && (
+            <button
+              aria-label="Menyu"
+              onClick={onMenuToggle}
+              className={`lg:hidden ${TOGGLE_BTN_CLASS}`}
+            >
+              {isMenuOpen ? (
+                <svg {...ICON_PROPS}>
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg {...ICON_PROPS}>
+                  <path d="M3 12h18M3 6h18M3 18h18" />
+                </svg>
+              )}
+            </button>
+          )}
 
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-link flex items-center justify-center flex-shrink-0 group-hover:bg-blue-40 transition-colors">
+          {onDesktopSidebarToggle && (
+            <button
+              onClick={onDesktopSidebarToggle}
+              aria-label={isDesktopSidebarOpen ? 'Sidebar gizlət' : 'Sidebar göstər'}
+              className={`hidden lg:flex ${TOGGLE_BTN_CLASS}`}
+            >
+              <svg {...ICON_PROPS}>
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M9 3v18" />
+              </svg>
+            </button>
+          )}
+
+          <Link href="/" className="group flex items-center gap-2">
+            <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-link transition-colors group-hover:bg-blue-40">
               <IconLogo />
             </div>
-            <span className="font-bold text-primary dark:text-primary-dark text-base hidden sm:block leading-tight">
+            <span className="hidden text-base font-bold leading-tight text-primary dark:text-primary-dark sm:block">
               Engineering Curriculum
             </span>
           </Link>
@@ -61,11 +66,11 @@ const TopNav = ({ isMenuOpen, onMenuToggle }: ITopNavProps) => {
           <ThemeToggle />
           <LanguageSelector />
           <a
-            href="https://github.com/hesenv07/engineering-curriculum"
             target="_blank"
-            rel="noopener noreferrer"
-            className="p-1.5 rounded-lg hover:bg-gray-5 dark:hover:bg-gray-80 text-secondary dark:text-secondary-dark transition-colors"
             aria-label="GitHub"
+            rel="noopener noreferrer"
+            href="https://github.com/hesenv07/engineering-curriculum"
+            className={TOGGLE_BTN_CLASS}
           >
             <IconGithub />
           </a>

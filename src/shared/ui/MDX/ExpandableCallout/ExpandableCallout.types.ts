@@ -1,4 +1,4 @@
-export type TCalloutType = 'note' | 'pitfall';
+export type TCalloutType = 'note' | 'pitfall' | 'wip';
 
 export interface IExpandableCalloutProps {
   type: TCalloutType;

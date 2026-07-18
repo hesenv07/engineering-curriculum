@@ -1,6 +1,6 @@
-import React from "react";
+import { cookies } from "next/headers";
 
-import {AppLayout} from "@/shared/layouts/AppLayout";
+import { AppLayout } from "@/shared/layouts/AppLayout";
 
 import { resolveLocale } from "@/shared/lib/utils/locale";
 import { getSidebarRouteTree, parseSidebar } from "@/shared/lib/utils/sidebar";
@@ -11,7 +11,10 @@ import { StartCard } from "./components/StartCard";
 
 import type { ILearnProps } from "./Learn.types";
 
-const Learn = ({ params }: ILearnProps) => {
+const Learn = async ({ params }: ILearnProps) => {
+  const cookieStore = await cookies();
+  const defaultSidebarOpen = cookieStore.get("sidebarOpen")?.value !== "false";
+
   const lang = resolveLocale(params.locale);
   const t = CONTENT[lang];
 
@@ -19,7 +22,7 @@ const Learn = ({ params }: ILearnProps) => {
   const { phases } = parseSidebar(routes);
 
   return (
-    <AppLayout>
+    <AppLayout defaultSidebarOpen={defaultSidebarOpen}>
       <div className="py-4">
         <h1 className="text-4xl font-bold text-primary dark:text-primary-dark mb-4">
           {t.heading}

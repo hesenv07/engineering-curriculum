@@ -12,15 +12,15 @@
       "routes": [
         {
           "title": "Bit və bayt: informasiya nədir",
-          "path": "/learn/faza-0/modul-0-1/bit-ve-byte"
+          "path": "/learn/faza-0/modul-0-1/bits-and-bytes"
         },
         {
           "title": "İkilik say sistemi",
-          "path": "/learn/faza-0/modul-0-1/binary-say-sistemi"
+          "path": "/learn/faza-0/modul-0-1/binary-number-system"
         },
         {
           "title": "Mənfi ədədlər: ikili komplement",
-          "path": "/learn/faza-0/modul-0-1/menfi-ededler"
+          "path": "/learn/faza-0/modul-0-1/negative-numbers"
         },
         {
           "title": "Üzən vergül (IEEE 754)",
@@ -32,11 +32,11 @@
         },
         {
           "title": "Mətnin təmsili: ASCII → UTF-8",
-          "path": "/learn/faza-0/modul-0-1/metni-temsili"
+          "path": "/learn/faza-0/modul-0-1/text-representation"
         },
         {
           "title": "Rəng, şəkil və səs ikilik kodda",
-          "path": "/learn/faza-0/modul-0-1/reng-sekil-ses"
+          "path": "/learn/faza-0/modul-0-1/color-image-audio"
         },
         {
           "title": "Məlumat bütövlüyü: parite, yoxlama cəmləri, CRC",
@@ -57,15 +57,15 @@
       "routes": [
         {
           "title": "Tranzistorlar və məntiqi qapılar",
-          "path": "/learn/faza-0/modul-0-2/tranzistor-logic-geyts"
+          "path": "/learn/faza-0/modul-0-2/transistors-and-logic-gates"
         },
         {
           "title": "Qapılardan toplama dövrəsi qurmaq",
-          "path": "/learn/faza-0/modul-0-2/adder-qurmaq"
+          "path": "/learn/faza-0/modul-0-2/building-an-adder"
         },
         {
           "title": "Saat siqnalı və sinxronizasiya",
-          "path": "/learn/faza-0/modul-0-2/clock-sinxronizasiya"
+          "path": "/learn/faza-0/modul-0-2/clock-synchronization"
         }
       ]
     },
@@ -74,7 +74,7 @@
       "routes": [
         {
           "title": "CPU-nun anatomiyası",
-          "path": "/learn/faza-0/modul-0-3/cpu-anatomiyasi"
+          "path": "/learn/faza-0/modul-0-3/cpu-anatomy"
         },
         {
           "title": "Fetch–Decode–Execute dövrü",
@@ -94,7 +94,7 @@
         },
         {
           "title": "Multi-core: core, thread, hyper-threading",
-          "path": "/learn/faza-0/modul-0-3/coxnuvelilik"
+          "path": "/learn/faza-0/modul-0-3/multicore"
         },
         {
           "title": "CPU cache: L1/L2/L3",
@@ -107,11 +107,11 @@
       "routes": [
         {
           "title": "Yaddaş iyerarxiyası",
-          "path": "/learn/faza-0/modul-0-4/yaddas-iyerarsiyasi"
+          "path": "/learn/faza-0/modul-0-4/memory-hierarchy"
         },
         {
           "title": "RAM necə işləyir",
-          "path": "/learn/faza-0/modul-0-4/ram-nece-isleyir"
+          "path": "/learn/faza-0/modul-0-4/how-ram-works"
         },
         {
           "title": "Stack vs Heap",
@@ -123,7 +123,7 @@
         },
         {
           "title": "Yaddaş sızması",
-          "path": "/learn/faza-0/modul-0-4/yaddas-sizmasi"
+          "path": "/learn/faza-0/modul-0-4/memory-leak"
         }
       ]
     },
@@ -132,7 +132,7 @@
       "routes": [
         {
           "title": "Kompilyator nə edir",
-          "path": "/learn/faza-0/modul-0-5/compiler-ne-edir"
+          "path": "/learn/faza-0/modul-0-5/what-does-a-compiler-do"
         },
         {
           "title": "İnterpreter vs Kompilyator vs JIT",
@@ -140,7 +140,7 @@
         },
         {
           "title": "Bayt kodu və virtual maşınlar",
-          "path": "/learn/faza-0/modul-0-5/bytecode-virtual-masinlar"
+          "path": "/learn/faza-0/modul-0-5/bytecode-virtual-machines"
         },
         {
           "title": "Assembler, linker, icra olunan fayl",
@@ -178,7 +178,7 @@
         },
         {
           "title": "Ağaclar: ikili ağac, BST, B-ağac",
-          "path": "/learn/faza-1/modul-1-1/agaclar"
+          "path": "/learn/faza-1/modul-1-1/trees"
         },
         {
           "title": "Trie və prefiks strukturları",
@@ -207,11 +207,11 @@
         },
         {
           "title": "Axtarış: xətti vs ikili axtarış",
-          "path": "/learn/faza-1/modul-1-2/axtaris"
+          "path": "/learn/faza-1/modul-1-2/searching"
         },
         {
           "title": "Sıralama alqoritmlərinin ideyaları",
-          "path": "/learn/faza-1/modul-1-2/siralama"
+          "path": "/learn/faza-1/modul-1-2/sorting"
         },
         {
           "title": "Rekursiya və onun kompromisləri",
@@ -232,7 +232,7 @@
       "routes": [
         {
           "title": "Paradiqmalar: imperativ, OOP, funksional",
-          "path": "/learn/faza-1/modul-1-3/paradiqmalar"
+          "path": "/learn/faza-1/modul-1-3/programming-paradigms"
         },
         {
           "title": "Dəyişməzlik, saf funksiya, yan effekt",
@@ -252,7 +252,7 @@
         },
         {
           "title": "Sinxron vs asinxron kod",
-          "path": "/learn/faza-1/modul-1-3/sinxron-asinxron"
+          "path": "/learn/faza-1/modul-1-3/sync-async"
         },
         {
           "title": "Regex nədir",
@@ -315,7 +315,7 @@
       "routes": [
         {
           "title": "Əməliyyat sistemi nədir",
-          "path": "/learn/faza-2/modul-2-1/os-nedir"
+          "path": "/learn/faza-2/modul-2-1/what-is-an-os"
         },
         {
           "title": "Kernel vs user space",
@@ -323,11 +323,11 @@
         },
         {
           "title": "Yükləmə prosesi",
-          "path": "/learn/faza-2/modul-2-1/boot-prosesi"
+          "path": "/learn/faza-2/modul-2-1/boot-process"
         },
         {
           "title": "Fərqlər: Linux, Windows, macOS",
-          "path": "/learn/faza-2/modul-2-1/os-ferqleri"
+          "path": "/learn/faza-2/modul-2-1/os-differences"
         }
       ]
     },
@@ -336,11 +336,11 @@
       "routes": [
         {
           "title": "Proses nədir",
-          "path": "/learn/faza-2/modul-2-2/process-nedir"
+          "path": "/learn/faza-2/modul-2-2/what-is-a-process"
         },
         {
           "title": "Thread nədir",
-          "path": "/learn/faza-2/modul-2-2/thread-nedir"
+          "path": "/learn/faza-2/modul-2-2/what-is-a-thread"
         },
         {
           "title": "Context switching",
@@ -415,11 +415,11 @@
       "routes": [
         {
           "title": "Fayl sistemi: inode, icazələr",
-          "path": "/learn/faza-2/modul-2-5/fayl-sistemi"
+          "path": "/learn/faza-2/modul-2-5/file-system"
         },
         {
           "title": "Hər şey fayldır: /proc, /dev, pipe",
-          "path": "/learn/faza-2/modul-2-5/her-sey-fayl"
+          "path": "/learn/faza-2/modul-2-5/everything-is-a-file"
         },
         {
           "title": "Blocking vs non-blocking I/O",
@@ -478,7 +478,7 @@
       "routes": [
         {
           "title": "İnternet necə birləşdirilir: ISP, IXP, BGP",
-          "path": "/learn/faza-3/modul-3-1/internet-fiziki"
+          "path": "/learn/faza-3/modul-3-1/physical-internet"
         },
         {
           "title": "OSI vs TCP/IP modeli",
@@ -549,7 +549,7 @@
       "routes": [
         {
           "title": "HTTP anatomiyası",
-          "path": "/learn/faza-3/modul-3-4/http-anatomiyasi"
+          "path": "/learn/faza-3/modul-3-4/http-anatomy"
         },
         {
           "title": "Kukiler: vəziyyətsiz protokolda vəziyyət",
@@ -557,7 +557,7 @@
         },
         {
           "title": "HTTP/1.1 → HTTP/2 → HTTP/3",
-          "path": "/learn/faza-3/modul-3-4/http-versiyalar"
+          "path": "/learn/faza-3/modul-3-4/http-versions"
         },
         {
           "title": "Caching headers",
@@ -574,7 +574,7 @@
       "routes": [
         {
           "title": "Şifrələmə niyə lazımdır",
-          "path": "/learn/faza-3/modul-3-5/sifreleme-niye"
+          "path": "/learn/faza-3/modul-3-5/why-encryption"
         },
         {
           "title": "TLS əl sıxışması addım-addım",
@@ -582,7 +582,7 @@
         },
         {
           "title": "Sertifikatlar, CA, etibar zənciri",
-          "path": "/learn/faza-3/modul-3-5/sertifikatlar"
+          "path": "/learn/faza-3/modul-3-5/certificates"
         },
         {
           "title": "Let's Encrypt necə işləyir",
@@ -595,7 +595,7 @@
       "routes": [
         {
           "title": "Təkamül: Polling → SSE → WebSocket",
-          "path": "/learn/faza-3/modul-3-6/realtime-tekamul"
+          "path": "/learn/faza-3/modul-3-6/realtime-evolution"
         },
         {
           "title": "gRPC və ikili protokollar",
@@ -638,11 +638,11 @@
       "routes": [
         {
           "title": "VB fayldan niyə yaxşıdır",
-          "path": "/learn/faza-4/modul-4-1/db-niye"
+          "path": "/learn/faza-4/modul-4-1/why-databases"
         },
         {
           "title": "SQL: SELECT arxasında nə baş verir",
-          "path": "/learn/faza-4/modul-4-1/sql-konsept"
+          "path": "/learn/faza-4/modul-4-1/sql-concepts"
         },
         {
           "title": "Məlumat modelləşdirməsi: tələblərdən sxemə",
@@ -650,7 +650,7 @@
         },
         {
           "title": "Normalizasiya və denormalizasiya",
-          "path": "/learn/faza-4/modul-4-1/normalizasiya"
+          "path": "/learn/faza-4/modul-4-1/normalization"
         },
         {
           "title": "ORM vs xam SQL və N+1 problemi",
@@ -663,11 +663,11 @@
       "routes": [
         {
           "title": "Sorğu yolu: parser → planner → executor",
-          "path": "/learn/faza-4/modul-4-2/sorgu-yolu"
+          "path": "/learn/faza-4/modul-4-2/query-path"
         },
         {
           "title": "İndeks: B-ağac, niyə sürətləndirir",
-          "path": "/learn/faza-4/modul-4-2/indeks"
+          "path": "/learn/faza-4/modul-4-2/indexes"
         },
         {
           "title": "LSM ağacları və SSTable: yazmaya optimallaşdırılmış yaddaş",
@@ -721,11 +721,11 @@
       "routes": [
         {
           "title": "NoSQL niyə yaradıldı",
-          "path": "/learn/faza-4/modul-4-4/nosql-niye"
+          "path": "/learn/faza-4/modul-4-4/why-nosql"
         },
         {
           "title": "Açar-dəyər, Sənəd, Geniş-sütun, Qraf",
-          "path": "/learn/faza-4/modul-4-4/nosql-novleri"
+          "path": "/learn/faza-4/modul-4-4/nosql-types"
         },
         {
           "title": "Oxumada sxem vs yazmada sxem",
@@ -746,7 +746,7 @@
       "routes": [
         {
           "title": "Cache nədir: sürət vs təzəlik",
-          "path": "/learn/faza-4/modul-4-5/cache-nedir"
+          "path": "/learn/faza-4/modul-4-5/what-is-cache"
         },
         {
           "title": "Redis: yaddaşda VB konsepti",
@@ -754,7 +754,7 @@
         },
         {
           "title": "Cache strategiyaları",
-          "path": "/learn/faza-4/modul-4-5/cache-strategiyalar"
+          "path": "/learn/faza-4/modul-4-5/cache-strategies"
         },
         {
           "title": "Xaric etmə: LRU, LFU, TTL",
@@ -779,7 +779,7 @@
         },
         {
           "title": "CAP teoremi",
-          "path": "/learn/faza-4/modul-4-6/cap-teoremi"
+          "path": "/learn/faza-4/modul-4-6/cap-theorem"
         },
         {
           "title": "Ardıcıllıq modelləri",
@@ -791,7 +791,7 @@
         },
         {
           "title": "Axtarış mühərrikləri: tərs indeks",
-          "path": "/learn/faza-4/modul-4-6/axtaris-muherrikleri"
+          "path": "/learn/faza-4/modul-4-6/search-engines"
         }
       ]
     },
@@ -805,7 +805,7 @@
       "routes": [
         {
           "title": "Sorğunun tam həyatı",
-          "path": "/learn/faza-5/modul-5-1/request-heyyati"
+          "path": "/learn/faza-5/modul-5-1/request-lifecycle"
         },
         {
           "title": "REST API dizaynı",
@@ -951,7 +951,7 @@
       "routes": [
         {
           "title": "URL → Enter → Ekran: tam yolculuq",
-          "path": "/learn/faza-6/modul-6-1/url-enter-ekran"
+          "path": "/learn/faza-6/modul-6-1/url-to-screen"
         },
         {
           "title": "HTML → DOM, CSS → CSSOM",
@@ -984,7 +984,7 @@
         },
         {
           "title": "Donmuş UI nə deməkdir",
-          "path": "/learn/faza-6/modul-6-2/ui-dondu"
+          "path": "/learn/faza-6/modul-6-2/ui-freeze"
         },
         {
           "title": "Web Workers",
@@ -1018,7 +1018,7 @@
       "routes": [
         {
           "title": "CSR vs SSR vs SSG vs ISR",
-          "path": "/learn/faza-6/modul-6-4/rendering-strategiyalar"
+          "path": "/learn/faza-6/modul-6-4/rendering-strategies"
         },
         {
           "title": "Hidratasiya nədir",
@@ -1094,7 +1094,7 @@
         },
         {
           "title": "Paylanmış hesablamanın 8 yanlış fərziyyəsi",
-          "path": "/learn/faza-7/modul-7-1/8-yanlis-ferziyye"
+          "path": "/learn/faza-7/modul-7-1/8-fallacies"
         },
         {
           "title": "Gecitmə ədədləri",
@@ -1140,7 +1140,7 @@
         },
         {
           "title": "Çatdırma zəmanətləri",
-          "path": "/learn/faza-7/modul-7-3/delivery-zemaneti"
+          "path": "/learn/faza-7/modul-7-3/delivery-guarantees"
         },
         {
           "title": "Sxem inkişafı: irəli/geri uyğunluq",
@@ -1254,15 +1254,15 @@
       "routes": [
         {
           "title": "FTP-dən Kubernetes-ə: tarixi yol",
-          "path": "/learn/faza-8/modul-8-1/deploy-tekamul"
+          "path": "/learn/faza-8/modul-8-1/deploy-evolution"
         },
         {
           "title": "Bare metal → VM → konteyner → serversiz",
-          "path": "/learn/faza-8/modul-8-1/infra-evolyutsiya"
+          "path": "/learn/faza-8/modul-8-1/infra-evolution"
         },
         {
           "title": "Virtualizasiya: hipervizor",
-          "path": "/learn/faza-8/modul-8-1/virtualizasiya"
+          "path": "/learn/faza-8/modul-8-1/virtualization"
         }
       ]
     },
@@ -1296,7 +1296,7 @@
         },
         {
           "title": "Pod, Deployment, Service, Ingress",
-          "path": "/learn/faza-8/modul-8-3/k8s-objeler"
+          "path": "/learn/faza-8/modul-8-3/k8s-objects"
         },
         {
           "title": "İstənilən vəziyyət və uzlaşdırma dövrü",
@@ -1333,7 +1333,7 @@
         },
         {
           "title": "Mavi-yaşıl, kanarya, yuvarlanan yerləşdirmə",
-          "path": "/learn/faza-8/modul-8-4/deploy-strategiyalar"
+          "path": "/learn/faza-8/modul-8-4/deploy-strategies"
         },
         {
           "title": "Xüsusiyyət bayraqları",
@@ -1383,7 +1383,7 @@
       "routes": [
         {
           "title": "Jurnallar, metrikalar, izlər: 3 sütun",
-          "path": "/learn/faza-8/modul-8-6/observability-sutunlar"
+          "path": "/learn/faza-8/modul-8-6/observability-pillars"
         },
         {
           "title": "Prometheus: çəkməyə əsaslanan metrikalar",
@@ -1416,7 +1416,7 @@
         },
         {
           "title": "Git daxilindən: commit, şaxə, birləşdirmə vs rebaz",
-          "path": "/learn/faza-8/modul-8-7/git-daxilden"
+          "path": "/learn/faza-8/modul-8-7/git-internals"
         },
         {
           "title": "GitOps konsepti",
@@ -1459,11 +1459,11 @@
         },
         {
           "title": "Simmetrik şifrələmə (AES)",
-          "path": "/learn/faza-9/modul-9-1/simetrik-sifreleme"
+          "path": "/learn/faza-9/modul-9-1/symmetric-encryption"
         },
         {
           "title": "Asimmetrik şifrələmə: açıq/gizli açar",
-          "path": "/learn/faza-9/modul-9-1/asimetrik-sifreleme"
+          "path": "/learn/faza-9/modul-9-1/asymmetric-encryption"
         },
         {
           "title": "Rəqəmsal imza",
@@ -1563,7 +1563,7 @@
         },
         {
           "title": "Model nədir: çəkilər, parametrlər",
-          "path": "/learn/faza-10/modul-10-1/model-nedir"
+          "path": "/learn/faza-10/modul-10-1/what-is-a-model"
         },
         {
           "title": "GPU niyə vacibdir",
@@ -1592,7 +1592,7 @@
         },
         {
           "title": "Kontekst pəncərəsi, temperatur, halüsinasiya",
-          "path": "/learn/faza-10/modul-10-2/llm-konseptler"
+          "path": "/learn/faza-10/modul-10-2/llm-concepts"
         },
         {
           "title": "Çıxarım mexanikası: KV cache, quantization, streaming",
@@ -1633,7 +1633,7 @@
         },
         {
           "title": "Xərc, gecitmə, qiymətləndirmə",
-          "path": "/learn/faza-10/modul-10-3/xerc-latency-eval"
+          "path": "/learn/faza-10/modul-10-3/cost-latency-eval"
         }
       ]
     },

@@ -11,9 +11,9 @@ const SidebarNav = ({ routeTree, breadcrumbs }: ISidebarNavProps) => {
   }
 
   return (
-    <div className="sticky top-14 lg:bottom-0 lg:h-[calc(100vh-3.5rem)] flex flex-col">
+    <div className="h-full lg:sticky lg:top-14 lg:bottom-0 lg:h-[calc(100vh-3.5rem)] flex flex-col">
       <div className="overflow-y-scroll no-bg-scrollbar overscroll-contain lg:w-[342px] grow bg-wash dark:bg-wash-dark">
-        <aside className="lg:grow flex-col w-full pb-8 lg:pb-0 lg:max-w-custom-xs z-10 hidden lg:block">
+        <aside className="flex flex-col w-full pb-8 lg:pb-0 lg:max-w-custom-xs z-10">
           <nav
             role="navigation"
             aria-label="Kurs naviqasiyası"
