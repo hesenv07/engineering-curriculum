@@ -1,19 +1,66 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
 
 import { isMdxTag } from "../../../lib/utils/mdxTag";
+import { resolveLocale } from "@/shared/lib/utils/locale";
 
+import type { TLocale } from "@/shared/types";
 import type {
   IChallengeData,
   IChallengesProps,
   TElementProps,
 } from "./Challenges.types";
 
+const labels: Record<
+  TLocale,
+  {
+    challenge: string;
+    showHint: string;
+    hideHint: string;
+    showSolution: string;
+    hideSolution: string;
+    previous: string;
+    next: string;
+  }
+> = {
+  az: {
+    challenge: "Tapşırıq",
+    showHint: "İpucu göstər",
+    hideHint: "İpucunu gizlət",
+    showSolution: "Cavabı göstər",
+    hideSolution: "Cavabı gizlət",
+    previous: "← Əvvəlki",
+    next: "Növbəti →",
+  },
+  en: {
+    challenge: "Challenge",
+    showHint: "Show hint",
+    hideHint: "Hide hint",
+    showSolution: "Show solution",
+    hideSolution: "Hide solution",
+    previous: "← Previous",
+    next: "Next →",
+  },
+};
+
 function getComponentName(type: unknown): string {
   if (typeof type !== "function") return String(type);
   const fn = type as { displayName?: string; name?: string };
   return fn.displayName ?? fn.name ?? "";
+}
+
+function getTextContent(node: React.ReactNode): string {
+  if (typeof node === "string") return node;
+  if (typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(getTextContent).join("");
+  if (React.isValidElement(node)) {
+    return getTextContent(
+      (node.props as { children?: React.ReactNode }).children,
+    );
+  }
+  return "";
 }
 
 function parseChallenges(children: React.ReactNode): IChallengeData[] {
@@ -27,9 +74,9 @@ function parseChallenges(children: React.ReactNode): IChallengeData[] {
     const type = child.type;
     const props = child.props as TElementProps;
 
-    if (isMdxTag(type, "h4")) {
+    if (isMdxTag(type, "h4") || type === "h4") {
       if (current) result.push(current);
-      const titleText = String(props.children ?? "");
+      const titleText = getTextContent(props.children).trim();
       const id = props.id ?? titleText.toLowerCase().replace(/\s+/g, "-");
       current = {
         id,
@@ -64,6 +111,10 @@ export default function Challenges({ children }: IChallengesProps) {
   const [showSolution, setShowSolution] = useState(false);
   const [showHint, setShowHint] = useState(false);
 
+  const { locale } = useParams<{ locale: string }>();
+  const lang = resolveLocale(locale);
+  const t = labels[lang];
+
   const challenge = challenges[current];
 
   useEffect(() => {
@@ -78,8 +129,8 @@ export default function Challenges({ children }: IChallengesProps) {
       <div className="flex items-center justify-between bg-card dark:bg-card-dark px-5 py-3 border-b border-border dark:border-border-dark">
         <span className="text-link dark:text-link-dark font-bold uppercase text-xs tracking-widest">
           {challenges.length > 1
-            ? `Tapşırıq ${current + 1} / ${challenges.length}`
-            : "Tapşırıq"}
+            ? `${t.challenge} ${current + 1} / ${challenges.length}`
+            : t.challenge}
         </span>
         {challenges.length > 1 && (
           <div className="flex gap-1">
@@ -112,7 +163,7 @@ export default function Challenges({ children }: IChallengesProps) {
               onClick={() => setShowHint(!showHint)}
               className="text-sm text-link dark:text-link-dark hover:underline font-medium"
             >
-              {showHint ? "İpucunu gizlət" : "İpucu göstər"}
+              {showHint ? t.hideHint : t.showHint}
             </button>
             {showHint && (
               <div className="mt-2 rounded-lg bg-card dark:bg-card-dark border border-border dark:border-border-dark p-4 prose-docs">
@@ -128,7 +179,7 @@ export default function Challenges({ children }: IChallengesProps) {
               onClick={() => setShowSolution(!showSolution)}
               className="text-sm text-link dark:text-link-dark hover:underline font-medium"
             >
-              {showSolution ? "Cavabı gizlət" : "Cavabı göstər"}
+              {showSolution ? t.hideSolution : t.showSolution}
             </button>
             {showSolution && (
               <div className="mt-2 rounded-lg bg-card dark:bg-card-dark border border-border dark:border-border-dark p-4 prose-docs">
@@ -146,7 +197,7 @@ export default function Challenges({ children }: IChallengesProps) {
             disabled={current === 0}
             className="text-sm text-link dark:text-link-dark disabled:opacity-40 disabled:cursor-not-allowed hover:underline font-medium"
           >
-            ← Əvvəlki
+            {t.previous}
           </button>
           <button
             onClick={() =>
@@ -155,7 +206,7 @@ export default function Challenges({ children }: IChallengesProps) {
             disabled={current === challenges.length - 1}
             className="text-sm text-link dark:text-link-dark disabled:opacity-40 disabled:cursor-not-allowed hover:underline font-medium"
           >
-            Növbəti →
+            {t.next}
           </button>
         </div>
       )}

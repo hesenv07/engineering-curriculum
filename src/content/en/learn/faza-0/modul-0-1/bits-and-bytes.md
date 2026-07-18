@@ -1,62 +1,55 @@
 ---
-title: 'Bits and bytes: what is information'
+title: 'Bits and Bytes: What Is Information?'
 ---
 
 <Intro>
 
-The photo on your phone, the song you're listening to, the text on this website, the balance in your bank account — all made of the same thing: billions of 0s and 1s. But why 0s and 1s? Why doesn't a computer work with 10 digits like we do? The answer isn't hidden in mathematics but in *physics* — and all of computer science is built on that answer.
+Think of any object in the universe — a penguin, the Eiffel Tower, your left shoe. With just twenty yes/no questions, a good player of "twenty questions" can almost always corner it. That's not a party trick; it's a mathematical fact with a number attached: twenty yes/no answers can distinguish 2²⁰ — more than a million — possibilities. In 1948, a Bell Labs engineer named Claude Shannon built an entire science on this observation: *all* information — text, sound, images, money — can be reduced to yes/no answers. He gave the smallest possible answer a name, and that name is the atom this whole course is built from: the **bit**.
 
 </Intro>
 
 <YouWillLearn>
 
-- What a bit — the smallest unit of information — is
-- The real (physical) reason computers work in binary
-- Why a byte is exactly 8 bits — and the history behind it
-- The difference between KB and KiB: why a "1 TB" disk shows 931 GB
-- The "everything is bytes" principle: different meanings from the same bits
+- What a bit really is — and why nothing smaller can exist
+- The one formula behind everything: n bits = 2ⁿ states
+- Why computers run on 2 states instead of 10 — a physics answer, not a math one
+- Why a byte is exactly 8 bits (spoiler: it almost wasn't)
+- The two different "kilobytes", and why your 1 TB disk shows up as 931 GB
+- The idea that unlocks the rest of this module: bytes have no meaning — *interpretation* does
 
 </YouWillLearn>
 
-## Communicating with a light switch {/*communicating-with-a-light-switch*/}
+## The game behind all computing {/*the-game-behind-all-computing*/}
 
-Take the light switch in your room. It has two states: on and off. Can you send a message to a friend in the next building using this switch?
+Start with the humblest information device you own: a light switch. Two states — on, off. Can you send a message to a friend across the street with it? Absolutely, if you agree on a contract beforehand: *on means yes, off means no*. One switch, two possible messages.
 
-Yes — you agree beforehand: "on" = yes, "off" = no. One switch gives you 2 possible messages.
+Now install a second switch. The combinations are on-on, on-off, off-on, off-off — four messages. A third switch: eight. Every switch you add **doubles** the space of possible messages.
 
-Now take 2 switches. Combinations: on-on, on-off, off-on, off-off — that is already 4 messages. 3 switches = 8 messages. Every new switch **doubles** the possibilities.
+<Diagram name="bits-and-bytes/light_switches" height={330} width={720} alt="Three rows of light-switch icons. Row one: a single switch in the ON position, labeled 2 to the power of 1 equals 2 messages. Row two: two switches, one on and one off, labeled 2 squared equals 4 messages. Row three: three switches in a mixed on/off pattern, labeled 2 cubed equals 8 messages. A caption explains that a raised dot means ON, a lowered dot means OFF, and that a computer is trillions of such switches called transistors.">
 
-<Diagram name="bit-ve-byte/light_switches" height={280} width={640} alt="Three rows of light switches: 1 switch gives two states (2 messages), 2 switches give four combinations (4 messages), 3 switches give eight combinations (8 messages). Each row shows switches in on/off positions with the count of possible messages.">
-
-Each additional switch doubles the number of possible combinations.
+Each additional switch doubles the message space — the most important pattern in this course.
 
 </Diagram>
 
-A computer is a collection of trillions of such microscopic switches. Each switch is called a **transistor** (an electrically controlled switch that can flip billions of times per second), and each one's state carries one **bit** of information.
+This is exactly the game Shannon formalized in his 1948 paper *A Mathematical Theory of Communication* — arguably the most consequential paper of the twentieth century, because every phone call, video stream, and file you've ever touched runs on its ideas. Shannon showed that any message can be encoded as a sequence of yes/no answers, and that the smallest unit of information is one such answer. His colleague John Tukey coined the word for it: **bit**, short for *binary digit*. A bit has two possible values — call them yes/no, on/off, or as we'll write them from now on, `1` and `0`. Nothing smaller exists: half a yes/no answer is not an answer.
 
-## Bit: the atom of information {/*bit-the-atom-of-information*/}
+A computer, at the bottom of everything, is this same game played at absurd scale: trillions of microscopic switches called **transistors** — each one an electrically controlled switch that flips billions of times per second, each one holding exactly one bit. Everything above them, from your operating system to this web page, is switch patterns.
 
-In 1948, Claude Shannon, working at Bell Labs, published "A Mathematical Theory of Communication" — the birth certificate of information theory. Shannon showed that *any* information — text, sound, image — can be converted into a sequence of "yes/no" questions. The smallest unit of information is a single "yes/no" answer: a **bit** (*binary digit*).
+And the doubling pattern gives us the single formula that this entire course leans on:
 
-A bit has two values: `0` or `1`. There is no smaller unit of information.
+**n bits = 2ⁿ different states**
 
-As the number of bits increases, the number of representable states grows like this:
-
-| Bits | Different states | What it covers in the real world |
-|---|---|---|
+| Bits | States | Enough for... |
+|------|--------|---------------|
 | 1 | 2 | yes / no |
 | 2 | 4 | four directions (↑ ↓ ← →) |
 | 4 | 16 | one hexadecimal digit |
 | 8 | 256 | one ASCII character, one color channel |
-| 16 | 65,536 | one port number |
+| 16 | 65,536 | one network port number |
 | 32 | ~4.3 billion | one IPv4 address |
-| 64 | ~18 quintillion | one "word" of a modern CPU |
+| 64 | ~18 quintillion | a modern CPU's word |
 
-Memorize the formula behind the table — it will come up throughout the course:
-
-**n bits = 2ⁿ different states**
-
-In the interactive example below, flip 8 switches (i.e. 8 bits) yourself and see what number results:
+Don't memorize the table — *feel* it with your own hands. Below are 8 switches, which is to say 8 bits, which is to say one byte. Flip them:
 
 <Sandpack>
 
@@ -66,7 +59,7 @@ import { useState } from 'react';
 const WEIGHTS = [128, 64, 32, 16, 8, 4, 2, 1];
 
 export default function ByteToy() {
-  const [bits, setBits] = useState(Array(8).fill(0));
+  const [bits, setBits] = useState([0, 0, 0, 0, 0, 0, 0, 0]);
 
   function toggle(i) {
     const next = [...bits];
@@ -74,49 +67,43 @@ export default function ByteToy() {
     setBits(next);
   }
 
-  const value = bits.reduce(
-    (sum, bit, i) => sum + bit * WEIGHTS[i],
-    0
-  );
+  const value = bits.reduce((sum, bit, i) => sum + bit * WEIGHTS[i], 0);
 
   return (
-    <div style={{ textAlign: 'center', fontFamily: 'monospace', padding: '20px' }}>
-      <p style={{ marginBottom: '12px', color: '#404756' }}>Click the bits to toggle:</p>
+    <div style={{ textAlign: 'center', fontFamily: 'monospace' }}>
+      <p style={{ fontFamily: 'system-ui' }}>One byte = 8 switches. Click them:</p>
       <div>
         {bits.map((bit, i) => (
           <button
-            key={i}
+            key={WEIGHTS[i]}
             onClick={() => toggle(i)}
             style={{
-              width: 44,
-              height: 56,
+              width: 42,
+              height: 54,
               margin: 3,
               fontSize: 22,
               fontFamily: 'monospace',
               borderRadius: 8,
-              border: '2px solid',
-              borderColor: bit ? '#087EA4' : '#EBECF0',
+              border: '1px solid #888',
               cursor: 'pointer',
-              background: bit ? '#087EA4' : 'transparent',
-              color: bit ? 'white' : '#404756',
-              transition: 'all 0.15s'
+              background: bit ? '#087ea4' : 'transparent',
+              color: bit ? 'white' : 'inherit'
             }}
           >
             {bit}
           </button>
         ))}
       </div>
-      <div style={{ fontSize: 12, color: '#99A1B3', marginTop: 6 }}>
+      <div style={{ fontSize: 13, color: '#888' }}>
         {WEIGHTS.map(w => (
-          <span key={w} style={{ display: 'inline-block', width: 50 }}>
-            {w}
-          </span>
+          <span key={w} style={{ display: 'inline-block', width: 48 }}>{w}</span>
         ))}
       </div>
-      <h2 style={{ fontSize: 32, margin: '16px 0 8px', color: '#087EA4' }}>= {value}</h2>
-      <p style={{ color: '#404756', fontSize: 14 }}>
-        One byte (8 bits) can hold 2⁸ = 256 different values,{' '}
-        from 0 to 255.
+      <h2>= {value}</h2>
+      <p style={{ fontFamily: 'system-ui', fontSize: 14, color: '#888' }}>
+        {value === 255
+          ? 'All switches on — 255, the ceiling of a byte. Remember this number.'
+          : 'A byte holds 2⁸ = 256 different values: 0 through 255.'}
       </p>
     </div>
   );
@@ -125,135 +112,208 @@ export default function ByteToy() {
 
 </Sandpack>
 
-Set them all to 1 — you'll get 255: the ceiling of one byte. Remember this number; in the next lesson we'll see what happens to it.
+Turn everything on and you get 255 — the ceiling of a byte. File that number away; in the next lesson you'll see what happens to Pac-Man, YouTube, and a Boeing 787 when a counter tries to go one step past a ceiling like that.
 
-## Why exactly 2? Why not 10? {/*why-exactly-2*/}
+## Why 2 states and not 10? {/*why-two-not-ten*/}
 
-This is the most important engineering decision in the history of computing, and the reason is **reliability** — not mathematical elegance.
+Here's the question that separates people who *use* computers from people who understand them. We have ten fingers and a ten-digit number system — why would machines use two? The honest answer disappoints mathematicians: binary is not mathematically special. **It's physically robust.**
 
-In an electronic circuit, a digit is represented by voltage. Suppose we want to build a base-10 system: 0V = "0", 0.5V = "1", 1V = "2"... 4.5V = "9". The problem: in a real circuit voltage never stays perfectly stable. Temperature, electrical noise, and component aging cause it to fluctuate constantly. You measure 2.3V — is that "4" or "5"? Errors become inevitable.
+Inside a circuit, a digit has to be represented by a voltage. Suppose we build a decimal machine: 0 volts means "0", 0.5 V means "1", 1.0 V means "2", up to 4.5 V for "9". The scheme dies on contact with reality, because real voltages never hold still — temperature, electrical noise from neighboring wires, and component aging jiggle them constantly. Your sensor reads 2.3 V. Is that a slightly-high "4" or a slightly-low "5"? With ten levels crammed into the range, the wobble routinely crosses a border, and every crossing is a corrupted digit.
 
-In binary there are only two states: "voltage present" and "voltage absent," with a wide empty zone between them. Even if the signal drifts significantly, confusing 0 and 1 is nearly impossible.
+Now give the same wobbly signal only two zones to live in — "high" and "low" — with a wide empty buffer between them:
 
-<Diagram name="bit-ve-byte/voltage_noise" height={340} width={720} alt="Two graphs side by side. Left: a 10-level system with voltage bands from 0V to 4.5V packed closely together; a noisy signal line crosses into adjacent bands in several places, marked with red X. Right: a binary system with only two wide zones (low = '0', high = '1') separated by a large buffer; the same level of noise never pushes the signal into the wrong zone, green check mark shown.">
+<Diagram name="bits-and-bytes/voltage_noise" height={360} width={720} alt="Two panels comparing the same noisy signal. Left panel: a decimal signal with ten narrow voltage bands stacked closely; a red wobbling line repeatedly crosses band borders, captioned 'wobble crosses band borders — is it a 4 or a 5?'. Right panel: a binary signal with only two wide zones for 1 and 0 separated by a large empty buffer zone; the same wobbling line, drawn in blue, stays safely inside the top zone, captioned 'same wobble, still clearly a 1'. Bottom caption: binary wins for a physical reason, not a mathematical one.">
 
-Noise shakes both signals equally — but in binary there is no room for an error.
+Identical noise, opposite outcomes. The buffer zone is insurance that ten levels can't afford.
 
 </Diagram>
 
-**Binary is insurance against noise.** Computers don't work with 0s and 1s because it's mathematically special; they work that way because distinguishing two states is physically nearly error-free.
+The wobble that destroyed the decimal signal doesn't even come close to confusing the binary one. That's the entire secret: **two states survive noise that ten states cannot.** Multiply this robustness by trillions of transistors switching billions of times per second, and binary isn't a choice anymore — it's the only design that doesn't collapse under its own error rate.
 
 <Note>
 
-Binary wasn't the only attempt. In the USSR in 1958, a ternary (base-3: −1, 0, +1) computer called **Setun** was built, and it was actually more efficient for some calculations. More interestingly: the first major electronic computer **ENIAC (1945) was not binary** — it operated in decimal and used 10-state vacuum-tube rings for each digit. Engineers drew the "reliability" lesson directly from the ENIAC experience — virtually every practical machine built afterward was binary.
+Binary wasn't the only contender — history ran the experiment. The first large electronic computer, **ENIAC (1945), was decimal**: it kept each digit in a ring of ten vacuum-tube states, exactly the fragile scheme described above, and its designers' hard-won conclusion pushed the entire field to binary. And in 1958 the Soviet Union built **Setun**, a *ternary* computer (three states: −1, 0, +1) that was genuinely elegant and efficient — but the manufacturing simplicity of two-state circuits won. No commercial non-binary processor exists today.
 
 </Note>
 
-## Byte: why exactly 8? {/*byte-why-exactly-8*/}
+## The byte: why exactly 8? {/*the-byte-why-eight*/}
 
-Bits are too small to use individually — we group them. A group of 8 bits is called a **byte**. But 8 is not a law of nature; it is a **historical convention**.
+Single bits are too small to handle one at a time, so we group them. The 8-bit group is the **byte** — the unit memory is addressed in, the unit file sizes are measured in, the unit this entire course will count in. But here's the surprise: **8 is not a law of nature. It's a treaty.**
 
-The 1950s–60s were a chaotic era: machines with 6-bit, 7-bit, and 9-bit bytes coexisted. The word "byte" was coined in 1956 by IBM engineer Werner Buchholz — derived from the English word *bite* ("a mouthful"); the *i* was changed to *y* so it would not be confused with "bit."
+The 1950s and 60s were chaos: machines shipped with 6-bit, 7-bit, even 9-bit character groups, and 36-bit words were common in serious scientific computers. The word "byte" itself was coined in 1956 by IBM engineer Werner Buchholz — a deliberate respelling of *bite* ("a bite of data"), with the *i* changed to *y* so nobody would misread it as "bit."
 
-The turning point was 1964: the era's most successful computer, the **IBM System/360**, was built around an 8-bit byte, and the entire market aligned to it. 8 was also practical: it comfortably fit the uppercase and lowercase letters of the English alphabet, digits, and symbols, and it is a power of 2.
-
-A half-byte (4 bits) is jokingly but seriously called a **nibble** ("a small bite") — you will encounter it in the hexadecimal lesson.
+The treaty was signed by market forces in 1964, when IBM bet its future on the System/360 — the most successful computer family of its era — built around an 8-bit byte. Eight was a sweet spot: it comfortably held one character of English text (upper and lower case, digits, punctuation), and it was a power of 2, which keeps the arithmetic of addressing clean. The industry aligned, and the 8-bit byte became the ground everyone builds on. Half a byte — 4 bits — earned the joke name **nibble** (a small bite), and the joke stuck hard enough to appear in official documentation.
 
 <DeepDive>
 
-#### Non-8-bit worlds {/*non-8-bit-worlds*/}
+#### The worlds where a byte wasn't 8 bits {/*the-worlds-where-a-byte-wasnt-8*/}
 
-The 8-bitness of a byte is so established that standards documents use a separate word to avoid ambiguity: **octet** — "exactly 8 bits." Networking protocol specifications (RFCs) say "octet" rather than "byte," because when those documents were written, machines with 9-bit bytes (e.g., the PDP-10 — 36-bit words, 9-bit pieces) were still in active use.
+The 8-bit treaty is so total today that its exceptions read like alternate history — but they left fingerprints you can still find.
 
-Another trace: ASCII encoding is 7-bit, not 8. The reason: in 1963 every bit was expensive, and 128 characters were enough for English text. The "leftover" 8th bit was later assigned to different additional characters in different countries — and a years-long encoding chaos followed. You will see how this story ends — how Unicode and UTF-8 saved the world — a few lessons from now.
+Network protocol documents (the RFCs you'll meet in the networks phase) carefully say **octet** instead of "byte," meaning *exactly eight bits* — because when those documents were written, machines with 9-bit bytes (like the 36-bit PDP-10, beloved of early AI researchers) were still on the internet, and "byte" was genuinely ambiguous.
+
+And ASCII, the character table you'll dissect in a few lessons, is a **7-bit** code — 128 characters — not 8. In 1963, every bit cost real money, and 128 slots covered English comfortably. When the 8-bit byte became standard, every character shipped with one spare bit... and the story of how the world's languages fought over that spare bit is one of the best disasters in this module. It's waiting for you in the text lesson.
 
 </DeepDive>
 
-## KB, MB, GB — and the "missing" gigabytes {/*kb-mb-gb*/}
+## Meet your bytes in person {/*meet-your-bytes-in-person*/}
 
-We use prefixes for large amounts of data, but here lives one of the industry's most famous confusions. There are two different "kilo"s:
+Enough theory — let's catch bytes in the wild. On any Unix-like machine, write two characters into a file and ask for its raw contents with a hex dump:
+
+<TerminalBlock>
+
+printf 'Hi' > hello.txt && xxd hello.txt
+
+</TerminalBlock>
+
+<TerminalBlock>
+
+00000000: 4869                                     Hi
+
+</TerminalBlock>
+
+Two characters, two bytes: `48` and `69` (that's hexadecimal — a compact way to write bytes that the next lesson demystifies; in binary they're `01001000` and `01101001`). The same experiment works in your browser console right now, no terminal required:
+
+```js
+new TextEncoder().encode('Hi')
+```
+
+<ConsoleBlock level="info">
+
+Uint8Array(2) [72, 105]
+
+</ConsoleBlock>
+
+There they are: 72 and 105, the decimal faces of the same two bytes. The string `"Hi"` — like every string, image, and song you've ever stored — is numbers all the way down. Which raises the question this module orbits around: if it's all just numbers... *what makes them mean anything?*
+
+## The two kilos: where your gigabytes "went" {/*the-two-kilos*/}
+
+Before answering that, one piece of practical byte literacy that will save you real confusion (and has cost companies real lawsuits). For large quantities we use prefixes — kilo, mega, giga — but the industry runs on **two incompatible definitions**:
 
 | Marketing language (decimal) | Technical language (binary) |
-|---|---|
+|------------------------------|-----------------------------|
 | 1 KB = 1,000 bytes | 1 KiB = 1,024 bytes (2¹⁰) |
 | 1 MB = 10⁶ bytes | 1 MiB = 2²⁰ bytes |
 | 1 GB = 10⁹ bytes | 1 GiB = 2³⁰ bytes |
 | used by disk manufacturers | used by RAM and operating systems |
 
-The result has happened to every developer: you buy a "1 TB" disk (the manufacturer counts: 10¹² bytes), the OS measures it in GiB and shows **~931 GB**. Nothing was lost — two different vocabularies just collided. This confusion led to real class-action lawsuits against disk manufacturers in the US — now packages say "1 GB = 1 billion bytes" in fine print.
+Why 1,024? Because memory hardware is built on powers of 2 (that's the switch-doubling pattern again), and 2¹⁰ = 1,024 sits temptingly close to 1,000 — close enough that for decades everyone sloppily called both "a kilobyte."
+
+The sloppiness has a famous victim: you. Buy a "1 TB" drive — the manufacturer means 10¹² bytes — and your operating system, measuring in GiB (2³⁰), reports about **931 GB**. Nothing is missing; two dictionaries collided. The gap was real enough to trigger class-action lawsuits against drive makers in the US, which is why storage boxes now carry fine print reading "1 GB = 1 billion bytes."
 
 <Pitfall>
 
-**Internet speed is measured in bits; file size is measured in bytes.**
+**Internet speed is measured in bits. File sizes are measured in bytes.**
 
-"100 Mbps" = 100 mega**bits** per second = ~12.5 mega**bytes**. A 1 GB file at this speed takes ~80 seconds, not 10.
-
-Lowercase **b** = bit, uppercase **B** = byte. ISPs love this confusion — a "100 megabit" plan sounds 8× faster when mistaken for "100 megabyte."
+A "100 Mbps" connection moves 100 mega*bits* per second — which is 100 ÷ 8 = **12.5 megabytes** per second. A 1 GB download at that speed takes about 80 seconds, not 10. Lowercase **b** = bit, uppercase **B** = byte, and internet providers adore the confusion: a "100 megabit" plan *sounds* eight times faster than it is to anyone who misreads the letter. You will never misread it again.
 
 </Pitfall>
 
-## Everything is bytes — interpretation gives meaning {/*everything-is-bytes*/}
+## Everything is bytes — meaning is interpretation {/*everything-is-bytes*/}
 
-The central idea of this lesson: to a computer there is **no difference** between text, an image, a song, and a program. They are all sequences of bytes. What creates the difference is *how* we read those bytes.
+Now the payoff, and the single most important idea in this module. Take the two bytes from our terminal experiment — `01001000 01101001` — and ask: what are they?
 
-<Diagram name="bit-ve-byte/same_bytes_three_meanings" height={320} width={680} alt="In the center, two bytes are shown: 01001000 01101001. Three arrows branch from them. The first arrow labeled 'read as text (ASCII)' leads to the word Hi. The second arrow labeled 'read as a 16-bit number' leads to the number 18537. The third arrow labeled 'read as a pixel' leads to a gray-blue color sample.">
+<DiagramGroup>
 
-Same two bytes — three different meanings. A byte has no "type" of its own.
+<Diagram name="bits-and-bytes/bytes_as_text" height={280} width={340} alt="The two bytes 01001000 and 01101001 shown in boxes. Read under the ASCII text contract, the first byte equals 72 and maps to the letter H, the second equals 105 and maps to the letter i — together spelling Hi.">
+
+Under the text contract: **"Hi"**
 
 </Diagram>
 
-`01001000 01101001` — read as text it is "Hi," read as a 16-bit integer it is 18,537. There is no "I am text" label written on the byte.
+<Diagram name="bits-and-bytes/bytes_as_number" height={280} width={340} alt="The same sixteen bits 01001000 01101001 shown as one long value. Read as a single 16-bit number, computed as 72 times 256 plus 105, they equal 18,537.">
 
-File extensions (.jpg, .mp3, .txt) are essentially labels that indicate this interpretation rule. The "garbage" you see when you open a .jpg file in a text editor is bytes read with the wrong rule. The following lessons open these rules one by one: how numbers are encoded, how negatives work, how fractions work, how text is stored.
+Under the number contract: **18,537**
+
+</Diagram>
+
+</DiagramGroup>
+
+Same sixteen bits. Read with the text contract, they say "Hi". Read as one 16-bit number, they say 18,537. Read as a pixel, they'd be a shade of blue-gray. **The bytes themselves carry no marker saying which one they are.** There is no "text" property, no "number" flag hiding in the silicon — only the bits, plus a *decision* about how to read them. Computer scientists call that decision an interpretation, an encoding, or a type; this course will call it a **contract**.
+
+Once you see this, small mysteries start dissolving. Why does opening a photo in a text editor show screens of garbage symbols? Because the editor applied the text contract to bytes written under the image contract — nothing is broken, only misread. What are file extensions like `.jpg` and `.txt`, really? Sticky notes suggesting which contract to apply — suggestions, not guarantees. Why can the *same* file be a valid image and valid something-else simultaneously? Because contracts live in the reader, not in the bytes.
+
+And it frames everything ahead. This module is nothing more than a tour of the great contracts, one per lesson: how numbers are encoded (next lesson), how *negative* numbers work (with a rocket explosion attached), how fractions work (with a missile failure attached), how text works (with the answer to the garbage-symbols mystery), and onward. Different contracts, same obedient bits.
 
 <Recap>
 
-- The atom of information is a **bit**: 0 or 1. Formula: **n bits = 2ⁿ different states.**
-- Computers work in binary because distinguishing two voltage states is **physically reliable** — the reason is engineering, not mathematics.
-- **Byte = 8 bits** — a historical standard from IBM System/360, not a law of nature.
-- KB (1,000) ≠ KiB (1,024): why a "1 TB" disk shows 931 GB. **Mbps ≠ MBps.**
-- Everything in a computer is bytes; **interpretation** gives meaning — this idea is the key to the whole course.
+- The **bit** is the atom of information — one yes/no answer, `0` or `1` — named by Tukey, weaponized by Shannon in 1948. Nothing smaller exists.
+- The course's master formula: **n bits = 2ⁿ states.** Every added bit doubles the space — the twenty-questions game reaches a million objects in twenty answers.
+- Computers are binary for a **physics** reason: two voltage zones with a wide buffer survive noise that ten crowded levels cannot. ENIAC (decimal) and Setun (ternary) ran the experiment; binary won.
+- A **byte = 8 bits** by treaty, not by nature — Buchholz named it (1956), the IBM System/360 standardized it (1964). Half a byte is a **nibble**; network specs say **octet** to mean exactly 8.
+- Two "kilos" coexist: KB = 1,000 bytes (marketing) vs KiB = 1,024 (technical) — the entire mystery of the 931 GB terabyte. And **Mbps ≠ MBps**: divide by 8.
+- The module's master key: **bytes have no meaning — contracts (interpretations) do.** The same 16 bits are "Hi", 18,537, or a color, depending on how you read them. Every lesson ahead is one more contract.
 
 </Recap>
 
 <Challenges>
 
-#### How many bits are needed? {/*how-many-bits-are-needed*/}
+#### How many bits does the game need? {/*how-many-bits-does-the-game-need*/}
 
-A game character has 4 states: standing, running, jumping, flying. What is the minimum number of bits needed to store this state? What if there were 5 states?
+A game character has 4 states: standing, running, jumping, flying. What's the minimum number of bits needed to store the state? What if a fifth state, swimming, is added?
+
+<Hint>
+
+How many *states* can n bits distinguish? Find the smallest n whose 2ⁿ covers what you need.
+
+</Hint>
 
 <Solution>
 
-For 4 states, **2 bits** is enough: 2² = 4 (e.g., `00` standing, `01` running, `10` jumping, `11` flying).
+4 states fit in **2 bits** exactly: 2² = 4 (say, `00` standing, `01` running, `10` jumping, `11` flying).
 
-For 5 states, 2 bits is no longer enough (2² = 4 < 5), so **3 bits** are needed: 2³ = 8. Yes, 3 combinations will remain "empty" — bits come in whole numbers, your need does not. This "rounding up" pattern (⌈log₂ n⌉ bits for n states) will come up many times throughout the course.
+A fifth state breaks the budget — 2² = 4 < 5 — so you need **3 bits**, giving 2³ = 8 states with three combinations left unused. Bits come in whole numbers even when your needs don't; this "round up to the next power of 2" pattern (formally ⌈log₂ n⌉) will follow you through the whole course, from network masks to database pages.
 
 </Solution>
 
-#### How long will the download take? {/*how-long-will-the-download-take*/}
+#### The honest download estimate {/*the-honest-download-estimate*/}
 
-Your internet speed is 50 Mbps. Roughly how long will a 3 GB game update take? (Use round numbers.)
+Your connection is 50 Mbps. Roughly how long does a 3 GB game update take? Show the reasoning, not just the answer.
 
 <Solution>
 
-First convert bits to bytes: 50 Mbps ÷ 8 = **6.25 MB/s**.
+First translate bits to bytes: 50 Mbps ÷ 8 = **6.25 MB/s**. Then 3 GB ≈ 3,000 MB, and 3,000 ÷ 6.25 = **480 seconds = 8 minutes**.
 
-3 GB ≈ 3,000 MB. 3,000 ÷ 6.25 = **480 seconds = 8 minutes**.
-
-If you had read Mbps as MB/s, you would get 1 minute — off by a factor of 8. The lowercase b / uppercase B difference is exactly where it "costs" you.
+Misread Mbps as "MB per second" and you'd promise 1 minute — off by a factor of 8, which is exactly the factor between the two letters *b* and *B*. Whenever a download feels "8× slower than advertised," it isn't; the units were.
 
 </Solution>
 
-#### Write a reply to a friend {/*write-a-reply-to-a-friend*/}
+#### Read a real hex dump {/*read-a-real-hex-dump*/}
 
-A friend messages you: "I bought a 512 GB phone, but the settings show 476 GB. Did they cheat me? Should I return it?" Write a two-sentence technical reply.
+A colleague sends you this terminal output and asks what's in the file:
+
+<TerminalBlock>
+
+00000000: 4869 21                                  Hi!
+
+</TerminalBlock>
+
+The dump helpfully shows the text on the right — but explain what the three bytes `48 69 21` are, and why the *same* three bytes could legitimately be something other than text.
 
 <Solution>
 
-Sample reply: "You weren't cheated — when the manufacturer says 512 GB they mean 512 billion bytes, but your phone's OS measures storage in 2³⁰-based gigabytes (GiB): 512 × 10⁹ ÷ 2³⁰ ≈ 476. All your storage is there; it's just two different units of measurement using the same name."
+Under the ASCII text contract, `48` → 72 → `H`, `69` → 105 → `i`, `21` → 33 → `!` — the file says "Hi!". (You'll learn to convert hex like `48` yourself in the next lesson; for now, trust the tool.)
 
-Check: 512,000,000,000 ÷ 1,073,741,824 ≈ 476.8 ✓
+But the bytes carry no marker declaring "we are text." Read as three separate numbers they're 72, 105, 33; read as part of an image they'd be pixel data; read as machine code they might even be a fragment of a program. The dump's right-hand column is the *tool's guess* using the text contract — a convenience, not a property of the bytes. That's the lesson's master key in the wild: meaning lives in the reading, not in the file.
+
+</Solution>
+
+#### Support ticket: the missing gigabytes {/*support-ticket-the-missing-gigabytes*/}
+
+A friend texts: "Bought a 512 GB phone, settings says 476 GB. Was I scammed? Should I return it?" Reply in two sentences — technically correct, no jargon dump.
+
+<Solution>
+
+Sample reply: "You weren't scammed — the manufacturer counts 512 GB as 512 billion bytes, while your phone measures in binary gigabytes of 2³⁰ bytes each, and 512 × 10⁹ ÷ 2³⁰ ≈ 476. All the storage is there; two industries just use the same word for two slightly different units."
+
+Check: 512,000,000,000 ÷ 1,073,741,824 ≈ 476.8 ✓. (The transferable skill: whenever storage numbers disagree by roughly 7%, suspect the two kilos before suspecting theft.)
 
 </Solution>
 
 </Challenges>
+
+<LearnMore title="The Binary Number System" path="/learn/faza-0/modul-0-1/binary-number-system">
+
+You can now flip 8 switches to make numbers — next, learn to *read and write* binary fluently, meet hexadecimal (the `48 69` from our hex dump will finally make sense), and discover what happened to Pac-Man, YouTube, and a Boeing 787 when their counters hit the ceiling.
+
+</LearnMore>

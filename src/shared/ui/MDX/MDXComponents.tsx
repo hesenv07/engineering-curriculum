@@ -10,16 +10,16 @@ import { Pitfall } from "./Pitfall";
 import { Diagram } from "./Diagram";
 import { DeepDive } from "./DeepDive";
 import { Sandpack } from "./Sandpack";
+import { CodeStep } from "./CodeStep";
 import { InlineToc } from "./InlineToc";
 import { LearnMore } from "./LearnMore";
-import { CodeStep } from "./CodeStep";
+import { Code, Pre } from "./CodeBlock";
 import { CodeDiagram } from "./CodeDiagram";
 import { DiagramGroup } from "./DiagramGroup";
 import { YouWillLearn } from "./YouWillLearn";
 import { TerminalBlock } from "./TerminalBlock";
 import { PackageImport } from "./PackageImport";
 import { YouTubeIframe } from "./YouTubeIframe";
-import { Code, Pre } from "./CodeBlock";
 import { YouWillLearnCard } from "./YouWillLearnCard";
 import { Challenges, Hint, Solution } from "./Challenges";
 import { Illustration, IllustrationBlock } from "./Illustration";
@@ -115,10 +115,6 @@ function P(props: React.HTMLAttributes<HTMLParagraphElement>) {
   return <p className="whitespace-pre-wrap my-4" {...props} />;
 }
 
-function Strong(props: React.HTMLAttributes<HTMLElement>) {
-  return <strong className="font-bold" {...props} />;
-}
-
 function OL(props: React.HTMLAttributes<HTMLOListElement>) {
   return <ol className="ms-6 my-3 list-decimal" {...props} />;
 }
@@ -129,6 +125,10 @@ function UL(props: React.HTMLAttributes<HTMLUListElement>) {
 
 function LI(props: React.HTMLAttributes<HTMLLIElement>) {
   return <li className="leading-relaxed mb-1" {...props} />;
+}
+
+function Strong(props: React.HTMLAttributes<HTMLElement>) {
+  return <strong className="font-bold" {...props} />;
 }
 
 function Divider() {
@@ -178,48 +178,57 @@ function Blockquote({ children }: { children: React.ReactNode }) {
   );
 }
 
+function Table({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="overflow-x-auto mb-6">
+      <table>{children}</table>
+    </div>
+  );
+}
+
 export const MDXComponents = {
   p: P,
-  strong: Strong,
   ol: OL,
   ul: UL,
   li: LI,
-  hr: Divider,
   h1: H1,
   h2: H2,
   h3: H3,
   h4: H4,
+  hr: Divider,
   img: Image,
-  code: Code,
   pre: Pre,
+  code: Code,
+  strong: Strong,
   a: CustomLink,
+  table: Table,
   blockquote: Blockquote,
   Wip,
+  Hint,
   Intro,
   Note,
-  Pitfall,
   Recap,
-  DeepDive,
+  Pitfall,
   Diagram,
-  DiagramGroup,
+  DeepDive,
   Sandpack,
-  YouWillLearn,
-  YouWillLearnCard,
+  CodeStep,
+  Solution,
   LearnMore,
   InlineToc,
-  TerminalBlock,
+  Challenges,
+  CodeDiagram,
+  DiagramGroup,
+  YouWillLearn,
   ConsoleBlock,
-  ConsoleBlockMulti,
-  ConsoleLogLine,
+  Illustration,
+  TerminalBlock,
   PackageImport,
   YouTubeIframe,
-  CodeStep,
-  CodeDiagram,
-  Illustration,
+  ConsoleLogLine,
+  YouWillLearnCard,
+  ConsoleBlockMulti,
   IllustrationBlock,
-  Challenges,
-  Solution,
-  Hint,
 };
 
 for (const key of Object.keys(MDXComponents)) {

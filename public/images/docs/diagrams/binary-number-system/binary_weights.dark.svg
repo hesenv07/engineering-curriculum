@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <defs>
+    <marker id="awB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/>
+    </marker>
+  </defs>
+  <text x="360" y="32" text-anchor="middle" font-size="16" fill="#F6F7F9" font-family="system-ui, sans-serif">Reading 110101&#8322;: only the 1-columns contribute their weight</text>
+
+  <g font-size="30" text-anchor="middle">
+    <rect x="95"  y="58" width="72" height="58" rx="9" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+    <rect x="185" y="58" width="72" height="58" rx="9" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+    <rect x="275" y="58" width="72" height="58" rx="9" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+    <rect x="365" y="58" width="72" height="58" rx="9" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+    <rect x="455" y="58" width="72" height="58" rx="9" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+    <rect x="545" y="58" width="72" height="58" rx="9" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+    <text x="131" y="98" fill="#149ECA">1</text>
+    <text x="221" y="98" fill="#149ECA">1</text>
+    <text x="311" y="98" fill="#99A1B3">0</text>
+    <text x="401" y="98" fill="#149ECA">1</text>
+    <text x="491" y="98" fill="#99A1B3">0</text>
+    <text x="581" y="98" fill="#149ECA">1</text>
+  </g>
+
+  <g font-size="14" text-anchor="middle" fill="#99A1B3">
+    <text x="131" y="142">2&#8309;</text>
+    <text x="221" y="142">2&#8308;</text>
+    <text x="311" y="142">2&#179;</text>
+    <text x="401" y="142">2&#178;</text>
+    <text x="491" y="142">2&#185;</text>
+    <text x="581" y="142">2&#8304;</text>
+  </g>
+  <g font-size="19" text-anchor="middle">
+    <text x="131" y="170" fill="#F6F7F9">32</text>
+    <text x="221" y="170" fill="#F6F7F9">16</text>
+    <text x="311" y="170" fill="#99A1B3">8</text>
+    <text x="401" y="170" fill="#F6F7F9">4</text>
+    <text x="491" y="170" fill="#99A1B3">2</text>
+    <text x="581" y="170" fill="#F6F7F9">1</text>
+  </g>
+
+  <g stroke="#149ECA" stroke-width="1.5" fill="none">
+    <path d="M 131 182 C 131 224, 262 236, 306 250" marker-end="url(#awB)"/>
+    <path d="M 221 182 C 221 220, 276 230, 312 246" marker-end="url(#awB)"/>
+    <path d="M 401 182 C 401 218, 382 226, 366 242" marker-end="url(#awB)"/>
+    <path d="M 581 182 C 581 224, 448 236, 404 250" marker-end="url(#awB)"/>
+  </g>
+
+  <text x="360" y="288" text-anchor="middle" font-size="25" fill="#F6F7F9">32 + 16 + 4 + 1 = <tspan fill="#149ECA" font-weight="bold">53</tspan></text>
+  <text x="360" y="318" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">Memorize the weights right-to-left &#8212; 1, 2, 4, 8, 16, 32, 64, 128 &#8212; and reading becomes instant</text>
+</svg>

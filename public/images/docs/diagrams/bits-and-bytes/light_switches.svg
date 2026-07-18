@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <text x="360" y="30" text-anchor="middle" font-size="16" fill="#23272F" font-family="system-ui, sans-serif">Every extra switch doubles the number of possible messages</text>
+
+  <!-- row 1: one switch -->
+  <g>
+    <rect x="60" y="62" width="44" height="44" rx="10" fill="#087EA4" fill-opacity="0.12" stroke="#087EA4" stroke-width="2"/>
+    <circle cx="82" cy="76" r="7" fill="#087EA4"/>
+    <text x="240" y="90" font-size="15" fill="#23272F" font-family="system-ui, sans-serif">1 switch</text>
+    <text x="560" y="90" font-size="17" fill="#087EA4" text-anchor="middle">2&#185; = 2 messages</text>
+  </g>
+
+  <!-- row 2: two switches -->
+  <g>
+    <rect x="60" y="132" width="44" height="44" rx="10" fill="#087EA4" fill-opacity="0.12" stroke="#087EA4" stroke-width="2"/>
+    <circle cx="82" cy="146" r="7" fill="#087EA4"/>
+    <rect x="114" y="132" width="44" height="44" rx="10" fill="none" stroke="#99A1B3" stroke-width="2"/>
+    <circle cx="136" cy="162" r="7" fill="#99A1B3"/>
+    <text x="240" y="160" font-size="15" fill="#23272F" font-family="system-ui, sans-serif">2 switches</text>
+    <text x="560" y="160" font-size="17" fill="#087EA4" text-anchor="middle">2&#178; = 4 messages</text>
+  </g>
+
+  <!-- row 3: three switches -->
+  <g>
+    <rect x="60" y="202" width="44" height="44" rx="10" fill="none" stroke="#99A1B3" stroke-width="2"/>
+    <circle cx="82" cy="232" r="7" fill="#99A1B3"/>
+    <rect x="114" y="202" width="44" height="44" rx="10" fill="#087EA4" fill-opacity="0.12" stroke="#087EA4" stroke-width="2"/>
+    <circle cx="136" cy="216" r="7" fill="#087EA4"/>
+    <rect x="168" y="202" width="44" height="44" rx="10" fill="#087EA4" fill-opacity="0.12" stroke="#087EA4" stroke-width="2"/>
+    <circle cx="190" cy="216" r="7" fill="#087EA4"/>
+    <text x="240" y="230" font-size="15" fill="#23272F" font-family="system-ui, sans-serif">3 switches</text>
+    <text x="560" y="230" font-size="17" fill="#087EA4" text-anchor="middle">2&#179; = 8 messages</text>
+  </g>
+
+  <text x="360" y="292" text-anchor="middle" font-size="14" fill="#99A1B3" font-family="system-ui, sans-serif">raised dot = ON, lowered dot = OFF &#183; a computer is trillions of such switches (transistors)</text>
+  <text x="360" y="316" text-anchor="middle" font-size="14" fill="#23272F" font-family="system-ui, sans-serif">n switches = 2&#8319; different states &#8212; the formula behind everything in this course</text>
+</svg>

@@ -3,25 +3,51 @@
 import { useState } from 'react';
 import * as React from 'react';
 import clsx from 'clsx';
+import { useParams } from 'next/navigation';
 
 import { isMdxTag } from '../../../lib/utils/mdxTag';
+import { resolveLocale } from '@/shared/lib/utils/locale';
 
+import type { TLocale } from '@/shared/types';
 import type { IDeepDiveProps } from './DeepDive.types';
+
+const labels: Record<TLocale, { label: string; expand: string; collapse: string }> = {
+  az: { label: 'Dərinləmə', expand: 'Ətraflı göstər', collapse: 'Gizlət' },
+  en: { label: 'Deep dive', expand: 'Expand', collapse: 'Collapse' },
+};
+
+function getTextContent(node: React.ReactNode): string {
+  if (typeof node === 'string') return node;
+  if (typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(getTextContent).join('');
+  if (React.isValidElement(node)) {
+    return getTextContent(
+      (node.props as { children?: React.ReactNode }).children,
+    );
+  }
+  return '';
+}
 
 const DeepDive = ({ children }: IDeepDiveProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const { locale } = useParams<{ locale: string }>();
+  const lang = resolveLocale(locale);
+  const t = labels[lang];
+
   const childArray = React.Children.toArray(children);
 
   const headingChild = childArray.find(
-    (child) => React.isValidElement(child) && isMdxTag(child.type, 'h4'),
+    (child) =>
+      React.isValidElement(child) &&
+      (isMdxTag(child.type, 'h4') || child.type === 'h4'),
   ) as React.ReactElement<{ children?: React.ReactNode; id?: string }> | undefined;
 
   const rest = childArray.filter((child) => child !== headingChild);
 
   const titleText = headingChild
-    ? String(headingChild.props.children ?? 'Dərinləmə')
-    : 'Dərinləmə';
+    ? getTextContent(headingChild.props.children).trim()
+    : t.label;
 
   return (
     <details
@@ -41,7 +67,7 @@ const DeepDive = ({ children }: IDeepDiveProps) => {
         }}
       >
         <h5 className="mb-4 uppercase font-bold flex items-center text-sm text-purple-50 dark:text-purple-30">
-          Dərinləmə
+          {t.label}
         </h5>
         <h4 className="text-xl font-bold text-primary dark:text-primary-dark mb-4">
           {titleText}
@@ -53,7 +79,7 @@ const DeepDive = ({ children }: IDeepDiveProps) => {
           )}
           onClick={() => setIsOpen((v) => !v)}
         >
-          {isOpen ? 'Gizlət' : 'Ətraflı göstər'}
+          {isOpen ? t.collapse : t.expand}
         </button>
       </summary>
       <div className="p-8 pt-4 border-t border-purple-10 dark:border-purple-60">
