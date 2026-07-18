@@ -11,8 +11,8 @@ import { resolveLocale } from '@/shared/lib/utils/locale';
 import type { TCalloutType, IExpandableCalloutProps } from './ExpandableCallout.types';
 
 const titles: Record<TLocale, Record<TCalloutType, string>> = {
-  az: { note: 'Qeyd', pitfall: 'Diqqət' },
-  en: { note: 'Note', pitfall: 'Pitfall' },
+  az: { note: 'Qeyd', pitfall: 'Diqqət', wip: 'Hazırlanır' },
+  en: { note: 'Note', pitfall: 'Pitfall', wip: 'Work in Progress' },
 };
 
 const variantMap: Record<
@@ -27,6 +27,10 @@ const variantMap: Record<
   pitfall: {
     containerClasses: 'bg-yellow-5 dark:bg-yellow-60/20',
     textColor: 'text-yellow-50 dark:text-yellow-40',
+  },
+  wip: {
+    containerClasses: 'bg-purple-5 dark:bg-purple-60/20',
+    textColor: 'text-purple-50 dark:text-purple-40',
   },
 };
 

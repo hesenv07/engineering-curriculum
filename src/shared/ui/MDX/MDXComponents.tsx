@@ -2,17 +2,14 @@ import * as React from "react";
 
 import { Link } from "@/i18n/navigation";
 
+import { Wip } from "./Wip";
 import { Note } from "./Note";
 import { Intro } from "./Intro";
 import { Recap } from "./Recap";
-import { Diagram } from "./Diagram";
 import { Pitfall } from "./Pitfall";
+import { Diagram } from "./Diagram";
 import { DeepDive } from "./DeepDive";
 import { Sandpack } from "./Sandpack";
-<<<<<<< Updated upstream
-import { Code, Pre } from "./CodeBlock";
-import { YouWillLearn } from "./YouWillLearn";
-=======
 import { CodeStep } from "./CodeStep";
 import { InlineToc } from "./InlineToc";
 import { LearnMore } from "./LearnMore";
@@ -24,8 +21,9 @@ import { TerminalBlock } from "./TerminalBlock";
 import { PackageImport } from "./PackageImport";
 import { YouTubeIframe } from "./YouTubeIframe";
 import { YouWillLearnCard } from "./YouWillLearnCard";
->>>>>>> Stashed changes
 import { Challenges, Hint, Solution } from "./Challenges";
+import { Illustration, IllustrationBlock } from "./Illustration";
+import { ConsoleBlock, ConsoleBlockMulti, ConsoleLogLine } from "./ConsoleBlock";
 
 function slugify(text: string): string {
   return text
@@ -117,10 +115,6 @@ function P(props: React.HTMLAttributes<HTMLParagraphElement>) {
   return <p className="whitespace-pre-wrap my-4" {...props} />;
 }
 
-function Strong(props: React.HTMLAttributes<HTMLElement>) {
-  return <strong className="font-bold" {...props} />;
-}
-
 function OL(props: React.HTMLAttributes<HTMLOListElement>) {
   return <ol className="ms-6 my-3 list-decimal" {...props} />;
 }
@@ -133,9 +127,24 @@ function LI(props: React.HTMLAttributes<HTMLLIElement>) {
   return <li className="leading-relaxed mb-1" {...props} />;
 }
 
+function Strong(props: React.HTMLAttributes<HTMLElement>) {
+  return <strong className="font-bold" {...props} />;
+}
+
 function Divider() {
   return (
     <hr className="my-6 block border-b border-t-0 border-border dark:border-border-dark" />
+  );
+}
+
+function Image({ alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      alt={alt ?? ""}
+      className="max-w-full rounded-xl my-4"
+      {...props}
+    />
   );
 }
 
@@ -186,48 +195,33 @@ export const MDXComponents = {
   h2: H2,
   h3: H3,
   h4: H4,
-<<<<<<< Updated upstream
-  code: Code,
-  pre: Pre,
-  a: CustomLink,
-  blockquote: Blockquote,
-  Intro,
-  YouWillLearn,
-  Recap,
-  Note,
-  Pitfall,
-  DeepDive,
-  Challenges,
-  Solution,
-  Hint,
-  Diagram,
-  Sandpack,
-=======
   hr: Divider,
+  img: Image,
+  pre: Pre,
+  code: Code,
   strong: Strong,
+  a: CustomLink,
+  table: Table,
+  blockquote: Blockquote,
   Wip,
-  Note,
   Hint,
   Intro,
+  Note,
   Recap,
   Pitfall,
   Diagram,
-  pre: Pre,
   DeepDive,
   Sandpack,
   CodeStep,
   Solution,
   LearnMore,
   InlineToc,
-  img: Image,
-  code: Code,
   Challenges,
   CodeDiagram,
   DiagramGroup,
   YouWillLearn,
   ConsoleBlock,
   Illustration,
-  a: CustomLink,
   TerminalBlock,
   PackageImport,
   YouTubeIframe,
@@ -235,9 +229,6 @@ export const MDXComponents = {
   YouWillLearnCard,
   ConsoleBlockMulti,
   IllustrationBlock,
-  table: Table,
-  blockquote: Blockquote,
->>>>>>> Stashed changes
 };
 
 for (const key of Object.keys(MDXComponents)) {

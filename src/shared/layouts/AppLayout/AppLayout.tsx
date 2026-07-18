@@ -1,78 +1,71 @@
 "use client";
 
-import * as React from "react";
 import clsx from "clsx";
 import { useParams } from "next/navigation";
-
 import { usePathname } from "@/i18n/navigation";
 
+import Toc from "../../ui/Toc/Toc";
 import TopNav from "../TopNav";
 import Footer from "../Footer";
 import SidebarNav from "../Sidebar";
-import Toc from "../../components/Toc/Toc";
 import { DocsFooter } from "../DocsFooter";
 
 import { getSidebarRouteTree } from "@/shared/lib/utils/sidebar";
+import { getBreadcrumbs } from "./utils/getBreadcrumbs";
+import { useMobileMenu } from "./hooks/useMobileMenu";
+import { useDesktopSidebar } from "./hooks/useDesktopSidebar";
 
 import type { IPageProps } from "./AppLayout.types";
-import type { ISidebarRoute } from "@/shared/types";
-
-function getBreadcrumbs(
-  path: string,
-  routeTree: ISidebarRoute,
-  crumbs: ISidebarRoute[] = [],
-): ISidebarRoute[] {
-  if (routeTree.path === path) {
-    return crumbs;
-  }
-  if (!routeTree.routes) {
-    return [];
-  }
-  for (const route of routeTree.routes) {
-    const result = getBreadcrumbs(path, route, [...crumbs, routeTree]);
-    if (result.length > 0 || route.path === path) {
-      return result;
-    }
-  }
-  return [];
-}
 
 const AppLayout = ({
   children,
   toc = [],
   pageContext,
   showSidebar = true,
+  defaultSidebarOpen = true,
 }: IPageProps) => {
-  const [isMobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const currentPath = usePathname();
+  const mobileMenu = useMobileMenu();
   const { locale } = useParams<{ locale: string }>();
+  const desktopSidebar = useDesktopSidebar(defaultSidebarOpen);
 
   const routeTree = getSidebarRouteTree(locale);
   const breadcrumbs = getBreadcrumbs(currentPath, routeTree);
+  const contentWidth = desktopSidebar.isOpen
+    ? "max-w-4xl ms-0 2xl:mx-auto"
+    : "max-w-5xl mx-auto";
 
   return (
     <>
       <TopNav
-        onMenuToggle={() => setMobileMenuOpen((v) => !v)}
-        isMenuOpen={isMobileMenuOpen}
+        isMenuOpen={mobileMenu.isOpen}
+        isDesktopSidebarOpen={desktopSidebar.isOpen}
+        onMenuToggle={showSidebar ? mobileMenu.toggle : undefined}
+        onDesktopSidebarToggle={showSidebar ? desktopSidebar.toggle : undefined}
       />
 
       {showSidebar ? (
         <>
-          {isMobileMenuOpen && (
+          {mobileMenu.isOpen && (
             <div
               className="fixed inset-0 top-14 z-30 bg-black/50 lg:hidden"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={mobileMenu.close}
             />
           )}
 
-          <div className="grid grid-cols-only-content lg:grid-cols-sidebar-content 2xl:grid-cols-sidebar-content-toc">
+          <div
+            className={clsx(
+              "grid grid-cols-only-content",
+              desktopSidebar.isOpen &&
+                "lg:grid-cols-sidebar-content 2xl:grid-cols-sidebar-content-toc",
+            )}
+          >
             <div
               className={clsx(
                 "z-40 lg:z-10",
-                isMobileMenuOpen
+                mobileMenu.isOpen
                   ? "fixed bottom-0 left-0 top-14 w-[20rem] shadow-xl"
-                  : "hidden lg:block",
+                  : clsx("hidden", desktopSidebar.isOpen ? "lg:block" : ""),
               )}
             >
               <SidebarNav routeTree={routeTree} breadcrumbs={breadcrumbs} />
@@ -82,16 +75,15 @@ const AppLayout = ({
               <article className="font-normal break-words text-primary dark:text-primary-dark">
                 <div className="px-5 sm:px-12">
                   <div className="max-w-7xl mx-auto">
-                    <div className="max-w-4xl ms-0 2xl:mx-auto pt-8 pb-4 prose-docs">
+                    <div className={clsx("pt-8 pb-4 prose-docs", contentWidth)}>
                       {children}
                     </div>
+                    {pageContext && (
+                      <div className={contentWidth}>
+                        <DocsFooter prev={pageContext.prev} next={pageContext.next} />
+                      </div>
+                    )}
                   </div>
-                  {pageContext && (
-                    <DocsFooter
-                      prev={pageContext.prev}
-                      next={pageContext.next}
-                    />
-                  )}
                 </div>
               </article>
               <div className="w-full px-5 pt-8 sm:px-12 md:pt-10">

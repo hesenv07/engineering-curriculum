@@ -2,32 +2,34 @@
 
 > No frameworks. Engineering. A free, public resource for software engineers who want to understand how things actually work — from transistors to distributed systems.
 
+---
+
 ## What This Is
 
-This is a teaching site inspired by [react.dev](https://react.dev) in style, but it does not teach React. Instead, it explains the foundational knowledge of software engineering — computer architecture, operating systems, networking, databases, distributed systems, and AI engineering — in depth, without framework abstractions.
+A teaching site inspired by [react.dev](https://react.dev) in structure, rebuilt with Next.js 15 App Router. It does **not** teach React. It teaches the foundational knowledge of software engineering — computer architecture, operating systems, networking, databases, distributed systems — concept-first and language-agnostic.
 
-**Goal:** Not to use frameworks, but to understand how they work.
+The reader: a developer who can write code but doesn't know what happens underneath it. Every lesson starts from first principles, assumes only what was covered in previous lessons, and never says "use framework X to do Y".
 
-**What this is NOT:**
+**What it is NOT:**
 - A bootcamp or quick-start guide
 - A framework tutorial
 - A course that requires registration or payment
 
 ---
 
-## Curriculum Structure
+## Curriculum
 
 | Phase | Topic |
 |-------|-------|
-| 0 | How Computers Work (transistors to CPU) |
-| 1 | Programming Foundations (language-agnostic) |
+| 0 | How Computers Work — transistors to CPU |
+| 1 | Programming Foundations — language-agnostic |
 | 2 | Operating Systems |
 | 3 | Networks |
 | 4 | Databases |
 | 5 | Backend Engineering |
-| 6 | Frontend Internals (framework-free) |
+| 6 | Frontend Internals — framework-free |
 | 7 | Distributed Systems |
-| 8 | DevOps and Infrastructure |
+| 8 | DevOps & Infrastructure |
 | 9 | Security |
 | 10 | AI Engineering |
 | 11 | System Design Case Studies |
@@ -38,208 +40,185 @@ This is a teaching site inspired by [react.dev](https://react.dev) in style, but
 
 | Tool | Purpose |
 |------|---------|
-| [Next.js 14](https://nextjs.org/) Pages Router | SSG with i18n routing (az / en) |
+| [Next.js 15](https://nextjs.org/) (App Router) | SSG with i18n routing (`az` / `en`) via next-intl |
 | [Tailwind CSS](https://tailwindcss.com/) | Utility-first styling |
 | [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) | MDX content rendering |
-| [@codesandbox/sandpack-react](https://sandpack.codesandbox.io/) | Interactive code editor |
+| [@codesandbox/sandpack-react](https://sandpack.codesandbox.io/) | Interactive in-browser code editor |
 | TypeScript | Type safety throughout |
 
 ---
 
-## Architecture
+## Folder Structure
 
 ```
 src/
-├── components/
-│   └── Layout/
-│       ├── Page.tsx              # Root layout wrapper
-│       ├── Nav/                  # Top navigation bar
-│       ├── Sidebar/
-│       │   ├── SidebarLink.tsx   # Leaf route link (with duration)
-│       │   └── SidebarRouteTree.tsx  # Recursive sidebar renderer
-│       └── MDXComponents/        # Custom MDX component map
+├── app/[locale]/                        # App Router — next-intl locale routing
+│   ├── layout.tsx                       # Root layout: theme script, font variables
+│   ├── page.tsx                         # Home page — dynamic from sidebar.json
+│   └── learn/[...path]/page.tsx         # Lesson page (SSG, reads MDX + computes metadata)
 ├── content/
-│   └── learn/
-│       └── faza-{N}/
-│           └── modul-{N}-{M}/
-│               └── {lesson-slug}.md   # Lesson MDX files
-├── pages/
-│   ├── index.tsx                 # Home page (fully dynamic from sidebar.json)
-│   └── learn/
-│       └── [...path].tsx         # Lesson page (SSG, reads MDX + computes duration/level)
-├── utils/
-│   ├── mdx.ts                    # Server-only: reads MDX from disk, extracts TOC, frontmatter
-│   ├── lesson.ts                 # Client-safe: getLessonLevel, computeDuration
-│   └── sidebar.ts                # Client-safe: parseSidebar, IPhaseCard, ISidebarStats
-├── types/
-│   └── index.ts                  # Shared TypeScript interfaces and types
-├── sidebar.json                  # Azerbaijani sidebar structure and metadata
-└── sidebar-en.json               # English sidebar structure and metadata
+│   ├── az/learn/                        # Azerbaijani MDX lesson files
+│   └── en/learn/                        # English MDX lesson files (primary)
+│       └── faza-0/modul-0-1/
+│           ├── bit-ve-byte.md           # reference lesson 1
+│           ├── binary-say-sistemi.md    # reference lesson 2
+│           └── menfi-ededler.md         # reference lesson 3
+├── modules/                             # Page-level feature modules
+│   ├── home/                            # Home page layout and phase grid
+│   ├── learn/                           # Lesson listing page
+│   └── learning-details/               # Individual lesson page
+├── shared/
+│   ├── layouts/
+│   │   ├── AppLayout/                   # Root layout: sidebar + content + TOC grid
+│   │   ├── Sidebar/                     # SidebarNav + SidebarRouteTree (recursive)
+│   │   ├── TopNav/                      # Header bar: logo, sidebar toggle, theme, language
+│   │   └── Footer/                      # Site footer
+│   ├── lib/utils/
+│   │   ├── mdx.ts                       # server-only: reads MDX files, extracts TOC + frontmatter
+│   │   ├── lesson.ts                    # client-safe: getLessonLevel, computeDuration
+│   │   └── sidebar.ts                   # client-safe: parseSidebar, getSidebarRouteTree
+│   ├── resources/json/
+│   │   ├── sidebar.json                 # course structure — Azerbaijani
+│   │   └── sidebar-en.json             # course structure — English
+│   ├── types/index.ts                   # ISidebarRoute, ITocItem, TLocale, TLessonLevel
+│   └── ui/
+│       ├── MDX/                         # All MDX components (see below)
+│       │   └── MDXComponents.tsx        # Central registry: maps MDX tag names → React components
+│       └── Toc/                         # Right-column table of contents
+└── styles/globals.css                   # Global CSS + .prose-docs styles for MDX content
+public/images/docs/diagrams/             # SVG diagrams — light + dark pairs (x.svg / x.dark.svg)
 ```
-
-### Key Boundary: Server vs Client Utils
-
-`src/utils/mdx.ts` uses Node.js `fs` and `path` — it is **server-only** and must never be imported by React components. All client-safe utility logic lives in `lesson.ts` and `sidebar.ts`.
 
 ---
 
-## Sidebar JSON Structure
+## How the Lesson System Works
 
-Both `sidebar.json` and `sidebar-en.json` share the same schema. The sidebar is a flat array of `ISidebarRoute` objects. The nesting is represented by `hasSectionHeader` and nested `routes` arrays.
+### Adding content
 
-### ISidebarRoute Fields
+A lesson is a single `.md` file in `src/content/{locale}/learn/{phase}/{module}/{slug}.md`.
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `hasSectionHeader` | `boolean` | Marks a phase separator entry |
-| `sectionHeader` | `string` | Raw phase title, e.g. `"FAZA 0 — How Computers Work"` |
-| `label` | `string` | Override badge text shown on the home page card (optional) |
-| `description` | `string` | Short description shown on the home page phase card |
-| `title` | `string` | Display title for a module or lesson |
-| `path` | `string` | URL path for a leaf lesson, e.g. `"/learn/faza-0/modul-0-1/bit-ve-byte"` |
-| `routes` | `ISidebarRoute[]` | Child routes (lessons within a module) |
-| `wip` | `boolean` | Marks a lesson as work-in-progress |
-| `level` | `TLessonLevel` | `'Fundamental' \| 'Intermediate' \| 'Deep'` — currently unused in sidebar rendering |
-| `duration` | `string` | Estimated read time — currently unused in sidebar rendering (computed dynamically on lesson page) |
+At build time, `getAllContentPaths` walks the content directory and generates static paths. `getContentByPath` reads the file, parses frontmatter with `gray-matter`, serializes MDX with `next-mdx-remote`, and extracts the TOC by scanning headings.
 
-### Example Phase Block
+The lesson page then computes:
+- **Level** (`Fundamental` / `Intermediate` / `Deep`) from the faza number in the URL
+- **Duration** from the line count: `Math.ceil(lines / 75) * 5` minutes
 
-```json
+### Sidebar JSON
+
+Both `sidebar.json` (Azerbaijani) and `sidebar-en.json` (English) define the course structure. They are the single source of truth for navigation, the home page phase grid, and all stats. The structure is frozen — routes cannot be added or removed.
+
+```jsonc
 {
   "hasSectionHeader": true,
-  "sectionHeader": "PHASE 0 — How Computers Work",
-  "description": "From transistors to CPUs and RAM — the physical and logical foundations of all computing.",
-  "routes": []
-},
-{
-  "title": "Bits and Bytes",
+  "sectionHeader": "FAZA 0 — How Computers Work",
+  "description": "From transistors to CPUs — start at the metal level.",
   "routes": [
-    { "title": "Bit and Byte", "path": "/learn/faza-0/modul-0-1/bit-ve-byte" },
-    { "title": "Binary Number System", "path": "/learn/faza-0/modul-0-1/binary-say-sistemi" }
+    {
+      "title": "Modul 0.1 — Data Representation",
+      "routes": [
+        {
+          "title": "Bit and Byte",
+          "path": "/learn/faza-0/modul-0-1/bit-ve-byte",
+          "duration": "20 min"
+        }
+      ]
+    }
   ]
 }
 ```
 
----
+### i18n
 
-## How the Home Page Works
-
-`src/pages/index.tsx` uses `getStaticProps` to call `parseSidebar(routes)` from `src/utils/sidebar.ts`. This function:
-
-1. Iterates the sidebar routes
-2. Groups lessons by phase (identified by `hasSectionHeader`)
-3. Counts total modules and lessons
-4. Extracts the first lesson path per phase for the CTA link
-5. Returns `{ phases, totalPhases, totalModules, totalLessons }`
-
-All stats and phase cards on the home page are computed at build time — no hardcoded values.
+The site supports `az` (default, Azerbaijani) and `en` (English). Locale is part of the URL: `/az/learn/...` and `/en/learn/...`. Lesson files live in separate locale folders. If an English lesson doesn't have an Azerbaijani translation, the site falls back to the English file.
 
 ---
 
-## How Lesson Pages Work
+## MDX Components
 
-`src/pages/learn/[...path].tsx` uses `getStaticProps` to:
+Every lesson is written in MDX and can use these components:
 
-1. Read the MDX file from `src/content/learn/` via `getContentByPath` in `mdx.ts`
-2. Serialize the MDX with `next-mdx-remote`
-3. Compute `lessonLevel` from the URL path (faza number → `Fundamental / Intermediate / Deep`)
-4. Compute `duration` from line count (`Math.ceil(lineCount / 75) * 5` minutes)
-5. Build prev/next navigation from the sidebar
+### Structure
 
-Level and duration are rendered as a badge row below the `<h1>` on the lesson page.
+| Component | Purpose |
+|-----------|---------|
+| `<Intro>` | Opening hook — always first. 2–4 sentence story or question. |
+| `<YouWillLearn>` | Learning outcomes list. Place right after `<Intro>`. 4–6 bullets. |
+| `<Recap>` | Lesson summary. Always last before `<Challenges>`. 5–8 claim bullets. |
+| `<Challenges>` | Exercise container — wraps challenge blocks with `####` headings. |
+| `<Solution>` | Worked answer inside `<Challenges>`. |
+| `<Hint>` | Optional nudge inside `<Challenges>`, before `<Solution>`. |
+| `<DeepDive>` | Collapsible optional-depth section. Must contain a `####` heading. |
 
----
+### Callouts
 
-## i18n
+| Component | Color | Purpose |
+|-----------|-------|---------|
+| `<Note>` | Blue | Useful clarification or non-alarming aside |
+| `<Pitfall>` | Yellow/red | Common mistake — state the mistake first, then the fix |
+| `<Wip>` | Purple | Lesson placeholder — content not yet written |
 
-The site supports two locales configured in `next.config.js`:
+### Code and interactive
 
-- `az` (default) — Azerbaijani, uses `sidebar.json`
-- `en` — English, uses `sidebar-en.json`
+| Component | Purpose |
+|-----------|---------|
+| `<Sandpack>` | Interactive code editor. Plain React + JS, no libraries, ≤80 lines. |
+| `<TerminalBlock level?>` | Dark terminal block for shell commands and output |
+| `<ConsoleBlock level?>` | Single browser/Node console line |
+| `<ConsoleBlockMulti>` | Multiple console lines — wraps `<ConsoleLogLine>` children |
+| `<ConsoleLogLine level?>` | One line inside `<ConsoleBlockMulti>` |
+| `<CodeStep step={1\|2\|3\|4}>` | Color-coded inline step highlight in prose |
+| `<PackageImport>` | Install command + import statement in two columns |
 
-Locale is passed to `getStaticProps` via `context.locale`. Both sidebar files must stay in sync for route parity.
+### Diagrams and media
+
+| Component | Purpose |
+|-----------|---------|
+| `<Diagram name alt height width>` | SVG from `public/images/docs/diagrams/`. Requires `x.svg` + `x.dark.svg`. |
+| `<DiagramGroup>` | Two or more `<Diagram>`s side by side for visual comparison |
+| `<CodeDiagram flip?>` | Code block and diagram in a split layout |
+| `<Illustration src alt>` | Centered raster image with optional caption and author credit |
+| `<IllustrationBlock>` | Row of `<Illustration>` images |
+| `<YouTubeIframe src>` | Responsive 16:9 YouTube embed |
+
+### Navigation and reference
+
+| Component | Purpose |
+|-----------|---------|
+| `<YouWillLearnCard title path>` | Module overview card linking to a specific lesson |
+| `<LearnMore title path?>` | Cross-lesson bridge section |
+| `<InlineToc>` | Auto-generated in-page anchor list for long lessons |
 
 ---
 
 ## Setup
 
 ```bash
-# 1. Clone the repo
 git clone <repo-url>
 cd engineering-curriculum
-
-# 2. Install dependencies
 npm install
-
-# 3. Start the development server
 npm run dev
 ```
 
-Open http://localhost:3000 in your browser.
+Open http://localhost:3000.
 
 ```bash
-# Type-check
-npm run type-check
-
-# Production build
-npm run build
-npm start
-```
-
----
-
-## Adding a New Lesson
-
-See `CLAUDE.md` at the project root for the full step-by-step guide and the lesson-authoring prompt. The short version:
-
-1. Create `src/content/learn/faza-{N}/modul-{N}-{M}/{lesson-slug}.md`
-2. Add the MDX frontmatter and content using standard components
-3. Add the route entry to both `sidebar.json` and `sidebar-en.json`
-4. Run `npm run build` to verify no type or compile errors
-
-### MDX Components Reference
-
-| Component | Purpose |
-|-----------|---------|
-| `<Intro>` | Page introduction block |
-| `<YouWillLearn>` | Learning objectives list |
-| `<Recap>` | Lesson summary |
-| `<Note>` | Info callout (blue) |
-| `<Pitfall>` | Warning callout (red) |
-| `<DeepDive>` | Collapsible deep-dive section |
-| `<Challenges>` | Interactive exercises block |
-| `<Solution>` | Answer inside `<Challenges>` |
-| `<Hint>` | Hint inside `<Challenges>` |
-| `<Diagram name="..." alt="...">` | Image / diagram |
-| `<Sandpack>` | Interactive code editor |
-
-### Diagrams
-
-`<Diagram>` reads images from `/public/images/docs/diagrams/{name}.png`. If the image is missing, the `alt` text is shown as a visual placeholder box.
-
----
-
-## Deployment
-
-Deployable to Vercel, Netlify, or any Node.js hosting platform:
-
-```bash
-npm run build
-npm start
+npm run type-check   # TypeScript check (run before every commit)
+npm run build        # Production build
+npm start            # Start production server
 ```
 
 ---
 
 ## Contributing
 
-Before contributing, read `CLAUDE.md` for the full project guide including coding standards, naming conventions, and the lesson-authoring prompt.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for:
+- Branch naming and commit convention
+- PR checklist and review process
+- Step-by-step lesson authoring guide
+- Full MDX component reference with props
+- Code standards
 
-Key principles:
-
-1. **Concept-first:** Explain how things work, not just how to use them
-2. **Bilingual parity:** Every lesson added to `sidebar.json` must also be added to `sidebar-en.json`
-3. **No framework abstractions:** Examples use fundamentals, not framework shortcuts
-4. **Interactive where possible:** Use `<Sandpack>` for live code examples
+For AI agents working on this codebase, read [CLAUDE.md](./CLAUDE.md) first.
 
 ---
 
@@ -247,4 +226,4 @@ Key principles:
 
 [MIT License](./LICENSE) © 2025 Engineering Curriculum Contributors
 
-Content (lessons, diagrams) may be shared under **CC BY 4.0**.
+Content (lessons, diagrams) may be shared under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
