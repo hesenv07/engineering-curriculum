@@ -9,8 +9,22 @@ import { Diagram } from "./Diagram";
 import { Pitfall } from "./Pitfall";
 import { DeepDive } from "./DeepDive";
 import { Sandpack } from "./Sandpack";
+<<<<<<< Updated upstream
 import { Code, Pre } from "./CodeBlock";
 import { YouWillLearn } from "./YouWillLearn";
+=======
+import { CodeStep } from "./CodeStep";
+import { InlineToc } from "./InlineToc";
+import { LearnMore } from "./LearnMore";
+import { Code, Pre } from "./CodeBlock";
+import { CodeDiagram } from "./CodeDiagram";
+import { DiagramGroup } from "./DiagramGroup";
+import { YouWillLearn } from "./YouWillLearn";
+import { TerminalBlock } from "./TerminalBlock";
+import { PackageImport } from "./PackageImport";
+import { YouTubeIframe } from "./YouTubeIframe";
+import { YouWillLearnCard } from "./YouWillLearnCard";
+>>>>>>> Stashed changes
 import { Challenges, Hint, Solution } from "./Challenges";
 
 function slugify(text: string): string {
@@ -155,17 +169,24 @@ function Blockquote({ children }: { children: React.ReactNode }) {
   );
 }
 
+function Table({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="overflow-x-auto mb-6">
+      <table>{children}</table>
+    </div>
+  );
+}
+
 export const MDXComponents = {
   p: P,
-  strong: Strong,
   ol: OL,
   ul: UL,
   li: LI,
-  hr: Divider,
   h1: H1,
   h2: H2,
   h3: H3,
   h4: H4,
+<<<<<<< Updated upstream
   code: Code,
   pre: Pre,
   a: CustomLink,
@@ -181,6 +202,42 @@ export const MDXComponents = {
   Hint,
   Diagram,
   Sandpack,
+=======
+  hr: Divider,
+  strong: Strong,
+  Wip,
+  Note,
+  Hint,
+  Intro,
+  Recap,
+  Pitfall,
+  Diagram,
+  pre: Pre,
+  DeepDive,
+  Sandpack,
+  CodeStep,
+  Solution,
+  LearnMore,
+  InlineToc,
+  img: Image,
+  code: Code,
+  Challenges,
+  CodeDiagram,
+  DiagramGroup,
+  YouWillLearn,
+  ConsoleBlock,
+  Illustration,
+  a: CustomLink,
+  TerminalBlock,
+  PackageImport,
+  YouTubeIframe,
+  ConsoleLogLine,
+  YouWillLearnCard,
+  ConsoleBlockMulti,
+  IllustrationBlock,
+  table: Table,
+  blockquote: Blockquote,
+>>>>>>> Stashed changes
 };
 
 for (const key of Object.keys(MDXComponents)) {

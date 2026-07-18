@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 280" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <text x="170" y="30" text-anchor="middle" font-size="14" fill="#23272F" font-family="system-ui, sans-serif">read as one 16-bit number</text>
+  <rect x="30" y="52" width="280" height="48" rx="8" fill="none" stroke="#99A1B3" stroke-width="1.5"/>
+  <text x="170" y="82" text-anchor="middle" font-size="16" fill="#23272F">01001000 01101001</text>
+  <line x1="170" y1="108" x2="170" y2="150" stroke="#087EA4" stroke-width="2"/>
+  <text x="170" y="140" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">72 &#215; 256 + 105</text>
+  <text x="170" y="200" text-anchor="middle" font-size="40" fill="#087EA4" font-weight="bold">18 537</text>
+  <text x="170" y="248" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">all sixteen bits weighed as one value</text>
+</svg>
