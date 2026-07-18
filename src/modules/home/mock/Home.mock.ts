@@ -1,0 +1,26 @@
+export const CONTENT = {
+  az: {
+    title: 'Engineering Curriculum — No frameworks. Engineering.',
+    badge: 'Pulsuz · Giriş tələb etmir · Açıq mənbə',
+    hero: 'No frameworks.\nEngineering.',
+    desc: 'Tranzistordan paylanmış sistemlərə qədər — hər şeyin içindən keçirik. Əsasları anlamadan framework öyrənmək bəs deyil.',
+    cta1: 'İlk Dərsdən Başla',
+    cta2: 'Bütün Kurslar',
+    mapTitle: 'Kurrikulumun Xəritəsi',
+    mapDesc: 'Əsasdan zirvəyə — sıra ilə, kümülatif',
+    stat: { phases: 'Faza', modules: 'Modul', lessons: 'Dərs', payment: 'Ödəniş', free: '0₼' },
+    lessonSuffix: 'dərs',
+  },
+  en: {
+    title: 'Engineering Curriculum — No frameworks. Engineering.',
+    badge: 'Free · Engineering · Open source',
+    hero: 'No frameworks.\nEngineering.',
+    desc: 'From transistors to distributed systems — we go through the inside of everything. Learning frameworks without understanding the foundations is not enough.',
+    cta1: 'Start First Lesson',
+    cta2: 'All Courses',
+    mapTitle: 'Curriculum Map',
+    mapDesc: 'From foundations to the summit — sequential, cumulative',
+    stat: { phases: 'Phases', modules: 'Modules', lessons: 'Lessons', payment: 'Payment', free: 'Free' },
+    lessonSuffix: 'lessons',
+  },
+};
