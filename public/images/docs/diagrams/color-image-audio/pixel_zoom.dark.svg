@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="system-ui, sans-serif">
+<rect x="30" y="80" width="210" height="150" rx="10" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<circle cx="190" cy="118" r="16" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<path d="M 42 214 L 100 132 L 142 214 Z" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<path d="M 116 214 L 180 156 L 228 214" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="135" y="254" text-anchor="middle" font-size="13" fill="#F6F7F9">photo · 4000 × 3000 px</text>
+<rect x="162" y="140" width="16" height="16" fill="none" stroke="#149ECA" stroke-width="2"/>
+<rect x="300" y="66" width="176" height="176" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<line x1="322.0" y1="66" x2="322.0" y2="242" stroke="#99A1B3" stroke-width="0.8"/>
+<line x1="300" y1="88.0" x2="476" y2="88.0" stroke="#99A1B3" stroke-width="0.8"/>
+<line x1="344.0" y1="66" x2="344.0" y2="242" stroke="#99A1B3" stroke-width="0.8"/>
+<line x1="300" y1="110.0" x2="476" y2="110.0" stroke="#99A1B3" stroke-width="0.8"/>
+<line x1="366.0" y1="66" x2="366.0" y2="242" stroke="#99A1B3" stroke-width="0.8"/>
+<line x1="300" y1="132.0" x2="476" y2="132.0" stroke="#99A1B3" stroke-width="0.8"/>
+<line x1="388.0" y1="66" x2="388.0" y2="242" stroke="#99A1B3" stroke-width="0.8"/>
+<line x1="300" y1="154.0" x2="476" y2="154.0" stroke="#99A1B3" stroke-width="0.8"/>
+<line x1="410.0" y1="66" x2="410.0" y2="242" stroke="#99A1B3" stroke-width="0.8"/>
+<line x1="300" y1="176.0" x2="476" y2="176.0" stroke="#99A1B3" stroke-width="0.8"/>
+<line x1="432.0" y1="66" x2="432.0" y2="242" stroke="#99A1B3" stroke-width="0.8"/>
+<line x1="300" y1="198.0" x2="476" y2="198.0" stroke="#99A1B3" stroke-width="0.8"/>
+<line x1="454.0" y1="66" x2="454.0" y2="242" stroke="#99A1B3" stroke-width="0.8"/>
+<line x1="300" y1="220.0" x2="476" y2="220.0" stroke="#99A1B3" stroke-width="0.8"/>
+<rect x="388.0" y="132.0" width="22.0" height="22.0" fill="#149ECA" fill-opacity="0.25" stroke="#149ECA" stroke-width="2"/>
+<text x="388" y="266" text-anchor="middle" font-size="13" fill="#F6F7F9">zoomed: an 8 × 8 patch of pixels</text>
+<line x1="178" y1="140" x2="300" y2="66" stroke="#99A1B3" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="178" y1="156" x2="300" y2="242" stroke="#99A1B3" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="410.0" y1="132.0" x2="540" y2="70" stroke="#99A1B3" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="410.0" y1="154.0" x2="540" y2="234" stroke="#99A1B3" stroke-width="1" stroke-dasharray="4 4"/>
+<rect x="540" y="70" width="150" height="44" rx="8" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+<text x="554" y="99" text-anchor="start" font-size="18" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">R 255</text>
+<text x="676" y="99" text-anchor="end" font-size="15" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">FF</text>
+<rect x="540" y="130" width="150" height="44" rx="8" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+<text x="554" y="159" text-anchor="start" font-size="18" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">G 87</text>
+<text x="676" y="159" text-anchor="end" font-size="15" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">57</text>
+<rect x="540" y="190" width="150" height="44" rx="8" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+<text x="554" y="219" text-anchor="start" font-size="18" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">B 51</text>
+<text x="676" y="219" text-anchor="end" font-size="15" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">33</text>
+<text x="615" y="264" text-anchor="middle" font-size="13" fill="#F6F7F9">one pixel = 3 bytes</text>
+</svg>

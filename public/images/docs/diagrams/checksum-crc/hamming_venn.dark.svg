@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="system-ui, sans-serif">
+<circle cx="300" cy="168" r="102" fill="none" stroke="#149ECA" stroke-width="2.5"/>
+<circle cx="424" cy="168" r="102" fill="none" stroke="#E06C60" stroke-width="2.5"/>
+<circle cx="362" cy="264" r="102" fill="none" stroke="#E06C60" stroke-width="2.5"/>
+<text x="202" y="54" text-anchor="middle" font-size="15" fill="#149ECA">parity 1 · pass</text>
+<text x="522" y="54" text-anchor="middle" font-size="15" fill="#E06C60">parity 2 · FAIL</text>
+<text x="514" y="336" text-anchor="middle" font-size="15" fill="#E06C60">parity 4 · FAIL</text>
+<text x="238" y="134" text-anchor="middle" font-size="11" fill="#99A1B3">pos 1</text>
+<text x="238" y="154" text-anchor="middle" font-size="18" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<text x="488" y="134" text-anchor="middle" font-size="11" fill="#99A1B3">pos 2</text>
+<text x="488" y="154" text-anchor="middle" font-size="18" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1</text>
+<text x="362" y="324" text-anchor="middle" font-size="11" fill="#99A1B3">pos 4</text>
+<text x="362" y="344" text-anchor="middle" font-size="18" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<text x="362" y="112" text-anchor="middle" font-size="11" fill="#99A1B3">pos 3</text>
+<text x="362" y="132" text-anchor="middle" font-size="18" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1</text>
+<text x="296" y="238" text-anchor="middle" font-size="11" fill="#99A1B3">pos 5</text>
+<text x="296" y="258" text-anchor="middle" font-size="18" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<circle cx="424" cy="248" r="22" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="424" y="240" text-anchor="middle" font-size="11" fill="#99A1B3">pos 6</text>
+<text x="424" y="260" text-anchor="middle" font-size="18" fill="#E06C60" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1→0</text>
+<text x="362" y="190" text-anchor="middle" font-size="11" fill="#99A1B3">pos 7</text>
+<text x="362" y="210" text-anchor="middle" font-size="18" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1</text>
+<text x="132" y="300" text-anchor="middle" font-size="15" fill="#F6F7F9">failing checks:</text>
+<text x="132" y="326" text-anchor="middle" font-size="19" fill="#E06C60" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">2 + 4 = 6</text>
+<text x="132" y="350" text-anchor="middle" font-size="13" fill="#99A1B3">the broken bit’s address</text>
+<text x="360" y="392" text-anchor="middle" font-size="13" fill="#99A1B3">codeword 0110011 · each position sits in the circles of its binary address</text>
+</svg>
