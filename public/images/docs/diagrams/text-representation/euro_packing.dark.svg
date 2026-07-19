@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+<defs><marker id="are" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="30" text-anchor="middle" font-size="16" fill="#F6F7F9">€ = U+20AC = 0010 0000 1010 1100  (16 bits)</text>
+<rect x="186.0" y="58.0" width="76.0" height="40.0" rx="7" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+<text x="224.0" y="84.0" text-anchor="middle" font-size="17" fill="#F6F7F9">0010</text>
+<rect x="296.0" y="58.0" width="108.0" height="40.0" rx="7" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+<text x="350.0" y="84.0" text-anchor="middle" font-size="17" fill="#F6F7F9">000010</text>
+<rect x="436.0" y="58.0" width="108.0" height="40.0" rx="7" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+<text x="490.0" y="84.0" text-anchor="middle" font-size="17" fill="#F6F7F9">101100</text>
+<text x="140" y="84" text-anchor="end" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">split 4 | 6 | 6</text>
+<rect x="150" y="160" width="150" height="44" rx="7" fill="none" stroke="#F6F7F9" stroke-width="2"/>
+<text x="162" y="188" text-anchor="start" font-size="17" fill="#149ECA" font-weight="bold">1110</text>
+<text x="211" y="188" text-anchor="start" font-size="17" fill="#F6F7F9">0010</text>
+<rect x="330" y="160" width="150" height="44" rx="7" fill="none" stroke="#F6F7F9" stroke-width="2"/>
+<text x="342" y="188" text-anchor="start" font-size="17" fill="#149ECA" font-weight="bold">10</text>
+<text x="368" y="188" text-anchor="start" font-size="17" fill="#F6F7F9">000010</text>
+<rect x="510" y="160" width="150" height="44" rx="7" fill="none" stroke="#F6F7F9" stroke-width="2"/>
+<text x="522" y="188" text-anchor="start" font-size="17" fill="#149ECA" font-weight="bold">10</text>
+<text x="548" y="188" text-anchor="start" font-size="17" fill="#F6F7F9">101100</text>
+<path d="M 224 102 C 224 132, 225 128, 225 156" fill="none" stroke="#99A1B3" stroke-width="1.6" marker-end="url(#are)"/>
+<path d="M 350 102 C 350 132, 393 128, 393 156" fill="none" stroke="#99A1B3" stroke-width="1.6" marker-end="url(#are)"/>
+<path d="M 490 102 C 490 132, 573 128, 573 156" fill="none" stroke="#99A1B3" stroke-width="1.6" marker-end="url(#are)"/>
+<text x="120" y="188" text-anchor="end" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">template 3</text>
+<rect x="195.0" y="248.0" width="60.0" height="44.0" rx="7" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+<text x="225.0" y="277.0" text-anchor="middle" font-size="20" fill="#F6F7F9">E2</text>
+<rect x="375.0" y="248.0" width="60.0" height="44.0" rx="7" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+<text x="405.0" y="277.0" text-anchor="middle" font-size="20" fill="#F6F7F9">82</text>
+<rect x="555.0" y="248.0" width="60.0" height="44.0" rx="7" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+<text x="585.0" y="277.0" text-anchor="middle" font-size="20" fill="#F6F7F9">AC</text>
+<text x="120" y="276" text-anchor="end" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">bytes</text>
+<text x="360" y="324" text-anchor="middle" font-size="15" fill="#F6F7F9">€ → E2 82 AC ✓</text>
+</svg>
