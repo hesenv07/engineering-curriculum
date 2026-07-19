@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+<defs><marker id="arx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker></defs>
+<text x="360" y="28" text-anchor="middle" font-size="15" fill="#23272F" font-family="system-ui, sans-serif">sending port 8080 (0x1F90) from a little-endian host</text>
+<text x="30" y="56" text-anchor="start" font-size="14" fill="#087EA4" font-family="system-ui, sans-serif">with htons()</text>
+<rect x="30" y="70" width="150" height="56" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="105" y="105" text-anchor="middle" font-size="20" fill="#23272F"></text>
+<text x="105" y="92" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">host RAM (LE)</text>
+<text x="105" y="114" text-anchor="middle" font-size="18" fill="#23272F">90 1F</text>
+<line x1="186" y1="98" x2="270" y2="98" stroke="#23272F" stroke-width="2" marker-end="url(#arx)"/>
+<text x="228" y="86" text-anchor="middle" font-size="13" fill="#087EA4">htons()</text>
+<rect x="276" y="70" width="64" height="56" rx="8" fill="#087EA4" fill-opacity="0.12" stroke="#087EA4" stroke-width="2"/>
+<text x="308" y="105" text-anchor="middle" font-size="19" fill="#23272F">1F</text>
+<rect x="346" y="70" width="64" height="56" rx="8" fill="#087EA4" fill-opacity="0.12" stroke="#087EA4" stroke-width="2"/>
+<text x="378" y="105" text-anchor="middle" font-size="19" fill="#23272F">90</text>
+<text x="343" y="142" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">on the wire (big-endian contract)</text>
+<line x1="416" y1="98" x2="500" y2="98" stroke="#23272F" stroke-width="2" marker-end="url(#arx)"/>
+<rect x="506" y="70" width="184" height="56" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="598" y="105" text-anchor="middle" font-size="20" fill="#23272F"></text>
+<text x="598" y="92" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">receiver reads</text>
+<text x="598" y="114" text-anchor="middle" font-size="17" fill="#087EA4">port 8080 ✓</text>
+<text x="30" y="216" text-anchor="start" font-size="14" fill="#C1554D" font-family="system-ui, sans-serif">raw memory copy</text>
+<rect x="30" y="230" width="150" height="56" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="105" y="265" text-anchor="middle" font-size="20" fill="#23272F"></text>
+<text x="105" y="252" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">host RAM (LE)</text>
+<text x="105" y="274" text-anchor="middle" font-size="18" fill="#23272F">90 1F</text>
+<line x1="186" y1="258" x2="270" y2="258" stroke="#23272F" stroke-width="2" marker-end="url(#arx)"/>
+<text x="228" y="246" text-anchor="middle" font-size="13" fill="#C1554D">memcpy</text>
+<rect x="276" y="230" width="64" height="56" rx="8" fill="#C1554D" fill-opacity="0.12" stroke="#C1554D" stroke-width="2"/>
+<text x="308" y="265" text-anchor="middle" font-size="19" fill="#23272F">90</text>
+<rect x="346" y="230" width="64" height="56" rx="8" fill="#C1554D" fill-opacity="0.12" stroke="#C1554D" stroke-width="2"/>
+<text x="378" y="265" text-anchor="middle" font-size="19" fill="#23272F">1F</text>
+<text x="343" y="302" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">on the wire (big-endian contract)</text>
+<line x1="416" y1="258" x2="500" y2="258" stroke="#23272F" stroke-width="2" marker-end="url(#arx)"/>
+<rect x="506" y="230" width="184" height="56" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="598" y="265" text-anchor="middle" font-size="20" fill="#23272F"></text>
+<text x="598" y="252" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">receiver reads</text>
+<text x="598" y="274" text-anchor="middle" font-size="17" fill="#C1554D">port 36895 ✗</text>
+<text x="360" y="344" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">no error raised in the bottom lane — just the wrong port</text>
+</svg>

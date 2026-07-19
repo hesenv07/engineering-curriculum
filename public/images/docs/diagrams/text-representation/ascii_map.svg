@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+<text x="360" y="30" text-anchor="middle" font-size="17" fill="#23272F">ASCII: 128 slots, four clean blocks</text>
+<rect x="30.0" y="58.0" width="165.0" height="64.0" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="112.5" y="94.9" text-anchor="middle" font-size="14" fill="#23272F"></text>
+<text x="112" y="85" text-anchor="middle" font-size="15" fill="#23272F">0–31</text>
+<text x="112" y="107" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">control</text>
+<rect x="199.0" y="58.0" width="165.0" height="64.0" rx="7" fill="none" stroke="#23272F" stroke-width="2"/>
+<text x="281.5" y="94.9" text-anchor="middle" font-size="14" fill="#23272F"></text>
+<text x="282" y="85" text-anchor="middle" font-size="15" fill="#23272F">32–63</text>
+<text x="282" y="107" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">punct + digits</text>
+<rect x="368.0" y="58.0" width="165.0" height="64.0" rx="7" fill="#087EA4" fill-opacity="0.12" stroke="#087EA4" stroke-width="2"/>
+<text x="450.5" y="94.9" text-anchor="middle" font-size="14" fill="#23272F"></text>
+<text x="450" y="85" text-anchor="middle" font-size="15" fill="#23272F">64–95</text>
+<text x="450" y="107" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">UPPERCASE</text>
+<rect x="537.0" y="58.0" width="165.0" height="64.0" rx="7" fill="#087EA4" fill-opacity="0.12" stroke="#087EA4" stroke-width="2"/>
+<text x="619.5" y="94.9" text-anchor="middle" font-size="14" fill="#23272F"></text>
+<text x="620" y="85" text-anchor="middle" font-size="15" fill="#23272F">96–127</text>
+<text x="620" y="107" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">lowercase</text>
+<rect x="283" y="130" width="0" height="0" fill="none"/>
+<text x="281" y="146" text-anchor="middle" font-size="12" fill="#087EA4" font-family="system-ui, sans-serif">digits live at 48–57</text>
+<line x1="410" y1="122" x2="410" y2="134" stroke="#C1554D" stroke-width="2"/>
+<text x="410" y="150" text-anchor="middle" font-size="13" fill="#C1554D">H = 72</text>
+<text x="112" y="146" text-anchor="middle" font-size="12" fill="#99A1B3">\n=10  \r=13  tab=9  BEL=7</text>
+<text x="360" y="188" text-anchor="middle" font-size="14" fill="#23272F" font-family="system-ui, sans-serif">the case bit: one bit apart, worth 32</text>
+<text x="216" y="230" text-anchor="end" font-size="17" fill="#23272F">A = 65</text>
+<rect x="236.0" y="206.0" width="28.0" height="34.0" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="250.0" y="228.6" text-anchor="middle" font-size="16" fill="#23272F">0</text>
+<rect x="267.0" y="206.0" width="28.0" height="34.0" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="281.0" y="228.6" text-anchor="middle" font-size="16" fill="#23272F">1</text>
+<rect x="298.0" y="206.0" width="28.0" height="34.0" rx="7" fill="#C1554D" fill-opacity="0.12" stroke="#C1554D" stroke-width="2"/>
+<text x="312.0" y="228.6" text-anchor="middle" font-size="16" fill="#23272F">0</text>
+<rect x="329.0" y="206.0" width="28.0" height="34.0" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="343.0" y="228.6" text-anchor="middle" font-size="16" fill="#23272F">0</text>
+<rect x="360.0" y="206.0" width="28.0" height="34.0" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="374.0" y="228.6" text-anchor="middle" font-size="16" fill="#23272F">0</text>
+<rect x="391.0" y="206.0" width="28.0" height="34.0" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="405.0" y="228.6" text-anchor="middle" font-size="16" fill="#23272F">0</text>
+<rect x="422.0" y="206.0" width="28.0" height="34.0" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="436.0" y="228.6" text-anchor="middle" font-size="16" fill="#23272F">0</text>
+<rect x="453.0" y="206.0" width="28.0" height="34.0" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="467.0" y="228.6" text-anchor="middle" font-size="16" fill="#23272F">1</text>
+<text x="216" y="276" text-anchor="end" font-size="17" fill="#23272F">a = 97</text>
+<rect x="236.0" y="252.0" width="28.0" height="34.0" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="250.0" y="274.6" text-anchor="middle" font-size="16" fill="#23272F">0</text>
+<rect x="267.0" y="252.0" width="28.0" height="34.0" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="281.0" y="274.6" text-anchor="middle" font-size="16" fill="#23272F">1</text>
+<rect x="298.0" y="252.0" width="28.0" height="34.0" rx="7" fill="#C1554D" fill-opacity="0.12" stroke="#C1554D" stroke-width="2"/>
+<text x="312.0" y="274.6" text-anchor="middle" font-size="16" fill="#23272F">1</text>
+<rect x="329.0" y="252.0" width="28.0" height="34.0" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="343.0" y="274.6" text-anchor="middle" font-size="16" fill="#23272F">0</text>
+<rect x="360.0" y="252.0" width="28.0" height="34.0" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="374.0" y="274.6" text-anchor="middle" font-size="16" fill="#23272F">0</text>
+<rect x="391.0" y="252.0" width="28.0" height="34.0" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="405.0" y="274.6" text-anchor="middle" font-size="16" fill="#23272F">0</text>
+<rect x="422.0" y="252.0" width="28.0" height="34.0" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="436.0" y="274.6" text-anchor="middle" font-size="16" fill="#23272F">0</text>
+<rect x="453.0" y="252.0" width="28.0" height="34.0" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="467.0" y="274.6" text-anchor="middle" font-size="16" fill="#23272F">1</text>
+<text x="312" y="308" text-anchor="middle" font-size="12" fill="#C1554D" font-family="system-ui, sans-serif">bit 5</text>
+</svg>

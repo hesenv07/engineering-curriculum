@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+<defs><marker id="arn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker></defs>
+<text x="360" y="30" text-anchor="middle" font-size="15" fill="#F6F7F9" font-family="system-ui, sans-serif">packed as two 16-bit words on the source machine</text>
+<rect x="150" y="52" width="78" height="50" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="189" y="85" text-anchor="middle" font-size="22" fill="#F6F7F9">U</text>
+<text x="189" y="120" text-anchor="middle" font-size="13" fill="#99A1B3">55</text>
+<rect x="230" y="52" width="78" height="50" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="269" y="85" text-anchor="middle" font-size="22" fill="#F6F7F9">N</text>
+<text x="269" y="120" text-anchor="middle" font-size="13" fill="#99A1B3">4E</text>
+<rect x="400" y="52" width="78" height="50" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="439" y="85" text-anchor="middle" font-size="22" fill="#F6F7F9">I</text>
+<text x="439" y="120" text-anchor="middle" font-size="13" fill="#99A1B3">49</text>
+<rect x="480" y="52" width="78" height="50" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="519" y="85" text-anchor="middle" font-size="22" fill="#F6F7F9">X</text>
+<text x="519" y="120" text-anchor="middle" font-size="13" fill="#99A1B3">58</text>
+<line x1="150" y1="44" x2="308" y2="44" stroke="#99A1B3" stroke-width="1.5"/>
+<line x1="400" y1="44" x2="558" y2="44" stroke="#99A1B3" stroke-width="1.5"/>
+<line x1="229" y1="130" x2="229" y2="174" stroke="#F6F7F9" stroke-width="2" marker-end="url(#arn)"/>
+<line x1="479" y1="130" x2="479" y2="174" stroke="#F6F7F9" stroke-width="2" marker-end="url(#arn)"/>
+<text x="360" y="150" text-anchor="middle" font-size="14" fill="#F6F7F9" font-family="system-ui, sans-serif">each word’s bytes swap</text>
+<text x="360" y="168" text-anchor="middle" font-size="14" fill="#F6F7F9" font-family="system-ui, sans-serif">when the convention flips</text>
+<rect x="150" y="186" width="78" height="50" rx="8" fill="#E06C60" fill-opacity="0.12" stroke="#E06C60" stroke-width="2"/>
+<text x="189" y="219" text-anchor="middle" font-size="22" fill="#F6F7F9">N</text>
+<text x="189" y="254" text-anchor="middle" font-size="13" fill="#99A1B3">4E</text>
+<rect x="230" y="186" width="78" height="50" rx="8" fill="#E06C60" fill-opacity="0.12" stroke="#E06C60" stroke-width="2"/>
+<text x="269" y="219" text-anchor="middle" font-size="22" fill="#F6F7F9">U</text>
+<text x="269" y="254" text-anchor="middle" font-size="13" fill="#99A1B3">55</text>
+<rect x="400" y="186" width="78" height="50" rx="8" fill="#E06C60" fill-opacity="0.12" stroke="#E06C60" stroke-width="2"/>
+<text x="439" y="219" text-anchor="middle" font-size="22" fill="#F6F7F9">X</text>
+<text x="439" y="254" text-anchor="middle" font-size="13" fill="#99A1B3">58</text>
+<rect x="480" y="186" width="78" height="50" rx="8" fill="#E06C60" fill-opacity="0.12" stroke="#E06C60" stroke-width="2"/>
+<text x="519" y="219" text-anchor="middle" font-size="22" fill="#F6F7F9">I</text>
+<text x="519" y="254" text-anchor="middle" font-size="13" fill="#99A1B3">49</text>
+<text x="360" y="282" text-anchor="middle" font-size="16" fill="#E06C60">the banner prints: NUXI</text>
+</svg>
