@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+<text x="360" y="30" text-anchor="middle" font-size="18" fill="#F6F7F9">a 32-bit float: 0.15625</text>
+<rect x="30" y="66" width="34" height="46" rx="7" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+<text x="47" y="96" text-anchor="middle" font-size="20" fill="#F6F7F9">0</text>
+<text x="47" y="132" text-anchor="middle" font-size="12" fill="#149ECA" font-family="system-ui, sans-serif">sign</text>
+<text x="47" y="148" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">1 bit</text>
+<rect x="78" y="66" width="30" height="46" rx="7" fill="none" stroke="#F6F7F9" stroke-width="2"/>
+<text x="93" y="95" text-anchor="middle" font-size="18" fill="#F6F7F9">0</text>
+<rect x="110" y="66" width="30" height="46" rx="7" fill="none" stroke="#F6F7F9" stroke-width="2"/>
+<text x="125" y="95" text-anchor="middle" font-size="18" fill="#F6F7F9">1</text>
+<rect x="142" y="66" width="30" height="46" rx="7" fill="none" stroke="#F6F7F9" stroke-width="2"/>
+<text x="157" y="95" text-anchor="middle" font-size="18" fill="#F6F7F9">1</text>
+<rect x="174" y="66" width="30" height="46" rx="7" fill="none" stroke="#F6F7F9" stroke-width="2"/>
+<text x="189" y="95" text-anchor="middle" font-size="18" fill="#F6F7F9">1</text>
+<rect x="206" y="66" width="30" height="46" rx="7" fill="none" stroke="#F6F7F9" stroke-width="2"/>
+<text x="221" y="95" text-anchor="middle" font-size="18" fill="#F6F7F9">1</text>
+<rect x="238" y="66" width="30" height="46" rx="7" fill="none" stroke="#F6F7F9" stroke-width="2"/>
+<text x="253" y="95" text-anchor="middle" font-size="18" fill="#F6F7F9">1</text>
+<rect x="270" y="66" width="30" height="46" rx="7" fill="none" stroke="#F6F7F9" stroke-width="2"/>
+<text x="285" y="95" text-anchor="middle" font-size="18" fill="#F6F7F9">0</text>
+<rect x="302" y="66" width="30" height="46" rx="7" fill="none" stroke="#F6F7F9" stroke-width="2"/>
+<text x="317" y="95" text-anchor="middle" font-size="18" fill="#F6F7F9">0</text>
+<text x="205" y="132" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">exponent · 8 bits</text>
+<text x="205" y="148" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">stored with bias +127</text>
+<rect x="346" y="66" width="348" height="46" rx="7" fill="#E06C60" fill-opacity="0.12" stroke="#E06C60" stroke-width="2"/>
+<text x="520" y="94" text-anchor="middle" font-size="13" fill="#F6F7F9">01000000000000000000000</text>
+<text x="520" y="132" text-anchor="middle" font-size="12" fill="#E06C60" font-family="system-ui, sans-serif">fraction (mantissa) · 23 bits</text>
+<text x="520" y="148" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">the implicit «1.» is not stored</text>
+<text x="158" y="190" text-anchor="end" font-size="16" fill="#149ECA">sign 0</text>
+<text x="174" y="190" text-anchor="start" font-size="16" fill="#F6F7F9">→  positive</text>
+<text x="158" y="220" text-anchor="end" font-size="16" fill="#F6F7F9">01111100 = 124</text>
+<text x="174" y="220" text-anchor="start" font-size="16" fill="#F6F7F9">→  124 − 127 = −3   →  × 2⁻³</text>
+<text x="158" y="250" text-anchor="end" font-size="16" fill="#E06C60">mantissa 01…</text>
+<text x="174" y="250" text-anchor="start" font-size="16" fill="#F6F7F9">→  1.01₂  (implicit 1. restored)</text>
+<text x="360" y="294" text-anchor="middle" font-size="18" fill="#F6F7F9">+1.01₂ × 2⁻³  =  0.00101₂  =  0.15625 ✓</text>
+</svg>
