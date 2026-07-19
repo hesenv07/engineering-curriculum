@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 320" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+<text x="170" y="30" text-anchor="middle" font-size="18" fill="#23272F">fixed point</text>
+<rect x="23.0" y="66" width="32" height="44" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="39" y="95" text-anchor="middle" font-size="20" fill="#99A1B3">0</text>
+<rect x="59.0" y="66" width="32" height="44" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="75" y="95" text-anchor="middle" font-size="20" fill="#99A1B3">0</text>
+<rect x="95.0" y="66" width="32" height="44" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="111" y="95" text-anchor="middle" font-size="20" fill="#23272F">1</text>
+<rect x="131.0" y="66" width="32" height="44" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="147" y="95" text-anchor="middle" font-size="20" fill="#23272F">2</text>
+<circle cx="168.0" cy="104" r="4.5" fill="#C1554D"/>
+<rect x="177.0" y="66" width="32" height="44" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="193" y="95" text-anchor="middle" font-size="20" fill="#23272F">3</text>
+<rect x="213.0" y="66" width="32" height="44" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="229" y="95" text-anchor="middle" font-size="20" fill="#23272F">4</text>
+<rect x="249.0" y="66" width="32" height="44" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="265" y="95" text-anchor="middle" font-size="20" fill="#99A1B3">0</text>
+<rect x="285.0" y="66" width="32" height="44" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="301" y="95" text-anchor="middle" font-size="20" fill="#99A1B3">0</text>
+<text x="87" y="132" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">wasted</text>
+<text x="279" y="132" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">wasted</text>
+<text x="170" y="154" text-anchor="middle" font-size="13" fill="#C1554D" font-family="system-ui, sans-serif">point welded in place</text>
+<text x="36" y="194" text-anchor="start" font-size="16" fill="#C1554D">4,096,000</text>
+<text x="150" y="194" text-anchor="start" font-size="13" fill="#C1554D" font-family="system-ui, sans-serif">✗ too big — does not fit</text>
+<text x="36" y="224" text-anchor="start" font-size="16" fill="#C1554D">0.0000012</text>
+<text x="150" y="224" text-anchor="start" font-size="13" fill="#C1554D" font-family="system-ui, sans-serif">✗ too small — rounds to 0</text>
+</svg>
