@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+<text x="360" y="28" text-anchor="middle" font-size="16" fill="#F6F7F9" font-family="system-ui, sans-serif">Huffman tree for banana — a:3  n:2  b:1</text>
+
+<line x1="360" y1="90" x2="200" y2="220" stroke="#99A1B3" stroke-width="1.6"/>
+<line x1="360" y1="90" x2="480" y2="220" stroke="#99A1B3" stroke-width="1.6"/>
+<line x1="480" y1="220" x2="400" y2="350" stroke="#99A1B3" stroke-width="1.6"/>
+<line x1="480" y1="220" x2="560" y2="350" stroke="#99A1B3" stroke-width="1.6"/>
+
+<text x="258" y="148" text-anchor="middle" font-size="15" fill="#149ECA" font-family="system-ui, sans-serif">0</text>
+<text x="440" y="148" text-anchor="middle" font-size="15" fill="#149ECA" font-family="system-ui, sans-serif">1</text>
+<text x="420" y="292" text-anchor="middle" font-size="15" fill="#149ECA" font-family="system-ui, sans-serif">0</text>
+<text x="538" y="292" text-anchor="middle" font-size="15" fill="#149ECA" font-family="system-ui, sans-serif">1</text>
+
+<circle cx="360" cy="90" r="32" fill="#149ECA" fill-opacity="0.16" stroke="#149ECA" stroke-width="2"/>
+<text x="360" y="96" text-anchor="middle" font-size="18" fill="#F6F7F9">6</text>
+
+<circle cx="200" cy="220" r="32" fill="#F6F7F9" fill-opacity="0.08" stroke="#F6F7F9" stroke-width="1.6"/>
+<text x="200" y="226" text-anchor="middle" font-size="15" fill="#F6F7F9">a:3</text>
+
+<circle cx="480" cy="220" r="32" fill="#149ECA" fill-opacity="0.16" stroke="#149ECA" stroke-width="2"/>
+<text x="480" y="226" text-anchor="middle" font-size="18" fill="#F6F7F9">3</text>
+
+<circle cx="400" cy="350" r="32" fill="#F6F7F9" fill-opacity="0.08" stroke="#F6F7F9" stroke-width="1.6"/>
+<text x="400" y="356" text-anchor="middle" font-size="15" fill="#F6F7F9">n:2</text>
+
+<circle cx="560" cy="350" r="32" fill="#F6F7F9" fill-opacity="0.08" stroke="#F6F7F9" stroke-width="1.6"/>
+<text x="560" y="356" text-anchor="middle" font-size="15" fill="#F6F7F9">b:1</text>
+
+<text x="360" y="410" text-anchor="middle" font-size="14" fill="#F6F7F9" font-family="system-ui, sans-serif">codes:  a = 0 (1 bit)     n = 10 (2 bits)     b = 11 (2 bits)</text>
+<text x="360" y="436" text-anchor="middle" font-size="14" fill="#149ECA" font-family="system-ui, sans-serif">banana = 3(1) + 2(2) + 1(2) = 9 bits — vs 12 bits fixed-length</text>
+</svg>

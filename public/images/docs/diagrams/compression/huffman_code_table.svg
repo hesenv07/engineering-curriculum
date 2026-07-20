@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 300" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+<text x="170" y="24" text-anchor="middle" font-size="14" fill="#23272F" font-family="system-ui, sans-serif">Huffman code (variable length)</text>
+
+<text x="50" y="54" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">symbol</text>
+<text x="140" y="54" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">code</text>
+<text x="220" y="54" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">count</text>
+<text x="290" y="54" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">bits</text>
+<line x1="20" y1="62" x2="320" y2="62" stroke="#99A1B3" stroke-width="1.2"/>
+
+<text x="50" y="82" text-anchor="middle" font-size="16" fill="#23272F">a</text>
+<text x="140" y="82" text-anchor="middle" font-size="16" fill="#23272F">0</text>
+<text x="220" y="82" text-anchor="middle" font-size="16" fill="#23272F">×3</text>
+<text x="290" y="82" text-anchor="middle" font-size="16" fill="#23272F">1</text>
+
+<text x="50" y="106" text-anchor="middle" font-size="16" fill="#23272F">n</text>
+<text x="140" y="106" text-anchor="middle" font-size="16" fill="#23272F">10</text>
+<text x="220" y="106" text-anchor="middle" font-size="16" fill="#23272F">×2</text>
+<text x="290" y="106" text-anchor="middle" font-size="16" fill="#23272F">2</text>
+
+<text x="50" y="130" text-anchor="middle" font-size="16" fill="#23272F">b</text>
+<text x="140" y="130" text-anchor="middle" font-size="16" fill="#23272F">11</text>
+<text x="220" y="130" text-anchor="middle" font-size="16" fill="#23272F">×1</text>
+<text x="290" y="130" text-anchor="middle" font-size="16" fill="#23272F">2</text>
+
+<line x1="20" y1="148" x2="320" y2="148" stroke="#99A1B3" stroke-width="1.2"/>
+
+<text x="30" y="180" text-anchor="start" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">3(1) + 2(2) + 1(2):</text>
+<rect x="50" y="196" width="180" height="28" rx="6" fill="#087EA4" fill-opacity="0.12" stroke="#087EA4" stroke-width="1.6"/>
+<text x="140" y="215" text-anchor="middle" font-size="14" fill="#087EA4" font-family="system-ui, sans-serif">9 bits total</text>
+<text x="170" y="240" text-anchor="middle" font-size="12" fill="#087EA4" font-family="system-ui, sans-serif">25% smaller than fixed</text>
+</svg>
