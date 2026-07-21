@@ -4,25 +4,23 @@ import * as React from "react";
 
 import { useParams } from "next/navigation";
 
+import { Show } from "@/shared/ui/Show";
+import Icon from "@/shared/ui/Icon/Icon";
+import cn from "@/shared/lib/helpers/cn";
+
 import { usePathname, useRouter } from "@/i18n/navigation";
 
-type TLanguageOption = {
-  code: string;
-  label: string;
-  isSoon?: boolean;
-};
-
-const LANGUAGES: TLanguageOption[] = [
-  { code: "az", label: "Azərbaycanca" },
-  { code: "en", label: "English" },
-];
+import { LANGUAGES } from "./LanguageSelector.consts";
 
 const LanguageSelector = () => {
-  const { locale } = useParams<{ locale: string }>();
-  const pathname = usePathname();
   const router = useRouter();
+  const pathname = usePathname();
+  const { locale } = useParams<{ locale: string }>();
+
   const [isOpen, setIsOpen] = React.useState(false);
   const ref = React.useRef<HTMLDivElement>(null);
+
+  const handleToggleOpen = () => setIsOpen((prev) => !prev);
 
   React.useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -39,82 +37,68 @@ const LanguageSelector = () => {
   return (
     <div ref={ref} className="relative">
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-sm text-secondary dark:text-secondary-dark hover:bg-wash dark:hover:bg-wash-dark hover:text-primary dark:hover:text-primary-dark transition-colors"
-        aria-label="Select language"
         aria-expanded={isOpen}
+        onClick={handleToggleOpen}
+        aria-label="Select language"
+        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-sm text-secondary dark:text-secondary-dark hover:bg-wash dark:hover:bg-wash-dark hover:text-primary dark:hover:text-primary-dark transition-colors"
       >
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-        </svg>
+        <Icon name="globe" className="w-4 h-4" />
         <span className="font-medium">{currentLabel}</span>
-        <svg
-          width="12"
-          height="12"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          className={`transition-transform duration-150 ${isOpen ? "rotate-180" : ""}`}
-        >
-          <polyline points="6 9 12 15 18 9" />
-        </svg>
+        <Icon
+          name="arrow-down"
+          className={cn(
+            "transition-transform duration-150",
+            isOpen && "rotate-180",
+          )}
+        />
       </button>
 
-      {isOpen && (
+      <Show when={isOpen}>
         <div className="absolute right-0 top-full mt-1 w-48 bg-white dark:bg-card-dark border border-border dark:border-border-dark rounded-xl shadow-lg overflow-hidden z-50">
           <div className="p-1">
-            {LANGUAGES.map((l) => (
-              <div key={l.code}>
-                {l.isSoon ? (
-                  <div className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-tertiary dark:text-tertiary-dark cursor-not-allowed select-none">
-                    <span>{l.label}</span>
-                    <span className="text-[10px] bg-wash dark:bg-wash-dark text-tertiary dark:text-tertiary-dark rounded px-1.5 py-0.5 font-medium">
-                      soon
-                    </span>
-                  </div>
-                ) : (
-                  <button
-                    onClick={() => {
-                      router.replace(pathname, { locale: l.code });
-                      setIsOpen(false);
-                    }}
-                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
-                      locale === l.code
-                        ? "bg-highlight dark:bg-highlight-dark text-link dark:text-link-dark font-semibold"
-                        : "text-secondary dark:text-secondary-dark hover:bg-wash dark:hover:bg-wash-dark"
-                    }`}
-                  >
-                    {l.label}
-                    {locale === l.code && (
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
+            {LANGUAGES.map((l) => {
+              const isActive = locale === l.code;
+              const activeClassName = isActive
+                ? "bg-highlight dark:bg-highlight-dark text-link dark:text-link-dark font-semibold"
+                : "text-secondary dark:text-secondary-dark hover:bg-wash dark:hover:bg-wash-dark";
+
+              const handleSelectLanguage = () => {
+                router.replace(pathname, { locale: l.code });
+                setIsOpen(false);
+              };
+
+              return (
+                <div key={l.code}>
+                  <Show
+                    when={l.isSoon}
+                    fallback={
+                      <button
+                        onClick={handleSelectLanguage}
+                        className={cn(
+                          "w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors",
+                          activeClassName,
+                        )}
                       >
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    )}
-                  </button>
-                )}
-              </div>
-            ))}
+                        {l.label}
+                        <Show when={isActive}>
+                          <Icon name="success" />
+                        </Show>
+                      </button>
+                    }
+                  >
+                    <div className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-tertiary dark:text-tertiary-dark cursor-not-allowed select-none">
+                      <span>{l.label}</span>
+                      <span className="text-[10px] bg-wash dark:bg-wash-dark text-tertiary dark:text-tertiary-dark rounded px-1.5 py-0.5 font-medium">
+                        soon
+                      </span>
+                    </div>
+                  </Show>
+                </div>
+              );
+            })}
           </div>
         </div>
-      )}
+      </Show>
     </div>
   );
 };
