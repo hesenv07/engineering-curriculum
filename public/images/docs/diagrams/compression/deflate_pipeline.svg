@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" font-family="system-ui, sans-serif">
+<defs><marker id="mw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#99A1B3"/></marker></defs>
+<rect x="22" y="74" width="168" height="92" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="106.0" y="190" font-size="12.5" fill="#99A1B3" text-anchor="middle">raw bytes</text>
+<text x="106" y="114" font-size="14.5" fill="#23272F" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">to be or</text>
+<text x="106" y="136" font-size="14.5" fill="#23272F" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">not to be</text>
+<rect x="268" y="74" width="216" height="92" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="376.0" y="190" font-size="12.5" fill="#99A1B3" text-anchor="middle">literals + copy tokens</text>
+<text x="376" y="112" font-size="13" fill="#23272F" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">t o · b e · o r ·</text>
+<text x="352" y="138" font-size="13" fill="#23272F" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">n o t ·</text>
+<rect x="386" y="122" width="58" height="22" rx="11" fill="#087EA4"/>
+<text x="415" y="137.5" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">(13,5)</text>
+<rect x="562" y="74" width="136" height="92" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="630.0" y="190" font-size="12.5" fill="#99A1B3" text-anchor="middle">DEFLATE stream</text>
+<text x="630" y="114" font-size="13" fill="#23272F" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">10110110</text>
+<text x="630" y="136" font-size="13" fill="#23272F" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">01001110…</text>
+<line x1="190" y1="120.0" x2="264" y2="120.0" stroke="#99A1B3" stroke-width="2.5" marker-end="url(#mw)"/>
+<text x="229.0" y="52" font-size="13" font-weight="600" fill="#23272F" text-anchor="middle">LZ77 — find repeats</text>
+<line x1="484" y1="120.0" x2="558" y2="120.0" stroke="#99A1B3" stroke-width="2.5" marker-end="url(#mw)"/>
+<text x="523.0" y="52" font-size="13" font-weight="600" fill="#23272F" text-anchor="middle">Huffman — shorten symbols</text>
+<rect x="512" y="212" width="200" height="26" rx="13" fill="#087EA4" fill-opacity="0.12" stroke="#087EA4" stroke-width="1.5"/>
+<text x="612" y="229" font-size="10.5" font-weight="600" fill="#087EA4" text-anchor="middle">code tables travel in the header</text>
+<line x1="620" y1="166" x2="616" y2="212" stroke="#087EA4" stroke-width="1.5" stroke-dasharray="3 3"/></svg>
