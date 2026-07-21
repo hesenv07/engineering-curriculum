@@ -1,0 +1,19 @@
+local_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+# Format: <type>/<PROJECT>-<NUMBER>-<description>
+# Example: improvement/PS-609-correct-husky-pre-commit-validation
+valid_branch_regex="^(feature|bugfix|improvement|hotfix)\/[A-Z]+-[a-z][a-z0-9-]*$"
+
+if ! echo "$local_branch" | grep -qE "$valid_branch_regex"; then
+    echo ""
+    echo "  Invalid branch name: '$local_branch'"
+    echo ""
+    echo "  Required format : <type>/<PROJECT>-<description>"
+    echo "  Example         : improvement/PS-609-correct-husky-pre-commit-validation"
+    echo ""
+    echo "  Types   : feature | bugfix | improvement | hotfix"
+    echo ""
+    exit 1
+fi
+
+npx lint-staged && npm run typecheck
