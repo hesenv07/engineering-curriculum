@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
+import { resolveLocale } from "@/shared/lib/utils/locale";
 import { parseSidebar } from "@/shared/lib/utils/sidebar";
 
 import { CONTENT } from "../../mock/Home.mock";
@@ -8,8 +9,7 @@ import { CONTENT } from "../../mock/Home.mock";
 import type { ICurriculumProps } from "./Curriculum.types";
 
 const Curriculum = ({ params, routes }: ICurriculumProps) => {
-  const locale = params.locale as keyof typeof CONTENT;
-  const t = CONTENT[locale];
+  const t = CONTENT[resolveLocale(params.locale)];
 
   const { phases } = parseSidebar(routes);
   return (

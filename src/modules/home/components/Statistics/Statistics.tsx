@@ -1,5 +1,6 @@
 import React from "react";
 
+import { resolveLocale } from "@/shared/lib/utils/locale";
 import { CONTENT } from "../../mock/Home.mock";
 
 import type { IStatisticsProps } from "./Statistics.types";
@@ -10,8 +11,7 @@ const Statistics = ({
   totalLessons,
   totalModules,
 }: IStatisticsProps) => {
-  const locale = params.locale as keyof typeof CONTENT;
-  const t = CONTENT[locale];
+  const t = CONTENT[resolveLocale(params.locale)];
 
   const stats = [
     { value: String(totalPhases), label: t.stat.phases },

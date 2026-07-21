@@ -3,13 +3,13 @@ import React from "react";
 import { Link } from "@/i18n/navigation";
 import { Show } from "@/shared/ui/Show";
 
+import { resolveLocale } from "@/shared/lib/utils/locale";
 import { CONTENT } from "../../mock/Home.mock";
 
 import type { IHeroProps } from "./Hero.types";
 
 const Hero = ({ params, phases }: IHeroProps) => {
-  const locale = params.locale as keyof typeof CONTENT;
-  const t = CONTENT[locale];
+  const t = CONTENT[resolveLocale(params.locale)];
 
   const heroLines = t.hero.split("\n");
 
