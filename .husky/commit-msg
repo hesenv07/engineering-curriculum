@@ -2,7 +2,7 @@ commit_msg=$(cat "$1")
 
 # Format: type(scope): message
 # Example: feat(Login): add JWT token validation
-valid_commit_regex="^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\([^)]+\))?: .+"
+valid_commit_regex="^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)\([^)]+\): .+"
 
 if ! echo "$commit_msg" | grep -qE "$valid_commit_regex"; then
     echo ""
