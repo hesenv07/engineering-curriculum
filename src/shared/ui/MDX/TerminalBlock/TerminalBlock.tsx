@@ -81,7 +81,7 @@ const TerminalBlock = ({ level = 'info', children }: ITerminalBlockProps) => {
         </button>
       </div>
       <pre
-        className="px-8 pt-4 pb-6 text-primary-dark font-mono text-sm whitespace-pre overflow-x-auto"
+        className="px-8 pt-4 pb-6 text-primary-dark dark:text-primary font-mono text-sm whitespace-pre overflow-x-auto"
         translate="no"
         dir="ltr"
       >
