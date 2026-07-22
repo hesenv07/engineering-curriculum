@@ -4,77 +4,77 @@ title: "Mətn: ASCII-dən UTF-8-ə"
 
 <Intro>
 
-Sentyabr 1992-ci ilin bir axşamı, Nyu-Cersi kafesinde, Unix-in həm-yaradıcısı Ken Thompson — adının ötən dərsdə `NUXI`-yə çevrildiyini izlədiyiniz həmin sistemin — Rob Pike baxarkən bir yer örtüyü üzərində bir kodlama sxemi cızırdı. Bell Labs-ın iki mühəndisi qırıq saydıqları standart təklifinə cavab vermək üçün günlər verilmişdi; yeməyin sonuna qədər daha yaxşı bir şeyləri var idi, bir həftə ərzindəki əməliyyat sistemi tamamilə ona keçirildi. Həll etdikləri problem nəhəng idi: hesablamanın mətni qarşılıqlı anlaşılmaz idi — eyni byte-lar bir maşında Fransızca, başqa birində Yunanca, üçüncüsündə cəfəngiyat yazırdı — sənayenin rəsmi düzəlişləri isə Yer üzündəki hər mövcud faylı və aləti pozmaqda davam edirdi. Yer örtüyü dizaynı *heç nəyi* pozmadı. Bu gün ona **UTF-8** deyilir, veb-in 98%-dən çoxunu daşıyır, mühəndislik tarixinin ən uğurlu geriyə-uyğun dizaynı olduğu arqumentlidir. Bu dərs mətn hekayəsidir: 72-ni `H`-ya uyğunlaşdıran 1963 kontraktı (Dərs 1-dən bu kurs üzərindəki bir borc), `é`-ni `Ã©`-ya çevirən bir-byte-lı imperiyalar, hər insan simvolunu tutmağa çalışan cədvəl — və yer örtüyü kodlamanın necə işlədiyini bit-bit, çünki bu dərs bitmədən əllə emoji kodlayacaqsınız.
+1992-ci ilin sentyabrında bir axşam, Nyu-Cersidəki bir yeməkxanada Ken Thompson — Unix-in həmmüəllifi, keçən dərs adının `NUXI`-yə qarışdığını izlədiyiniz sistemin özünün yaradıcısı — Rob Pike-ın gözü qarşısında süfrə dəsmalının üstündə bir encoding sxemi cızdı. İki Bell Labs mühəndisinə qüsurlu saydıqları bir standart təklifinə cavab vermək üçün cəmi bir neçə gün verilmişdi; şam yeməyinin sonunda əllərində daha yaxşısı vardı və bir həftə ərzində bütün əməliyyat sistemləri ona keçirildi. Həll etdikləri problem nəhəng idi: hesablama dünyasının mətni qarşılıqlı anlaşılmaz idi — eyni baytlar bir maşında fransızca, digərində yunanca, üçüncüsündə zibil oxunurdu — sənayenin rəsmi düzəlişləri isə Yer üzündəki hər mövcud faylı və aləti sındırmağa davam edirdi. Süfrə dəsmalı dizaynı *heç nəyi* sındırmadı. Bu gün ona **UTF-8** deyilir, vebin 98%-dən çoxunu daşıyır və mübahisəsiz mühəndislik tarixinin ən uğurlu backward-compatible dizaynıdır. Bu dərs mətnin hekayəsidir: 72-ni `H`-ə uyğunlaşdıran 1963-cü il müqaviləsi (bu kursun Dərs 1-dən bəri daşıdığı borc), `é`-ni `Ã©`-yə çevirən bayt-ölçülü imperiyalar, hər insan simvolunu tutmağa çalışan cədvəl — və süfrə dəsmalı encoding-inin dəqiq necə işlədiyi, bit-bit, çünki bu dərs bitməmiş bir emoji-ni əllə kodlayacaqsınız.
 
 </Intro>
 
 <YouWillLearn>
 
-- **ASCII**: 128 yuvalı kontrakt, gizlicə gözəl daxili strukturu, niyə `H` = 72
-- Byte-ın yuxarı 128 yuvası müharibəçi **code page**-lərə necə çevrildi — və **mojibake**-nin dəqiq mexanikası (`café` → `cafÃ©`, `привет` → `Ð¿Ñ€Ð¸Ð²ÐµÑ‚`)
-- **Unicode**: hər şeyi düzəldən ayrılma — *code point* bir ədəddir, *encoding* byte-lardır, bunlar fərqli kontraktlardır
-- Yer örtüyündən **UTF-8**: dörd byte-şablonu, `é`, `€`, `😀`-ı əllə kodlamaq
-- UTF-8-in niyə qalib gəldiyi: ASCII-uyğun, özünü-sinxronlayan, endianness-dən azad — UTF-16-nın xəyalının hələ dilinizi hansı yerdə bürüdüyü
-- İstehsalla əlaqə quran qaydalar: "düz mətn" yoxdur, uzunluq dörd fərqli ədəddir, MySQL-in `utf8`-i UTF-8 deyil
+- **ASCII**: 128 yuvalı müqavilə, onun gizlicə gözəl daxili strukturu və `H`-in niyə 72 olduğu
+- Baytın yuxarı 128 yuvasının necə müharibə edən **code page-lərə** çevrildiyi — və **mojibake**-nin dəqiq mexanikası (`café` → `cafÃ©`, `привет` → `Ð¿Ñ€Ð¸Ð²ÐµÑ‚`)
+- **Unicode**: hər şeyi düzəldən ayrılma — *code point* rəqəmdir, *encoding* baytlardır və onlar fərqli müqavilələrdir
+- **UTF-8** süfrə dəsmalından yuxarı: dörd bayt-şablonu, `é`, `€` və `😀`-nin əllə kodlanması
+- UTF-8-in niyə qalib gəldiyi: ASCII-compatible, self-synchronizing, endianness-ə davamlı — və UTF-16-nın kabusunun proqramlaşdırma dilinizdə hələ də hara hənirtildiyi
+- Production ilə təmasdan sağ çıxan qaydalar: "plain text" deyə bir şey yoxdur, length dörd fərqli rəqəmdir və MySQL-in `utf8`-i UTF-8 deyil
 
 </YouWillLearn>
 
-## 128 yuvalı kontrakt {/*the-128-slot-contract*/}
+## 128 yuvalı müqavilə {/*the-128-slot-contract*/}
 
-Dərs 1-dən bəri "mətn kontraktı" vekselli bir vəd idi: *nəsə* cədvəl 72-ni `H`-ya, 105-i `i`-yə uyğunlaşdırırdı, bu kurs ona qarşı borc alırdı — `Hi`, `Hey`, hex dökümlər. Ödəmə vaxtı. Cədvəl **ASCII**-dir — Məlumat Mübadiləsi üçün Amerika Standart Kodu, 1963-cü ildə tamamlandı — 7-bit kontraktdır: **128 yuva**, 0–127 nömrələnib, Amerika ingiliscəsinin ehtiyac duyduğunu düşündüyü hər simvol üçün.
+Dərs 1-dən bəri "mətn müqaviləsi" bir veksel idi: *hansısa* cədvəl 72-ni `H`-ə, 105-i `i`-yə uyğunlaşdırır və bu kurs ona qarşı borc götürməyə davam edirdi — `Hi`, `Hey`, hex dump-lar. Ödəmə vaxtıdır. Cədvəl **ASCII**-dir — American Standard Code for Information Interchange, 1963-cü ildə yekunlaşdırılıb — və o, 7-bitlik müqavilədir: **128 yuva**, 0–127 nömrələnmiş, Amerika ingiliscəsinin ehtiyac duya biləcəyini təsəvvür etdiyi hər simvol üçün bir dənə.
 
-Komitə simvolları təsadüfi yerləşdirmədi; bitlerin içinə struktur qurdu, o struktur bu gün hələ maaşınızı ödəyir:
+Komitə simvolları təsadüfi səpələmədi; bitlərin içinə struktur hördü və o struktur bu gün də sizin maaşınızı ödəyir:
 
-<Diagram name="text-representation/ascii_map" height={360} width={720} alt="A horizontal bar of 128 slots divided into four equal 32-slot blocks. Block 0 to 31, dimmed, labeled 'control characters (invisible): newline 10, carriage return 13, tab 9, bell 7'. Block 32 to 63 labeled 'space, punctuation, digits', with slots 48 to 57 highlighted in blue and labeled 'digits 0-9'. Block 64 to 95 labeled 'uppercase A-Z', with slot 72 marked H = 72. Block 96 to 127 labeled 'lowercase a-z'. Below the bar, a zoom panel compares A = 01000001 with a = 01100001, the single differing bit (value 32) highlighted in red, captioned 'one bit apart — the case bit'.">
+<Diagram name="text-representation/ascii_map" height={360} width={720} alt="128 yuvadan ibarət, dörd bərabər 32 yuvalıq bloka bölünmüş üfüqi zolaq. Blok 0-dan 31-ə, solğunlaşdırılmış, 'control simvollar (görünməz): newline 10, carriage return 13, tab 9, bell 7' etiketi ilə. Blok 32-dən 63-ə 'boşluq, durğu işarələri, rəqəmlər' etiketli, 48-dən 57-yə yuvalar mavi ilə vurğulanıb və 'rəqəmlər 0-9' etiketi ilə. Blok 64-dən 95-ə 'böyük hərflər A-Z' etiketli, 72-ci yuva H = 72 işarələnib. Blok 96-dan 127-yə 'kiçik hərflər a-z' etiketli. Zolağın altında zoom paneli A = 01000001 ilə a = 01100001-i müqayisə edir, fərqlənən tək bit (dəyəri 32) qırmızı ilə vurğulanıb, 'bir bit fərq — case biti' alt yazısı ilə.">
 
-Dörd təmiz 32-yuvalı blok. Rəqəmlər 48–57-dədir, böyük hərf 65-dən başlayır, kiçik hərf 97-dən — bu ədədlərin heç biri təsadüf deyil.
+Dörd təmiz 32 yuvalıq blok. Rəqəmlər 48–57-də oturur, böyük hərflər 65-dən, kiçiklər 97-dən başlayır — və bu rəqəmlərin heç biri təsadüf deyil.
 
 </Diagram>
 
-Bu 60-illik cədvəldəki qəsdli mühəndisliyə baxın:
+Bu 60 yaşlı cədvəldəki düşünülmüş mühəndisliyə baxın:
 
-- **Rəqəmlər**: `'0'` 48 = `0110000`-dır. *Rəqəm kodunun aşağı dörd biti rəqəmin özüdür* — `'7'` `0110111`-dir, aşağı nibble `0111` = 7. Simvolu rəqəm dəyərinə çevirmək `c − 48`-dir, ya da sadəcə yuxarı bitləri maskelemek. 1963-cü ildə analitikanı ucuzlaşdırmaq üçün dizayn edilib.
-- **Hərf bitki**: `A` = 65 = `01000001`; `a` = 97 = `01100001`. Hər hərf və kiçik hərf əkizi **tam bir bitdə** fərqlənir — bit 5, 32 dəyəri. Böyüklükdən kiçiklüyə keçid *bir biti silmekdir*; böyük-kiçik hərfə həssas olmayan müqayisə *bir biti maskeləmekdir*. Köhnə analizcılarda bit hiylələri görəndə (`c | 0x20` kiçik hərflə), söykəndikləri kontrakt budur.
-- **Yuvalar 0–31** görünməz **control character**-ları saxlayır — simvol deyil, alan cihaza *göstərişlər*, teletype dövrünün xəyalları: 10 `\n`-dir (sətir keçidi), 13 `\r`-dir (daşıyıcı qayıtması — sözün əsl mənasında "yazı maşınının daşıyıcısını geri sürüşdür", Windows fayllarının hələ iki-byte-lı qazıntı `\r\n` ilə satırları bitirməsinin səbəbi), 9 tab-dır, 0 `NUL`-dur, 7-ci yuva `BEL` isə terminalın zəngini fiziki çalırdı. Hələ çalır: yaxınınızdakı terminalda `printf '\a'`.
+- **Rəqəmlər**: `'0'` 48 = `0110000`-dır. *Rəqəmin kodunun aşağı dörd biti elə rəqəmin özüdür* — `'7'` `0110111`-dir, aşağı nibble `0111` = 7. Simvolu ədədi dəyərinə çevirmək `c − 48`-dir, ya da sadəcə yuxarı bitləri mask etmək. 1963-cü ildə parsing-i ucuz etmək üçün dizayn edilib.
+- **Case biti**: `A` = 65 = `01000001`; `a` = 97 = `01100001`. Hər hərf və onun kiçik əkizi **dəqiq bir bitdə** fərqlənir — bit 5, dəyəri 32. Böyük hərfə çevirmək *biti sıfırlamaqdır*; case-insensitive müqayisə *biti mask etməkdir*. Köhnə parser-lərdə bitwise fəndlərlə rastlaşanda (`c | 0x20` kiçik hərfə çevirmək üçün), söykəndikləri müqavilə budur.
+- **0–31 yuvaları** görünməz **control simvolları** saxlayır — simvol deyil, qəbul edən cihaza *təlimatlar*, teletayp erasının ruhları: 10 `\n`-dir (line feed), 13 `\r`-dir (carriage return — hərfi mənada "yazı maşınının karetkasını geri sürüşdür", Windows fayllarının sətirləri hələ də iki-baytlıq `\r\n` fosili ilə bitirməsinin səbəbi), 9 tab-dır, 0 `NUL`-dur, yuva 7 — `BEL` — terminalın zınqırovunu fiziki olaraq çalırdı. Hələ də çalır: yaxınlıqdakı bir terminalda `printf '\a'`.
 
-Üç dərsdən bəri borcu ödəmək: `H` 72-dir, çünki H 8-ci hərfdir, böyük hərf 64 + 1-dən başlayır. Bu kursda deşifrə etdiyiniz hər hex döküm bu cədvəl idi, işləyirdi.
+Və üç dərslik borcun ödənişi: `H` 72-dir, çünki H 8-ci hərfdir və böyük hərflər 64 + 1-dən başlayır. Bu kursda dekodladığınız hər hex dump bu cədvəlin işləməsi idi.
 
 <Note>
 
-ASCII qaçınılmaz deyildi. IBM-in System/360-ı — Dərs 1-də 8-bit byte-ı və Dərs 3-də two's complement-i standartlaşdıran 1964 maşını — IBM-in rəqib öz cədvəli **EBCDIC** ilə göndərildi, bu cədvəldə əlifba hətta ardıcıl deyil (deşik-kart zonalarının mirası olaraq A–Z-nin *içindəki* boşluqlar var). EBCDIC bu gün hələ dünyanın kart əməliyyatlarının böyük hissəsini işləyən mainframe-lərdə işləyir, bu isə haradasa bir bankın sınır kodunun iki cədvəl arasında, simvol-simvol, tam Dərs 5-in `htons`-u kimi — kontraktlar arasında sərhəd nəzarəti — çeviri etdiyini bildirir.
+ASCII qaçılmaz deyildi. IBM-in System/360-ı — Dərs 1-də 8-bitlik baytı və Dərs 3-də two's complement-i standartlaşdıran 1964-cü il maşını — IBM-in öz rəqib cədvəli **EBCDIC** ilə çıxdı: orada əlifba heç ardıcıl belə deyil (A–Z-nin *içində* boşluqlar var, perfokart zonalarının mirası). EBCDIC bu gün də dünya kart əməliyyatlarının böyük payını emal edən mainframe-lərdə işləyir — deməli hazırda haradasa bir bankın sərhəd kodu iki cədvəl arasında simvol-simvol tərcümə edir, düz Dərs 5-in `htons`-u kimi — müqavilələr arasında sərhəd nəzarəti.
 
 </Note>
 
-## Bir byte, çox imperiya {/*one-byte-many-empires*/}
+## Bir bayt, çoxlu imperiya {/*one-byte-many-empires*/}
 
-ASCII 7 bit istifadə etdi; byte 8 təklif edir. O ehtiyat bit yuvalar **128–255** deməkdir: xəritənin bütöv bir ikinci yarısı, rəsmi olaraq boş. Dünyanın qeyri-ingiliscə danışanları ona ümidsizliklə ehtiyac duyurdu — Fransız *café* yaza bilmir, Alman *Straße* yaza bilmir, Ruslar 128 Amerika yuvasında ümumiyyətlə heç nə yaza bilmir.
+ASCII 7 bit işlədirdi; bayt 8 təklif edir. O ehtiyat bit **128–255 yuvaları** deməkdir: **xəritənin bütöv ikinci yarısı, rəsmən boş.** Və dünyanın qeyri-ingilisdilliləri ona həvəslə möhtac idi — fransız *café* yaza bilmir, alman *Straße* yaza bilmir, rus 128 Amerika yuvasında ümumiyyətlə heç nə yaza bilmir.
 
-Beləliklə hər kəs yuxarı yarıya müstəmləkəcilik etdi — *fərqli şəkildə*. Nəticələr **code page**-lər idi: hamısı 0–127-dən razılaşan, yuxarısında hər şeydən ayrılıqda gedən onlarla qarşılıqlı uyğunsuz kontrakt. ISO 8859-1 ("Latin-1") 128–255-i Qərb Avropa hərifləriylə doldurdu; ISO 8859-7 ora Yunanca qoydu; ISO 8859-5 və Sovet KOI8-R ora Kiril qoydu (*fərqli düzənləmələrdə*, əlbəttə); Windows Windows-1252 kimi öz variantlarını göndərdi; yazı sistemi 128 yuvaya güldüyü Yaponiya Shift-JIS kimi çox-byte-lı sxemlər qurdu.
+Beləliklə, hamı yuxarı yarını müstəmləkələşdirdi — *fərqli cür*. Nəticə **code page-lər** oldu: 0–127 barədə hamısı razılaşan, yuxarıdakı hər şey barədə hamısı ayrılan onlarla qarşılıqlı uyğunsuz müqavilə. ISO 8859-1 ("Latin-1") 128–255-i Qərbi Avropa hərfləri ilə doldurdu; ISO 8859-7 ora yunan hərflərini qoydu; ISO 8859-5 və sovet KOI8-R ora kirili qoydu (*fərqli düzülüşlərdə*, təbii ki); Windows Windows-1252 kimi öz variantlarını buraxdı; yazı sistemi 128 yuvaya gülən Yaponiya Shift-JIS kimi çox-baytlı sxemlər qurdu.
 
-Nəticə indi tam texniki dəqiqliklə deyə biləcəyiniz bir cümlədur: **127-dən yuxarı byte-ın hansı code page-in yazdığını bilmədən heç bir mənası yoxdur.** Byte `0xE9` Latin-1 altında `é` *dir*, ISO 8859-7 altında isə `ι` *dur* — "kimi görünür" deyil, *dır*: hər kontrakt daxilən qüsursuzdur, Dərs 5-in iki endianness-i kimi. Fransız maşını ilə Yunan maşını heç bir xəta mesajı qaldırılmadan, hər biri digərinin milli şeirini doğma cəfəngiyat olaraq oxuyaraq illərcə fayl mübadiləsi edə bilərdi. Byte-lar heç vaxt yanlış deyildi. Sadəcə iki kontrakt var idi, müqavilə yox.
+Nəticə indi tam texniki dəqiqliklə deyə biləcəyiniz cümlədir: **127-dən yuxarı baytın, onu hansı code page-in yazdığını bilməyincə, heç bir mənası yoxdur.** `0xE9` baytı Latin-1 altında `é`-*dir* və ISO 8859-7 altında `ι`-*dir* — "belə görünür" yox, *odur*: hər müqavilə daxilən qüsursuzdur, düz Dərs 5-in iki endianness-i kimi. Fransız maşını ilə yunan maşını illərlə fayl mübadiləsi edə bilərdi — heç bir xəta mesajı qalxmadan — hər biri digərinin milli poeziyasını doğma cəfəngiyat kimi oxuyaraq. Baytlar heç vaxt səhv deyildi. Sadəcə iki müqavilə vardı və heç bir saziş yox idi.
 
-## Mojibake: yanlış gözlüklə oxumaq {/*mojibake-reading-with-the-wrong-glasses*/}
+## Mojibake: yanlış eynəklə oxumaq {/*mojibake-reading-with-the-wrong-glasses*/}
 
-Həmin sınırda istehsal edilən cəfəngiyatın adı var — **mojibake**, Yaponca "simvol çevrilməsi", onu ən çox çəkənlər tərəfindən icat edildi. Ən məşhur nümunəsi, min e-mailda gördüyünüz `Ã©`, indi byte-byte izah etmə gücünüzdadır. Budur müasir (UTF-8) göndərici tərəfindən yazılmış *café* bir Latin-1 alıcısı tərəfindən oxunur:
+O sərhəddə istehsal olunan zibilin adı var — **mojibake**, yaponca "simvol çevrilməsi", ondan ən çox əziyyət çəkənlərin uydurduğu söz. Və onun ən məşhur nümunəsi — min e-poçtda gördüyünüz `Ã©` — indi bayt-bayt izah etmək tam ixtiyarınızdadır. Budur, müasir (UTF-8) göndərənin yazdığı və Latin-1 qəbul edənin oxuduğu *café*:
 
-<Diagram name="text-representation/mojibake_pipeline" height={340} width={720} alt="A pipeline. On the left, the word café. It becomes five byte boxes: 63, 61, 66, then C3 and A9 tinted blue with a bracket labeled 'é in UTF-8 — one character, two bytes'. An arrow labeled 'read under the Latin-1 contract' leads to five character boxes: c, a, f, then Ã and © tinted red, assembling into the output cafÃ© with a red label 'two characters — the pair was never recognized'.">
+<Diagram name="text-representation/mojibake_pipeline" height={340} width={720} alt="Bir pipeline. Solda café sözü. O, beş bayt qutusuna çevrilir: 63, 61, 66, sonra mavi çalarlı C3 və A9, 'UTF-8-də é — bir simvol, iki bayt' etiketli mötərizə ilə. 'Latin-1 müqaviləsi altında oxu' etiketli ox beş simvol qutusuna aparır: c, a, f, sonra qırmızı çalarlı Ã və ©, cafÃ© çıxışına yığılır, qırmızı etiketlə: 'iki simvol — cütlük heç vaxt tanınmadı'.">
 
-Beş doğru byte, bir yanlış kontrakt. İki-byte-lı simvol `é` iki bir-byte-lı simvol olaraq oxunur — Dərs 5-in anaqram imzası, indi mətndə.
+Beş düzgün bayt, bir yanlış müqavilə. İki-baytlıq `é` simvolu iki bir-baytlıq simvol kimi oxunur — Dərs 5-in anaqram imzası, indi mətndə.
 
 </Diagram>
 
 ```
-Göndərici (UTF-8):     c    a    f    é
-byte-lar:              63   61   66   C3 A9      ← é İKİ byte-dır
+Göndərən (UTF-8):    c    a    f    é
+baytlar:             63   61   66   C3 A9      ← é İKİ baytdır
 
-Alıcı (Latin-1):       63→c  61→a  66→f  C3→Ã  A9→©
+Qəbul edən (Latin-1): 63→c  61→a  66→f  C3→Ã  A9→©
 
-Ekran göstərir:        cafÃ©   ✗
+Ekranda:             cafÃ©   ✗
 ```
 
-İlk üç byte sınırı toxunulmaz keçir — 128-dən aşağıda *hər* kontrakt razılaşır (bu fikri saxlayın; yer örtüyünün şah hərəkətidir). Zərər faktiki olaraq yuxarı yuvalara ehtiyacı olan simvolla məhdudlaşır. Mojibake-nin bu qədər tanınan *toxumasının* da səbəbi budur: qeyri-ASCII simvol eyni kiçik Latin cəfəngiyat dəstinə, adətən `Ã` və ya `Ð` ilə başlayaraq çevrilir. Rusca *привет* eyni yanlış gözlüklerden `Ð¿Ñ€Ð¸Ð²ÐµÑ‚` olur — hər Kiril hərfi iki simvollu `Ð·`-şəkilli cütə çevrilir, ötən dərsin sonunda vəd edilən tam sətir. Öyrədilmiş göz xarabalığın özündən oxuyur: "aparıcı `Ã` klasterləri — Latin-1 olaraq oxunan UTF-8; aparıcı `Ð` — Kiril UTF-8; səhifənin başında `ï»¿` — yanlış kontrakt ilə göstərilən UTF-8 **byte order mark**-ı (`EF BB BF`, Dərs 5-dəki endianness-in epizodu)." Mojibake küy deyil; `NUXI` kimi, öz datanızdır, yanlış gözlüklər geyinib, gözlüklər isə barmaq izləri buraxır.
+İlk üç bayt sərhədi toxunulmaz keçir — onlar 128-dən aşağıdadır, *hər* müqavilənin razılaşdığı yerdə (bu fikri saxlayın; süfrə dəsmalının şah gedişi budur). Zədə yuxarı yuvalara həqiqətən ehtiyacı olan simvolla məhdudlaşır. Mojibake-nin bu qədər tanınan *toxuması* da buradandır: hər qeyri-ASCII simvol eyni balaca latın zibil topasına çevrilir, adətən `Ã` və ya `Ð` ilə başlayan. Rusca *привет* eyni yanlış eynəkdən `Ð¿Ñ€Ð¸Ð²ÐµÑ‚` olur — hər kiril hərfi iki-simvollu `Ð`-dadlı cütlüyə dönür, keçən dərsin sonunda vəd edilən sətrin dəqiq özü. Təcrübəli göz qəza yerinin özünü oxuyur: "aparıcı `Ã` topaları — bu, Latin-1 kimi oxunmuş UTF-8-dir; aparıcı `Ð` — bu, kiril UTF-8-dir; səhifənin başında `ï»¿` — bu, yanlış müqavilədən göstərilən UTF-8 **byte order mark**-ıdır (`EF BB BF`, endianness-in Dərs 5-dən kameo çıxışı)." Mojibake səs-küy deyil; `NUXI` kimi, yanlış eynək taxmış öz datanızdır — və eynək barmaq izi qoyur.
 
-Cinayət yerini Dərs 1-in ən köhnə alətiylə birbaşa izləyə bilərsiniz:
+Cinayət yerinə Dərs 1-in ən qədim aləti ilə birbaşa baxa bilərsiniz:
 
 <TerminalBlock>
 
@@ -83,75 +83,75 @@ printf 'café' | xxd
 
 </TerminalBlock>
 
-Dörd simvol, *beş* byte — `xxd`-nin yalnız 32–126 yuvalarına güvənən ASCII sütunu isə iki-byte-lı `é`-ni iki nöqtə olaraq render edir. Hətta hex-döküm alətiniz kontrakt qərarı verir.
+Dörd simvol, *beş* bayt — və yalnız 32–126 yuvalarına etibar edən `xxd`-nin ASCII sütunu iki-baytlıq `é`-ni iki nöqtə kimi göstərir. Hətta hex-dump alətiniz də müqavilə qərarı verir.
 
-## Unicode: insanlıq üçün bir cədvəl {/*unicode-one-table*/}
+## Unicode: bəşəriyyət üçün bir cədvəl {/*unicode-one-table*/}
 
-1980-ci illərin sonuna qədər son oyun aydın idi: daha yaxşı code page deyil, **sonuncu cədvəl** — hər insan yazı sisteminin hər simvoluna bir ədəd təyin edən bir universal reyestr. Bu layihə **Unicode**-dur (versiya 1.0, 1991). Onun ədədləri **code point** adlanır, `U+` üstəgəl hex olaraq yazılır: `A` U+0041, `é` U+00E9, `€` U+20AC, `😀` U+1F600, Azərbaycan `ə`-si isə U+0259-dur. Boşluq U+0000-dan U+10FFFF-ə qədər gedir — **1,114,112 yuva**, bunlardan hər canlı yazı, qədim Misir heroqlifləri, riyaziyyat əlifbaları, bəli, emoji — mətinə bərkidilmiş bəzəklər deyil, eyni cədvəlin tam vətəndaşları — daxil olmaqla təxminən 150,000-i indiyə qədər təyin edilib.
+1980-lərin sonuna endgame aydın idi: daha yaxşı code page yox, **son cədvəl** — hər insan yazı sisteminin hər simvoluna bir rəqəm təyin edən vahid universal reyestr. O layihə **Unicode**-dur (versiya 1.0, 1991). Rəqəmləri **code point** adlanır, `U+` üstəgəl hex ilə yazılır: `A` U+0041-dir, `é` U+00E9, `€` U+20AC, `😀` U+1F600 — və Azərbaycan `ə`-si U+0259. Fəza U+0000-dan U+10FFFF-ə uzanır — **1.114.112 yuva**, indiyə qədər təxminən 150.000-i təyin edilib: hər yaşayan yazı, qədim Misir heroqlifləri, riyazi əlifbalar və bəli, emoji-lər — onlar mətnə yamanmış bəzək deyil, eyni cədvəlin tamhüquqlu vətəndaşlarıdır.
 
-Lakin Unicode-nun ən dərin fikri böyük cədvəl deyil. Bu, bütün bu modulun sizi hazırladığı anlayış hərəkəti olan *kontraktların ayrılmasıdır*:
+Amma Unicode-un ən dərin ideyası böyük cədvəl deyil. O, *müqavilələrin ayrılmasıdır* — bütün bu modulun sizi hazırladığı konseptual gediş:
 
-**Code point bir ədəddir. Ədəd byte deyil.** "é U+00E9-dur" demək bir faylda nə yaşadığı haqqında *hələ heç nə* demir — tam Dərs 5-in 8080 dəyərinin byte-larından hansının əvvəlcə getdiyi haqqında heç nə demədiyi kimi. Soyut ədəd ilə fiziki byte-lar arasında ikinci bir kontrakt, **encoding** olmalıdır, Unicode isə qəsdən bir neçəyə icazə verir:
+**Code point rəqəmdir. Rəqəm bayt deyil.** "é U+00E9-dur" demək faylda nəyin yaşadığı barədə *hələ heç nə* demir — düz Dərs 5-in öyrətdiyi kimi: 8080 dəyəri hansı baytının əvvəl getdiyi barədə heç nə demir. Abstrakt rəqəmlə fiziki baytlar arasında ikinci müqavilə — **encoding** — olmalıdır və Unicode qəsdən bir neçəsinə icazə verir:
 
-- **UTF-32**: hər code point bir 32-bit tam ədəd kimi. Sadə, vahid — İngilizce mətni dörd qat böyüdür (hər ASCII hərfi üç `00` byte dolgu alır), həm də Dərs 5-in xəbərdar etdiyi tam çox-byte-lı vahidlər olan 32-bit tam ədədlər olduğu üçün tam **endianness problemi** miras alır.
-- **UTF-16**: 65,536 yuvanın — 2¹⁶, Dərs 2-də etibarsız olmağı öyrəndiyiniz ədəd — insanlığın heç vaxt ehtiyacı olacağı hər simvolu tutacağı 90-cı il əvvəli fərziyyəsi altında UCS-2 olaraq doğdu. Simvol başına iki byte, nöqtə. Windows NT, Java, JavaScript hamısı onu qəbul etdi... sonra Unicode 65,536-dan böyüdü, fərziyyə çöküşə uğradı (*məhdudiyyətlər dizayn zamanı uçatılmaz görünür; sistemlər dizaynerlərin fərziyyələrindən uzun ömür sürürlər* — dördüncü dərs ardıcıl), UTF-16-ın qaçış-lük cütləri ilə yenidən uyğunlaşdırılması lazım gəldi. Həm də **BOM** tələb edir — U+FEFF byte order mark-ı, byte-ları endianness-ə görə `FE FF` ya da `FF FE` olaraq gəlir, Lilliput-un müharibəsini mətn fayllarınızda daimi sakin edir.
-- Sonra yer örtüyü var.
+- **UTF-32**: hər code point bir 32-bitlik tam ədəd kimi. Sadə, yeknəsəq — və ingilis mətninin ölçüsünü dördqat artırır (hər ASCII hərfi üç `00` bayt dolgu alır), üstəlik tam formalaşmış **endianness problemi** miras alır, çünki 32-bitlik tam ədədlər məhz Dərs 5-in xəbərdarlıq etdiyi çox-baytlı vahidlərdir.
+- **UTF-16**: 90-ların əvvəlinin fərziyyəsi altında UCS-2 kimi doğuldu — 65.536 yuva (2¹⁶, Dərs 2-də şübhələnməyi öyrəndiyiniz rəqəm) bəşəriyyətin nə vaxtsa ehtiyac duyacağı hər simvolu tutacaqdı. Simvola iki bayt, nöqtə. Windows NT, Java və JavaScript hamısı onu qucaqladı... sonra Unicode 65.536-nı aşdı, fərziyyə çökdü (*limitlər dizayn vaxtı çatılmaz görünür; sistemlər dizaynerlərinin fərziyyələrindən uzun yaşayır* — dördüncü dərsdir təkrarlanır) və UTF-16-ya qaçış-lyuku cütlükləri retrofit edilməli oldu. Ona həm də **BOM** lazımdır — byte order mark U+FEFF, baytları endianness-dən asılı olaraq `FE FF` və ya `FF FE` kimi gəlir, Lilliput müharibəsini mətn fayllarınızın daimi sakini edərək.
+- Və bir də süfrə dəsmalı var.
 
-## Yer örtüyü kodlaması {/*the-placemat-encoding*/}
+## Süfrə dəsmalı encoding-i {/*the-placemat-encoding*/}
 
-Thompson-un dizayn brifinqi, yenidən qurulmuş: bütün Unicode-u kodlayın; hər mövcud ASCII faylını *byte-byte etibarlı və dəyişməz* buraxın; heç vaxt mətn içərisindəki sıfır byte göndərməyin (C proqramları `00`-ü sətir sonu kimi qəbul edir); axını öz-özünə düzəldici edin — faylın ortasına buraxılmış oxuyucu ayağını tapmalıdır. Həll code point-in ölçüsü tərəfindən seçilən dörd byte-şablonudur:
+Thompson-un dizayn tapşırığı, bərpa edilmiş halda: bütün Unicode-u kodla; hər mövcud ASCII faylı *bayt-bayt etibarlı və dəyişməz* saxla; mətnin içində heç vaxt sıfır bayt buraxma (C proqramları `00`-ı sətrin sonu sayır); və axını özü-özünü təmir edən et — faylın ortasına atılan oxucu ayaq yerini tapmalıdır. Həll code point-in ölçüsünə görə seçilən dörd bayt-şablonudur:
 
-<Diagram name="text-representation/utf8_templates" height={360} width={720} alt="Four rows, one per UTF-8 template. Row 1: range U+0000 to U+007F, one byte 0xxxxxxx, payload 7 bits, labeled 'plain ASCII, unchanged'. Row 2: range U+0080 to U+07FF, bytes 110xxxxx 10xxxxxx, payload 11 bits. Row 3: range U+0800 to U+FFFF, bytes 1110xxxx 10xxxxxx 10xxxxxx, payload 16 bits. Row 4: range U+10000 to U+10FFFF, bytes 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx, payload 21 bits. In every row the fixed prefix bits are highlighted in blue and the x payload slots are plain; a side note marks that every continuation byte starts with 10.">
+<Diagram name="text-representation/utf8_templates" height={360} width={720} alt="Dörd sətir, hər UTF-8 şablonuna bir. Sətir 1: aralıq U+0000-dan U+007F-ə, bir bayt 0xxxxxxx, payload 7 bit, 'adi ASCII, dəyişməz' etiketli. Sətir 2: aralıq U+0080-dan U+07FF-ə, baytlar 110xxxxx 10xxxxxx, payload 11 bit. Sətir 3: aralıq U+0800-dan U+FFFF-ə, baytlar 1110xxxx 10xxxxxx 10xxxxxx, payload 16 bit. Sətir 4: aralıq U+10000-dan U+10FFFF-ə, baytlar 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx, payload 21 bit. Hər sətirdə sabit prefiks bitləri mavi ilə vurğulanıb, x payload yuvaları adidir; yan qeyd hər continuation baytın 10 ilə başladığını qeyd edir.">
 
-Bütün standart dörd sıraya sığır. Mavi bitlər şablon tərəfindən sabitlənib; `x` yuvaları code point-in öz bitlərini daşıyır, ən əhəmiyyətlisi əvvəlcə.
+Bütün standart dörd sətrə sığır. Mavi bitlər şablonla sabitlənib; `x` yuvaları code point-in öz bitlərini daşıyır, ən böyük dərəcəli əvvəl.
 
 </Diagram>
 
-Prefiksləri özünü-açıqlama olaraq oxuyun: `0` ilə başlayan byte "tam ASCII simvoluyam" deyir. `110` ilə başlayan byte "2-byte simvol başladıram" deyir; `1110` 3-byte-lı; `11110` dörd. Hər **davam byte-ı** `10` ilə başlayır — *başqa heç nə üçün* istifadə edilməyən prefix. Şablonlar kontraktdır; kodlama sadəcə bitləri yuvalara tökmekdir. İki dəfə izləyin:
+Prefiksləri özünütəsvir kimi oxuyun: `0` ilə başlayan bayt deyir: "mən tam ASCII simvoluyam". `110` ilə başlayan bayt deyir: "mən 2-baytlıq simvol başladıram"; `1110` — 3-baytlıq; `11110` — dörd. Və hər **continuation bayt** `10` ilə başlayır — *başqa heç nə üçün* işlədilməyən prefiks. Şablonlar müqavilədir; encoding sadəcə bitləri yuvalara tökməkdir. İki dəfə izləyin:
 
 **İşlənmiş nümunə — `é`, U+00E9:**
 
 ```
-Code point:  0xE9 = 11101001            (8 bit — 7-bit şablon 1
-                                         üçün çox böyük)
-Şablon 2:    110xxxxx 10xxxxxx          (11 yük yuvası)
+Code point:  0xE9 = 11101001            (8 bit — 7-bitlik
+                                         şablon 1 üçün böyükdür)
+Şablon 2:    110xxxxx 10xxxxxx          (11 payload yuvası)
 11-ə doldur: 000 1110 1001
 Tök:         110 00011   10 101001
              ─────────   ─────────
-Byte-lar:    11000011    10101001
-           = C3          A9   ✓        mojibake autopsiyasındakı
-                                        tam cüt
+Baytlar:     11000011    10101001
+           = C3          A9   ✓        mojibake yarılmasındakı
+                                        cütlüyün dəqiq özü
 ```
 
-**İşlənmiş nümunə — `€`, U+20AC (üç byte, uyğun diaqramla):**
+**İşlənmiş nümunə — `€`, U+20AC (üç bayt, üstəlik uyğun diaqram):**
 
-<Diagram name="text-representation/euro_packing" height={340} width={720} alt="The euro sign's code point U+20AC shown as sixteen bits 0010000010101100, split by brackets into three groups: 0010, 000010, 101100. Three arrows pour the groups into the 3-byte template 1110xxxx 10xxxxxx 10xxxxxx. The assembled bytes read 11100010, 10000010, 10101100, with the fixed prefix bits in blue, and the final hex result E2 82 AC highlighted below.">
+<Diagram name="text-representation/euro_packing" height={340} width={720} alt="Avro işarəsinin code point-i U+20AC on altı bit kimi göstərilib: 0010000010101100, mötərizələrlə üç qrupa bölünüb: 0010, 000010, 101100. Üç ox qrupları 3-baytlıq şablona tökür: 1110xxxx 10xxxxxx 10xxxxxx. Yığılmış baytlar 11100010, 10000010, 10101100 oxunur, sabit prefiks bitləri mavi, yekun hex nəticə E2 82 AC aşağıda vurğulanıb.">
 
-On altı bit, 4 + 6 + 6-lıq üç yuva. Prefikslər zərfdir; code point içəridəki məktubdur.
+On altı bit, 4 + 6 + 6-lıq üç yuva. Prefikslər zərfdir; code point içindəki məktubdur.
 
 </Diagram>
 
 ```
 Code point:  0x20AC = 0010 0000 1010 1100     (16 bit → şablon 3)
-4|6|6 bölün:  0010 | 000010 | 101100
+Böl 4|6|6:    0010 | 000010 | 101100
 Tök:          1110 0010   10 000010   10 101100
-Byte-lar:     E2          82          AC   ✓
+Baytlar:      E2          82          AC   ✓
 ```
 
-Bütün çətinliklə qazanılmış xüsusiyyətlər həmin prefikslərdən çıxır:
+Hər çətin qazanılmış xüsusiyyət o prefikslərdən öz-özünə çıxır:
 
-- **Tam ASCII uyğunluğu.** 128-dən aşağı hər code point *özü kimi, bir byte, yüksək bit sıfır* kodlanır. 1975-ci ilin ASCII faylı *UTF-8 faylıdır* — heç çevirmə, heç vaxt. Dünya 20 il ərzində, fayl-fayl tədricən köçə bildi, `café` mojibake-niz yalnız `é`-ni xarab etdi. Yer örtüyü qurulmuş bazanı yenmedi; onu *ilhaq etdi*.
-- **Özünü sinxronlama.** UTF-8 axınının istənilən yerinə enin: byte `10` ilə başlayırsa, simvol ortasındasınız — ən çox 3 byte geri adım atın, *mütləq* başlanğıc byte-a çatacaqsınız. Korlanmış byte bir simvolu xarab edir, faylın qalanını heç vaxt, byte-yönümlü alətlər (`grep`, bölmə, axtarış) anlamadıqları mətndə işləməyə davam edir.
-- **Sıfır byte yox, endianness yox.** UTF-8 bir *byte ardıcıllığıdır*, sətir kimi — Dərs 5-in immünlik qaydası tətbiq olunur. BOM lazım deyil, mətn üçün `htons` yoxdur, Lilliput-un dalaşacağı heç nə yoxdur.
-- **Pulsuz doğru sıralama.** UTF-8-i byte-byte müqayisə etmek tam code point sırasını verir — şablonlar *böyük ucu əvvəlcə* qoyduğundan, biased float-ların tam ədəd kimi sıralandığı eyni hiylə (Dərs 4) və ISO tarixlərinin sətir kimi sıralandığı eyni hiylə (Dərs 5). Mövzunun üçüncü görünüşü; son olmayacaq.
+- **Tam ASCII uyğunluğu.** 128-dən aşağı hər code point *özü kimi, bir bayt, yuxarı bit sıfır* kodlanır. 1975-ci ildən qalma ASCII faylı etibarlı UTF-8 faylı*dır* — heç bir çevirmə, heç vaxt. Dünyanın 20 il ərzində tədricən, fayl-fayl köçə bilməsinin və `café` mojibake-nizin yalnız `é`-ni zədələməsinin səbəbi budur. Süfrə dəsmalı mövcud bazanı məğlub etmədi; onu *ilhaq etdi*.
+- **Self-synchronization.** UTF-8 axınının istənilən yerinə düşün: bayt `10` ilə başlayırsa, simvolun ortasındasınız — ən çox 3 bayt geri addımlayın və *mütləq* start baytına dəyəcəksiniz. Korlanmış bayt bir simvolu xarab edir, faylın qalanını heç vaxt — və bayt-yönümlü alətlər (`grep`, split, seek) anlamadıqları mətn üzərində işləməyə davam edir.
+- **Sıfır bayt yox, endianness yox.** UTF-8 *bayt ardıcıllığıdır*, sətir kimi — Dərs 5-in immunitet qaydası tətbiq olunur. BOM lazım deyil, mətn üçün `htons` yoxdur, Lilliput-un dalaşacağı heç nə yoxdur.
+- **Pulsuz düzgün sıralanır.** UTF-8-i bayt-bayt müqayisə etmək dəqiq code-point sırasını verir — çünki şablonlar *böyük ucu əvvələ* qoyur, biased float-ları tam ədəd kimi (Dərs 4) və ISO tarixləri sətir kimi (Dərs 5) sıralatdıran fəndin eynisi. Motivin üçüncü çıxışı; sonuncusu olmayacaq.
 
-X/Open-in komitə layihəsi FSS-UTF adlanmışdı, "Fayl Sistemi Etibarlı UCS Çevrim Formatı." Thompson-un versiyası etibarlılığı saxladı, zərifliyi qazandı — və səkkiz bit başına vahid olaraq, xoşbəxtcə daha qısa ad.
+X/Open komitəsinin layihəsi FSS-UTF adlanırdı — "File System Safe UCS Transformation Format". Thompson-un versiyası təhlükəsizliyi saxladı, zərifliyi qazandı — və vahidə səkkiz bitlə, mərhəmətli dərəcədə qısa adı.
 
 <DeepDive>
 
-#### Dilinizdəki UCS-2 xəyalı {/*the-ghost-of-ucs2*/}
+#### Dilinizdəki UCS-2 kabusu {/*the-ghost-of-ucs2*/}
 
-UTF-16-nın qırıq 65,536 fərziyyəsi ölmədi; Windows, Java, JavaScript-in *içərisine* fossilleşdi, xəyalı bir sətirdə çağıra bilərsiniz:
+UTF-16-nın çökmüş 65.536 fərziyyəsi ölmədi; Windows-un, Java-nın və JavaScript-in *içində* daşlaşdı və kabusu bir sətirlə çağıra bilərsiniz:
 
 ```js
 "😀".length
@@ -163,15 +163,15 @@ UTF-16-nın qırıq 65,536 fərziyyəsi ölmədi; Windows, Java, JavaScript-in *
 
 </ConsoleBlock>
 
-JavaScript sətirləri **UTF-16 code unit**-larının ardıcıllığıdır, `😀` (U+1F600) 65,535-dən yuxarıda yaşayır, buna görə qaçış-lük cütü kimi saxlanılır — bu hiyləni mümkün etmek üçün Unicode-un simvol məkanından daimi olaraq amputasiya etdiyi bir aralıqdan (U+D800–U+DFFF) götürülmüş **surrogate** adlanan iki vahid. İz yük daşıyıcıdır: heç vaxt simvol ola bilməyəcək 2,048 code point, ki 1993-ci il dövrünə aid bir fərziyyə dəyişdirilmək əvəzinə yamalanabilsin. `.length` vahidləri sayır, buna görə bir görünən emoji 2 olaraq bildirir; `"😀".charCodeAt(0)` tek başına heç bir mənası olmayan surrogate yarısını qaytarır; yarılar arasında dilimleme cəfəngiyat istehsal edir. Müasir JavaScript code-point-şüurlu genişlendirmeler əlavə etdi: `[..."😀"].length` 1-dir, çünki iterator code point-lərlə danışır. Java eyni xəyalı daşıyır (`char` UTF-16 vahididir, buna görə `String.codePointAt` sonradan əlavə edildi), Windows API-nın `W` funksiyaları bu gün hələ UTF-16-dır. Platformanın "simvol" tipi 1996-dan əvvəl dayanırsa, *code unit demek olduğunu fərz edin* — meta-dərsi xatırlayın: bir kodlama fərziyyəsi dilin əsas sətir tipinə bir dəfə göndərilincə, praktiki olaraq ölümsüzdür.
+JavaScript sətirləri **UTF-16 code unit** ardıcıllıqlarıdır və `😀` (U+1F600) 65.535-dən yuxarıda yaşayır, ona görə qaçış-lyuku cütlüyü kimi saxlanır — **surrogate** adlanan iki vahid, Unicode-un məhz bu fəndi mümkün etmək üçün simvol fəzasından həmişəlik amputasiya etdiyi aralıqdan (U+D800–U+DFFF) götürülmüş. Çapıq yük daşıyır: heç vaxt simvol ola bilməyəcək 2.048 code point — 1993-cü il fərziyyəsi əvəz edilmək yerinə yamana bilsin deyə. `.length` vahidləri sayır, ona görə bir görünən emoji 2 kimi hesabat verir; `"😀".charCodeAt(0)` təkbaşına heç nə ifadə etməyən surrogate yarısı qaytarır; yarıların arasından dilimləmək zibil istehsal edir. Müasir JavaScript code-point-dən xəbərdar yollar əlavə etdi: `[..."😀"].length` 1-dir, çünki iterator code point dilində danışır. Java eyni kabusu daşıyır (`char` UTF-16 vahididir, buna görə `String.codePointAt` sonradan yamanıb) və Windows API-nin `W` funksiyaları bu gün də UTF-16-dır. Platformanın "character" tipi 1996-dan əvvələ aiddirsə, *code unit nəzərdə tutduğunu fərz edin* — və meta-dərsi yadda saxlayın: bir dilin nüvə sətir tipinə göndərilmiş encoding fərziyyəsi praktiki olaraq ölməzdir.
 
 </DeepDive>
 
 <DeepDive>
 
-#### é-yi yazmanın iki yolu {/*two-ways-to-write-e*/}
+#### é yazmağın iki yolu {/*two-ways-to-write-e*/}
 
-İstehsal sistemlərinin həftəlik sındığı "simvol nədir ki" sualının bir qatı daha. Unicode `é`-nin iki şəkildə yazılmasına icazə verir: tək code point U+00E9 kimi, ya da *iki* code point — düz `e` (U+0065) ardından qonşusuna yığılan **birleştirici vurğu** U+0301. Hər ikisi eyni şəkildə render olunur. Bunlar fərqli sətirlerdir:
+"Simvol axı nədir"in daha bir qatı, çünki production sistemlər bunun üstündə hər həftə sınır. Unicode `é`-nin iki cür yazılmasına icazə verir: tək code point U+00E9 kimi, və ya *iki* code point kimi — adi `e` (U+0065) və ardınca qonşusunun üstünə qalanan **combining accent** U+0301. Hər ikisi eyni görünür. Onlar fərqli sətirlərdir:
 
 ```js
 'é'.length
@@ -201,25 +201,25 @@ false
 
 </ConsoleBlockMulti>
 
-İki istifadəçi fərqli klaviaturalarda "café" yazır; verilənlər bazanız indi eyni söz üçün iki fərqli byte ardıcıllığı saxlayır; axtarışlar tapır, dublikatlar çiçeklenib, şifrə yoxlamaları sirli şəkildə uğursuz olur. Düzəliş **normalizasiyadır** — kanonik reseptlər (NFC birləşdirir, NFD ayrıştırır) *sınırda* tətbiq olunur, buna görə saxlama bir yazılış saxlayır. İstifadəçinin "bir simvol" kimi qəbul etdiyi şey — **grapheme cluster** — daha böyük ola bilər: ailə emojisi 👨‍👩‍👧 JavaScript-də `.length` 8 bildirən, görünməz sıfır genişlikli birləşdiricilərlə tikişlənmiş dörd code point-dir. Mətn, ortaya çıxır, dörd mərtəbəli binadır: aşağıda **byte-lar**, sonra **code unit-lər**, sonra **code point-lər**, penthousda **grapheme-lər** — "uzunluq" isə dürüstcəsinə dörd adın hamısına cavab verir.
+İki istifadəçi fərqli klaviaturalarda "café" yazır; verilənlər bazanız indi eyni söz üçün iki fərqli bayt ardıcıllığı saxlayır; axtarışlar boşa çıxır, dublikatlar çiçəklənir, parol yoxlamaları müəmmalı şəkildə uğursuz olur. Həll **normalization**-dır — kanonik reseptlər (NFC birləşdirir, NFD ayırır) *sərhəddə* tətbiq edilir ki, storage bir yazılış saxlasın. İstifadəçinin "bir simvol" kimi qavradığı isə — **grapheme cluster** — daha da böyük ola bilər: ailə emojisi 👨‍👩‍👧 görünməz zero-width joiner-lərlə tikilmiş dörd code point-dir və JavaScript-də `.length` 8 verir. Belə çıxır ki, mətn dördmərtəbəli binadır: ən altda **baytlar**, sonra **code unit-lər**, sonra **code point-lər**, ən yuxarıda — mansardda — **grapheme-lər**. Və "length" bu dörd adın hamısına vicdanla hay verir.
 
 </DeepDive>
 
 <Pitfall>
 
-**"Düz mətn" deyilən bir şey yoxdur.**
+**"Plain text" deyə bir şey yoxdur.**
 
-"Faylı sadəcə düz mətn kimi oxuyun" ifadəsi gizli bir dəyişən ehtiva edir, tarixdəki hər mojibake hadisəsi həmin dəyişənin yanlış təxmin edilməsidir. Elan edilmiş kodlaması olmayan byte axını *mətn deyil* — Dərs 1-in kontrakt gözləyən mənasız byte-larıdır. Buna görə mühəndisləri mojibake fabrikalarından ayıran sınır qaydaları: **kodlamaları elan edilə bildikləri hər yerdə açıqca elan edin** (`Content-Type: text/html; charset=utf-8`, `<meta charset="utf-8">`, verilənlər bazası sütun charset-ləri, `open(path, encoding='utf-8')`), **yeni sistemleri başdan sona UTF-8-ə varsayılan edin**, **razılaşmaya bilən byte axınlarını heç birləştirməyin**. Yanaşı tələ `.length`-ə güvənmekdir: `VARCHAR(10)` sütunu, 280 simvollu məhdudiyyət, "maksimum 20 simvol" validasiyası — hər biri gizlicə dörd mərtəbəli binanın bir mərtəbəsini seçir (byte-lar? vahidlər? nöqtələr? grapheme-lər?), off-by-one güvənlik bugları boşluqlarda yaşayır. Uzunluq vacibdirsa, *hansı* uzunluğu yüksək səslə söyləyin.
+"Faylı sadəcə plain text kimi oxu" ifadəsində gizli dəyişən var və tarixdəki hər mojibake insidenti o dəyişənin səhv təxmin edilməsidir. Elan edilmiş encoding-i olmayan bayt axını *mətn deyil* — o, müqavilə gözləyən Dərs 1-in mənasız baytlarıdır. Buradan peşəkarları mojibake fabriklərindən ayıran sərhəd qaydaları: **encoding-i elan edilə bilən hər yerdə açıq elan edin** (`Content-Type: text/html; charset=utf-8`, `<meta charset="utf-8">`, verilənlər bazası sütun charset-ləri, `open(path, encoding='utf-8')`), **yeni sistemləri başdan-başa UTF-8-ə default edin** və **razılaşmaya bilən bayt axınlarını heç vaxt birləşdirməyin**. Yoldaş tələ `.length`-ə etibar etməkdir: `VARCHAR(10)` sütunu, 280 simvolluq limit, "max 20 chars" validasiyası — hər biri səssizcə dördmərtəbəli binanın bir mərtəbəsini seçir (baytlar? unit-lər? point-lər? grapheme-lər?) və off-by-one təhlükəsizlik buqları o boşluqlarda yaşayır. Length vacibdirsə, *hansı* length olduğunu ucadan deyin.
 
 </Pitfall>
 
 ## Verilənlər bazasını sındıran emoji {/*the-emoji-that-broke-the-database*/}
 
-On il ərzində bir istehsal hadisəsi mühəndisləri bu dərsə hər dərsliklə müqayisədə daha çox tanıtdırdı. Dünyanın ən geniş yayılmış açıq mənbəli verilənlər bazası MySQL-in `utf8` adlanan bir simvol dəsti uzun müddətdir mövcuddur — tarixən simvolları **3 byte** ilə məhdudlaşdıran. Real UTF-8 U+FFFF-dən yuxarı hər şey üçün dörd tələb edir... bu isə tam emojinin yaşadığı yerdir. Toqquşma qaçınılmaz idi: istifadəçi bir şərhə `😀` yapışdırır, sürücü dürüst dörd byte `F0 9F 98 80` göndərir, MySQL dövrün tanımlayıcı xətası `Incorrect string value: '\xF0\x9F\x98\x80'` ilə sətiri rədd edir ya da kəsir. Bütün tətbiqlər göndərildi, yalnız ASCII test verilənləri ilə QA-dan keçdi, real insanların onları ilk istifadə etdiyi həftəsonu dağıldı — ən saf formasında ASCII test-verilən tələsi. Həqiqi tam kodlama **`utf8mb4`** ("ən çox 4 byte") adı altında gəldi, MySQL 8.0 onu nəhayət varsayılan etdi; miqrasiya bələdçiləri, charset çeviri skriptləri, müharibə hekayələri isə keçiş mərasimi olaraq qalır. Dizaynerler üçün əxlaq, bu modulun ən köhnə səsiylə: 3-byte tavanı dizayn zamanı zararsız görünürdü — yalnız "heç kimin istifadə etmədiyi" simvolları istisna edirdi. Sonra 2010 telefonlara emoji klaviaturası verdi, heç kimin istifadəçiləri hər kəsin oldu.
+On il boyunca bir production insidenti mühəndisləri bu dərslə istənilən dərslikdən çox tanış etdi. MySQL — dünyanın ən çox yayılmış açıq-mənbə verilənlər bazası — çoxdandır hərfi mənada `utf8` adlanan character set təklif edir və o, tarixi səbəblərdən simvolları **3 baytla** məhdudlaşdırır. Əsl UTF-8-ə U+FFFF-dən yuxarı hər şey üçün dörd lazımdır... emoji-lərin yaşadığı yer isə məhz oradır. Toqquşma qaçılmaz idi: istifadəçi şərhə `😀` yapışdırır, driver dörd vicdanlı bayt `F0 9F 98 80` göndərir və MySQL sətri era-müəyyənedici xəta ilə rədd edir və ya kəsir: `Incorrect string value: '\xF0\x9F\x98\x80'`. Bütöv applikasiyalar buraxıldı, ASCII-only test datası ilə QA-dan keçdi və real insanların istifadə etdiyi ilk həftəsonu yıxıldı — ASCII test-datası tələsinin ən saf forması. Əsl tam encoding **`utf8mb4`** ("most bytes 4") adı altında gəldi və MySQL 8.0 nəhayət onu default etdi; migrasiya bələdçiləri, charset-çevirmə skriptləri və döyüş hekayələri keçid mərasimi olaraq qalır. Dizaynerlər üçün əxlaq dərsi, bu modulun ən qədim səsi ilə: 3-baytlıq tavan dizayn vaxtı zərərsiz görünürdü — yalnız "heç kimin işlətmədiyi" simvolları xaric edirdi. Sonra 2010-cu il telefonlara emoji klaviaturası verdi və heç kimin istifadəçiləri hamının istifadəçilərinə çevrildi.
 
-## Kodlayıcı laboratoriya {/*the-encoder-lab*/}
+## Encoder laboratoriyası {/*the-encoder-lab*/}
 
-Aşağıdakı oyuncaq Thompson-un yer örtüyüdür, icra oluna bilər. Bir simvol seçin; code point-inin ölçüldüyünü, şablonun seçildiğini, yük bitlərinin tökülduğünü izləyin — diaqramlardakı kimi mavi prefikslər. Alt sətir eyni byte-ları Latin-1 gözlükləri ilə göstərir: `Ã©` reproduksiya edin, sonra `😀`-nın məşhur dörd-byte alter eqosu `ðŸ˜€` ilə tanışın:
+Aşağıdakı oyuncaq Thompson-un süfrə dəsmalıdır, icra oluna bilən halda. Simvol seçin; code point-inin ölçülməsinə, şablonun seçilməsinə və payload bitlərinin tökülməsinə baxın — prefikslər mavi, diaqramlardakının dəqiq eynisi. Aşağıdakı sətir eyni baytları Latin-1 eynəyindən göstərir: əvvəl `Ã©`-ni təkrarlayın, sonra `😀`-nin bədnam dörd-baytlıq alter eqosu `ðŸ˜€` ilə tanış olun:
 
 <Sandpack>
 
@@ -283,13 +283,12 @@ export default function EncoderLab() {
         })}
       </div>
       <p style={{ fontFamily: 'system-ui' }}>
-        {bytes.length} byte{bytes.length > 1 ? '' : ''} — mavi bitlər
-        şablondur, qalanı code point-dir.
+        {bytes.length} bayt — mavi bitlər şablondur, qalanı code point-dir.
       </p>
       <p style={{ fontFamily: 'system-ui', color: bytes.length > 1 ? '#c1554d' : '#087ea4' }}>
         {bytes.length > 1
-          ? 'Latin-1 gözlükləri bunu belə oxuyur: ' + latin1
-          : '128-dən aşağı: Yer üzündəki hər kontrakt razılaşır. Qırılmaz.'}
+          ? 'Latin-1 eynəyi bunu belə oxuyur: ' + latin1
+          : '128-dən aşağı: Yer üzündəki hər müqavilə razıdır. Sınmaz.'}
       </p>
     </div>
   );
@@ -298,56 +297,56 @@ export default function EncoderLab() {
 
 </Sandpack>
 
-`A`-nın *sınmaqdan imtina edərək* nəyi sübut etdiyinə diqqət edin: byte-ın bütün aşağı yarısı neytral ərazidir, ASCII, hər code page, UTF-8 tərəfindən razılaşılır. Həmin ortaq mərtəbə internetin tesisatının — protokollar, URL-lər, mənbə kodu — dörd on illik kodlama müharibəsindən sağ çıxmasının, Thompson-un *üstünə qurmaq* qərarının isə dəyişdirmek əvəzinə qalibiyyətin səbəbidir.
+`A`-nın *sınmaqdan imtina edərək* nə nümayiş etdirdiyinə diqqət edin: baytın bütün aşağı yarısı neytral ərazidir — ASCII, hər code page və UTF-8 tərəfindən eyni dərəcədə qəbul edilmiş. O ortaq döşəmə internetin borularının — protokolların, URL-lərin, mənbə kodunun — dörd onillik encoding müharibələrindən salamat çıxmasının səbəbidir; Thompson-un döşəməni əvəz etmək yerinə *üstünə* qurmaq qərarının qalib gəlməsinin səbəbi də.
 
 <Recap>
 
-- **ASCII (1963)** 128 yuvalı mətn kontraktıdır, qəsdlə strukturlaşdırılmış: rəqəmlər 48–57-də (aşağı nibble = dəyər), `A` 65-də, `a` 97-də tam **bir bit uzaqlığında**, idarəetmə simvolları 0–31 teletype xəyalları olaraq (`\n`=10, `\r`=13, `BEL`=7). `H` = 72 — Dərs 1-dəki borc, ödəndi.
-- Byte-ın yuxarı 128 yuvası uyğunsuz **code page**-lər oldu (Latin-1, ISO 8859-x, KOI8-R, Windows-1252): byte `0xE9` kontrakta görə `é` ya da `ι` *dır*. **Mojibake** sınır uğursuzluğudur: UTF-8-in `C3 A9`-u Latin-1 olaraq `Ã©` oxunur; Kiril `Ð`-klaster toxumasına çevrilir; `ï»¿` yanlış gözlükdəki BOM-dur.
-- **Unicode** problemi ikiyə bölür: **code point** 1,114,112 yuvalı boşluqda bir ədəddir (U+0041, U+1F600); **encoding** ədədləri byte-lara çevirən ayrı bir kontraktdır. UTF-32 israf edir; UTF-16 qırıq 65,536 fərziyyəsini surrogate-lara, BOM-lara, `"😀".length === 2`-yə fossilleşdirdi.
-- **UTF-8** (Thompson & Pike, bir restoran axşamı, 1992): dörd şablon — `0xxxxxxx`, `110xxxxx 10xxxxxx`, `1110…`, `11110…` — 7/11/16/21 yük biti daşıyır, böyük ucu əvvəlcə. `é` → `C3 A9`, `€` → `E2 82 AC`, `😀` → `F0 9F 98 80`.
-- Qalibiyyət xüsusiyyətləri: **ASCII fayllar artıq etibarlı UTF-8-dir**; davam byte-ları həmişə `10` ilə başlayır (**özünü sinxronlayan**); sıfır byte yoxdur; **endianness yoxdur**; byte sırası = code point sırası. **Veb-in 98%-dən çoxu** onunla danışır.
-- İstehsal qaydaları: **düz mətn yoxdur** — hər sınırda charset elan edin; girişdə **normallaşdırın** (é-nin iki yazılışı var); "uzunluq" dörd fərqli ədəddir (byte-lar / code unit-lər / code point-lər / grapheme-lər); MySQL-in `utf8`-i 3-byte cəlladıdır — **`utf8mb4`** həqiqi şeydir.
+- **ASCII (1963)** 128 yuvalı mətn müqaviləsidir, qəsdən strukturlaşdırılmış: rəqəmlər 48–57-də (aşağı nibble = dəyər), `A` 65-də və `a` 97-də — dəqiq **bir bit fərqlə**, control simvollar 0–31-də teletayp ruhları kimi (`\n`=10, `\r`=13, `BEL`=7). `H` = 72 — Dərs 1-in borcu ödənildi.
+- Baytın yuxarı 128 yuvası uyğunsuz **code page-lərə** çevrildi (Latin-1, ISO 8859-x, KOI8-R, Windows-1252): `0xE9` baytı müqavilədən asılı olaraq `é`-*dir* və ya `ι`-*dir*. **Mojibake** sərhəd uğursuzluğudur: UTF-8-in `C3 A9`-u Latin-1 kimi oxunanda `Ã©`-dur; kiril `Ð`-topası toxumasına çevrilir; `ï»¿` yanlış eynəkdəki BOM-dur.
+- **Unicode** problemi ikiyə bölür: **code point** 1.114.112 yuvalıq fəzada rəqəmdir (U+0041, U+1F600); **encoding** rəqəmləri bayta çevirən ayrıca müqavilədir. UTF-32 israf edir; UTF-16 çökmüş 65.536 fərziyyəsini surrogate-lərə, BOM-lara və `"😀".length === 2`-yə daşlaşdırdı.
+- **UTF-8** (Thompson & Pike, bir yeməkxana axşamı, 1992): dörd şablon — `0xxxxxxx`, `110xxxxx 10xxxxxx`, `1110…`, `11110…` — 7/11/16/21 payload biti daşıyır, böyük uc əvvəl. `é` → `C3 A9`, `€` → `E2 82 AC`, `😀` → `F0 9F 98 80`.
+- Qələbə xüsusiyyətləri: **ASCII faylları onsuz da etibarlı UTF-8-dir**; continuation baytlar həmişə `10` ilə başlayır (**self-synchronizing**); sıfır bayt yoxdur; **endianness yoxdur**; bayt sırası = code-point sırası. Vebin **98%-dən çoxu** onunla danışır.
+- Production qaydaları: **plain text yoxdur** — charset-i hər sərhəddə elan edin; girişdə **normalize edin** (é-nin iki yazılışı var); "length" dörd fərqli rəqəmdir (baytlar / code unit-lər / code point-lər / grapheme-lər); və MySQL-in `utf8`-i 3-baytlıq fırıldaqçıdır — əslisi **`utf8mb4`**-dür.
 
 </Recap>
 
 <Challenges>
 
-#### Gülüşü kodlayın {/*encode-the-grin*/}
+#### Gülüşü kodla {/*encode-the-grin*/}
 
-`😀` (U+1F600) əllə dörd UTF-8 byte-ına kodlayın — şablon, böl, tök, hex. Sonra mojibake forması `ðŸ˜€`-nın niyə tam dörd simvol olduğunu bir cümlədə izah edin.
+`😀`-ni (U+1F600) əllə dörd UTF-8 baytına kodlayın — şablon, bölmə, tökmə, hex. Sonra bir cümlə ilə izah edin: mojibake forması `ðŸ˜€` niyə düz dörd simvoldur?
 
 <Hint>
 
-İkilidə 0x1F600 `1 1111 0110 0000 0000`-dır — 17 bit, buna görə 21 yük yuvası olan 4-byte şablona ehtiyacı var. Aparıcı sıfırlarla 21 bitə doldur, sonra 3 | 6 | 6 | 6 bölün.
+0x1F600 binar sistemdə `1 1111 0110 0000 0000`-dır — 17 bit, deməli 21 payload yuvalı 4-baytlıq şablon lazımdır. Aparıcı sıfırlarla 21 bitə doldurun, sonra 3 | 6 | 6 | 6 bölün.
 
 </Hint>
 
 <Solution>
 
 ```
-Code point:   0x1F600 = 0 0001 1111 0110 0000 0000   (21 bitə doldur)
-3|6|6|6 bölün:  000 | 011111 | 011000 | 000000
-Şablon 4:     11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
-Tök:          11110 000   10 011111   10 011000   10 000000
-Byte-lar:     F0          9F          98          80   ✓
+Code point:    0x1F600 = 0 0001 1111 0110 0000 0000   (21 bitə doldur)
+Böl 3|6|6|6:    000 | 011111 | 011000 | 000000
+Şablon 4:      11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+Tök:           11110 000   10 011111   10 011000   10 000000
+Baytlar:       F0          9F          98          80   ✓
 ```
 
-Maşınla çarpaz-yoxla: `'😀'.codePointAt(0).toString(16)` `'1f600'` qaytarır, emojinin hər hex dökümü `f0 9f 98 80` göstərir.
+Maşınla çarpaz yoxlama: `'😀'.codePointAt(0).toString(16)` `'1f600'` qaytarır və emoji-nin istənilən hex dump-ı `f0 9f 98 80` göstərir.
 
-Mojibake: bir *simvol* dörd *byte*-dır, bir-byte-lı gözlüklər hər byte-ı öz simvolu olaraq oxuyur — `F0`→`ð`, `9F`→`Ÿ`, `98`→`˜`, `80`→`€` (Windows-1252-də) — buna görə `ðŸ˜€`-nın tam dörd simvolu, `é`-ni cütə çevirən eyni simvol-başına-byte arifmetikası.
+Mojibake: bir *simvol* dörd *baytdır* və tək-baytlıq eynək hər baytı ayrıca simvol kimi oxuyur — `F0`→`ð`, `9F`→`Ÿ`, `98`→`˜`, `80`→`€` (Windows-1252-də) — buradan `ðŸ˜€`-nin düz dörd simvolu, `é`-ni cütlüyə çevirən bayt-başına-bir-simvol hesabının eynisi.
 
 </Solution>
 
-#### Sirli byte-ları deşifrə edin {/*decode-the-mystery-bytes*/}
+#### Sirli baytları dekodla {/*decode-the-mystery-bytes*/}
 
-UTF-8 axını ehtiva edir: `D0 9C D0 98 D0 A0`. Tam deşifrə edin: yalnız prefikslerden simvol sınırlarını müəyyənləşdirin, hər code point-i çıxarın, bunun nə növ mətn olduğunu bildirin. (Tapacağınız code point-lər Kiril blokunda olacaq, U+0400–U+04FF.)
+UTF-8 axınında var: `D0 9C D0 98 D0 A0`. Tam dekodlayın: simvol sərhədlərini yalnız prefikslərdən müəyyən edin, hər code point-i çıxarın və bunun hansı növ mətn olduğunu bildirin. (Tapacağınız code point-lər kiril blokunda olacaq, U+0400–U+04FF.)
 
 <Solution>
 
-Əvvəlcə prefix analizi — cədvəl lazım deyil: `D0` = `11010000` `110` ilə başlayır → "2-byte simvol burada başlayır"; `9C` = `10011100` `10` ilə başlayır → davam. Axın özünü analiz edir: `(D0 9C)(D0 98)(D0 A0)` — üç 2-byte-lı simvol. Özünü sinxronlama işini görür.
+Əvvəl prefiks analizi — cədvəl lazım deyil: `D0` = `11010000`, `110` ilə başlayır → "burada 2-baytlıq simvol başlayır"; `9C` = `10011100`, `10` ilə başlayır → continuation. Axın özü-özünü parse edir: `(D0 9C)(D0 98)(D0 A0)` — üç 2-baytlıq simvol. Bu, self-synchronization-ın öz işini görməsidir.
 
-Yükü çıxarın (`110` ve `10` prefikslərini çıxarın, birləşdirin):
+Payload-ları çıxarın (`110` və `10` prefikslərini atın, birləşdirin):
 
 ```
 D0 9C:  10000 011100 → 100 0001 1100 = U+041C
@@ -355,28 +354,28 @@ D0 98:  10000 011000 → 100 0001 1000 = U+0418
 D0 A0:  10000 100000 → 100 0010 0000 = U+0420
 ```
 
-U+041C, U+0418, U+0420 Kiril **М**, **И**, **Р** — söz **МИР**: Rusca *sülh* (ve *dünya*). Danny Cohen-in sülh yalvarışı ilə başlayan bir modul qövsünün sonunda deşifrə etmek üçün münasib mesaj — bu sətir heç vaxt Latin-1 sınırını keçsəydi, artıq bilirsiz ki, `Ð`-klaster formasında gələcəkdi: `ÐœÐ˜Ð `.
+U+041C, U+0418, U+0420 kiril **М**, **И**, **Р**-dir — **МИР** sözü: rusca *sülh* (həm də *dünya*). Danny Cohen-in sülh çağırışı ilə başlayan modul qövsünün sonunda dekodlamaq üçün yaraşan mesaj — və bu sətir nə vaxtsa Latin-1 sərhədini keçsəydi, artıq bilirsiniz ki, `Ð`-topası uniformasında gələrdi: `ÐœÐ˜Ð `.
 
 </Solution>
 
-#### Emoji bileti {/*the-emoji-ticket*/}
+#### Emoji ticket-i {/*the-emoji-ticket*/}
 
-Transfer tapşırığı. Masanıza bir dəstək bileti düşür: *"İstifadəçilər emoji ehtiva edən profil bio saxlamanın `Incorrect string value: '\xF0\x9F\x92\xBB' for column 'bio'` xətası ilə uğursuz olduğunu bildirirlər. Düz ingiliscə, hətta Fransız vurğularıyla bio-lar yaxşı saxlanılır. Marketinq 'vibe-ınızı əlavə edin' kampaniyasını başlatdıqda başladı."* Backend sütun charset-i `utf8` olan MySQL-dir. Kök səbəbi dəqiq izah edin (niyə tam emoji, niyə vurğular işləyir), düzəlişi göstərin, komanda wiki üçün iki cümləlik postmortem dərsi yazın.
+Transfer tapşırığı. Masanıza support ticket-i düşür: *"İstifadəçilər bildirir ki, emoji olan profil bio-sunu saxlamaq `Incorrect string value: '\xF0\x9F\x92\xBB' for column 'bio'` xətası ilə uğursuz olur. Adi ingiliscə və hətta fransız vurğulu bio-lar normal saxlanır. Marketinq 'add your vibe' kampaniyasını başladandan sonra başlayıb."* Backend MySQL-dir, sütunun charset-i `utf8`. Kök səbəbi dəqiq izah edin (niyə *məhz* emoji, vurğular niyə işləyir), düzəlişi bildirin və komanda wiki-si üçün iki cümləlik postmortem dərsini yazın.
 
 <Solution>
 
-**Kök səbəb:** MySQL-in `utf8` adlanan charset-i tarixən 3-byte-maksimum alt dəstdir (utf8mb3). U+FFFF-ə qədər hər code point-i əhatə edir — bu `é`-ni (2 byte, U+00E9) və bütün Latin vurğularını daxil edir, buna görə "Fransız saxlanılır" — lakin emoji U+FFFF-dən yuxarıda yaşayır, **4-byte şablonla** kodlanır: `💻` U+1F4BB → `F0 9F 92 BB`, xətadakı tam byte-lar. Aparıcı `F0` 4-byte-lı simvol elan edir; sütunun kontraktı 3-də bitir; MySQL dəyəri rədd edir. Heç nə korlanmadı — iki kontrakt sınırda razılaşmır, bu modulun ən köhnə uğursuzluq forması.
+**Kök səbəb:** MySQL-in `utf8` adlı charset-i tarixən 3-bayt-maksimum alt çoxluqdur (utf8mb3). U+FFFF-ə qədər hər code point-i əhatə edir — buraya `é` (2 bayt, U+00E9) və bütün latın vurğuları daxildir, buradan "fransızca normal saxlanır" — amma emoji-lər U+FFFF-dən yuxarıda yaşayır və **4-baytlıq şablonla** kodlanır: `💻` U+1F4BB-dir → `F0 9F 92 BB`, xətadakı baytların dəqiq özü. Aparıcı `F0` 4-baytlıq simvol elan edir; sütunun müqaviləsi 3-də tavanlanır; MySQL dəyəri rədd edir. Heç nə korlanmayıb — iki müqavilə sərhəddə razılaşmır, bu modulun ən qədim uğursuzluq forması.
 
-**Düzəliş:** həqiqi kodlamaya keçin — `ALTER TABLE profiles CONVERT TO CHARACTER SET utf8mb4` (üstəgəl uyğun collation, əlaqə charset-i, indexlənmiş `VARCHAR` uzunluqlarının hələ sığdığının yoxlanması, çünki simvol başına ən pis halda byte-lar 3-dən 4-ə böyüyür). Yeni sxemlər: gündən etibarən `utf8mb4` — MySQL 8.0 tam bu səbəbdən onu varsayılan etdi.
+**Düzəliş:** əsl encoding-ə keçin — `ALTER TABLE profiles CONVERT TO CHARACTER SET utf8mb4` (üstəgəl uyğun collation, connection charset-i və indekslənmiş `VARCHAR` uzunluqlarının hələ də sığdığının yoxlanması, çünki simvola düşən ən pis halda bayt sayı 3-dən 4-ə böyüyür). Yeni sxemlər: ilk gündən `utf8mb4` — MySQL 8.0-ın default-u məhz bu səbəbdən odur.
 
-**Postmortem dərsi:** *"Test verilənlərimiz ASCII və Qərb Avropa idi, buna görə 3-byte kodlama tavanı sahib olduğumuz hər testi keçdi — məhdudiyyət yalnız testlərimizin heç vaxt ehtiva etmədiyi simvollar üçün mövcud idi. Charset kontraktları istifadəçilərin yaza bildiyi tam aralıqda yoxlanmalıdır (toxuma verilerinde bir 😀 bunu tutardı), mühəndislərin yazdığı alt dəstdə deyil."* ✓
+**Postmortem dərsi:** *"Test datamız ASCII və Qərbi Avropa idi, ona görə 3-baytlıq encoding tavanı əlimizdəki hər testdən keçdi — limit yalnız testlərimizin heç vaxt ehtiva etmədiyi simvollar üçün mövcud idi. Charset müqavilələri mühəndislərin yazdığı alt çoxluğa qarşı yox, istifadəçilərin yaza biləcəyi tam aralığa qarşı yoxlanmalıdır (seed datasında bir 😀 bunu tutardı)."* ✓
 
 </Solution>
 
 </Challenges>
 
-<LearnMore title="Rəng, Şəkil və Audio İkilidə" path="/learn/faza-0/modul-0-1/color-image-audio">
+<LearnMore title="Binar Sistemdə Rəng, Şəkil və Səs" path="/learn/faza-0/modul-0-1/color-image-audio">
 
-Ədədlər, mənfilər, kəsrlər, byte sırası, mətn — indiyə qədəri kontraktlar kompüterlərin *qurulduğu* şeyləri kodladı. Növbəti, insanların *qurulduğu* şeylərin kontraktları: `#FF5733`-ün Dərs 2-dən gözünüzün inandığı rəngə necə çevrildiyi, ədəd gridinin fotoğrafa necə çevrildiyi, saniyədə 44,100 ölçmənin musiqi haqqında necə olduğu — bu qeyri-adi konkret ədədin, 1980-ci ildə öz süfrə-miqyasında komitə müharibəsiylə seçilən, bu gün axın edəcəyiniz hər mahnını hələ idarə etdiyinin tam səbəbi daxil.
+Rəqəmlər, mənfilər, kəsrlər, bayt sırası, mətn — indiyə qədərki müqavilələr kompüterlərin *qurulduğu* şeyləri kodlayırdı. Növbəti — insanların qurulduğu şeylər üçün müqavilələr: Dərs 2-nin `#FF5733`-ü necə gözünüzün inandığı rəngə çevrilir, rəqəmlər toru necə fotoşəkil olur və saniyədə 44.100 ölçü necə musiqi olur — o cümlədən, 1980-ci ildə özünəməxsus süfrə-masası-ölçülü komitə müharibəsində seçilmiş o qəribə dəqiq rəqəmin bu gün stream edəcəyiniz hər mahnını niyə hələ də idarə etdiyi.
 
 </LearnMore>

@@ -1,138 +1,138 @@
 ---
-title: "Mənfi Ədədlər: İkilik Tamamlayan"
+title: "Mənfi Rəqəmlər: Two's Complement"
 ---
 
 <Intro>
 
-4 iyun 1996-cı ildə Avropa Kosmik Agentliyi ilk Ariane 5 raketini buraxdı — bu raket bir onillik müddətdə təxminən 7 milyard dollara hazırlanmışdı və ümumi dəyəri 370 milyon dollar olan dörd Cluster elm peyki daşıyırdı. Uçuşdan otuz yeddi saniyə sonra raket güclü şəkildə kənarlaşdı və öz özündən məhvetmə sistemini işə saldı. Səbəb nə mühərrik, nə çən, nə də sensör idi. İdarəetmə proqramının dərinliklərində 64-bit sürət dəyəri **16-bit işarəli tam ədədə** çevrildi — 32 767-dən böyük heç nəyi tutmayan bir qutu. Ariane 5 sələfindən daha sürətli sürətləndi, ədəd sığmadı, çevirmə istisna qaldırdı və idarəetmə kompüteri söndü. Ehtiyat kompüter dəvr aldı, *eyni kodu* eyni verilənlər üzərində icra etdi və 72 millisaniyə əvvəl eyni şəkildə çöküşə uğradı. Yarım milyard dollarlıq texnika bir qutya sığmayan ədəd — *işarəli* qutu — tərəfindən məhv edildi. Ötən dərsdə işarəsiz sayğacların overflow etdiyini gördünüz; bu dərsdə "işarəli" nə deməkdir, niyə bütün mühəndisliyin ən zərif hiyləsi sayılır və iti kənarlarının bu gün hər yerdə necə görünüdüyünü öyrənəcəksiniz.
+1996-cı il iyunun 4-də Avropa Kosmik Agentliyi ilk Ariane 5-i buraxdı — hazırlanması on il və təxminən 7 milyard dollar çəkmiş raket, üstündə təqribən 370 milyon dollarlıq dörd Cluster elmi peyki. Uçuşun otuz yeddinci saniyəsində raket kəskin şəkildə kursdan çıxdı və öz özünüməhvetmə sistemini işə saldı. Səbəb nə mühərrik idi, nə çən, nə də sensor. İdarəetmə proqramının dərinliyində 64-bitlik sürət dəyəri **16-bitlik signed tam ədədə** çevrilirdi — 32.767-dən böyük heç nə tuta bilməyən qutuya. Ariane 5 sələfindən sürətli yüksəlirdi, rəqəm sığmadı, çevirmə exception qaldırdı və idarəetmə kompüteri söndü. Ehtiyat kompüter işi götürdü, *eyni datanın* üstündə *eyni kodun özünü* işlətdi və 72 millisaniyə əvvəl eyni ölümlə öldü. Yarım milyard dollarlıq hardware qutuya sığmayan bir rəqəmlə məhv edildi — özü də *signed* qutuya. Keçən dərs unsigned sayğacları daşırdınız; bu dərs "signed"in nə demək olduğunu, onun niyə bütün mühəndisliyin ən zərif fəndlərindən biri olduğunu və iti kənarlarının bu gün hələ də harada kəsdiyini öyrənəcəksiniz.
 
 </Intro>
 
 <YouWillLearn>
 
-- Niyə hardware-da minus işarəsi yoxdur — və "mənfi ədəd kontraktı"nın nə vəd etməli olduğu
-- İki uğursuz dizayn (sign-magnitude və one's complement) və hər birinin konkret sınma qaydası
-- **Two's complement**: geri işləyən odometer, və bütün bitləri çevir-bir əlavə et resepti
-- Ən dərin görünüş: MSB sadəcə ağırlığı **−128** olan adi bir mövqedir
-- 8/16/32/64-bit tam ədədlərin işarəli aralıqları — və `abs()`-i yalan söylədən tənha −128
-- İşarəli overflow-un Java `binarySearch`-inin içərisində necə doqquz il gizli qaldığı, və onu review-da necə tapmaq olar
+- Hardware-in heç yerində niyə minus işarəsi olmadığı — və "mənfi rəqəm müqaviləsi"nin nə vəd etməli olduğu
+- İki uğursuz dizayn (sign-magnitude və one's complement) və hər birinin konkret necə sındığı
+- **Two's complement**: geriyə sürülən odometr və bütün-bitləri-çevir-1-əlavə-et resepti
+- Ən dərin baxış: MSB çəkisi **−128** olan adi mövqedir
+- 8/16/32/64-bitlik tam ədədlərin signed aralıqları — və `abs()`-a yalan söylətdirən tənha `−128`
+- Signed overflow-un Java-nın `binarySearch`-ünün içində doqquz il necə gizləndiyi və onu review-da necə tutmaq
 
 </YouWillLearn>
 
-## Hardware-da minus işarəsi yoxdur {/*no-minus-sign-in-the-hardware*/}
+## Hardware-də minus işarəsi yoxdur {/*no-minus-sign-in-the-hardware*/}
 
-Bu kursun birinci qaydasını xatırlayın: **byte-ların mənası yoxdur — kontraktların var.** `01001000` byte-ı hansı kontraktla oxunduğuna görə `H` hərfi, 72 rəqəmi, ya da bir piksel parçası olurdu. İndiyə qədər bütün ədəd kontraktlarımız **unsigned** idi: səkkiz bit, 1-dən 128-ə qədər çəkilər, 0-dan 255-ə qədər aralıq, sıfırın altında heç nə düşünülmür.
+Bu kursun birinci qaydasını xatırlayın: **byte-ların mənası yoxdur — müqavilələrin var.** `01001000` byte-ı sırf hansı müqavilə altında oxuduğunuzdan asılı olaraq `H` hərfi, 72 rəqəmi və ya pikselin üçdə biri olurdu. İndiyə qədər bütün rəqəm müqavilələrimiz **unsigned** idi: səkkiz bit, çəkilər 1-dən 128-ə, aralıq 0-dan 255-ə, sıfırdan aşağı heç nə hətta təsəvvür edilə bilməz.
 
-Lakin real proqramlar sıfırdan aşağıya gedən dəyərlərlə doludur: temperaturlar, bank balansları, koordinat offsetləri, əks istiqamətə işarə edən sürət komponentləri. Yaddaş hücrəsi isə sizə yalnız iki gərginlik səviyyəsi təklif edir — "minus" üçün üçüncü hal yoxdur, silisiumda kiçik tire yoxdur. Mənfi ədəd nə olursa olsun, sadə 0 və 1-lərdən, yeni bir kontrakt altında qurulmalıdır.
+Amma real proqramlar sıfırdan aşağı düşən dəyərlərlə doludur: temperaturlar, bank balansları, koordinat sürüşmələri, tərs istiqamətə baxan sürət komponentləri. Yaddaş hüceyrəsi isə sizə düz iki gərginlik səviyyəsi təklif edir — "minus" üçün üçüncü hal yoxdur, silisiuma həkk olunmuş balaca tire yoxdur. Mənfi rəqəm nə olacaqsa, adi 0-lardan və 1-lərdən, yeni müqavilə altında qurulmalıdır.
 
-Yaxşı kontrakt "−5-i yazmağın yolu budur"-dan çox şey vəd etməlidir. O, **arifmetikanın** işləməsini qorumalıdır — ideal olaraq, artıq işarəsiz ədədləri idarə edən eyni sadə toplayıcı dövrəsi üzərində, çünki 1950-ci ildə (dürüstcəsinə, 2026-da da) hər əlavə dövrə pul, güc və qüsur mənbəyi deməkdir. Dizaynerlərin bu ikinci tələbi unutduqda nə baş verdiyini izləyin.
+Yaxşı müqavilə "budur, −5-i belə yazmaq olar"dan çoxunu vəd etməlidir. O, **hesabı** işlək saxlamalıdır — ideal halda unsigned rəqəmləri onsuz da emal edən eyni sadə adder sxemində, çünki 1950-ci ildə (və düzünü desək, 2026-da da) hər əlavə sxem pula, enerjiyə və uğursuzluq rejimlərinə başa gəlir. Dizaynerlər o ikinci tələbi unudanda nə baş verdiyinə baxın.
 
 ## Cəhd 1: sign-magnitude {/*attempt-1-sign-magnitude*/}
 
-Açıq fikir — siz ya mən ilk beş dəqiqədə icad edəcəyimiz — insanların ədəd yazmaq üsulunu kopyalamaqdır: işarə, sonra miqdar. Ən sol biti (MSB) **işarə bayrağı** kimi ayırın: `0` müsbət, `1` mənfi, qalan yeddi bit isə adi dəyəri saxlayır.
+Aşkar ideya — sizin də, mənim də ilk beş dəqiqədə icad edəcəyimiz — insanların rəqəm yazdığı üsulu kopyalamaqdır: işarə, sonra qiymət. Ən soldakı biti (MSB-ni) **işarə bayrağı** kimi ayır: `0` müsbət deməkdir, `1` mənfi, qalan yeddi bit adi dəyəri saxlayır.
 
 ```
-+5 = 0 0000101      (işarə 0, miqdar 5)
-−5 = 1 0000101      (işarə 1, miqdar 5)
++5 = 0 0000101      (işarə 0, qiymət 5)
+−5 = 1 0000101      (işarə 1, qiymət 5)
 ```
 
-Buna **sign-magnitude** deyilir, iki qüsuru var — biri çirkin, biri ölümcül.
+Bu, **sign-magnitude** adlanır və iki qüsuru var — biri çirkin, biri ölümcül.
 
-Çirkin olan: indi **iki sıfır** var. `00000000` +0-dır, `10000000` isə −0 — eyni ədədi iddia edən iki fərqli bit nümunəsi. Maşındakı hər bərabərlik yoxlaması artıq onları xüsusi hallandırmalıdır ("x sıfırdırmı? hər iki yazılışı yoxla"), 256 qiymətli nümunənizdən biri isə dublikat üçün israf olunur.
+Çirkini: indi **iki sıfır** var. `00000000` +0-dır və `10000000` −0-dır — eyni rəqəm olduğunu iddia edən iki fərqli bit nümunəsi. Maşındakı hər bərabərlik yoxlaması indi onları xüsusi hal kimi emal etməlidir ("x sıfırdır? hər iki yazılışı yoxla") və 256 qiymətli nümunənizdən biri dublikata israf olunur.
 
-Ölümcül olan: **toplama sınır.** +5 və −5-i sadə ikili toplayıcıya verin — ötən dərsdəki odometer mexanizmi, sadəcə sütunları toplayır və daşıyır — və seyrdin:
+Ölümcülü: **toplama sınır.** +5 və −5-i adi binary adder-ə verin — keçən dərsin odometr mexanizmi, sadəcə sütunları toplayıb carry ötürən — və baxın:
 
 ```
     0 0000101      +5
   + 1 0000101      −5
   -----------
-    1 0001010      işarə 1, miqdar 10  →  −10 ✗
+    1 0001010      işarə 1, qiymət 10  →  −10 ✗
 
 Gözlənilən: 0.  Alınan: −10.
 ```
 
-Toplayıcı işini mükəmməl etdi; *kontrakt* saçmalıq istehsal etdi, çünki sign-magnitude altında mənfi ədəd əlavə etmək müsbət ədəd əlavə etməklə eyni mexaniki hərəkət deyil. Arifmetikanı işlətmək üçün ikinci dövrəyə ehtiyac duyurdunuz: işarələri müqayisə et, fərqli isə kiçik miqdarı böyükdən çıxart, sonra böyüyün işarəsini kopyala... Bu, erkən maşınların həqiqətən qurduğu — və pul ödədiyi — real hardware idi.
+Adder öz işini mükəmməl gördü; cəfəngiyatı *müqavilə* istehsal etdi, çünki sign-magnitude altında mənfi rəqəm əlavə etmək müsbət əlavə etməklə eyni mexaniki hərəkət deyil. Hesabı işlətmək üçün ikinci sxem lazım olardı: işarələri müqayisə et, fərqlidirsə kiçik qiyməti böyükdən çıx, sonra böyüyün işarəsini kopyala... Bu, erkən maşınların həqiqətən qurduğu — və pulunu ödədiyi — real hardware-dir.
 
 ## Cəhd 2: one's complement {/*attempt-2-ones-complement*/}
 
-İkinci tarixi cəhd daha hiyləgərdir: ədədi mənfiləşdirmək üçün **hər biti çevirin**.
+İkinci tarixi cəhd daha hiyləgərdir: rəqəmi mənfiləşdirmək üçün **hər biti çevir**.
 
 ```
 +5 = 00000101
-−5 = 11111010      (hər bit invertləndi)
+−5 = 11111010      (hər bit tərsinə çevrilib)
 ```
 
-Buna **one's complement** deyilir, toplama *demək olar ki* işləyir. +5 və −5-i toplayanda `11111111` alırsınız — bu kontrakt altında bu... −0-dır. Hələ iki sıfır (`00000000` və `11111111`), sıfırı keçən cəmlər isə toplayıcı **son daşıma** adlanan əlavə bir hiylə etməzsə bir əksikdir: sol uçdan bir daşıma düşəndə, onu sağa döndər və ən sağ sütuna əlavə et. Daha çox xüsusi hardware, daha çox xüsusi hallar.
+Bu, **one's complement**-dir və toplama *az qala* işləyir. +5 ilə −5-i toplayın — `11111111` alırsınız, bu da bu müqavilə altında... −0-dır. Yenə iki sıfır (`00000000` və `11111111`), və sıfırı keçən cəmlər bir vahid yanlış çıxır — adder **end-around carry** adlı əlavə fənd icra etməyincə: carry sol ucdan düşəndə, onu dövrə vurub ən sağ sütuna əlavə et. Daha çox xüsusi hardware, daha çox xüsusi hal.
 
 <Note>
 
-One's complement muzey eksponatı kimi itib-batmadı. Ciddi maşınlar onunla göndərildi — 1964-cü ildə dünyanın ən sürətli kompüteri olan Seymour Cray-in CDC 6600-ü one's complement maşını idi — bir künc isə hələ *bu anda, cihazınızda* işləyir: hər IP paket başlığını qoruyan **Internet checksum**-u RFC 1071-ə əsasən one's complement cəmi kimi müəyyən edilib. Şəbəkələr mövzusu açılanda paket başlıqlarını görəcək, son daşımayla yenidən qarşılaşacaqsınız — canlı və sağlam.
+One's complement uduzub yoxa çıxmış muzey eksponatı deyil. Ciddi maşınlar onunla çıxdı — Seymour Cray-in CDC 6600-ü, 1964-cü ildə dünyanın ən sürətli kompüteri, one's-complement maşını idi — və onun bir küncü hələ də işləyir: *elə indi, sizin cihazınızda*. Hər IP packet header-ini qoruyan **Internet checksum** (RFC 1071) one's-complement cəmi kimi müəyyən edilib. Şəbəkələr fazası packet header-ləri açanda end-around carry ilə yenidən görüşəcəksiniz — sağ və salamat.
 
 </Note>
 
-İndiki hesab: iki dizayn, ikisi də cüt sıfırla, ikisi də düzgün toplaması üçün xüsusi dövrəyə ehtiyac duyur. Qalib dizayn heç birinin vermədiyi suala cavab vermekdən gəlir — siz artıq cavablayan maşına sahib olursunuz.
+İndiyə qədərki hesab lövhəsi: iki dizayn, hər ikisində əkiz sıfırlar, hər ikisi düzgün toplamaq üçün xüsusi sxemə möhtac. Qalib dizayn heç bir cəhdin vermədiyi sualdan doğulur — və o suala cavab verən maşın artıq sizindir.
 
-## Geri işlədilən odometer {/*the-odometer-driven-backwards*/}
+## Geriyə sürülən odometr {/*the-odometer-driven-backwards*/}
 
-Ötən dərsdəki odometer yuxarıya sayırdı: çarxlar irəli fırlanır, dolu çarx qonşusuna daşıyır, tam dolu çarx dəsti isə sıfıra keçirdi. İndi maşını **geri sürun**.
+Keçən dərsin odometri *yuxarı* sayırdı: çarxlar irəli fırlanır, dolu çarx qonşusuna carry ötürür və tam dolu çarx dəsti sıfıra aşır. İndi maşını **geriyə** sürün.
 
-Altı çarxlı odometer `000000` oxuyur. Bir kilometr geri sürün. Hər çarx qonşusundan borc alır, borc sol tərəfə dalğalanır, uçurumdan düşür, ekran isə göstərir:
+Altı çarxlı odometr `000000` göstərir. Bir kilometr geri gedin. Hər çarx qonşusundan borc alır, borc sola qədər yayılır, ucdan düşür və ekran göstərir:
 
 ```
 000000  −  1  =  999999
 ```
 
-İndi fəlsəfi hərəkət. O ekran *olduğu kimi*-dir. `999999`-u doqquz yüz doxsan doqquz min... kimi qəbul etsəniz, odometer sınıb. Amma yeni bir kontrakt elan etsəniz — "şkalanın yuxarısına bu qədər yaxın hər oxu biz *sıfırın altında* deməkdir" — onda `999999` sadəcə **−1 olar**. Daha bir geri getmək: `999998` isə −2-dir. Bu sadəcə etiketlənmə deyil: arifmetika artıq işləyir. `999999`-a 1 əlavə edin, çarxlar `000000`-a keçir — ötən dərsin qəhrəmanı olan overflow tam olaraq −1 + 1-in etməli olduğunu edir. **Dolanma mənfi işarəsidir.**
+İndi fəlsəfi gediş. O göstərici *nədirsə, odur*. `999999`-u doqquz yüz doxsan doqquz min... kimi oxumağa davam etsəniz, odometr xarabdır. Amma yeni müqavilə elan etsəniz — "şkalanın zirvəsinə bu qədər yaxın istənilən göstərici sıfırdan *aşağıda* olduğumuzu bildirir" — onda `999999` sadəcə **−1-dir**. Bir kilometr də geri: `999998` −2-dir. Və bu, təkcə etiketləmə deyil: hesab artıq işləyir. `999999`-a 1 əlavə edin — çarxlar `000000`-a aşır: keçən dərsin bədxahı olan overflow məhz −1 + 1-in etməli olduğunu edir. **Aşma elə minus işarəsinin özüdür.**
 
-Two's complement məhz bu kontraktdır, ikili odometere tətbiq edilir. 256 mövqeyli 8-bit şkalasını götürün, onu *yenidən bölgülər**: `00000000`-dan `01111111`-ə qədər nümunələr öz işarəsiz mənalarını saxlayır, 0-dan +127-ə qədər. `10000000`-dan `11111111`-ə qədər — şkalanın yuxarı yarısı, "yeni dövrəyə yaxın" olanlar — **−128-dən −1-ə qədər** olaraq elan edilir.
+Two's complement məhz bu müqavilədir, binary odometrə tətbiq edilmiş. 256 mövqeli 8-bitlik şkalanı götürün və *yenidən zonalaşdırın*: `00000000`-dan `01111111`-ə qədər nümunələr unsigned mənalarını saxlayır, 0-dan +127-yə. `10000000`-dan `11111111`-ə qədər nümunələr — şkalanın yuxarı yarısı, "aşmaya yaxın" olanlar — **−128-dən −1-ə** elan edilir.
 
-<Diagram name="negative-numbers/twos_complement_circle" height={430} width={640} alt="A circular dial with 16 tick marks representing the 256 states of a byte, matching the overflow dial from the previous lesson. 0 sits at the top. Going clockwise down the right side, ticks are labeled +32, +64, +96 and +127 in blue — the right half of the dial is spanned by a blue arc labeled 'positive, MSB = 0'. At the bottom, immediately clockwise after +127, a jagged red seam line crosses the dial edge, labeled 'the seam: +127 + 1 = −128'. Continuing clockwise up the left side, ticks are labeled −128, −96, −64, −32 and −1 in red-toned text, spanned by a muted red arc labeled 'negative, MSB = 1'. −1 sits immediately counterclockwise of 0 at the top. Center text reads: 'same 256 states — new contract'.">
+<Diagram name="negative-numbers/twos_complement_circle" height={430} width={640} alt="Byte-ın 256 halını təmsil edən 16 bölgülü dairəvi şkala, keçən dərsin overflow şkalası ilə üst-üstə düşür. 0 yuxarıda oturur. Saat əqrəbi istiqamətində sağ tərəfə enərkən bölgülər mavi rəngdə +32, +64, +96 və +127 etiketlənib — şkalanın sağ yarısını 'müsbət, MSB = 0' etiketli mavi qövs əhatə edir. Aşağıda, +127-dən dərhal sonra saat əqrəbi istiqamətində, şkalanın kənarını 'tikiş: +127 + 1 = −128' etiketli qırıq qırmızı tikiş xətti kəsir. Saat əqrəbi istiqamətində sol tərəflə yuxarı davam edərkən bölgülər qırmızı tonlu mətnlə −128, −96, −64, −32 və −1 etiketlənib, onları 'mənfi, MSB = 1' etiketli solğun qırmızı qövs əhatə edir. −1 yuxarıda 0-ın dərhal saat əqrəbinin əksi tərəfində oturur. Mərkəz mətni: 'eyni 256 hal — yeni müqavilə'.">
 
-Ötən dərsdəki eyni 256 mövqeyli şkala — yenidən bölgülənib. Sağ yarı müsbət, sol yarı mənfi, −1 0-ın yanında oturur, tək təhlükəli keçid isə aşağıdakı tikişdir.
+Keçən dərsin eyni 256 mövqeli şkalası — yenidən zonalaşdırılmış. Sağ yarı müsbətdir, sol yarı mənfi, −1 düz 0-ın yanında oturur və yeganə təhlükəli keçid aşağıdakı tikişdir.
 
 </Diagram>
 
-Bunun *sıfır* yeni hardware ilə nə qazandırdığına baxın:
+Bunun *sıfır* yeni hardware ilə nə aldığına baxın:
 
-- **Bir sıfır.** `00000000` və başqa heç nə. `11111111` nümunəsi artıq ehtiyat sıfır deyil — o −1-dir, ikinin "999999"-u.
-- **Toplama işləyir.** −1 + 1 `11111111 + 00000001` = `1 00000000` deməkdir; daşıma 8-bit kənarından düşür, eynən odometerin borc aldığı kimi, `00000000` qalır. ✓
-- **MSB hələ işarəni göstərir** — hər mənfi nümunə 1-lə başlayır, hər müsbət isə 0-la — amma bu, bölgülənmənin *nəticəsidir*, xüsusi qaydalarla xüsusi bayraq deyil.
+- **Bir sıfır.** `00000000` və başqa heç nə. `11111111` nümunəsi artıq ehtiyat sıfır deyil — o, −1-dir, binary-nin "999999"-u.
+- **Toplama sadəcə işləyir.** −1 + 1 `11111111 + 00000001` deməkdir = `1 00000000`; carry 8-bitlik ucdan düşür, düz odometrin borcunun düşdüyü kimi, geriyə `00000000` qalır. ✓
+- **MSB işarəni yenə açıqlayır** — hər mənfi nümunə 1 ilə başlayır, hər qeyri-mənfi 0 ilə — amma bu, zonalaşdırmanın *nəticəsidir*, xüsusi qaydaları olan xüsusi bayraq deyil.
 
-Formal olaraq: −x-i təmsil edən nümunə `2⁸ − x`-dir (byte üçün), eynən 999999-un 10⁶ − 1 olduğu kimi. Ad oradan gəlir — iki dərəcəsinə görə *tamamlayanı* saxlayırsınız.
+Formal olaraq: −x-i təmsil edən nümunə (byte üçün) `2⁸ − x`-dir, eynilə 999999-un 10⁶ − 1 olduğu kimi. Ad da buradan gəlir — *ikinin qüvvətinə nəzərən complement-i* saxlayırsınız.
 
 ## Resept: bitləri çevir, bir əlavə et {/*flip-the-bits-add-one*/}
 
-Başınızda `256 − x` hesablamaq əyləncəli deyil, buna görə budur hər mühəndisin əslində istifadə etdiyi mexaniki qısayol. Hər hansı bir ədədi mənfiləşdirmək üçün:
+Beyninizdə `256 − x` hesablamaq əyləncəli deyil, ona görə budur hər mühəndisin faktiki işlətdiyi mexaniki qısayol. İstənilən rəqəmi mənfiləşdirmək üçün:
 
-1. **Hər biti çevirin** (bu one's complement — `255 − x`).
-2. **1 əlavə edin** (`256 − x`-ə korreksiya).
+1. **Hər biti çevir** (bu, one's complement-dir — `255 − x`).
+2. **1 əlavə et** (`256 − x`-ə düzəldərək).
 
-<Diagram name="negative-numbers/negate_invert_add_one" height={330} width={720} alt="Three byte boxes in a row connected by labeled arrows. The first box shows 00000101 captioned '+5'. An arrow labeled 'flip every bit' leads to the second box showing 11111010. A second arrow labeled '+ 1' leads to the third box, highlighted in blue, showing 11111011 captioned '−5'. Below the boxes, a verification sum is laid out in columns: 00000101 plus 11111011 equals 1 00000000, with the leading carry digit 1 shown in red falling outside the 8-bit frame, and the surviving eight bits 00000000 highlighted, captioned 'the carry falls off the edge — the sum is exactly 0'.">
+<Diagram name="negative-numbers/negate_invert_add_one" height={330} width={720} alt="Etiketli oxlarla birləşdirilmiş, bir sırada üç byte qutusu. Birinci qutu 00000101 göstərir, '+5' alt yazısı ilə. 'Hər biti çevir' etiketli ox 11111010 göstərən ikinci qutuya aparır. '+ 1' etiketli ikinci ox mavi ilə vurğulanmış üçüncü qutuya aparır: 11111011, '−5' alt yazısı ilə. Qutuların altında yoxlama cəmi sütunlarla düzülüb: 00000101 üstəgəl 11111011 bərabərdir 1 00000000, aparıcı carry rəqəmi 1 qırmızı rəngdə 8-bitlik çərçivədən kənara düşür və sağ qalan səkkiz bit 00000000 vurğulanıb, 'carry ucdan düşür — cəm dəqiq 0-dır' alt yazısı ilə.">
 
-+5-i mənfiləşdirmək: çevir, bir əlavə et. Aşağıdakı yoxlama bütün satış meydançasıdır — sadə toplayıcı təmiz, bir sıfır verır.
++5-in mənfiləşdirilməsi: çevir, bir əlavə et. Aşağıdakı yoxlama bütün satış təqdimatının özüdür — adi adder təmiz, tək sıfır istehsal edir.
 
 </Diagram>
 
-**İşlənmiş nümunə — −5 kodlayın:**
+**İşlənmiş nümunə — −5-i kodla:**
 
 ```
  +5          = 00000101
  çevir       = 11111010
- 1 əlavə et  = 11111011      ← bu −5-dir
+ 1 əlavə et  = 11111011      ← bu, −5-dir
 
-Sadə toplayıcı ilə yoxla:
+Adi adder ilə yoxla:
    00000101      +5
  + 11111011      −5
  ----------
  1 00000000
- ↑ daşıma 8-bit kənarından düşür (odometerin üst-üstə gəlməsi)
+ ↑ carry 8-bitlik ucdan düşür (odometrin aşması)
 
  Nəticə: 00000000 = 0 ✓
 ```
 
-İşarə müqayisəsi dövrəsi yoxdur, son daşıma yoxdur, cüt sıfır yoxdur. Ötən dərsdən sadə toplayıcı düzgün cavab verir, *çünki kontrakt toplayıcının artıq etdiyi şeyin ətrafında dizayn edilib.*
+İşarə-müqayisə sxemi yox, end-around carry yox, əkiz sıfır yox. Keçən dərsin kütbeyin adder-i düzgün cavab verir, *çünki müqavilə adder-in onsuz da etdiyinin ətrafında dizayn edilib.*
 
-**İşlənmiş nümunə — pulsuz çıxma.** Mənfiləşdirmə ucuz olanda çıxma öz əməliyyatı olmağı dayandırır: `a − b` sadəcə `a + (−b)`-dir. 7 − 3 hesablayın:
+**İşlənmiş nümunə — çıxma pulsuz.** Mənfiləşdirmə ucuzlaşan kimi çıxma ayrıca əməliyyat olmaqdan çıxır: `a − b` sadəcə `a + (−b)`-dir. 7 − 3-ü hesablayın:
 
 ```
  −3:  00000011 → çevir → 11111100 → +1 → 11111101
@@ -141,22 +141,22 @@ Sadə toplayıcı ilə yoxla:
  + 11111101      −3
  ----------
  1 00000100
- ↑ düşən daşımanı atın
+ ↑ düşən carry-ni at
 
  Nəticə: 00000100 = 4 ✓
 ```
 
-Buna görə prosessorunuz çıxarıcı ehtiva etmir. O bir toplayıcı və bir bit çevirici sıra ehtiva edir, etdiyiniz hər çıxma gizlicə toplamaydı. Bir dövrə, dörd iş: işarəli toplama, işarəsiz toplama, işarəli çıxma, işarəsiz çıxma — toplayıcı hansını etdiyini belə *başa düşmür*; yalnız bitləri oxuduğunuz kontrakt fərqlənir. Bu qənaətçililik **two's complement-in qalib gəlməsinin** səbəbidir: John von Neumann onu 1945-ci ildəki məşhur EDVAC hesabatında tövsiyə etdi, IBM-in System/360-ı — 8-bit byte-ı standartlaşdıran eyni 1964-cü il maşını — onu möhkəmləndirdi, bu gün isə o qədər universal haldadır ki C++20 standartı alternativlərin mövcud olduğunu iddia etməkdən nəhayət imtina etdi və işarəli tam ədədlər qanunla *two's complement-dir* diye elan etdi.
+CPU-nuzun subtractor ehtiva etməməsinin səbəbi budur. O, bir adder və bir sıra bit-çevirici ehtiva edir və indiyə qədər icra etdiyiniz hər çıxma gizlicə toplama olub. Bir sxem, dörd iş: signed toplama, unsigned toplama, signed çıxma, unsigned çıxma — adder hansını icra etdiyini *ayırd belə edə bilmir*; yalnız bitləri oxuduğunuz müqavilə fərqlənir. **Two's complement-in qalib gəlməsinin** səbəbi bu qənaətdir: John von Neumann onu məşhur 1945-ci il EDVAC hesabatında tövsiyə etdi, IBM-in System/360-ı — 8-bitlik byte-ı standartlaşdıran həmin 1964-cü il maşını — onu sementlədi və bu gün o qədər universaldır ki, C++20 standartı nəhayət alternativlərin mövcudluğunu iddia etməkdən əl çəkdi və signed tam ədədlərin two's complement *olduğunu* qanunla elan etdi.
 
 <DeepDive>
 
-#### Ən dərin görünüş: MSB-in çəkisi −128-dir {/*the-msb-weighs-minus-128*/}
+#### Ən dərin baxış: MSB-nin çəkisi −128-dir {/*the-msb-weighs-minus-128*/}
 
-Çevir-bir-əlavə-et reseptdir; budur hər two's complement "sirri"ni bir anda həll edən *mental model*. İşarələri tamamilə unutun. Two's complement byte ötən dərsdən adi mövqe notasiyasıdır — çəkilər əlavə edərək oxuyun, tam əvvəlki kimi — bir dəyişikliklə: **MSB-in çəkisi +128 əvəzinə −128-dir.**
+Çevir-və-1-əlavə-et reseptdir; budur two's complement-in hər "sirrini" bir anda əridən *zehni model*. İşarələri tamam unudun. Two's complement byte-ı keçən dərsin adi mövqeli yazılışıdır — çəkiləri toplayaraq oxuyun, əvvəlki kimi — bir dəyişikliklə: **MSB-nin çəkisi +128 yox, −128-dir.**
 
-<Diagram name="negative-numbers/msb_negative_weight" height={330} width={720} alt="Eight bit boxes in a row containing 1 1 1 1 1 0 1 1. Under each box its weight: −128 shown in danger red under the first box, then 64, 32, 16, 8, 4, 2, 1 in normal text. The boxes holding a 1 are highlighted; the box holding 0 (weight 4) is dimmed. Curved arrows flow from the highlighted columns down into a sum line reading: −128 + 64 + 32 + 16 + 8 + 2 + 1 = −128 + 123 = −5. The −128 term is red.">
+<Diagram name="negative-numbers/msb_negative_weight" height={330} width={720} alt="Bir sırada 1 1 1 1 1 0 1 1 saxlayan səkkiz bit qutusu. Hər qutunun altında çəkisi: birinci qutunun altında təhlükə qırmızısı ilə −128, sonra adi mətnlə 64, 32, 16, 8, 4, 2, 1. 1 saxlayan qutular vurğulanıb; 0 saxlayan qutu (çəki 4) solğunlaşdırılıb. Əyri oxlar vurğulanmış sütunlardan aşağıya, cəm sətrinə axır: −128 + 64 + 32 + 16 + 8 + 2 + 1 = −128 + 123 = −5. −128 həddi qırmızıdır.">
 
-`11111011` sadə çəkilər-əlavə-et olaraq oxunur — yuxarı çəki mənfi ilə. Ötən dərslə eyni bacarıq, bir işarə dəyişdi.
+`11111011` adi çəkiləri-topla üsulu ilə oxunur — yuxarı çəki mənfi olmaqla. Keçən dərsin eyni bacarığı, bir işarə dəyişib.
 
 </Diagram>
 
@@ -167,36 +167,36 @@ Buna görə prosessorunuz çıxarıcı ehtiva etmir. O bir toplayıcı və bir b
 −128 + 64 + 32 + 16 + 8 + 2 + 1 = −128 + 123 = −5 ✓
 ```
 
-İndi sirlər buxarlanır:
+İndi sirlərin buxarlanmasına baxın:
 
-- **Niyə MSB = 1 mənfi deməkdir?** Çünki −128 başqa hər şeyin cəmini üstələyir: digər yeddi çəki ən çoxu +127 verir, buna görə −128 sütunu ödəndikdən sonra cəm *sıfırın üstünə qalxa bilmir.* "İşarə biti" bayraq deyil — sadəcə ən ağır çəki, təsadüfən mənfidir.
-- **Niyə düzgün bir sıfır?** Sıfır "heç bir çəki seçilməyib": `00000000`. +127-lik müsbətlər heç vaxt −128-i tam kompensasiya edə bilmədiyindən, çəkilərin sıfıra cəmlənəcəyi ikinci yol yoxdur.
-- **Niyə aralıq simmetrik olaraq deyil −128-dən +127-yə qədər?** MSB olmadan bütün müsbətlər seçildi: +127. Yalnız MSB: −128. Asimmetriya əzbər üçün nüans deyil — ağırlıqların arifmetikası, adi görünüşdə.
+- **MSB = 1 niyə mənfi deməkdir?** Çünki −128 qalan hər şeyin cəmindən ağırdır: o biri yeddi çəkinin cəmi ən çox +127-dir, deməli −128 sütunu ödənən kimi cəm *sıfırdan yuxarı geri dırmaşa bilməz.* "İşarə biti" bayraq deyil — sadəcə ən ağır çəkidir və elə olub ki, mənfidir.
+- **Niyə dəqiq bir sıfır?** Sıfır "heç bir çəki seçilməyib" deməkdir: `00000000`. Sıfıra qapanan ikinci çəki seçimi yoxdur, çünki +127-lik müsbətlər −128-i heç vaxt tam ödəyə bilməz.
+- **Aralıq niyə simmetrik yox, −128-dən +127-yə qaçır?** MSB-siz bütün müsbətlər seçilib: +127. Tək MSB: −128. Asimmetriya əzbərlənəcək qəribəlik deyil — göz qabağında duran çəkilər hesabıdır.
 
-Bir byte, bir oxuma qaydası, bütün xüsusiyyətlər türetildi. Bu, saxlamağa dəyər baxışdır.
+Bir byte, bir oxuma qaydası, hər xüsusiyyət çıxarılmış. Saxlamağa dəyən baxış budur.
 
 </DeepDive>
 
 ## Aralıq cədvəli — və tənha −128 {/*the-range-table-and-the-lonely-minus-128*/}
 
-Eyni kontrakt istənilən eni miqyaslayır — çevir-bir-əlavə-et eyni şəkildə işləyir, yuxarı bitin çəkisi −2ⁿ⁻¹-dir:
+Eyni müqavilə istənilən enə miqyaslanır — çevir-və-1-əlavə-et eyni cür işləyir və yuxarı bitin çəkisi −2ⁿ⁻¹-dir:
 
-| En | İşarəli aralıq | Harada rast gəlinir |
-|----|----------------|---------------------|
-| 8-bit | −128 … +127 | audio nümunələri, sensor oxumaları, `int8_t` |
-| 16-bit | −32,768 … +32,767 | **Ariane 5-in ölümcül qutusu**; audio CD-lər; köhnə oyun koordinatları |
-| 32-bit | −2,147,483,648 … +2,147,483,647 | C/Java-da `int`; Gangnam Style tavanı; Y2038 saatı |
-| 64-bit | ≈ ±9.2 × 10¹⁸ | `long`, `BIGINT`, müasir zaman damğaları |
+| En | Signed aralıq | Harada rastlaşırsınız |
+|-------|--------------|-------------------|
+| 8-bit | −128 … +127 | audio sample-lar, sensor göstəriciləri, `int8_t` |
+| 16-bit | −32.768 … +32.767 | **Ariane 5-in ölümcül qutusu**; audio CD-lər; köhnə oyun koordinatları |
+| 32-bit | −2.147.483.648 … +2.147.483.647 | C/Java-da `int`; Gangnam Style tavanı; Y2038-in saatı |
+| 64-bit | ≈ ±9,2 × 10¹⁸ | `long`, `BIGINT`, müasir timestamp-lar |
 
-Hər sıranın mənfi tərəfindəki bir əlavə üzvə diqqət edin. O tənha əlavə dəyər — `−128`, `−32,768`, `−2,147,483,648` — həqiqətən qəribə bir bug-ın mənbəyidir. Reseptlə −128-i mənfiləşdirməyə çalışın:
+Diqqət edin: hər sətirdə mənfi tərəfdə bir vətəndaş artıqdır. O tənha əlavə dəyər — `−128`, `−32.768`, `−2.147.483.648` — həqiqətən qəribə bir buqun mənbəyidir. −128-i reseptlə mənfiləşdirməyə çalışın:
 
 ```
- −128       = 10000000
- çevir      = 01111111
- 1 əlavə et = 10000000      ← yenə −128!
+ −128        = 10000000
+ çevir       = 01111111
+ 1 əlavə et  = 10000000      ← yenə −128!
 ```
 
-+128 işarəli byte-da mövcud deyil (tavan +127-dir), buna görə resept dolanır və əkslədiyiniz ədədi geri qaytarır. **Minimum dəyəri mənfiləşdirmək minimum dəyəri qaytarır** — bu isə mütləq dəyər funksiyasının, hər şeydən çox, mənfi bir ədəd qaytara biləcəyi deməkdir. Java-da `Math.abs(Integer.MIN_VALUE)` həqiqətən −2,147,483,648 qaytarır: `abs()`-in yalan söylədiyi bir giriş. Eyni dolanmanı JavaScript-in ədədi həqiqi işarəli byte-a məcbur edən typed array ilə brauzer konsolunda seyrə sala bilərsiniz:
+Signed byte-da +128 mövcud deyil (tavan +127-dir), ona görə resept dövrə vurub mənfiləşdirməyə çalışdığınız rəqəmin özünü geri verir. **Minimum dəyəri mənfiləşdirmək minimum dəyəri qaytarır** — bu isə o deməkdir ki, məhz mütləq-qiymət funksiyası mənfi rəqəm qaytara bilir. Java-da `Math.abs(Integer.MIN_VALUE)` həqiqətən −2.147.483.648 qaytarır: `abs()`-ın yalan dediyi yeganə giriş. Eyni dövrə vurmanı brauzer konsolunda typed array ilə izləyə bilərsiniz — o, JavaScript-in rəqəmlərini əsl signed byte-a məcbur edir:
 
 ```js
 const a = new Int8Array(1);
@@ -213,57 +213,57 @@ a[0]
 
 <Pitfall>
 
-**İşarəli overflow sadəcə dolanmır — işarəni çevirir.**
+**Signed overflow sadəcə dövrə vurmur — işarəni çevirir.**
 
-Ötən dərsin işarəsiz sayğacı ən azından *kiçik* uğursuzluq verdi: 255 + 1 sıfırdan yenidən başladı. İşarəli şkala *şiddətlə* uğursuz olur, çünki tikişi iki ən uzaq dəyər arasında oturur: `+127 + 1 = −128`. İki müsbət ədəd əlavə edin, böyük mənfi biri alın. Bank balansı tavanı keçib borc olur; oyun hesabı ən pis hesab olur; sağa doğru sürət sola doğru sürətə çevrilir.
+Keçən dərsin unsigned sayğacı heç olmasa *kiçik* uğursuz olurdu: 255 + 1 sıfırdan başlayırdı. Signed şkala *zorakılıqla* uğursuz olur, çünki tikiş bir-birindən ən uzaq iki dəyərin arasında oturur: `+127 + 1 = −128`. İki müsbət rəqəm toplayın, nəhəng mənfi alın. Bank balansı tavanı keçib borca çevrilir; oyun xalı mümkün ən pis xala çevrilir; sağa yönəlmiş sürət sola yönəlmiş sürətə çevrilir.
 
-C və C++-da isə sadəcə yanlışdan betərdir — işarəli overflow rəsmi olaraq **undefined behavior**-dır: kompilyator onun heç vaxt baş vermədiyini fərz etmə lisenziyasına malikdir və onu güvənlik yoxlamalarınızı *mövcudluqdan silə* bilər. `if (x + 1 < x)` ağıllı overflow testi kimi görünür; müasir kompilyator işarəli `x` üçün şərt "mümkünsüz" əsaslandırmasıyla onu tamamilə silə bilər. Əməliyyatdan *əvvəl* yoxlayın (`x > INT_MAX − y`), ya da kompilyatorun yoxlanmış-arifmetik daxili funksiyalarından istifadə edin — əməliyyatdan sonra heç vaxt yoxlamayın.
+C və C++-da isə yanlışdan da betərdir — signed overflow formal olaraq **undefined behavior**-dur: kompilyatora bunun heç vaxt baş vermədiyini fərz etmək icazəsi verilib və o, təhlükəsizlik yoxlamalarınızı *yoxluğa optimallaşdıra* bilər. `if (x + 1 < x)` ağıllı overflow testinə oxşayır; müasir kompilyator onu bütövlükdə silə bilər — signed `x` üçün şərtin "qeyri-mümkün" olduğunu əsas gətirərək. Əməliyyatdan *əvvəl* test edin (`x > INT_MAX − y`) və ya kompilyatorun checked-arithmetic builtin-lərini işlədin — heç vaxt sonra test etməyin.
 
 </Pitfall>
 
-## İyirmi il gizlənən bug {/*the-bug-that-hid-for-twenty-years*/}
+## İyirmi il gizlənən buq {/*the-bug-that-hid-for-twenty-years*/}
 
-İşarə çevrilmə overflow yalnız raketlər üçün ekzotik uğursuzluq deyil. 2006-cı ildə Joshua Bloch — Java-nın əsas kitabxanasının böyük hissəsini yazan mühəndis — *"Demək olar ki, bütün Binary Search-lər və Mergesort-lar sınıqdır"* adlı bir etiraf yayımladı. Günahkar onun demək olar ki, bir onillik əvvəl `java.util.Arrays`-ə qoyduğu daxil olmaqla praktiki olaraq yazılmış hər binary search-də görünən bir sətir idi:
+İşarə-çevirən overflow raketlərə xas ekzotik uğursuzluq deyil. 2006-cı ildə Joshua Bloch — Java-nın nüvə kitabxanasının böyük hissəsini yazan mühəndis — *"Nearly All Binary Searches and Mergesorts are Broken"* ("Demək olar bütün binary search-lər və mergesort-lar sınıqdır") adlı etiraf dərc etdi. Günahkar, indiyə qədər yazılmış az qala hər binary search-də görünən bir sətir idi — onun özünün təxminən on il əvvəl `java.util.Arrays`-ə qoyduğu da daxil:
 
 ```
 mid = (low + high) / 2;
 ```
 
-*Alqoritm* dərslik-düzgündür. Lakin `low + high` işarəli 32-bit toplamasıdır, milyard elementdən çox üzərindəki axtarış üçün (2³⁰) `low + high` 2,147,483,647-i keçə bilər — cəm tikişi keçir, mənfiyə çevrilir, `mid` isə mənfi indeks olur. Proqram `ArrayIndexOutOfBoundsException` ilə çöküşə uğrayır... amma 1997-ci ildə heç kim test etməyəcək qədər böyük girişlər üzərindəki testlər.
+*Alqoritm* dərslik səviyyəsində düzgündür. Amma `low + high` signed 32-bitlik toplamadır və axtarış təxminən bir milyard elementdən (2³⁰) böyük massivdə işləyəndə `low + high` 2.147.483.647-ni keçə bilir — cəm tikişi keçir, mənfiyə çevrilir və `mid` mənfi indeks olur. Proqram `ArrayIndexOutOfBoundsException` ilə çökür... amma yalnız 1997-ci ildə heç kimin test etmədiyi qədər böyük girişlərdə.
 
-Bug JDK-da təxminən doqquz il oturdu. Bloch-un daha sert nöqtəsi belə idi: demək olar ki, eyni sətir Jon Bentley-nin klassik *Programming Pearls*-ında (1986) görünür — alqoritmi rəsmi olaraq *sübut edən* bir kitab — beləliklə bug "sübut edilmiş" kodda təxminən iyirmi il gizləndi. Sübut ideal tam ədədlər haqqında idi; çöküş 32-bit olanlar haqqında. Düzgün alqoritm, sınıq tətbiq.
+Buq JDK-da təxminən doqquz il oturdu. Bloch-un daha böyük mesajı daha sərt idi: mahiyyətcə eyni sətir Jon Bentley-nin klassik *Programming Pearls* kitabında (1986) da var — alqoritmi formal olaraq düzgün *isbat edən* kitabda — deməli buq "isbatlanmış" kodda təxminən iyirmi il gizlənmişdi. İsbat ideal tam ədədlər haqqında idi; çöküş 32-bitliklər haqqında. Düzgün alqoritm, sınıq implementasiya.
 
-Düzəltmələr əzbər olmağa dəyər, çünki bir gün özünüz bu sətiri yazacaqsınız:
+Düzəlişləri əzbərləməyə dəyər, çünki bir gün bu sətri özünüz yazacaqsınız:
 
 ```
-mid = low + (high − low) / 2;     // fərq overflow edə bilməz
-mid = (low + high) >>> 1;         // Java: işarəsiz sürüşdürmə — bölünmə
-                                  // işarə kontraktını ignore edir
+mid = low + (high − low) / 2;     // fərq daşa bilməz
+mid = (low + high) >>> 1;         // Java: unsigned shift — işarə
+                                  // müqaviləsinə məhəl qoymayan bölmə
 ```
 
-Ötən dərsin əxlaqını xatırlayın: *məhdudiyyətlər dizayn zamanı uçatılmaz görünür, lakin sistemlər dizaynerlərin fərziyyələrindən uzun ömür sürürlər.* 1986-cı ildə milyard elementli array elmi fantastika idi. 2006-cı ildə isə sıradan bir çərşənbə idi.
+Keçən dərsin əxlaq dərsini xatırlayın: *limitlər dizayn vaxtı çatılmaz görünür, amma sistemlər dizaynerlərinin fərziyyələrindən uzun yaşayır.* 1986-cı ildə milyard elementli massiv elmi fantastika idi. 2006-cı ildə adi bir çərşənbə axşamı.
 
 <DeepDive>
 
-#### Sign-magnitude-in yaşayacaq yer tapması {/*where-sign-magnitude-went-to-live*/}
+#### Sign-magnitude hara köçdü {/*where-sign-magnitude-went-to-live*/}
 
-Sign-magnitude tam ədəd müharibəsini uduzdu, amma ölmədi — çox rahat bir mülkiyyətə çəkildi. **IEEE 754 floating-point ədədlər** — hər dildəki `float` və `double`, növbəti dərsin mövzusu — dəyərlərini işarə biti üstə miqdar kimi saxlayır. Bu dərsin 1-ci cəhdi kodunuzun toxunduğu hər `0.5` və `3.14`-ün içərisindədir.
+Sign-magnitude tam ədəd müharibəsini uduzdu, amma ölmədi — çox rahat bir malikanəyə təqaüdə çıxdı. **IEEE 754 floating-point rəqəmləri** — hər dildəki `float` və `double`, növbəti dərsin mövzusu — dəyərlərini işarə biti üstəgəl qiymət kimi saxlayır. Bu dərsin 1-ci cəhdi kodunuzun toxunduğu hər `0.5`-in və `3.14`-ün içində işləyir.
 
-Köhnə bagajını da özüylə gətirdi: floating-point həqiqətən **iki sıfır** var. `+0.0` və `−0.0` hər IEEE maşınında fərqli bit nümunələridir. Komitə çirkinliyin üzərini örtdü — `==` operatoru onları bərabər saymağa məcburdur — amma sıxışdırsanız tikişlər görünür:
+Və köhnə yükünü də özüylə gətirdi: floating-point-də həqiqətən **iki sıfır** var. `+0.0` və `−0.0` hər IEEE maşınında fərqli bit nümunələridir. Komitə çirkinliyin üstünü örtdü — `==` operatoru onları bərabər saymağa borcludur — amma sıxışdırsanız, tikişlər görünür:
 
 ```
- 0.0 === -0.0        →  true      (müqavilə)
+ 0.0 === -0.0        →  true      (saziş)
  Object.is(0, -0)    →  false     (bitlər)
- 1 / -0.0            →  -Infinity (açıqlama)
+ 1 / -0.0            →  -Infinity (ələ verən əlamət)
 ```
 
-Two's complement-ə uduzduqdan əlli il sonra cüt sıfır problemi Yer üzündəki hər prosessorda canlıdır — sadəcə bir mərtəbə yuxarıda.
+Two's complement-ə uduzandan əlli il sonra əkiz-sıfır problemi Yer üzündəki hər prosessorda sağdır — sadəcə bir mərtəbə yuxarıda.
 
 </DeepDive>
 
 ## İşarəni özünüz sındırın {/*break-the-sign-yourself*/}
 
-Budur Dərs 1-dəki keçid paneli, yeniləndilər: eyni səkkiz açar, lakin indi *hər iki kontrakt* byte-ı eyni anda oxuyur. MSB — −128 çəkisinə malik açar — qırmızı kənar daşıyır. Açarları çevirin və seyrdin: MSB qaranlıq qaldıqca hər iki oxuma tamamilə razılaşır. Onu yandırın, eyni bitlər iki fərqli ədədə, 256 fərqli olaraq bölünür. `11111011` (−5) qurmağa, sonra `10000000` (tənha −128) qurmağa, sonra `01111111` (+127)-dən başlayıb əllə "bir əlavə etməyə" çalışın:
+Budur Dərs 1-in açar paneli, təkmilləşdirilmiş: eyni səkkiz açar, amma indi byte-ı *hər iki* müqavilə eyni anda oxuyur. MSB — −128 çəkisinin sahibi olan açar — qırmızı haşiyə geyinib. Açarları çevirin və baxın: MSB sönülü qaldıqca iki oxunuş mükəmməl üst-üstə düşür. Onu yandırın — eyni bitlər 256 fərqlə iki fərqli rəqəmə bölünür. `11111011`-i (−5) qurmağa çalışın, sonra `10000000`-ı (tənha −128), sonra `01111111`-dən (+127) başlayıb əllə "bir əlavə edin":
 
 <Sandpack>
 
@@ -286,7 +286,7 @@ export default function SignedPanel() {
   return (
     <div style={{ textAlign: 'center', fontFamily: 'monospace' }}>
       <p style={{ fontFamily: 'system-ui' }}>
-        One byte, two contracts. The red-bordered switch is the MSB:
+        Bir byte, iki müqavilə. Qırmızı haşiyəli açar MSB-dir:
       </p>
       <div>
         {bits.map((bit, i) => (
@@ -315,8 +315,8 @@ export default function SignedPanel() {
       </h2>
       <p style={{ fontFamily: 'system-ui' }}>
         {split
-          ? 'MSB lit: the same bits now mean two numbers, 256 apart.'
-          : 'MSB dark: both contracts agree.'}
+          ? 'MSB yanılı: eyni bitlər indi 256 fərqlə iki rəqəm deməkdir.'
+          : 'MSB sönülü: hər iki müqavilə razıdır.'}
       </p>
     </div>
   );
@@ -325,41 +325,41 @@ export default function SignedPanel() {
 
 </Sandpack>
 
-Tam olaraq 256-lıq o fərq — bütün dərsin bir ədəddə ifadəsidir: MSB yananda işarəli oxu `unsigned − 256`-dır — odometer "sıfırın just aşağısı" kimi yox, "üstündə" olaraq yozulur.
+O dəqiq 256-lıq fərq bütün dərsin bir rəqəmdə xülasəsidir: MSB yanılı olanda signed oxunuş `unsigned − 256`-dır — odometrin "zirvəyə yaxın" əvəzinə "sıfırın azca altında" kimi şərh edilməsi.
 
 <Recap>
 
-- Hardware-da **minus işarəsi yoxdur** — mənfi ədədlər adi bitlər üzərindəki bir *kontrakt*dır, yaxşı kontrakt isə sadə toplayıcının işləməsini qoruyur.
-- **Sign-magnitude** (işarə bayrağı + miqdar) və **one's complement** (bütün bitləri çevir) eyni iki şəkildə uğursuz olurlar: **cüt sıfırlar** və xüsusi hardware tələb edən arifmetika.
-- **Two's complement** geri işlədilən odometerdır: şkalanın yuxarı yarısı −128…−1 olaraq yenidən bölgülənir, belə ki `11111111` −1-dir, dolanma isə *mənfi işarəsidir*. Bir sıfır, sadə toplayıcı işarəli *və* işarəsiz cəm *və* çıxmanı idarə edir.
-- Mənfiləşdirmək üçün: **hər biti çevir, 1 əlavə et.** Çıxma sadəcə mənfiləşdirməyin toplamasıdır — prosessorunuz çıxarıcı ehtiva etmir.
-- Ən dərin görünüş: MSB-in **ağırlığı −128-dir** (ya da −2ⁿ⁻¹). Bu tək fakt işarə bitini, bir sıfırı, asimmetrik −128…+127 aralığını izah edir.
-- Asimmetriya **−128-i müsbət əksi olmayan** tək olaraq buraxır, buna görə INT_MIN-i mənfiləşdirmək INT_MIN-i qaytarır — `abs()`-in mənfi ədəd qaytardığı bir giriş.
-- **İşarəli overflow işarəni çevirir**: `+127 + 1 = −128`, iki müsbət mənfiyə cəmlənir, C/C++-da isə undefined behavior-dır. Java-nın `binarySearch`-inin içərisində `(low + high) / 2` olaraq **~9 il** (və *Programming Pearls*-da ~20 il) gizləndi; `low + (high − low) / 2` yazın.
+- Hardware-də **minus işarəsi yoxdur** — mənfi rəqəmlər adi bitlərin üstünə sərilmiş *müqavilədir* və yaxşı müqavilə adi adder-i işlək saxlamalıdır.
+- **Sign-magnitude** (işarə bayrağı + qiymət) və **one's complement** (bütün bitləri çevir) eyni iki cür uğursuz olur: **əkiz sıfırlar** və xüsusi hardware tələb edən hesab.
+- **Two's complement** geriyə sürülən odometrdir: şkalanın yuxarı yarısı −128…−1 kimi yenidən zonalaşdırılıb, beləliklə `11111111` −1-dir və aşma minus işarəsinin *özüdür*. Bir sıfır — və kütbeyin adder həm toplamanı, həm çıxmanı, həm signed-i, həm unsigned-i emal edir.
+- Mənfiləşdirmək üçün: **hər biti çevir, 1 əlavə et.** Çıxma sadəcə mənfiləşdirilənin toplanmasıdır — CPU-nuzda subtractor yoxdur.
+- Ən dərin baxış: MSB **çəkisi −128** (və ya −2ⁿ⁻¹) olan adi mövqedir. Bu tək fakt işarə bitini, tək sıfırı və asimmetrik −128…+127 aralığını izah edir.
+- Asimmetriya **−128-i müsbət əkizsiz** qoyur, ona görə INT_MIN-i mənfiləşdirmək INT_MIN qaytarır — `abs()`-ın mənfi rəqəm qaytardığı yeganə giriş.
+- **Signed overflow işarəni çevirir**: `+127 + 1 = −128`, iki müsbətin cəmi mənfi olur və C/C++-da bu, undefined behavior-dur. Java-nın `binarySearch`-ündə `(low + high) / 2` kimi **~9 il** gizləndi (*Programming Pearls*-də isə ~20); `low + (high − low) / 2` yazın.
 
 </Recap>
 
 <Challenges>
 
-#### −12-i kodlayın {/*encode-minus-12*/}
+#### −12-ni kodla {/*encode-minus-12*/}
 
-Çevir-bir-əlavə-et istifadə edərək −12-i 8-bit two's complement byte olaraq kodlayın. Sonra cavabınızı *başqa* metodla yoxlayın: byte-ı −128 çəkisiylə geri oxuyun.
+Çevir-və-1-əlavə-et üsulu ilə −12-ni 8-bitlik two's complement byte-ı kimi kodlayın. Sonra cavabınızı *o biri* üsulla yoxlayın: byte-ı −128 çəkisi ilə geri oxuyun.
 
 <Hint>
 
-+12-dən başlayın. 12-ni ötən dərsdə ikili olaraq yazmışdınız: 1, 2, 4, 8, 16... çəkilərindən hansı ikisi 12-yə cəmlənir?
++12-dən başlayın. 12-ni binary sistemdə keçən dərs yazmısınız: 1, 2, 4, 8, 16... çəkilərindən hansı ikisinin cəmi 12 edir?
 
 </Hint>
 
 <Solution>
 
 ```
- +12        = 00001100      (8 + 4)
- çevir      = 11110011
- 1 əlavə et = 11110100      ← −12
+ +12         = 00001100      (8 + 4)
+ çevir       = 11110011
+ 1 əlavə et  = 11110100      ← −12
 ```
 
-Çəkilərylə yoxla, MSB = −128:
+Çəkilərlə yoxla, MSB = −128:
 
 ```
   1     1     1     1    0    1    0    0
@@ -368,69 +368,69 @@ Tam olaraq 256-lıq o fərq — bütün dərsin bir ədəddə ifadəsidir: MSB y
 −128 + 64 + 32 + 16 + 4 = −128 + 116 = −12 ✓
 ```
 
-İki müstəqil metod, bir cavab — çapraz-yoxlama vərdişi real işdə sürüşmüş bir biti belə tutacaqdır.
+İki müstəqil üsul, bir cavab — o çarpaz-yoxlama vərdişi real işdə sürüşmüş biti tutmağın dəqiq yoludur.
 
 </Solution>
 
-#### Bir byte, iki oxuma {/*one-byte-two-readings*/}
+#### Bir byte, iki oxunuş {/*one-byte-two-readings*/}
 
-Yaddaş dökümü `11101100` byte-ını göstərir. İşarəsiz nədir? İşarəli nədir? Hər ikisini cavablayın, sonra iki cavabınızı birləşdirən qısayolu tapın.
+Yaddaş dump-ı `11101100` byte-ını göstərir. Unsigned nədir? Signed nədir? Hər ikisinə cavab verin, sonra iki cavabınızı birləşdirən qısayolu tapın.
 
 <Solution>
 
-İşarəsiz, çəkiləri əlavə edin: 128 + 64 + 32 + 8 + 4 = **236**.
+Unsigned, çəkiləri topla: 128 + 64 + 32 + 8 + 4 = **236**.
 
-İşarəli, MSB −128 çəkisi: −128 + 64 + 32 + 8 + 4 = −128 + 108 = **−20**.
+Signed, MSB −128 çəkir: −128 + 64 + 32 + 8 + 4 = −128 + 108 = **−20**.
 
-Qısayol: MSB yananda, **işarəli = işarəsiz − 256**. Yoxla: 236 − 256 = −20 ✓. Bu, bir formulda şkaladır — eyni mövqe "236 addım yuxarı" ya da "dolanmanın 20 addım aşağısı" olaraq oxunur. Bu, Sandpack oyununun istifadə etdiyi tam sətirdir.
+Qısayol: MSB yanılı olanda həmişə **signed = unsigned − 256**. Yoxla: 236 − 256 = −20 ✓. Bu, şkala bir düsturda — eyni mövqe "236 addım yuxarı" və ya "aşmadan 20 addım aşağı" kimi oxunur. Sandpack oyuncağının işlətdiyi sətrin dəqiq özüdür.
 
 </Solution>
 
-#### Yalan söyləyən mütləq dəyər {/*the-absolute-value-that-lies*/}
+#### Yalan danışan mütləq qiymət {/*the-absolute-value-that-lies*/}
 
-Bir komanda yoldaşı iddia edir: "`abs(x)` həmişə ≥ 0-dır — bu onun bütün işidir." 8-bit byte istifadə edərək onları yanış sübut edin: çevir-bir-əlavə-etin −128 üçün əslində nə istehsal etdiyini göstərin, niyə düzgün cavabın mövcud olmadığını izah edin.
+Komanda yoldaşınız iddia edir: "`abs(x)` həmişə ≥ 0-dır — bütün işi elə budur." 8-bitlik byte-la onların haqsız olduğunu isbat edin: çevir-və-1-əlavə-et-in −128 üçün faktiki nə istehsal etdiyini göstərin və izah edin: *niyə* düzgün cavab mövcud deyildi?
 
 <Solution>
 
 ```
- −128       = 10000000
- çevir      = 01111111
- 1 əlavə et = 10000000      ← −128, dəyişmədi
+ −128        = 10000000
+ çevir       = 01111111
+ 1 əlavə et  = 10000000      ← −128, dəyişməz
 ```
 
-Resept öz girişini qaytarır. Və *uğursuz olmaq* məcburiyyətindəydi: düzgün cavab, +128, işarəli byte-da mövcud deyil — müsbət tərəf +127-də bitir, çünki "nəzərən" +128 olmalı olan `10000000` nümunəsi artıq −128 olmaqla məşğuldur. Aralıq asimmetrikdir (bir sıfır + 127 müsbət + 128 mənfi = 256 hal), buna görə minimum dəyərin müsbət əksi yoxdur.
+Resept öz girişini geri qaytarır. Və uğursuz olmağa *məcbur idi*: düzgün cavab — +128 — signed byte-da mövcud deyil: müsbət tərəf +127-də bitir, çünki +128 "olmalı olan" `10000000` nümunəsi elə −128 olmaqla məşğuldur. Aralıq asimmetrikdir (bir sıfır + 127 müsbət + 128 mənfi = 256 hal), deməli minimum dəyərin müsbət əkizi yoxdur.
 
-Bu hər enə miqyaslayır: Java-da `Math.abs(Integer.MIN_VALUE)` −2,147,483,648 qaytarır. `abs()` hesablayan, sonra nəticənin mənfi olmadığını *fərz edən* hər kod — massiv indeksi, məsafə, kova nömrəsi olaraq — onu sındıran 4,3 milyard dəfədən birini var. Müdafiəçi düzəliş: mütləq dəyər almadan əvvəl INT_MIN-i rədd edin ya da genişləndirin.
+Bu, hər enə miqyaslanır: Java-da `Math.abs(Integer.MIN_VALUE)` −2.147.483.648 qaytarır. `abs()` hesablayıb nəticənin qeyri-mənfi olduğunu *fərz edən* istənilən kodun — massiv indeksi, məsafə, bucket nömrəsi kimi — onu sındıran 4,3-milyardda-bir girişi var. Müdafiə düzəlişi: mütləq qiymət götürməzdən əvvəl INT_MIN-i rədd edin və ya tipi genişləndirin.
 
 </Solution>
 
-#### Çılğınlaşan sensor {/*the-sensor-that-went-mad*/}
+#### Dəli olan sensor {/*the-sensor-that-went-mad*/}
 
-Transfer tapşırığı. Firmware komanda yoldaşı sizi bu vəziyyəti review etmənizi xahiş edir: mühərrik sensoru temperaturu **8-bit işarəli** dəyər olaraq bildirir (aralıq −128…+127 °C, "kifayət qədər çox — mühərrik 110 °C-ni heç vaxt keçmir"). Kalibrasiya yeniləməsi hər oxumaya saxlanmadan əvvəl sabit **+30** offset əlavə edir. İsti test zamanı xam sensor 100 °C oxuyur. Firmwarenin etdiyi arifmetikanı izah edin, hansı dəyərin saxlanıldığını göstərin, iki cümləlik review şərhini yazın — bu uğursuzluq rejiminin niyə çöküşdən *daha* təhlükəli olduğunu da daxil edin.
+Transfer tapşırığı. Firmware üzrə komanda yoldaşınız bu vəziyyəti review etməyinizi xahiş edir: mühərrik sensoru temperaturu **8-bitlik signed** dəyər kimi bildirir (aralıq −128…+127 °C, "artıqlaması ilə bəsdir — mühərrik heç vaxt 110 °C-ni keçmir"). Kalibrasiya yeniləməsi hər göstəriciyə saxlanmazdan əvvəl sabit **+30** offset əlavə edir. İsti test zamanı xam sensor 100 °C oxuyur. Firmware-in apardığı hesabı addım-addım keçin, hansı dəyərin saxlandığını bildirin və qoyacağınız iki cümləlik review şərhini yazın — o cümlədən bu uğursuzluq rejiminin crash-dan niyə *daha* təhlükəli olduğunu.
 
 <Solution>
 
-Firmware 100 + 30 = 130 hesablayır — lakin 130 işarəli byte-a sığmır (tavan +127). Bit səviyyəsində:
+Firmware 100 + 30 = 130 hesablayır — amma 130 signed byte-a sığmır (tavan +127). Bit səviyyəsində:
 
 ```
    01100100      100
  + 00011110       30
  ----------
-   10000010      MSB yanır → işarəli oxu: −128 + 2 = −126
+   10000010      MSB yanılı → signed oxunuş: −128 + 2 = −126
 ```
 
-Saxlanan temperatur **−126 °C**-dir. Cəm +127-dəki tikişi keçdi və mənfi tərəfdə dərin yerə düşdü.
+Saxlanan temperatur **−126 °C**-dir. Cəm +127-dəki tikişi keçib mənfi tərəfin dərinliyinə düşdü.
 
-Review şərhi: *"Kalibrasiya +30 oxumaları +127-nin üzərinə çıxara bilər (xam ≥ 98 °C artıq overflow edir), saxlanan dəyər isə gizlicə böyük mənfi temperatur olur — qızan mühərrik qeyri-mümkün soyuq olaraq oxunacaq, buna görə hər 'çox isti' siqnalı heç vaxt işə düşməyəcək. Lütfən saxlanan tipi 16-bit-ə genişləndirin (ya da əlavəmədən əvvəl kəsin) və xam = 98–127-də test əlavə edin."*
+Review şərhi: *"+30 kalibrasiya göstəriciləri +127-dən yuxarı itələyə bilir (xam ≥ 98 °C artıq daşır) və saxlanan dəyər səssizcə böyük mənfi temperatura çevrilir — qızmış mühərrik qeyri-mümkün dərəcədə soyuq oxunacaq, deməli heç bir 'çox isti' həyəcan siqnalı heç vaxt işə düşməyəcək. Zəhmət olmasa saxlanan tipi 16-bitə genişləndirin (və ya toplamazdan əvvəl clamp edin) və xam = 98–127 üçün test əlavə edin."*
 
-Niyə çöküşdən betərdir: çöküş ucadır — watchdog-lar yenidən başladır, loglar doldurur, insanlar çağırılır. Burada isə sistem **gizlicə yanlış verilənlər üzərindəki** arxayınlıqla işləməyə davam edir, güvənlik məntiqı isə "−126°" oxuyur "qəti olaraq qızışmır" olaraq. Ariane 5-in dizaynerləri, qeyd edək ki, əks mübadiləni seçdilər — çevirmə zibillik saxlamaq əvəzinə istisna qaldırdı — o çöküş *də* fəlakətli idi. Həqiqi dərs bir səviyyə yuxarıda oturur: aralıqlarınızı *dizayn zamanı* bilin, çünki tikişi keçdikdə, hər iki uğursuzluq rejimi pisdir. ✓ (98 + 30 = 128 → `10000000` = −128, pis gedən ilk xam dəyər.)
+Crash-dan niyə betərdir: crash səslidir — watchdog-lar sistemləri yenidən başladır, loglar dolur, insanlar oyadılır. Burada isə sistem **səssizcə yanlış datanın** üstündə əminliklə işləməyə davam edir və təhlükəsizlik məntiqi "−126°"-ni "qətiyyən qızmır" kimi oxuyur. Qeyd edək ki, Ariane 5-in dizaynerləri əks mübadiləni seçmişdilər — çevirmə zibil saxlamaq əvəzinə exception qaldırdı — və o crash da fəlakət *oldu*. Əsl dərs bir mərtəbə yuxarıda oturur: aralıqlarınızı *dizayn vaxtı* bilin, çünki tikiş keçiləndə hər iki uğursuzluq rejimi pisdir. ✓ (98 + 30 = 128 → `10000000` = −128 — yanlışa gedən ilk xam dəyər.)
 
 </Solution>
 
 </Challenges>
 
-<LearnMore title="Floating Point: Niyə 0.1 + 0.2 0.3 Deyil" path="/learn/faza-0/modul-0-1/floating-point">
+<LearnMore title="Floating Point: 0.1 + 0.2 Niyə 0.3 Deyil" path="/learn/faza-0/modul-0-1/floating-point">
 
-Tam ədədlər indi sizindir, müsbət və mənfi. Lakin dünya 3.14, 0.001, və 6.02 × 10²³ üzərindədir də — və *bunları* saxlayan kontrakt bu dərsdəki hər şeydən qəribədir: işarə bitini diriltir, qəsdən iki sıfır saxlayır, 0.1-i heç dəqiq yaza bilmir. 1991-ci ildə həmin son fakt — hər tikin başına 0.000000095 saniyəlik yuvarlama xətası — bir Patriot raket batareyasının nişanını korladı və 28 əsgərin həyatına başa gəldi.
+Tam ədədlər artıq sizindir, müsbəti də, mənfisi də. Amma dünya həm də 3.14, 0.001 və 6,02 × 10²³ üstündə fırlanır — və *onları* saxlayan müqavilə bu dərsdəki hər şeydən qəribədir: işarə bitini dirildir, iki sıfırı qəsdən saxlayır və 0.1-i dəqiq yaza bilmir — heç cür. 1991-ci ildə məhz o son fakt — hər tik-də 0,000000095 saniyəlik yuvarlaqlaşdırma xətası — bir Patriot raket batareyasına nişanını, 28 əsgərə isə həyatını itirtdi.
 
 </LearnMore>
