@@ -4,101 +4,101 @@ title: "Data Bütövlüyü: Parity, Checksum-lar, CRC"
 
 <Intro>
 
-2003-cü il may ayının 18-də, Schaerbeek Brüssel bölgəsindəki elektron səsvermə maşını yerli namizəd Maria Vindevoghel-ə **4,096 əlavə səs** verdi. Xəta yalnız ona görə aşkarlandı ki onun cəmi onu seçə biləcək insanların sayını aşdı; yenidən sayım maşının heç nədən səslər icad etdiyini təsdiqlədi. Rəsmi araşdırma heç bir xəta, fırıldaqçılıq, yenidən istehsal oluna bilən nasazlıq tapmadı — və dəqiqliklə uyğun gələn yeganə izahla nəticəlandı: bir bit, səs sayğacının 13-cü biti, özbaşına 0-dan 1-ə çevrildi. Bit 13-ün nə qiymət daşıdığını bilirsiniz: **2¹² = 4,096** — bu rəqəm təsadüfi deyildi, ikilik qüvvətin bir yüksəkdir, bir tranzistorun zəiflik anının dəqiq barmaq izi, çox güman ki qalaktikanın qarşısındakı kosmik şüadan gəlmiş bir zərrəcik tərəfindən baş vermişdir. Yeddi dərs sizi bitlərə dünya kodlaşdırmağa öyrətdi. Bu dərs həmin dərslərin təxirə saldığı narahat həqiqətlə üzləşir: **bitlər çevrilir**. Yaddaş unudur, kabellar küy pıçıldar, disklər cızılır — və datanız dəyişdirildikdə xəbər tutmaq üçün bütöv bir riyaziyyat sahəsi var. Bəziləri hətta datanı *geri qaytara bilir*.
+2003-cü il mayın 18-də Brüsselin Schaerbeek bələdiyyəsində elektron səsvermə maşını yerli namizəd Maria Vindevoghel-ə sakitcə **4.096 əlavə səs** yazdı. Xəta yalnız ona görə aşkarlandı ki, onun ümumi səs sayı ona real səs verə biləcək insanların sayını keçmişdi; yenidən sayım maşının bu səsləri yoxdan uydurduğunu təsdiqlədi. Rəsmi araşdırma nə bug, nə saxtakarlıq, nə də təkrarlana bilən bir nasazlıq tapdı — və sübutlara qəribə dəqiqliklə uyğun gələn yeganə izaha gəldi: səs sayğacının 13-cü biti öz-özünə 0-dan 1-ə çevrilmişdi. 13-cü bitin nəyə bərabər olduğunu bilirsiniz: **2¹² = 4.096** — bu rəqəm təsadüfi deyildi, maskalanmış ikinin qüvvəti idi — bir tranzistorun zəiflik anının səhv salınmaz barmaq izi, çox güman ki, qalaktikanı keçib səyahətini Belçika səs sayğacında bitirən kosmik şüanın işi. Yeddi dərs sizə dünyanı bitlərə kodlamağı öyrətdi. Bu dərs həmin dərslərin təxirə saldığı narahat həqiqətlə üzləşir: **bitlər çevrilir (bit flip)**. Yaddaş unudur, kabellər səs-küy pıçıldayır, disklər cızılır — və bütöv bir riyaziyyat sahəsi məhz ona görə mövcuddur ki, kainat sizin datanızı redaktə edəndə bundan xəbər tutasınız. Hətta bəziləri datanı geriyə *özü redaktə edə* bilir.
 
 </Intro>
 
 <YouWillLearn>
 
-- Bitlər fiziki dünyada niyə çevrilir — kosmik şüalar, küy, aşınma — və miqyasda "milyardda bir" niyə *gündəlik* deməkdir
-- **Parity**: bir-bitlik qoruyan, tam olaraq nəyi tutduğu, iki çevrilmənin kor nöqtəsi
-- **Checksum-lar**: sadə byte cəmindən (və onu aldadan yenidən sıralama xətasından) hər IP paketindəki Internet checksum-a qədər
-- **CRC**: ZIP, PNG və Ethernet-in arxasındakı qalıq hiyləsi — tam əl hesabı ilə, uzun bölmə daxil
-- **Səhv düzəltmə**: Hamming-in qəzəbli həftəsonu, yoxlama uğursuzluqlarının qırıq bitin ünvanını *hərflə ifadə etdiyi* kod, Reed–Solomon-un cızılmış CD-ləri və üstündən xətt çəkilmiş QR kodları sağalması
-- Professional qərar qatı: aşkarlama vs düzəltmə, qəza vs düşmən, doğrulamanın pipeline-da nə yerdə aparılması
+- Fiziki dünyada bitlərin niyə çevrildiyi — kosmik şüalar, səs-küy, köhnəlmə — və miqyas böyüyəndə "milyardda bir"in niyə *hər gün* demək olduğu
+- **Parity**: bir bitlik keşikçi, dəqiq nəyi tutduğu və onun sərhədlərini müəyyən edən iki-flip kor nöqtəsi
+- **Checksum-lar**: sadəlövh bayt cəmləməsindən (və onu aldadan yerdəyişmə buqundan) hər IP paketinin içindəki Internet checksum-a qədər
+- **CRC**: ZIP, PNG və Ethernet-in arxasındakı qalıq (remainder) fəndi — uzun bölmə də daxil olmaqla, tamamilə əllə hesablanmış
+- **Xəta düzəltmə (error correction)**: Hamming-in qəzəbli həftəsonu, uğursuz yoxlamaların xarab bitin ünvanını *hərfbəhərf yazdığı* kod və cızılmış CD-ləri, üstü örtülmüş QR kodları sağaldan Reed–Solomon
+- Peşəkar mühakimə qatı: detect vs correct, qəza vs düşmən (adversary) və pipeline-da yoxlamanın (verification) əslində harada dayanmalı olduğu
 
 </YouWillLearn>
 
 ## Düşmən: çevrilmiş bitlər {/*the-enemy-flipped-bits*/}
 
-1-ci Dərs o gündən bəri hər şeyin altında sessiz işləyən sadələşdirici bir söz verdi: bir bit, bir dəfə yazıldıqda, *yazılmış qalır*. Fizika əslində bu müqaviləni imzalamır. DRAM hüceyrəsi bir neçə on min elektron tutan mikroskopik kondensatordur; yüksək enerjili bir zərrəcik — atmosferin yuxarı qatlarından kosmik şüa törəməsi, çipin öz qablaşmasındakı radioaktiv atomlardan alfa zərrəciyi — onu çevirmək üçün kifayət qədər yük tulla ya çəkə bilər. Gərginlik sıçramaları tarlarda bit çevirir. Köhnə disklərə maqnitləşmə solur; yaşlanmış flash hüceyrələrindən yük axır (sənayenin termini, **bit rot**, metafora deyil); CD üzərindəki barmaq izi bir anda minlərlə biti silib atar.
+Dərs 1 sadələşdirici bir vəd vermişdi və o vəd o vaxtdan bəri hər şeyin altında səssizcə dayanır: bit bir dəfə yazıldısa, *yazılı qalır*. Fizika əslində bu müqaviləni imzalamır. DRAM hüceyrəsi bir neçə on min elektron saxlayan mikroskopik kondensatordur; yüksək enerjili bir zərrəcik — atmosferin yuxarı qatlarından gələn kosmik şüa törəməsi, çipin öz korpusundakı iz miqdarında radioaktiv atomlardan qopan alfa zərrəciyi — həmin yükü çevirməyə kifayət edəcək qədər yük əlavə edə və ya boşalda bilər. Gərginlik sıçrayışları naqillərdəki bitləri çevirir. Köhnə disklərdə maqnitlənmə sönür; yaşlanan flash hüceyrələrindən yük sızır (sənayenin termini olan **bit rot** metafora deyil); CD-nin üstündəki bir barmaq izi bir anda minlərlə biti örtür.
 
-İstənilən *tək* çevrilmə inanılmaz dərəcədə nadirdir. Lakin siz yeddi dərs nadir hadisələrlə kompüterlərin nə etdiyini öyrəndiniz: onları astronomik saylarla vurur. Google-un öz fleet-i üzərindəki əsas 2009-cu il araşdırması **yaddaş modullarının təxminən 8%-nin ildə ən azı bir xəta qeyd etdiyini** tapdı — data mərkəzindəkilər üçün kosmik şüalar anek­dot deyil, *rate*-dir.
+İstənilən *tək* flip fantastik dərəcədə nadirdir. Amma siz yeddi dərsdir kompüterlərin nadir hadisələrlə nə etdiyini öyrənirsiniz: onları astronomik saylara vururlar. Google-un öz server parkı üzərində apardığı məşhur 2009-cu il tədqiqatı təxminən **yaddaş modullarının 8%-nin ildə ən azı bir xəta qeydə aldığını** göstərdi — data mərkəzində kosmik şüalar lətifə deyil, *sürətdir (rate)*. Evdə də eyni riyaziyyat daha kiçik rəqəmlərlə işləyir: giqabaytlarla RAM × aylarla iş vaxtı o deməkdir ki, maşınınız demək olar ki, mütləq fliplər yaşayıb; sadəcə onları nəticə verdiyi anda cinayət başında tutmaq nadir hadisədir.
 
-Schaerbeek dəqiq olaraq *aşkarlandığı* üçün dəyərlidir — və *necə* aşkarlandığına diqqət yetirin. Korrupsiya riyaziyyat vasitəsilə özünü bildirdi: sayğac tam olaraq 2¹² qədər sıçradı. Bit çevrilməsindən korrupsiya həmişə bu imzanı daşıyır — tam ikilik qüvvəti qədər fərqli bir dəyər — 5-ci Dərsdəki byte sırası xətaları özlərini anaqram kimi bildirdiyi kimi. İmzaları öyrənin; onlar bir debug sessiyasını günlərdən dəqiqələrə endirir. Dərin düzəltmə daha yaxşı hardware deyil — siz hər kondensatoru qalaktikaya qarşı zirehliyə ala bilmirsiniz. Düzəltmə bir fəlsəfə dəyişiklidir: **saxlanılan dataya saxlanmış qalmağa inam etməyi dayandırın və datanı özü haqqında dəlil daşımasını təmin edin.** Bu dərsdəki hər mexanizm həmin bir fikirdir — **artıqlıq**: yük bitlərindən hesablanmış, onlarla birlikdə gedən, alıcının (ya da gələcəyin) yenidən hesablayıb müqayisə edə biləcəyi əlavə bitlər.
+Schaerbeek məhz *tutulduğu* üçün qiymətlidir — və *necə* tutulduğuna diqqət edin. Korrupsiya özünü hesab vasitəsilə elan etdi: say tam olaraq 2¹² qədər sıçradı. Bit flip nəticəsində yaranan korrupsiya həmişə bu imzanı daşıyır — dəyər təmiz ikinin qüvvəti qədər yanlışdır — eynilə Dərs 5-in byte-order buqlarının özlərini anaqram kimi elan etdiyi kimi. Barmaq izlərini öyrənin; onlar debugging sessiyasını günlərdən dəqiqələrə endirir. Amma barmaq izləri yalnız şübhələndikdən *sonra* kömək edir. Belçika maşınının şübhələnmək üçün heç bir vasitəsi yox idi: hər sayğacın bir nüsxəsini saxlayır və ona mütləq inanırdı. Əsl həll daha yaxşı hardware deyil — hər kondensatoru qalaktikaya qarşı zirehləyə bilməzsiniz. Həll fəlsəfə dəyişikliyidir: **saxlanmış datanın saxlanmış qalacağına inanmağı dayandırın və datanı öz haqqında sübut daşımağa məcbur edin.** Bu dərsdəki hər mexanizm həmin bir ideyadır — **redundancy (artıqlıq)**: payload bitlərindən *hesablanmış* əlavə bitlər onlarla birlikdə səyahət edir ki, qəbul edən tərəf (və ya gələcək) yenidən hesablayıb müqayisə edə bilsin. Mexanizmlər yalnız nə qədər sübut daşıdıqları və o sübutun nəyi isbat etdiyi ilə fərqlənir.
 
-## Parity: bir-bitlik qoruyan {/*parity-the-one-bit-guard*/}
+## Parity: bir bitlik keşikçi {/*parity-the-one-bit-guard*/}
 
-Ən ucuz mümkün dəlillə başlayın: **bir əlavə bit**. **Cüt parity** müqaviləsi: datanızdakı 1-ləri sayın; ümumi sayı *cüt* etmək üçün seçilmiş bit əlavə edin. Sxemin hamısı budur.
+Ən ucuz mümkün sübutdan başlayaq: **bir əlavə bit**. **Even parity** müqaviləsi belədir: datanızdakı 1-ləri sayın; ümumi sayı *cüt* edəcək bir bit əlavə edin. Bütün sxem budur.
 
 ```
-'H' = 01001000        birlik: 2 (cüt)    → parity bit 0
-'i' = 01101001        birlik: 4 (cüt)    → parity bit 0
-'C' = 01000011        birlik: 3 (tək)    → parity bit 1
+'H' = 01001000        1-lər: 2 (cüt)   → parity biti 0
+'i' = 01101001        1-lər: 4 (cüt)   → parity biti 0
+'C' = 01000011        1-lər: 3 (tək)   → parity biti 1
 
-saxlanılan 'C':  01000011 1      ← 9 bit indi birlikdə gedir
+saxlanmış 'C':  01000011 1      ← indi 9 bit birlikdə səyahət edir
 ```
 
-Alıcı yenidən sayır. Tək sayda 1-i olan doqquz bit = **xəbərdarlıq**: bir şey çevrildi. Öz ölçüsü üçün zəmanət möhkəmdir: *istənilən* tək-bit çevrilmə — datada *ya da parity biti-nin özündə* — sayın cütlüyünü dəyişdirir, buna görə tək çevrilmə heç vaxt sürüşə bilmir. Bir bit overhead üçün bu olduqca dəyərli bir alım idi.
+Qəbul edən yenidən sayır. Doqquz bitdə tək sayda 1 varsa = **həyəcan siqnalı**: nəsə çevrilib. Və bu zəmanət öz ölçüsü üçün su keçirməzdir: *istənilən* tək-bit flip — datada *və ya parity bitinin özündə* — sayın cütlüyünü dəyişir, ona görə tənha bir flip heç vaxt gözdən yayına bilməz. Bir bitlik xərc üçün bu, möhtəşəm alış-verişdir və sənaye onu topdan aldı: klassik serial xətlər hər simvol üçün bir parity biti daşıyırdı və onilliklər boyu "əsl" kompüterlər hər bayt-genişlikli modulda **doqquz** çip olan RAM ilə satılırdı — səkkizi sizin üçün, biri keşikdə.
 
-Lakin iki kor nöqtəyə baxın, çünki onlar sonra gələn hər şeyi müəyyənləşdirir:
+Amma keşikçinin iki kor nöqtəsinə baxın, çünki bundan sonra gələn hər şeyi məhz onlar müəyyən edir:
 
 <DiagramGroup>
 
-<Diagram name="checksum-crc/parity_catch" height={320} width={340} alt="A row of eight bit cells 01000011 plus a ninth separated parity cell holding 1, labeled 'even parity: total count of ones is even (4)'. Below, the same row with one data bit flipped, drawn in red: 01001011, parity still 1, and a counter noting five ones — odd. A red alarm label reads 'recount is odd: flip detected'.">
+<Diagram name="checksum-crc/parity_catch" height={320} width={340} alt="Səkkiz bit xanasından ibarət sıra 01000011 və 1 saxlayan ayrıca doqquzuncu parity xanası, 'even parity: 1-lərin ümumi sayı cütdür (4)' etiketi ilə. Aşağıda eyni sıra bir data biti çevrilmiş halda, qırmızı rəngdə: 01001011, parity hələ də 1, və beş 1 qeyd edən sayğac — tək. Qırmızı həyəcan etiketi: 'yenidən sayım təkdir: flip aşkarlandı'.">
 
-Bir çevrilmə cütlüyü həmişə pozur. Parity biti hansı bitin yalan söylədiyini deyə bilmir, yalnız birinin dediyi.
+Bir flip cütlüyü pozur — həmişə. Parity biti *hansı* bitin yalan dediyini deyə bilməz, yalnız birinin dediyini *deyə bilər*.
 
 </Diagram>
 
-<Diagram name="checksum-crc/parity_blind" height={320} width={340} alt="The same nine cells with two data bits flipped, both drawn in red: the count of ones goes from four to four again. A muted label reads 'recount is even: silence'. A caption warns: two flips cancel — the guard sees nothing.">
+<Diagram name="checksum-crc/parity_blind" height={320} width={340} alt="Eyni doqquz xana iki data biti çevrilmiş halda, hər ikisi qırmızı: 1-lərin sayı dörddən yenə dördə keçir. Solğun etiket: 'yenidən sayım cütdür: sükut'. Xəbərdarlıq: iki flip bir-birini ləğv edir — keşikçi heç nə görmür.">
 
-İki çevrilmə cütlüyü həmişə bərpa edir. Parity hər cüt sayda fəlakətə kordur, yalnız *aşkarlaya bilir* amma heç vaxt yerini təyin edib düzəldə bilmir.
+İki flip cütlüyü bərpa edir — həmişə. Parity hər cüt-saylı fəlakətə kordur və *detect* edə bilər, amma heç vaxt yeri tapa və ya düzəldə bilməz.
 
 </Diagram>
 
 </DiagramGroup>
 
-Beləliklə: parity **istənilən tək sayda çevrilməni aşkarlayır, istənilən cüt sayı qaçırır, heç nəyi yerini aşkar etmir, heç nəyi düzəltmir**. Bu tripwire-dır, şahid deyil. Daha yaxşı etmək üçün dəlillər daha zəngin olmalıdır — açıq növbəti fikir bitləri saymağı dayandırıb *byte-ları toplamaq*dır.
+Deməli: parity **istənilən tək sayda flipi tutur, istənilən cüt sayı qaçırır, heç nəyin yerini tapmır, heç nəyi düzəltmir**. O, şahid deyil, siqnalizasiya məftilidir. Daha yaxşısını etmək üçün sübut zənginləşməlidir — və növbəti aşkar ideya bitləri saymağı dayandırıb baytları *cəmləməyə* başlamaqdır.
 
-## Checksum-lar: dəlilləri toplamaq {/*checksums-summing-the-evidence*/}
+## Checksum-lar: sübutun cəmlənməsi {/*checksums-summing-the-evidence*/}
 
-Ən sadə formada **checksum**: bütün byte-ları toplayın (cəmi sabit genişlikdə sarmayın — 2-ci Dərsdəki odometer, bir dəfə dürüstcə istifadə olunur) və cəmi birlikdə göndərin.
+**Checksum** ən sadə formasında belədir: bütün baytları toplayın (cəmin sabit endə dövr etməsinə icazə verərək — Dərs 2-nin odometri, bir dəfə də olsa vicdanla işlədilir) və nəticəni data ilə birgə göndərin.
 
 ```
-"Hi"  =  0x48 + 0x69  =  0xB1        ← 1 byte dəlil
+"Hi"  =  0x48 + 0x69  =  0xB1        ← 1 bayt sübut
 ```
 
-İndi demək olar ki hər yerdəki çevrilmə cəmi dəyişdirir, *cəmin genişliyi isə* çözünürlük alır: tək bir yanlış byte 8-bitlik checksum-u dəyişdirir, yalnız xəta 256-nın tam mislinə bərabər deyilsə. Bir parity bitindən çox güclü. Bu ailə orta riskdə hər yerdədir: hər IP, TCP və UDP başlığını qoruyan **Internet checksum** 16-bitlik toplaqdır — maraqlıdır ki, **birlik tamamlayıcı arifmetikada end-around carry ilə** hesablanır, tam 3-cü Dərsdəki mexanizm paket başlıqlarında yenidən görüşəcəyinizi vəd edərək sürgün etdi. Budur, göndərdiyiniz hər paketi emal edir.
+İndi demək olar ki, hər yerdəki flip cəmi dəyişir, *üstəlik* cəmin eni əlavə dəqiqlik alır: bir yanlış bayt, xəta 256-nın dəqiq misli olmadıqca, 8-bitlik checksum-u dəyişir. Bir parity bitindən xeyli güclüdür. Bu ailə risklərin orta olduğu hər yerdədir: hər IP, TCP və UDP header-ini qoruyan **Internet checksum** 16-bitlik cəmdir — və nə gözəl ki, **end-around carry ilə one's complement arifmetikasında** hesablanır — Dərs 3-ün sürgünə göndərdiyi və packet header-lərdə yenidən görüşəcəyinizi vəd etdiyi mexanizmin özü. Budur, göndərəcəyiniz hər paketi emal edir. (Onu çox 1970-lərə xas bir səbəbə görə seçmişdilər: one's complement cəmi byte-order-dən asılı olmadan hesablana bilir — Dərs 5-in müharibəsində kiçik bir sülh sazişi.)
 
-Lakin toplamanın struktur qüsuru var, riyaziyyat dərslərindən adını bilirsiniz: **toplama kommutativdir**. Toplama *sıraya* əhəmiyyət vermir:
+Amma cəmləmənin struktur qüsuru var və adını cəbr dərsindən bilirsiniz: **toplama kommutativdir**. Cəm *sıraya* fikir vermir:
 
 ```
 "Hi"  =  0x48 + 0x69  =  0xB1
-"iH"  =  0x69 + 0x48  =  0xB1        ← eyni dəlil!
+"iH"  =  0x69 + 0x48  =  0xB1        ← eyni sübut!
 ```
 
-5-ci Dərsdəki qorxduğunuz tam korrupsiya — özünüzün byte-ları, bütöv amma *yenidən sıralanmış*, NUXI anaqramı, dəyişdirilməmiş uzunluq prefiksi — additivchecksum-dan keçib gedir. `Hi` ilə `iH` arasındakı fərqi görə bilməyən checksum bütün mebelin yerli-yerindəyini yoxlayan amma evin dağıdılıb-dağıdılmadığını yox­lamayan qoruyucudur.
+Dərs 5-in sizə qorxmağı öyrətdiyi korrupsiya növünün eynisi — öz baytlarınız, toxunulmaz, amma *yerdəyişmiş*: NUXI anaqramı, swap edilməmiş length prefix — additiv checksum-dan toxunulmadan keçib gedir. Bir-birini ləğv edən xəta cütləri də elə (burada +1, orada −1). `Hi` ilə `iH` arasındakı fərqi görməyən checksum bütün mebelin yerində olduğunu yoxlayan, amma evin talan edilib-edilmədiyinə baxmayan keşikçidir.
 
 <Note>
 
-Sıralama probleminin ən məşhur düzəltməsi pul kisənizdədir. **Luhn alqoritmi** (Hans Peter Luhn, IBM, 1954-cü ildə patentlənib) hər kredit kartı nömrəsinin son rəqəmini hesablayır — toplamadan əvvəl *hər ikinci rəqəmi iki dəfə artırır* (iki rəqəmli nəticələri geri qatlayır). Bu mövqe çəkisi dəqiq anti-kommutativlik yamasıdır: qonşu iki rəqəmi dəyişdirin — ən ümumi insan yazım xətası — iki dəfə artırılmış/artırılmamış rollar dəyişir, cəmi dəyişir. "Yanlış nömrə" deyən hər kart formu bankla əlaqə saxlamadan əvvəl bu 70 illik checksum-u brauzerinizdə işlədir.
+Sıralama probleminin ən məşhur həlli cüzdanınızdadır. **Luhn alqoritmi** (Hans Peter Luhn, IBM, 1954-cü ildə patentləşdirilib) hər kredit kartı nömrəsinin son rəqəmini hesablayır — və toplamazdan əvvəl *hər ikinci rəqəmi ikiyə vurur* (ikirəqəmli nəticələri yenidən aşağı qatlayaraq). Bu mövqe çəkiləndirməsi (positional weighting) məhz anti-kommutativlik yamağıdır: iki qonşu rəqəmin yerini dəyişin — ən çox rast gəlinən insan səhvi — və ikiyə vurulan/vurulmayan rollar dəyişir, cəm dəyişir. Heç bir banka müraciət etmədən dərhal "invalid number" deyən hər kart forması bu 70 yaşlı checksum-u brauzerinizdə işə salır. Challenge bölməsində onu əllə icra edəcəksiniz.
 
 </Note>
 
-Mövqe çəkisi qüsuru bağlayır. Lakin *qəti* həll daha qəribə bir sual soruşmaqdan gəldi: ya byte-ları toplamaq əvəzinə bütün mesajı **bir nəhəng ikili ədəd** kimi qəbul etsək — və yalnız onun *qalığını* saxlasaq?
+Mövqe çəkiləndirməsi qüsuru yamaqlayır. Amma *qəti* həll daha qəribə bir sualdan doğuldu: bəs mesajın baytlarını toplamaq əvəzinə bütün mesajı **bir nəhəng binar ədəd** kimi götürsək — və yalnız onun *qalığını (remainder)* saxlasaq?
 
-## CRC: qalıq hiyləsi {/*crc-the-remainder-trick*/}
+## CRC: qalıq fəndi {/*crc-the-remainder-trick*/}
 
-Budur bu dərsin fiziki maşını, kompüterlərdən əsrlər əvvəl mövcud olub. Uzun rəqəm sütunlarını köçürən mühasiblərin **dokuzu atmaq** adlı hiylədən istifadə edirdi: böyük bir ədədin mod 9-uncu qalığını hesablayın (qısayol: rəqəmlərini toplayın, təkrar). Ədədi köçürün, yenidən qalığı hesablayın — qalıqlar uyğun gəlmirsə, yanlış köçürdünüz. Qalıq ixtiyari böyük bir ədədin kiçik, sabit ölçülü *barmaq izidir* və demək olar ki istənilən ləkə onu dəyişdirir.
+Bu dərsin fiziki maşını budur və o, kompüterlərdən əsrlərlə əvvəl mövcud idi. Uzun rəqəm sütunlarını köçürən mühasiblər **casting out nines** ("doqquzların atılması") adlı fənd işlədirdilər: böyük bir ədədin mod 9 qalığını hesabla (qısayol: rəqəmlərini topla, təkrar-təkrar). Ədədi köçür, qalığı yenidən hesabla — qalıqlar uyğun gəlmirsə, səhv köçürmüsən. Qalıq ixtiyari böyüklükdəki ədədin kiçik, sabit ölçülü *barmaq izidir* və demək olar ki, hər ləkə onu dəyişir. Bir ədəd — deyək ki, 7.354.682 — öz birrəqəmli şahidini daşıyır (7+3+5+4+6+8+2 → 35 → 8). Mühasibat dəftərləri beş yüz il özlərini bu cür nəzarətdə saxladı.
 
-**CRC** — *cyclic redundancy check* — hardware üçün yenidən qurulmuş dokuzu atmaqdir: mesaj nəhəng bir ikili ədədə çevrilir, barmaq izi isə razılaşdırılmış bir sabit olan **generator**-la bölmə nəticəsindəki qalıqdır. İki mühəndislik yaxşılaşdırma onu oxudur. Birincisi, bölmə 2-ci Dərsdəki sevimli degenerat arifmetikada aparılır — ikili *daşımasız*, burada çıxma və toplama hər ikisi **XOR**-a çöküb — buna görə "uzun bölmə" sadəcə shift-and-XOR, əslində silikon üçün pulsuz. İkincisi, generator ixtiyari deyil. Generatorlar *seçilir*, real riyaziyyatla, belə ki sahədə faktiki baş verən xəta nümunələri — tək çevrilmələr, cüt çevrilmələr, və hər şeydən önəmli **burst**-lər (cızıq, statik bir şaqqıltı: ardıcıl çox sayda xarab bit) — qalığı dəyişdirməyi zəmanətlə dəyişdirsin.
+**CRC** — *cyclic redundancy check* — hardware üçün yenidən qurulmuş casting out nines-dır: mesaj bir nəhəng binar ədədə çevrilir və barmaq izi onun razılaşdırılmış sabitə — **generator**-a bölünməsindən sonrakı qalığıdır. İki mühəndislik təkmilləşdirməsi onu oxutdurur. Birincisi, bölmə Dərs 2-nin sevimli degenerativ arifmetikasında aparılır — carry-siz binar, harada çıxma da, toplama da **XOR**-a çökür — beləliklə "uzun bölmə" sadəcə shift-və-XOR-dur, silisiumda demək olar ki, pulsuz. İkincisi, və ən vacibi: generator ixtiyari deyil. Generatorlar əsl riyaziyyatla elə *seçilir* ki, sahədə real baş verən xəta nümunələri — tək fliplər, cüt fliplər və hər şeydən əvvəl **burst-lar** (cızıq, statik xışıltı: çoxlu ardıcıl xarab bit) — qalığı dəyişməyə zəmanətli olsun.
 
-Bir kiçik 4-bitlik generator `1011` (real CRC-3) ilə tam olaraq əllə edək. Mesaj: `1101`. Qayda: üç 0 əlavə edin (generatorun uzunluğundan bir az — barmaq izi üçün yer açmaq), sonra XOR ilə bölün:
+Birini tam, əllə, oyuncaq 4-bitlik generator `1011` ilə edək (əsl CRC-3). Mesaj: `1101`. Qayda: üç 0 əlavə et (generatorun uzunluğundan bir az — barmaq izinə yer açmaq üçün), sonra XOR ilə böl:
 
-<Diagram name="checksum-crc/crc_division" height={400} width={720} alt="A schoolbook-style long division worked in binary XOR. Dividend 1101000 at top, generator 1011 shown at left. Four subtraction steps follow, each aligning 1011 under the current leading 1 and XORing: 1101000 xor 1011 gives 0110000; then 110000 xor 1011 shifted gives 011100; then 11100 xor 1011 shifted gives 01010; then 1010 xor 1011 gives 0001. The surviving 3-bit remainder 001 is boxed in blue at the bottom, labeled 'the CRC'. A side note states: subtraction with no borrows is just XOR.">
+<Diagram name="checksum-crc/crc_division" height={400} width={720} alt="Binar XOR-da işlənmiş məktəb üslublu uzun bölmə. Yuxarıda bölünən 1101000, solda generator 1011. Dörd çıxma addımı: hər birində 1011 cari aparıcı 1-in altına düzlənir və XOR edilir: 1101000 xor 1011 = 0110000; sonra 110000 xor sürüşdürülmüş 1011 = 011100; sonra 11100 xor sürüşdürülmüş 1011 = 01010; sonra 1010 xor 1011 = 0001. Sağ qalan 3-bitlik qalıq 001 aşağıda mavi çərçivəyə alınıb, 'CRC' etiketi ilə. Yan qeyd: borrow-suz çıxma sadəcə XOR-dur.">
 
-Daşıma olmadan çıxılan uzun bölmə: generatoru aparıcı 1-in altına hizalayın, XOR edin, təkrarlayın. Generatordan qısa qalan hər şey qalıqdır — CRC.
+Çıxmanın heç vaxt borrow etmədiyi uzun bölmə: generatoru aparıcı 1-in altına düzlə, XOR et, təkrarla. Generatordan qısa nə sağ qalırsa, qalıqdır — CRC.
 
 </Diagram>
 
@@ -106,7 +106,7 @@ Daşıma olmadan çıxılan uzun bölmə: generatoru aparıcı 1-in altına hiza
 Mesaj 1101, generator 1011 → 000 əlavə et:
 
   1101000
-⊕ 1011          aparıcı 1-in altına hizala, XOR et
+⊕ 1011          aparıcı 1-in altına düzlə, XOR et
   -------
    110000       (aparıcı sıfırlar düşür)
 ⊕  1011
@@ -119,18 +119,19 @@ Mesaj 1101, generator 1011 → 000 əlavə et:
      ----
       001       ← qalıq: CRC = 001
 
-Göndər: 1101 001
+Ötürülən: 1101 001
 ```
 
-Alıcının addımı gözəldir: *bütün* alınan sətri — mesaj və CRC birlikdə — eyni generator ilə bölün. Konstruktiv olaraq əlavə edilmiş qalıq mesajın öz qalığını ləğv edir, buna görə bütöv ötürülmə **sıfır** qalığı verir:
+Qəbul edənin gedişi gözəldir: *bütün* alınmış sətri — mesaj və CRC birlikdə — eyni generatora böl. Konstruksiya etibarilə əlavə edilmiş qalıq mesajın öz qalığını ləğv edir, ona görə toxunulmaz ötürmə qalıq **sıfır** qoyur:
 
 ```
-Bütöv alındı:    1101001 ÷ 1011  →  qalıq 000   ✓ təmiz
-Zədəli alındı    1111001 ÷ 1011  →  qalıq 110   ✗ XƏBƏRDARlıq
-(bir bit çevrildi)
+Toxunulmaz alındı:  1101001 ÷ 1011  →  qalıq 000   ✓ təmiz
+
+Zədəli alındı       1111001 ÷ 1011  →  qalıq 110   ✗ HƏYƏCAN
+(bir bit çevrilib)
 ```
 
-Miqyabı artırın və tam infrastruktur daxilindəki mexanizm alınır: **CRC-32** — 33-bitlik generator, 4 byte barmaq izi — **hər Ethernet frame**-i möhürlər (xarab frame → sessizce atılır → TCP yenidən göndərir), **hər PNG parçası** (böyük-endian, əlbəttə), **hər ZIP-dəki hər fayl**. Seçilmiş generatorun zəmanəti: bütün tək-bit xətaları, 32 bitə qədər bütün burst xətaları. Əlavə toplama tərtibi keçirə bilmədiyi halı izləyin:
+(Zədəli halı sözə inanaraq qəbul etməyin — onu özünüz bölmək challenge bölməsinin isinmə tapşırığıdır və qalıq həqiqətən `110`-dur.) Oyuncağı böyüdün və infrastrukturun içindəki dəqiq mexanizmi əldə edirsiniz: **CRC-32** — 33-bitlik generator, 4-baytlıq barmaq izi — **hər Ethernet frame-ini** möhürləyir (xarab frame → səssizcə atılır → TCP yenidən göndərir; bunu minlərlə dəfə heç nə kimi "görmüsünüz", məqsəd də elə budur), **hər PNG chunk-ını** (əlbəttə ki, big-endian-da), **hər ZIP-dəki hər faylı**, hər gzip axınını. Seçilmiş generatorun zəmanətləri: *bütün* tək-bit xətalar, 32 bitə qədər *bütün* burst xətalar və ixtiyari təsadüfi zibilin 2⁻³² dilimi — təxminən **4,3 milyardda 1** — istisna olmaqla hamısı. Və additiv cəmdən fərqli olaraq, bölmə sıraya qarşı vəhşicəsinə həssasdır. Toplama işi həll edə bilmədiyi halda əsl CRC-32-nin hökmünə baxın:
 
 <TerminalBlock>
 
@@ -139,86 +140,86 @@ python3 -c "import zlib; print(hex(zlib.crc32(b'Hi')), hex(zlib.crc32(b'iH')))"
 
 </TerminalBlock>
 
-Eyni iki byte, əks sıralar, barmaq izləri hətta uzaq qohumlar deyil — toplama checksum-u hər ikisinin `0xB1` olduğuna and içərkən. NUXI anaqramının nəhayət *ardıcıllığı* oxuyan, yalnız *inventarı* yox, bir şahidi var.
+Eyni iki bayt, əks sıralar, barmaq izləri hətta uzaq qohum da deyil — halbuki additiv checksum hər ikisinə `0xB1` deyə and içirdi. NUXI anaqramının nəhayət yalnız *inventarı* yox, *ardıcıllığı* oxuyan şahidi var.
 
 ## Hamming-in qəzəbli həftəsonu {/*hammings-furious-weekend*/}
 
-İndiyə qədər hər şey *aşkarlayır*. Aşkarlama bir lüks fərz edir: yenidən ötürmə istəmək üçün biri. Ethernet-in üstündə TCP var; cızılmış CD-nin kimisi yoxdur — orijinal basım getdi. Marsa bir probe-un yenidən göndərmə tələbi hər tərəf üçün çox dəqiqə tələb edir. 1947-ci ildə Bell Labs-da **Richard Hamming** adlı riyaziyyatçının öz paritetli arifmetikasını yoxlayan röle kompüterinə həftəsonu giriş imkanı var idi — parity nəzarəti işindəkilərini dayandırdığında maşın onları sadəcə *tərk edirdi* və Hamming birinci gün heç nəylə gəlirdi. İki həftəsonunu bu sualı doğurdu: *"Maşın xəta baş verdiyini deyə bilirsə, niyə HARDA olduğunu deyib düzəldə bilmir?"* 1950-ci ildə cavabı səhv *düzəltmə* kodlarını təsis etdi.
+İndiyə qədər hər şey *detect* edir. Detection bir lüksü fərz edir: retransmission istəməyə kimsə. Ethernet-in üstündə TCP var; cızılmış CD-nin heç kimi yoxdur — orijinal press artıq yoxdur. Mars zondunun yenidən göndərmə xahişi hər istiqamətdə çox dəqiqələr çəkir. Və 1947-ci ildə Bell Labs-da **Richard Hamming** adlı riyaziyyatçının eyni problemin daha xırda versiyası var idi: onun öz hesablamalarını parity ilə yoxlayan rele kompüterinə həftəsonu girişi vardı — və parity onun nəzarətsiz cümə gecəsi işlərində siqnal verəndə, maşın onları sadəcə *atırdı* və Hamming bazar ertəsi heç nəyə gəlirdi. Bunun iki həftəsonu mühəndislik tarixinin ən məhsuldar hirs tutmalarından birini doğurdu. Sualı bu idi: *"Maşın xətanın baş verdiyini deyə bilirsə, HARADA olduğunu niyə deyə bilmir — və düzəldə bilmir?"* Onun 1950-ci il cavabı error-*correcting* kodların əsasını qoydu.
 
-Konstruksiya bu dərsin fiziki maşınıdır. 4 data biti götürün; **3 parity bit** əlavə edin; lakin — dahiyanə vuruş — *yeddi mövqeyi ikilik sistemdə 1-dən 7-yə qədər nömrələndirin* və hər parity bitinə bu nömrələrə əsasən nəzarət etməli olduğu bir zona verin: parity 1 nömrəsindəki bit 1 olan hər mövqeyi nəzarət edir (1,3,5,7); parity 2 bit 2-si olan mövqelər (2,3,6,7); parity 4 bit 4-ü olan mövqelər (4,5,6,7):
+Konstruksiya sehr nömrəsinə oxşayıb ünvanlama sxemi çıxan fəndlərdəndir. 4 data biti götür; **3 parity biti** əlavə et; amma — dahiyanə gediş — *yeddi mövqeyi binar sistemdə 1-dən 7-yə qədər nömrələ* və hər parity bitinə həmin nömrələrə əsaslanan patrul zonası ver: parity 1 nömrəsində 1-ci bit qalxıq olan hər mövqeyi qoruyur (1,3,5,7); parity 2 — 2-ci biti qalxıq mövqeləri (2,3,6,7); parity 4 — 4-cü biti qalxıq mövqeləri (4,5,6,7):
 
-<Diagram name="checksum-crc/hamming_venn" height={400} width={720} alt="Three large overlapping circles labeled parity 1, parity 2, and parity 4, forming a classic three-set Venn diagram. The seven regions are labeled with positions: circle-only regions hold positions 1, 2 and 4 (the parity bits themselves); pairwise overlaps hold positions 3 (circles 1 and 2), 5 (circles 1 and 4) and 6 (circles 2 and 4); the triple overlap holds position 7. Each region shows the example codeword bit value: 0,1,1,0,0,1,1 for positions 1 through 7. The bit at position 6 is drawn flipped in red, and its two containing circles, parity 2 and parity 4, are outlined in red with 'FAIL' tags, while parity 1 is marked 'pass'. A caption reads: failing checks 2 + 4 = 6 — the broken bit's own address.">
+<Diagram name="checksum-crc/hamming_venn" height={400} width={720} alt="Parity 1, parity 2 və parity 4 etiketli üç böyük kəsişən dairə, klassik üç-çoxluqlu Venn diaqramı. Yeddi bölgə mövqelərlə etiketlənib: yalnız-dairə bölgələri 1, 2 və 4 mövqelərini saxlayır (parity bitlərinin özləri); cüt kəsişmələr 3 (dairə 1 və 2), 5 (dairə 1 və 4) və 6 (dairə 2 və 4) mövqelərini; üçlü kəsişmə 7 mövqeyini. Hər bölgə nümunə codeword bit dəyərini göstərir: 1-dən 7-yə qədər mövqelər üçün 0,1,1,0,0,1,1. 6-cı mövqedəki bit qırmızı, çevrilmiş çəkilib və onu ehtiva edən iki dairə — parity 2 və parity 4 — qırmızı konturla 'FAIL' etiketləri ilə, parity 1 isə 'pass' işarəsi ilə. Alt yazı: uğursuz yoxlamalar 2 + 4 = 6 — xarab bitin öz ünvanı.">
 
-Hər data biti nəzarət zonalarının unikal kombinasiyasında oturur. Bir bit çevirin, uğursuz nəzarətlərin *nümunəsi* çevrilmiş mövqenin ikilik sistemdəki sayıdır.
+Hər data biti patrul zonalarının unikal kombinasiyasında oturur. Bir biti çevirin — uğursuz patrulların *nümunəsi* çevrilmiş mövqeyin nömrəsidir, binar sistemdə yazılmış.
 
 </Diagram>
 
-`1011` datasını kodlayın (3, 5, 6, 7 mövqelərindədir) və hər nəzarətin parity-ni öz zonasında hesablayın:
+`1011` datasını kodlayaq (3, 5, 6, 7 mövqelərinə yerləşdirilib) və hər patrulun öz zonası üzərində parity-sini hesablayaq:
 
 ```
 mövqelər:    1   2   3   4   5   6   7
              p1  p2  d   p4  d   d   d
 data:                1       0   1   1
 
-p1 {1,3,5,7} üzərindədir:  1⊕0⊕1 cüt lazımdır → p1 = 0
-p2 {2,3,6,7} üzərindədir:  1⊕1⊕1 cüt lazımdır → p2 = 1
-p4 {4,5,6,7} üzərindədir:  0⊕1⊕1 cüt lazımdır → p4 = 0
+p1 {1,3,5,7} üzrə:  1⊕0⊕1 cüt olmalıdır → p1 = 0
+p2 {2,3,6,7} üzrə:  1⊕1⊕1 cüt olmalıdır → p2 = 1
+p4 {4,5,6,7} üzrə:  0⊕1⊕1 cüt olmalıdır → p4 = 0
 
-Kodeword:    0   1   1   0   0   1   1
+Codeword:    0   1   1   0   0   1   1
 ```
 
-İndi sehrli göstəriş. Kosmik şüa 6-cı mövqeyi çevirir (1 → 0). Alıcı üç nəzaretçini yenidən işlədir:
+İndi sehr nömrəsi. Kosmik şüa 6-cı mövqeyi çevirir (1 → 0). Qəbul edən üç patrulu yenidən işə salır:
 
 ```
-check 1 {1,3,5,7}: 0⊕1⊕0⊕1 = 0   cüt → KEÇDİ
-check 2 {2,3,6,7}: 1⊕1⊕0⊕1 = 1   tək → UĞURSUZ
-check 4 {4,5,6,7}: 0⊕0⊕0⊕1 = 1   tək → UĞURSUZ
+check 1 {1,3,5,7}: 0⊕1⊕0⊕1 = 0   cüt → PASS
+check 2 {2,3,6,7}: 1⊕1⊕0⊕1 = 1   tək → FAIL
+check 4 {4,5,6,7}: 0⊕0⊕0⊕1 = 1   tək → FAIL
 
-Uğursuz nəzarətlər: 2 və 4  →  2 + 4 = 6
+Uğursuz patrullar: 2 və 4  →  2 + 4 = 6
 ```
 
-**Uğursuz yoxlamalar qırıq bitin ünvanını toplayır.** Təsadüfdən deyil — konstruksiya ilə: mövqe 6 ikilik sistemdə `110`-dır, buna görə nəzarət 2-nin zonasında və nəzarət 4-ün zonasında durur, nəzarət 1-in deyil, buna görə dəqiq həmin nəzarətlər işə düşür. Sindrom xəta *haqqında üstüörtülü ima vermir*; onu ikilik sistemdə **hərflə ifadə edir**. Bit 6-nı geri çevirin; data *sağaldı*, yenidən göndərmə yoxdur, insan yoxdur.
+**Uğursuz yoxlamaların cəmi xarab bitin ünvanıdır.** Təsadüfən yox — konstruksiya etibarilə: 6-cı mövqe binar sistemdə `110`-dur, deməli patrul 2-nin zonasında və patrul 4-ün zonasındadır, patrul 1-in zonasında deyil — deməli məhz o patrullar siqnal verir. Syndrome xətaya *işarə etmir*; onu Dərs 2-nin mövqeli binar sistemində **hərfbəhərf yazır**. 6-cı biti geri çevirin; data *sağaldı* — retransmission yox, orijinal yox, insan yox. (Və xırda şriftə diqqət — aşağıdakı oyuncaq onu öz gözünüzlə görməyə imkan verəcək: *iki* biti çevirin və syndrome yenə hansısa yerə işarə edəcək — əminliklə və *yanlış*. Ona görə real sistemlər genişləndirilmiş SECDED kodları işlədir — "single error correct, double error detect" — təmiri pusqudan ayıran bir əlavə ümumi parity biti.)
 
-Bu muzey riyaziyyatı deyil. **ECC yaddaş** — hər ciddi serverdə standart, bu dərsin oxunduğu laptopda nəzərəçarpacaq dərəcədə yoxdur — hər 64-bitlik sözü tam bu konstruksiyanın 72 biti kimi saxlayır, bütün gün sessizce sağaldır. Schaerbeek maşınının heç biri yox idi; 4,096 fantom səs 8 əksik çipin qiyməti idi. Bir bitdən böyük zərər üçün — cızıq, burst — Hamming-in ideyası bütün *byte-larla* işləyən **Reed–Solomon kodlarına** (1960) yetişdi. Keçən dərsin çözülməmiş müəmması burada həll olur: CD öz 176,400 byte/saniyəsini çarpaz ötürülmüş Reed–Solomon-a (**CIRC**) sarır, əvvəlcə byte-ları *qarışdırır* ki cızığın zərəri dağılmış şəkildə düşsün, sonra **təxminən 4,000 ardıcıl ölü bit — yaxlaşıq 2,5 mm iz**-i sıfır eşidilə bilən izlə sağaldır. Hər QR kod eyni ailəni daşıyır, **30% məhvə qədər** dözə bilmək üçün tənzimlənib — logo kodu üzərində damğalanıb datanı *məhv edir* amma Reed–Solomon hər scan-da zərəri yenidən qurur.
+Bu, muzey riyaziyyatı deyil. **ECC memory** — hər ciddi serverdə standart, bu dərsin oxunduğu laptopda nəzərəçarpacaq şəkildə yoxdur — hər 64-bitlik sözü məhz bu konstruksiyanın 72 biti kimi saxlayır və Google tədqiqatının xəta sürətini bütün günü səssizcə sağaldır. Schaerbeek maşınında, sözsüz ki, bu yox idi; 4.096 xəyali səs səkkiz əskik çipin qiyməti idi. Bir bitdən böyük zədə üçünsə — cızıq, burst — Hamming-in ideyası **Reed–Solomon kodlarına** (1960) çevrildi: onlar bütöv *baytlar* üzərində işləyir və eyni anda onlarlasını düzəldir. Keçən dərsin intriqası burada açılır: CD saniyədə 176.400 baytını cross-interleaved Reed–Solomon-a (**CIRC**) bükür — əvvəlcə baytları *qarışdırır* ki, cızığın zədəsi yığılmış yox, səpələnmiş düşsün (interleaving bir ölümcül burst-u çoxlu cüzi cızmaya çevirir), sonra **təxminən 4.000 ardıcıl itirilmiş biti — təqribən 2,5 mm treki** — eşidilə bilən heç bir iz qoymadan sağaldır. Skan etdiyiniz hər QR kodu eyni ailəni daşıyır, **30%-ə qədər dağıntıya** davam gətirəcək şəkildə tənzimlənmiş — buna görə loqonu kodun düz ortasına basmaq olur və o yenə skan olunur: loqo datadan yayınmır, onu *məhv edir* və Reed–Solomon itkini hər skanda, əbədi olaraq yenidən qurur. Voyager-in planetlərin o tayından fotoları, DVD-lər, RAID-6 massivləri, 5G, peyk əlaqələri: hamısı eyni nəsil, hamısı həftəsonu işləri ölüb gedən bir adamdan törəmə.
 
 <DeepDive>
 
-#### Bitsquatting: çevrilmə hücuma işlədikdə {/*bitsquatting-when-the-flip-works*/}
+#### Bitsquatting: flip hücumçunun xeyrinə işləyəndə {/*bitsquatting-when-the-flip-works*/}
 
-2011-ci ildə təhlükəsizlik tədqiqatçısı Artem Dinaburg şıltaq bir sual verdi: RAM bitləri sahədə çevrilsə, bəzən onlar *saxlanılan domen adı* içərisindəki bitlər olmalıdır — pəs populyar adların bir bit çevrildikdə nə olduğunu qeydiyyatdan keçirsəydiniz? `fbcdn.net` (Facebook-un CDN-i) bir çevrilmiş bitdən uzaqdır... o, bir neçə düzinə tək-bit mutantdan ayrılır, əksəriyyəti qeydiyyata alına bilər. O, **bitsquat** domenları dəstini qeydiyyatdan keçirdi, server qurdu və gözlədi. Serverlər davamlı əlaqə axını aldı — növbəti aylarda minlərlə unikal maşın — telefonlardan masaüstü kompüterlərə, hətta hər checksum-dan keçdikdən *sonra* bir bit çevirən, indi sahiblərinin heç vaxt yazmadığı bir domenə ciddi qoşulan embedded cihazlara. Heç bir exploit, heç bir fişinq, heç bir zərərli proqram: hücum yüzü fizika idi. Bu dərsin təhdid modelinin mükəmməl bağlanış eksponatıdır.
+Bit flipləri şəxsi məsələyə çevirən bir tədqiqat nəticəsi. 2011-ci ildə təhlükəsizlik tədqiqatçısı Artem Dinaburg fitnəkar bir sual verdi: RAM bitləri təbiətdə çevrilirsə, deməli bəzən *saxlanmış domain adının* içində də çevrilməlidirlər — bəs məşhur adların bir bit çevriləndə çevrildiyi domenləri qeydiyyatdan keçirsək necə? `fbcdn.net` (Facebook-un CDN-i) `fbcdn.ne**f**`-dən bir çevrilmiş bit uzaqdadır... və başqa bir neçə onlarla tək-bit mutantdan, əksəriyyəti qeydiyyata açıq. O, belə **bitsquat** domenlərindən bir dəst qeydiyyatdan keçirdi, serverlər qurdu və gözlədi. Serverlər real bağlantıların sabit axınını aldı — sonrakı aylar ərzində minlərlə unikal maşın — telefonlardan, desktoplardan, hətta embedded cihazlardan: yaddaşları hər checksum artıq keçdikdən *sonra* bir bit çevirmiş və sahiblərinin heç vaxt yazmadığı domenə səmimi-qəlbdən müraciət edən cihazlar. Nə exploit, nə phishing, nə malware: hücum səthi fizika idi. Bu dərsin threat model-i üçün mükəmməl yekun eksponatdır — bütövlük yoxlamaları datanı *yolda* və *öz əhatə dairəsi (span) daxilində saxlanarkən* qoruyur, amma yoxlamalar arasındakı boşluqda, hostname saxlayan canlı RAM-da çevrilən bitin heç bir şahidi yoxdur (o RAM ECC deyilsə — istehlakçı cihazlarında isə deyil). Bu dünyada müdafiə belə görünür: vacib yerlərdə ECC, ehtiyat sığorta kimi TLS certificate validation (bitsquat serveri *nəzərdə tutulan* ad üçün etibarlı sertifikat təqdim edə bilməz) və öz mutantlarını sakitcə qeydiyyatdan keçirən korporasiyalar.
 
 </DeepDive>
 
 <DeepDive>
 
-#### Checksum özü yalan söylədikdə {/*when-the-checksum-itself-lies*/}
+#### Checksum özü yalan deyəndə {/*when-the-checksum-itself-lies*/}
 
-Sahədən iki ürəkdağlayan qeyd və onların məcbur etdiyi dizayn prinsipi. Birincisi: əhatə boşluqları realdır. Məşhur SIGCOMM 2000 araşdırması (Stone & Partridge) canlı internet trafikini tutdu və *korrupsiyanı zərərsiz vəziyyətə gətirmiş* datanı tapdı — Ethernet CRC-nin hop başına tutduğu, lakin *mühafizələr arasında* yenidən daxil edilmiş xətalar (router yaddaşında, xatalı NIC firmware-ında, proqram surətlərindədir), sonra sanki qanuni kimi yenidən checksum hesablanıb. Hər yoxlama yalnız öz **span**-ını qoruyur; span-lar arasındakı korrupsiya təmiz sağlık belgəsi alır.
+Sahədən iki ayıldıcı qeyd və onların məcbur etdiyi dizayn prinsipi. Birincisi: əhatə boşluqları realdır. Məşhur SIGCOMM 2000 tədqiqatı (Stone & Partridge) canlı internet trafikini tutdu və korlanıb *inandırıcılığa qədər təmir edilmiş* data tapdı — Ethernet-in CRC-sinin hər hop-da tutduğu, amma qorumalar *arasında* yenidən daxil edilmiş xətalar (router yaddaşında, buqlu NIC firmware-ində, software kopyalamalarında) — sonra sanki qanuni imiş kimi yenidən checksum edilmiş. Onların qiymətləndirməsi: hər 16 milyonda 1 ilə hər 10 milyardda 1 arasında TCP seqmenti 16-bitlik TCP checksum-un görmədiyi xəta daşıyır — paket başına cüzi, data mərkəzi başına gündə isə qaçılmaz (Dərs 2-nin vurması, həmişəki kimi). Hər yoxlama yalnız öz **span**-ını qoruyur; span-lar arasındakı korrupsiya təmiz sağlamlıq arayışı ilə miras qalır.
 
-İkincisi: bu dərsdəki hər şey *qəzalara* qarşı riyaziyyatdır, qəzalar mübarizə etmir. CRC xətti funksiyasıdır — faylınızı *dəyişdirmək* istəyən düşmən *CRC-32-ni qoruyaraq* bunu kağız qələmlə edə bilər; yalnız 2³² ehtimal var və cəbr açıqdır. Buna görə "bütövlük" iki peşəyə bölünür: CRC-lər və checksum-lar **təbiətə** qarşı, **kriptografik hash-lər** — SHA-256 və qohumları — **insanlara** qarşı. Birlikdə **end-to-end arqumenti** (Saltzer, Reed & Clark, 1984) adlanan işlək qaydanı verirlər: aralıq yoxlamalar optimallaşdırmadır; *əsas* doğrulama endpoint-lərdə, hər şeyi əhatə edərək baş verməlidir.
+İkincisi: bu dərsdəki hər şey *qəzalara* qarşı riyaziyyatdır və qəzalar geri vurmur. CRC xətti funksiyadır — faylınızı dəyişdirmək *və CRC-32-sini qorumaq* istəyən hücumçu bunu kağız-qələmlə edə bilər; cəmi 2³² mümkün variant var və cəbr açıqdır. Buna görə "integrity" iki peşəyə bölünür: CRC-lər və checksum-lar **təbiətə** qarşı (sürətli, ucuz, təsadüfi zədəyə qarşı zəmanətli) və **kriptoqrafik hash-lar** — SHA-256 və qohumları — **insanlara** qarşı (elə dizayn edilib ki, eyni barmaq izinə malik *hər hansı* ikinci girişi tapmaq hesablama baxımından ümidsizdir). Birlikdə onlar **end-to-end argument** (Saltzer, Reed & Clark, 1984) adlanan iş qaydasını verir: aralıq yoxlamalar optimallaşdırmadır; *səlahiyyətli* yoxlama hər şeyi əhatə edərək endpoint-lərdə baş verməlidir — buna görə ZFS və müasir verilənlər bazaları hər aşağı qat artıq bütövlüyə "zəmanət verdiyi" halda belə hər bloku application qatında checksum edir və buna görə həqiqətən əhəmiyyət verdiyiniz yükləmə *müstəqil* kanaldan gələn SHA-256 ilə yoxlanılır. Link-lərə yox, span-lara etibar edin.
 
 </DeepDive>
 
 <Pitfall>
 
-**"Checksum uyğun gəlir" hiss etdirdiyindən az şey sübut edir.**
+**"Checksum uyğun gəlir" hiss etdirdiyindən daha azını sübut edir.**
 
-Xəta birincisi: uyğun CRC-ni heç kimin oynamadığının sübutu kimi qəbul etmək. CRC-32 *"bu ehtimalən qəzadan zərər görübmü?"* sualını cavablandırır — hücumçu mikrosan­iyələr içərisində faylı istənilən CRC-yə düzəldir. Müdaxiləni sübut etmək kriptografik hash tələb edir, hətta onda belə: *eyni* serverdə endirməylə yayımlanan SHA-256 teatrdır — kimin faylı əvəz etsə eyni pozulmada hash sətirini düzəldir. İstinad barmaq izi hücumçunun idarə etmədiyi kanalda gəlməlidir.
+Birinci səhv: uyğun gələn CRC-ni heç kimin müdaxilə etmədiyinin sübutu saymaq. CRC-32 *"bu, ehtimal ki, qəza nəticəsində zədələnib?"* sualına cavab verir — hücumçu faylı mikrosaniyələr ərzində istədiyi CRC-yə uyğunlaşdırır. Tamper-evidence kriptoqrafik hash tələb edir və hətta o zaman da: yükləmə ilə *eyni serverdə* dərc edilmiş SHA-256 teatr tamaşasıdır — faylı əvəz edən şəxs eyni sındırmada hash sətrini də redaktə edir. İstinad barmaq izi hücumçunun nəzarət etmədiyi kanalla gəlməlidir (imzalanmış release açarları, ayrıca mənbə).
 
-Xəta ikincisi: aşağıdakı qatın "artıq idarə etdiyini" fərz etmək. TCP-nin checksum-u 16 bitdir və span-la məhdudlandırılıb; Ethernet-in CRC-si hər hopdda məhv olur; ECC olmayan RAM yazdıqdan sonra heç nəyi qorumur. Datanız *əhəmiyyətlidirsə* — ehtiyat nüsxələr, maliyyə qeydiyyatları, elmi nəticələr — **end-to-end** doğrulayın: yaradılışda barmaq izini çıxarın, barmaq izini ayrıca saxlayın, hər köçürmədən sonra cədvəl üzrə yenidən yoxlayın.
+İkinci səhv: hansısa aşağı qatın bunu "onsuz da həll etdiyini" güman etmək. TCP-nin checksum-u 16 bitdir və span-la məhduddur; Ethernet-in CRC-si hər hop-da ölür; ECC-siz RAM saxlanma zamanı heç nəyi qorumur. Data *vacibdirsə* — backup-lar, maliyyə qeydləri, elmi nəticələr — **end to end** yoxlayın: yaradılma anında fingerprint götürün, fingerprint-i ayrıca saxlayın, hər miqrasiyadan sonra və müntəzəm cədvəllə yenidən yoxlayın. Bit rot-un sevimli qurbanları beş ildir heç kimin açmadığı fayllardır — ən çox lazım olacaq backup, müşahidəsiz çürüməyə ən uzun vaxtı olmuş backup-dır.
 
 </Pitfall>
 
 ## Təmir maşını {/*the-repair-machine*/}
 
-Aşağıda bu dərsdən canlı işləyən Hamming(7,4) kodu var — `1011` datasını qoruyan `0110011` kodeword-u. İstənilən biti zərər vermək üçün klikləyin (tələb üzrə kosmik şüa) və üç nəzarətin yenidən işləməsini izləyin: uğursuz yoxlamalar xəta sahibinin ünvanını toplayır. Sonra cərimə haqqında xəbərdarlıq etdiyi eksperimenti aparın: **iki** bit çevirin və əminliklə yanlış olanı təmir edən maşına baxın:
+Aşağıda bu dərsdəki Hamming(7,4) kodu canlı işləyir — `1011` datasını qoruyan `0110011` codeword-ü. Hər hansı bitə klikləyib onu zədələyin (sifarişlə kosmik şüa) və üç patrulun yenidən işə düşməsinə baxın: uğursuz yoxlamaların cəmi günahkarın ünvanıdır və maşın ona işarə edir. Sonra xırda şriftin xəbərdarlıq etdiyi eksperimenti aparın: **iki** biti çevirin və özünə əmin maşının yanlış biti təmir etməsinə baxın:
 
 <Sandpack>
 
 ```js
 import { useState } from 'react';
 
-const CLEAN = [0, 1, 1, 0, 0, 1, 1]; // data 1011 at positions 3,5,6,7
+const CLEAN = [0, 1, 1, 0, 0, 1, 1]; // data 1011, mövqelər 3,5,6,7
 
 export default function RepairMachine() {
   const [bits, setBits] = useState(CLEAN);
@@ -238,7 +239,7 @@ export default function RepairMachine() {
   return (
     <div style={{ textAlign: 'center', fontFamily: 'monospace' }}>
       <p style={{ fontFamily: 'system-ui' }}>
-        Kodeword-u zərərləndirmək üçün bitleri klikləyin (data 1011):
+        Codeword-ü zədələmək üçün bitlərə klikləyin (data 1011):
       </p>
       <div>
         {bits.map((b, i) => (
@@ -261,17 +262,17 @@ export default function RepairMachine() {
           <span key={c.n} style={{
             margin: 6, color: c.fail ? '#c1554d' : '#087ea4'
           }}>
-            check {c.n}: {c.fail ? 'UĞURSUZ' : 'keçdi'}
+            check {c.n}: {c.fail ? 'FAIL' : 'pass'}
           </span>
         ))}
       </p>
       {pos === 0 && <p style={{ fontFamily: 'system-ui' }}>
-        Bütün nəzarətlər keçdi — kodeword təmizdir.</p>}
+        Bütün patrullar keçir — codeword təmizdir.</p>}
       {pos > 0 && <p style={{ fontFamily: 'system-ui' }}>
-        Uğursuz yoxlamalar <b>{pos}</b>-ə toplanır → bit {pos} ittiham olunur.{' '}
-        {damage === 1 && 'Düzgün! Sağaltmaq üçün klikləyin.'}
+        Uğursuz yoxlamaların cəmi <b>{pos}</b> → bit {pos} ittiham olunur.{' '}
+        {damage === 1 && 'Düzdür! Sağaltmaq üçün ona klikləyin.'}
         {damage === 2 && <b style={{ color: '#c1554d' }}>
-          Lakin SİZ iki çevirdiniz — maşın yanlış biti təmir edir.</b>}
+          Amma SİZ iki bit çevirdiniz — maşın yanlış biti təmir edir.</b>}
       </p>}
     </div>
   );
@@ -280,45 +281,45 @@ export default function RepairMachine() {
 
 </Sandpack>
 
-Bu iki-çevrilmə xəyanəti üzərindən düşünməyə dəyər: sindrom arifmetikası qüsursuzdur, nəticə əminliklə yanlışdır — çünki *müqavilə* yalnız tək çevrilmələri əhatə edir. Bu dərsdəki hər bütövlük mexanizmi dəqiq kənarlı dəqiq bir vədddir: parity (yalnız tək saylar), CRC-32 (burst-lər ≤ 32, qəza, düşmən deyil), Hamming (bir çevrilmə, iki deyil). Onlarla mühəndislik etmək vədi bilmək deməkdir, yalnız yaşıl checkmark-ın parıltısına güvənmək deyil.
+O iki-flip xəyanəti üzərində oturub düşünməyə dəyər: syndrome hesabı qüsursuzdur, nəticə əminliklə yanlışdır — çünki *müqavilə* yalnız tək flipləri əhatə edir. Bu dərsdəki hər bütövlük mexanizmi dəqiq sərhədləri olan dəqiq vəddir: parity (yalnız tək saylar), CRC-32 (burst-lar ≤ 32, qəza — bədniyyət yox), Hamming (bir flip, iki yox). Onlarla mühəndislik etmək vədi bilmək deməkdir, yaşıl işarənin parıltısına inanmaq yox.
 
 <Recap>
 
-- **Bitlər çevrilir.** Kosmik şüalar, alfa zərrəcikləri, elektrik küyü, aşınma tək-bit xətaları *rate* edir, anek­dot deyil (fleet miqyasında yaddaş modullarının ~8%-i illik xəta qeyd edir). Çevrilmələr barmaq izi buraxır: tam **ikilik qüvvəti** qədər fərqli dəyər — Schaerbeek-in 4,096 fantom səsi = bit 13.
-- Müdafiə fəlsəfəsi **artıqlıqdır**: datadan hesablanmış, onunla birlikdə gedən, hər kəsin yenidən hesablayıb müqayisə edə biləcəyi əlavə bitlər. Mexanizmlər dəlil pilləsi yaradır.
-- **Parity** (1 əlavə bit): hər *tək* sayda çevrilməni tutur, hər cüt sayı qaçırır, heç nəyin yerini müəyyən etmir.
-- **Additivchecksum-lar** daha güclü amma **kommutativdir** — `Hi` və `iH` hər ikisi `0xB1`-ə toplanır, buna görə yenidən sıralama (5-ci Dərsin bütün haramzadəlar qalereyası) aşkarlanmır. Hər IP/TCP/UDP başlığındakı Internet checksum 3-cü Dərsdəki **birlik tamamlayıcısı, end-around carry**-dır.
-- **CRC** sənayeyyəşdirilmiş dokuzu atmaqdir: mesaj nəhəng bir ikili ədəd kimi, seçilmiş generator-a qarşı **XOR bölmə qalığı** ilə barmaq izlənib. CRC-32 (Ethernet, ZIP, PNG, gzip) bütün tək çevrilmələri və 32 bitə qədər bütün burst-ləri zəmanətlə tutur — sıra dəyişikliklərinə qarşı qəddarcasına həssasdır.
-- **Hamming kodları** *düzəldir*: mövqeləri ikilik sistemdə nömrələyin, bitlə nəzarət edin; uğursuz yoxlamalar **çevrilmiş bitin ünvanını toplayır**. ECC server RAM-ı (64 bit başına 72) sessizce sağaldır; iki çevrilmə onu aldadır, buna görə SECDED. **Reed–Solomon** burst-ləri sağaldır: CIRC CD-yə ~4,000 ölü bit (≈2.5 mm cızıq) dözmə imkanı verir; QR kodlar 30% məhvə dözmə üçün tənzimlənib.
-- Qərar qatı: yoxlamalar yalnız öz **span**-larını qoruyur; CRC-lər **qəzalara** qarşı, kriptografik hash-lər **düşmənlərə** qarşı; əsas doğrulama **end-to-end**, barmaq izləri ayrı kanalda saxlanılmış.
+- **Bitlər çevrilir.** Kosmik şüalar, alfa zərrəcikləri, elektrik səs-küyü və köhnəlmə tək-bit xətaları lətifə yox, *sürət* edir (park miqyasında yaddaş modullarının ≈8%-i ildə xəta qeydə alır). Fliplər barmaq izi qoyur: təmiz **ikinin qüvvəti** qədər yanlış dəyərlər — Schaerbeek-in 4.096 xəyali səsi = bit 13.
+- Müdafiə fəlsəfəsi **redundancy**-dir: datadan hesablanmış, onunla birlikdə səyahət edən əlavə bitlər — hər kəs yenidən hesablayıb müqayisə edə bilsin deyə. Mexanizmlər sübut nərdivanı qurur.
+- **Parity** (1 əlavə bit): hər *tək* sayda flipi tutur, hər cüt sayına kordur və heç nəyin yerini tapa bilmir. Onilliklər boyu serial xətləri və doqquzuncu RAM çipini qorudu.
+- **Additiv checksum-lar** daha güclüdür, amma **kommutativdir** — `Hi` və `iH` hər ikisi `0xB1` verir, deməli yerdəyişmə (Dərs 5-in bütün cinayətkarlar qalereyası) aşkarsız keçir. Hər IP/TCP/UDP header-indəki Internet checksum Dərs 3-ün **one's complement, end-around carry**-sidir — vəd yerinə yetirildi. Luhn-un kart nömrəsi yoxlaması transpozisiyanı mövqeli ikiyəvurma ilə düzəldir.
+- **CRC** sənayeləşdirilmiş casting-out-nines-dır: mesaj bir nəhəng binar ədəd kimi, seçilmiş generatora qarşı **XOR-bölmə qalığı** ilə fingerprint edilir. CRC-32 (Ethernet, ZIP, PNG, gzip) bütün tək flipləri və ≤ 32 bitlik bütün burst-ları zəmanətləyir, təsadüfi zibili yalnız 2³²-də 1 halda qaçırır — və sıraya qarşı amansız həssasdır: `Hi` → `4d170e0e`, `iH` → `8de10bb3`.
+- **Hamming kodları** *düzəldir*: mövqeləri binar sistemdə nömrələ, bit üzrə patrul et; uğursuz yoxlamaların **cəmi çevrilmiş bitin ünvanıdır**. ECC server RAM-ı (64-ə 72 bit) səssizcə sağaldır; iki flip onu aldadır, buna görə SECDED. **Reed–Solomon** burst-ları sağaldır: CIRC CD-yə ~4.000 ölü bitə (≈2,5 mm cızığa) davam gətirmə imkanı verir; QR kodlar 30% dağıntıya davam gətirir — loqo elə *zədənin özüdür*, hər skanda təmir edilir.
+- Mühakimə qatı: yoxlamalar yalnız öz **span**-larını qoruyur (span-lar arasındakı korrupsiya təmiz kimi yenidən checksum edilir); CRC-lər **qəzalarla** vuruşur, kriptoqrafik hash-lar **düşmənlərlə**; səlahiyyətli yoxlama **end to end** aparılmalıdır, fingerprint-lər isə out-of-band saxlanmalıdır.
 
 </Recap>
 
 <Challenges>
 
-#### Alıcı kimi bölün {/*divide-like-a-receiver*/}
+#### Qəbul edən kimi böl {/*divide-like-a-receiver*/}
 
-Dərs `1101 001`-i ötürdü (mesaj + CRC-3, generator `1011`) və zədəli `1111001`-in qalıq `110` verdiyini iddia etdi. Hər ikisini əllə yoxlayın: `1101001`-i bölün (təmiz çıxmalıdır) və `1111001`-i (qalıq `110` çıxmalıdır). Hər XOR addımını göstərin.
+Dərs `1101 001` ötürdü (mesaj + CRC-3, generator `1011`) və zədəli versiya `1111001`-in `110` qalığı verdiyini iddia etdi. Hər ikisini əllə yoxlayın: `1101001`-i bölün (təmiz çıxmalıdır) və `1111001`-i (qalıq `110` çıxmalıdır). Hər XOR addımını göstərin.
 
 <Hint>
 
-Generatoru hazırkı ən soldakı 1-in altına hizalayın, XOR edin, aparıcı sıfırların düşməsinə icazə verin, generatordan qısa qalana qədər (3 bit ya da daha az) təkrarlayın. Bütöv hal tam `000` ilə bitməlidir.
+Generatoru cari ən soldakı 1-in altına düzləyin, XOR edin, aparıcı sıfırların düşməsinə imkan verin, qalan generatordan qısa olana qədər (3 bit və ya az) təkrarlayın. Toxunulmaz hal dəqiq `000` ilə bitməlidir.
 
 </Hint>
 
 <Solution>
 
-Bütöv ötürmə — hər hizalama üçün generatoru tam genişlikdə yazın:
+Toxunulmaz ötürmə — hər düzləmə üçün generatoru tam endə yazın (hardware-in shift register-inin etdiyinin eynisi və məktəb üslublu pilləli yazılışdan qat-qat çətin səhv salınır):
 
 ```
   1101001
-⊕ 1011000        (generator bit 6-da hizalanıb)
+⊕ 1011000        (generator bit 6-da düzlənib)
   = 0110001
-⊕  101100        (bit 5-də hizalanıb)
+⊕  101100        (bit 5-də düzlənib)
   = 0011101
-⊕   10110        (bit 4-də hizalanıb)
+⊕   10110        (bit 4-də düzlənib)
   = 0001011
-⊕    1011        (bit 3-də hizalanıb)
+⊕    1011        (bit 3-də düzlənib)
   = 0000000      → qalıq 000 ✓ təmiz
 ```
 
@@ -328,58 +329,60 @@ Zədəli ötürmə (bit 4 çevrilib):
   1111001
 ⊕ 1011000        → 0100001
 ⊕  101100        → 0001101
-⊕     1011       → 0000110   → qalıq 110 ✗ XƏBƏRDARlıq ✓
+⊕     1011       → 0000110   → qalıq 110 ✗ HƏYƏCAN ✓
 ```
 
-Alıcının heç vaxt nəyə ehtiyac duymadığına da diqqət yetirin: orijinal mesaj. Alınan sətir özü haqqında şəhadət verir.
+Həm də qəbul edənin heç vaxt *nəyə* ehtiyac duymadığına diqqət edin: orijinal mesaja. Alınmış sətir öz haqqında ifadə verir — əlavə edilmiş qalıq elə qurulmuşdu ki, həqiqət sıfıra bölünsün.
 
 </Solution>
 
-#### Pul kisənizdəki rəqəm {/*the-number-in-your-wallet*/}
+#### Cüzdanınızdakı rəqəm {/*the-number-in-your-wallet*/}
 
-Luhn yoxlamasını (test) kart nömrəsindən `4539 1488 0343 6467`-yə tətbiq edin. Resept: **ən sağdakı** rəqəmdən başlayaraq, hər ikinci rəqəmi iki dəfə artırın (sağdan 2, 4, 6… mövqelər); iki rəqəm verərsə, onları toplayın (məs. 8 → 16 → 1+6 = 7); hər şeyi toplayın; cəm 0-la bitərsə düzgündür. Sonra cavab verin: ikiqat addım xüsusi olaraq hansı gündəlik yazım xətasını tutmaq üçün hazırlanıb, adi rəqəm cəmi onu niyə qaçırır?
+`4539 1488 0343 6467` (test) kart nömrəsi üzərində Luhn yoxlamasını icra edin. Resept: **ən sağdakı** rəqəmdən başlayaraq hər ikinci rəqəmi ikiyə vurun (sağdan 2, 4, 6… mövqelər); ikiyəvurma iki rəqəm verirsə, onları toplayın (məs. 8 → 16 → 1+6 = 7); hamısını toplayın; cəm 0 ilə bitirsə, nömrə etibarlıdır. Sonra cavablandırın: ikiyəvurma addımı hansı gündəlik yazı səhvini tutmaq üçün xüsusi dizayn edilib və adi rəqəm cəmi onu niyə qaçırardı?
 
 <Solution>
 
-Sağdan işlə (`7` birinci mövqedədir):
+Sağdan işləyərək (`7` mövqe 1-dir):
 
 ```
-mövqe:   16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1
-rəqəm:    4  5  3  9  1  4  8  8  0  3  4  3  6  4  6  7
-ikiqat:   ×     ×     ×     ×     ×     ×     ×     ×
-olur:     8  5  6  9  2  4  7  8  0  3  8  3  3  4  3  7
-          (16→7)           (16→7)      (12→3)(12→3)
+mövqe:  16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1
+rəqəm:   4  5  3  9  1  4  8  8  0  3  4  3  6  4  6  7
+×2:      ×     ×     ×     ×     ×     ×     ×     ×
+olur:    8  5  6  9  2  4  7  8  0  3  8  3  3  4  3  7
+         (16→7)            (16→7)       (12→3) (12→3)
 
-Cəm: 8+5+6+9+2+4+7+8+0+3+8+3+3+4+3+7 = 80  → 0 ilə bitir ✓ GEÇERLİ
+Cəm: 8+5+6+9+2+4+7+8+0+3+8+3+3+4+3+7 = 80  → 0 ilə bitir ✓ ETİBARLI
 ```
 
-Mühəndislik hədəfi **bitişik transpozisiya**dır — `…64…`-ü `…46…` kimi yazmaq, ən ümumi insan data girişi xətası. Adi rəqəm cəmi kommutativdir, buna görə dəyişimlər görünməzdir (`Hi`/`iH` xəstəliyi onluq sistemdə). Luhn altında qonşu mövqelərin *fərqli* müalicəsi var (biri ikiqat, biri yox), buna görə iki bərabərsiz qonşunu dəyişdirmək demək olar ki həmişə cəmi dəyişdirir. CRC-yə qarşı additivin eyni dərsi, 1954-cü ildə ofis maşınları üçün həll edilmiş.
+Hədəfə alınmış səhv **qonşu transpozisiyadır** — `…64…`-ü `…46…` kimi yazmaq, insan data-daxiletməsinin ən çox rast gəlinən xətası. Adi rəqəm cəmi kommutativdir, ona görə yerdəyişmələr ona görünməzdir (`Hi`/`iH` xəstəliyi onluq sistemdə). Luhn-da qonşu mövqelərin *fərqli* rejimi var (biri ikiyə vurulur, digəri yox), ona görə iki qeyri-bərabər qonşunun yerini dəyişmək demək olar ki, həmişə cəmi dəyişir. CRC-vs-additiv dərsinin eynisi, 1954-cü ildə, 1950-ci illərin ofis maşınları nəzərdə tutularaq həll edilib: sıra vacibdirsə, fingerprint mövqeləri çəkiləndirməlidir.
 
 </Solution>
 
-#### Konfiqurasiya faylını yedən deduplication {/*the-dedup-that-ate-a-config*/}
+#### Config yeyən dedup {/*the-dedup-that-ate-a-config*/}
 
-Köçürmə tapşırığı. Dizayn baxışı tiketi: bir fayl sinxronizasiya məhsulu **(ölçü, additivchecksum)** cütü uyğun gəldikdə iki faylın eyni olduğuna qərar verir və yalnız birini saxlayır — "hər faylı hash etmək çox yavaşdır." Müştəri iki *fərqli* server konfiqurasiya faylının birləşdirildiyini, deploymentları korladığını bildirir. Sxemi məğlub edən ən kiçik nümayiş cütünü hazırlayın, uğursuzluq sinfini dəqiq izah edin, konkret düzəltmə ilə baxış hökmü yazın.
+Transfer tapşırığı. Design-review ticket-i: fayl-sinxronizasiya məhsulu iki faylın eyni olduğuna qərar verir — və səssizcə yalnız birini saxlayır — onların **(size, additiv-checksum)** cütü uyğun gələndə, "çünki hər faylı hash etmək çox yavaşdır". Müştəri iki *fərqli* server config faylının birinə birləşdirilib deployment-ləri korladığını bildirir. Sxemi məğlub edən ən kiçik nümayiş cütünü qurun, uğursuzluq sinfini dəqiq izah edin və konkret düzəlişlə (checksum-ların hansı rolu saxlamalı olduğu da daxil olmaqla) review hökmünü yazın.
 
 <Solution>
 
-**Nümayiş cütü** — dərsin öz iki byte-ı kifayətdir:
+**Nümayiş cütü** — dərsin öz iki baytı kifayətdir:
 
 ```
-fayl A: "Hi"   ölçü 2, cəm 0x48+0x69 = 0xB1
-fayl B: "iH"   ölçü 2, cəm 0x69+0x48 = 0xB1   → "eyni" ✗
+fayl A: "Hi"   size 2, cəm 0x48+0x69 = 0xB1
+fayl B: "iH"   size 2, cəm 0x69+0x48 = 0xB1   → "eynidir" ✗
 ```
 
-Eyni byte-ların istənilən permütasiyası toqquşur: `listen.conf` vs `silent.conf` məzmunları, yenidən sıralanmış YAML açarları, qarışıq sıra sırası — real konfiqurasiya fayllarının keçirdiyi tam dəyişikliklər. **Uğursuzluq sinfi:** additivchecksum kommutativ və mövqe kordur, buna görə faylın byte *inventarını* barmaq izini çıxarır, byte *ardıcıllığını* deyil; identiklik testi kimi istifadə etmək anaqramları bərabər elan edir.
+Eyni baytların istənilən permutasiyası toqquşur: `listen.conf` vs `silent.conf` məzmunu, yeri dəyişmiş YAML açarları, qarışdırılmış sətir sırası — məhz real config fayllarının keçirdiyi redaktələr. **Uğursuzluq sinfi:** additiv checksum kommutativdir və mövqeyə kordur, deməli faylın bayt *ardıcıllığını* yox, bayt *inventarını* fingerprint edir; onu identiklik testi kimi işlətmək anaqramları bərabər elan edir. (Kompensasiya edən redaktələr də toqquşur — bir bayt +1, digəri −1.)
 
-**Baxış hökmü:** *"Bloklama: məzmun identikliyi toqquşma davamlı barmaq izi ilə müəyyən edilməlidir. Additivcəmini SHA-256 ilə əvəz edin (keçicilik narahatlıq olarsa BLAKE3 — müasir hash-lər çoxlu GB/s sürətindədir, buna görə 'çox yavaş' benchmark tələb edir, fərziyyə deyil); hash uyğunlaşmasında tam məzmunu müqayisə edin. Ucuz yoxlamalar düzgün işlərini saxlayır: ölçü və sürətli checksum yaxşı* mənfi *filtr kimi (uyğunsuzluq ⇒ mütləq fərqlidir, hash etməyi atlayın) — müsbət hökmü heç vaxt verməməlidirlər. End-to-end praktikasına uyğun olaraq: mənbədə deyil, hədəfdə transfer sonrası barmaq izini yoxlayın."*
+**Review hökmü:** *"Blocking: content identity kolliziya-davamlı fingerprint ilə müəyyən edilməlidir. Additiv cəmi məzmunun SHA-256-sı ilə əvəz edin (throughput narahatlıqdırsa BLAKE3 — müasir hash-lar saniyədə çoxlu GB sürətlə işləyir, ona görə 'çox yavaş' fərziyyə yox, benchmark tələb edir); hər hansı adversarial girişlərlə üzləşəcəyiksə, hash uyğunluğunda tam məzmunu müqayisə edin. Ucuz yoxlamalar öz düzgün işlərini saxlayır: size və sürətli checksum* neqativ *filtr kimi qəbulediləndir (uyğunsuzluq ⇒ qəti fərqlidir, hash-ı buraxın) — pozitiv hökmü heç vaxt onlar verməməlidir. Və end-to-end praktikaya uyğun: fingerprint-i transferdən sonra təyinat nöqtəsində yoxlayın, təkcə mənbədə yox."*
+
+Ümumi prinsip, bu modulun səsi ilə son dəfə: hər fingerprint **bəyan edilmiş əhatəli müqavilədir** — parity tək flipləri əhatə edir, CRC burst-ları, additiv cəmlər sıra haqqında demək olar heç nəyi — və production insidentləri kodun müqavilənin heç vaxt təklif etmədiyi əhatəni sakitcə fərz etdiyi zaman baş verir. ✓
 
 </Solution>
 
 </Challenges>
 
-<LearnMore title="Sıxışdırma: ZIP Necə İşləyir (Huffman, LZ)" path="/learn/faza-0/modul-0-1/compression">
+<LearnMore title="Sıxılma: ZIP necə işləyir (Huffman, LZ)" path="/learn/faza-0/modul-0-1/compression">
 
-Bu dərs bitləri qəsdən xərclədi — zərər gizlənə bilməsin deyə artıqlıq əlavə etdi. Növbəti dərs maşını əks istiqamətdə işlədir: artıqlıq *axtarılıb aradan qaldırılır* ki eyni data daha az bitə sığsın. 7-ci Dərsin sirrinin çatışmayan parçası budur (36 MB foto 3 MB faylda yaşayır), hər açdığınız ZIP-in içindədir — indi anladığınız CRC-32-nin yanında — mərkəzi alqoritmi isə 1951-ci ildə bir magistrant tərəfindən icad edilib, termin işi ilə yekun imtahan arasında seçim edərək. İşi seçdi.
+Bu dərs bitləri qəsdən xərclədi — zədə gizlənə bilməsin deyə əlavə edilmiş redundancy. Növbəti dərs maşını tərs istiqamətdə işlədir: redundancy *ovlanır və məhv edilir* ki, eyni data daha az bitə sığsın. Bu, Dərs 7-nin sirrinin çatışmayan parçasıdır (3 MB faylda yaşayan 36 MB foto), açdığınız hər ZIP-in içindədir — indi başa düşdüyünüz CRC-32-nin lap yanında — və onun mərkəzi alqoritmini 1951-ci ildə kurs işi ilə final imtahanı arasında seçim edən bir magistrant icad edib. O, kurs işini seçdi.
 
 </LearnMore>

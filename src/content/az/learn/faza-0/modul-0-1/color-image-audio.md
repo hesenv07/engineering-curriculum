@@ -1,60 +1,60 @@
 ---
-title: "Binary-da Rəng, Şəkil və Ses"
+title: "Binar Sistemdə Rəng, Şəkil və Səs"
 ---
 
 <Intro>
 
-1979-1980-ci illərdə Philips və Sony mühəndisləri 12 santimetrlik plastik disk standartını müəyyənləşdirmək üçün Eindhoven və Tokioda gərgin birgə sessiyalar keçirdilər. Philips audio üçün hər bir nümunədə 14 bitin kifayət etdiyi iddiasıyla gəldi; Sony-nin Kees Schouhamer Immink və Toshitada Doi-nin komandası isə 16-ya israr etdi və qalib gəldi. Musiqinin neçə dəfə ölçüləcəyini müəyyən edən sampling rate qəribə spesifik **44,100** rəqəminə çatdı — bu rəqəmi heç kim sevdiyinə görə yox, çünki ilk rəqəmsal yazıcılar audioyu *video* lentdə saxlayırdı, 44,100 isə həm Amerika, həm Avropa TV sxemasına mükəmməl uyğun gəlirdi: 245 xətt × 60 kadr × 3 nümunə, həm də 294 × 50 × 3 — hər ikisi tam olaraq 44,100. "Red Book" standartı 1980-ci ildə tamamlandı, ilk playerlər 1982-ci ildə çıxdı, 1970-ci illərin video lent geometriyası isə bu gün hər CD-ni, əksər streaming master-lərini və bağlayacağınız hər audio interfeysin default dəyərini müəyyənləşdirir. Bu dərs data kodlaşdırma səyahətimizdəki son və ən insani dayanacaqdır: *davamlı* dünya — gözünüzün içdiyi işıq, qulağınızın süzdüyü təzyiq dalğaları — altı dərsdə mənimsədiyiniz integer-lərə necə doğranır, yuvarlaqlaşdırılır və tökülür. Sonunda bir fotoşəklin və bir mahnının byte dəyərini əsas prinsiplərdən hesablaya, nəyin atıldığını isə dəqiq biləcəksiniz.
+1979–1980-ci illər arasında Philips və Sony mühəndisləri 12 santimetrlik plastik diski standartlaşdırmaq üçün Eindhoven və Tokioda bir sıra gərgin birgə iclaslarda görüşdülər. Philips hər audio sample üçün 14 bitin bəs etdiyini iddia edirdi; Sony-dən Kees Schouhamer Immink və Toshitada Doi-nin komandası 16-nın üstündə dayandı və qalib gəldi. Sampling rate — musiqinin saniyədə neçə dəfə ölçüləcəyi — qəribə dərəcədə spesifik **44.100** rəqəmində qərarlaşdı: kimsə bu rəqəmi sevdiyi üçün yox, ilk rəqəmsal yazıcılar audionu *video* lentində saxladığı üçün — və 44.100 həm Amerika, həm də Avropa TV sətir həndəsəsinə mükəmməl oturan yeganə sürətdir: 245 sətir × 60 field × 3 sample və 294 × 50 × 3 — hər ikisi düz 44.100. "Red Book" standartı 1980-ci ildə çıxdı, ilk pleyerlər 1982-də — və 1970-lərin video lentinin daşlaşmış həndəsəsi bu gün də hər CD-ni, streaming masterlərinin əksəriyyətini və nə vaxtsa qoşacağınız hər audio interfeysin default-unu müəyyən edir. Bu dərs data-təmsili turumuzun son və ən insani dayanacağıdır: *kəsilməz* dünya — gözünüzün içdiyi işıq, qulağınızın mindiyi təzyiq dalğaları — necə doğranır, yuvarlaqlaşdırılır və altı dərsdir mənimsədiyiniz tam ədədlərə tökülür. Sonunda bir fotoşəkilin və bir mahnının bayt qiymətini ilk prinsiplərdən hesablayacaq və dəqiq nəyin atıldığını biləcəksiniz.
 
 </Intro>
 
 <YouWillLearn>
 
-- Gerçəkliyi rəqəmsallaşdırmağın universal iki addımlı resepti: **sampling** (kəsmə) və **quantization** (yuvarlaqlaşdırma)
-- **Rəng**: piksel başına üç byte-ın bioloji hiylə olduğu və 2-ci Dərsdəki `#FF5733`-ün tam deşifri
-- **Şəkillər**: pixel-lərin cədvəli kimi — 12 meqapiksellik foto niyə xam olaraq 36 MB, telefonunuzda isə 3 MB-dır
-- **Səs**: Nyquist qaydası, CD-lərin musiqini niyə saniyədə 44,100 dəfə ölçdüyü və bir saniyəlik audio hesabı
-- **Aliasing** nədir — geriyə fırlanan vaqon təkərləri, TV-də moiré görünüşlü köynəklər — və niyə itirilmiş məlumat geri gəlmir
-- Heç bir benchmark-dan əvvəl əsas prinsiplərdən media üçün saxlama və bant genişliyi hesablamaq
+- Reallığı rəqəmsallaşdırmağın universal iki addımlı resepti: **sampling** (dilimləmə) və **quantization** (yuvarlaqlaşdırma)
+- **Rəng**: pikselə üç baytın niyə bioloji hiylə olduğu və Dərs 2-nin `#FF5733`-ünün tam dekodlanması
+- **Şəkillər**: piksellər cədvəl kimi — və 12 meqapiksellik fotonun niyə raw halda 36 MB, telefonunuzda isə 3 MB olduğu
+- **Səs**: Nyquist qaydası, CD-lərin musiqini niyə saniyədə 44.100 dəfə ölçdüyü və bir-saniyəlik-audio hesabı
+- **Aliasing** nədir — geriyə fırlanan araba təkərləri, televizorda dalğalanan zolaqlı köynəklər — və itirilmiş informasiyanın niyə heç vaxt geri qayıtmadığı
+- Media üçün storage və bandwidth büdcəsini benchmark-dan əvvəl, ilk prinsiplərdən necə hesablamaq
 
 </YouWillLearn>
 
-## Şəbəkəli kağız resepti {/*the-graph-paper-recipe*/}
+## Millimetrlik kağız resepti {/*the-graph-paper-recipe*/}
 
-Bu modulun indiyə qədər kodlaşdırdığı hər şey — integer-lər, mənfi ədədlər, mətn — *artıq diskret* idi: sərt kənarlı, sayıla bilən şeylər. Amma hisslərinizin yaşadığı dünya belə deyil. Parlaqlıq hamar şəkildə dəyişir. Kaman notasındakı hava təzyiqi davamlı bir əyridir. Narıncının istənilən iki çaları arasında həmişə bir başqa çalar var. Kompüteriniz isə altı dərsin sübut etdiyi kimi yalnız sonlu integer-lər saxlayır.
+Bu modulun indiyə qədər kodladığı hər şey — tam ədədlər, mənfilər, mətn — *onsuz da diskret* idi: sərt kənarları olan, sayıla bilən şeylər. Amma hisslərinizin yaşadığı dünya belə deyil. Parlaqlıq hamar dəyişir. Skripka notundakı hava təzyiqi kəsilməz əyridir. İstənilən iki narıncı çalar arasında daha bir narıncı çalar var, sonsuzadək. Kompüteriniz isə, altı dərsin şəksiz sübut etdiyi kimi, sonlu tam ədədlərdən başqa heç nə saxlamır.
 
-Bu iki dünyanın arasındakı körpü bir reseptdir, tutmaq üçün fiziki bir maşın: **hamar əyrini şəbəkəli kağıza köçürmək.** Yalnız şəbəkə kəsişmə nöqtələrini işarə edə bilirsiniz. İki qərar hər şeyi müəyyənləşdirir:
+Bu iki dünya arasındakı körpü bir reseptdir və beyninizdə saxlamalı olduğunuz fiziki maşın budur: **hamar əyrini millimetrlik kağıza köçürmək.** Yalnız tor kəsişmələrini işarələməyə icazəniz var. İki qərar hər şeyi müəyyən edir:
 
-- **Sütunlar** nə qədər incədir? Bu **sampling** — hər ölçümün nə qədər tez-tez götürüldüyü (səs üçün saniyədə, şəkillər üçün millimetr başına). Daha incə sütunlar daha sürətli dalğalanmaları tutur.
-- **Sıralar** nə qədər incədir? Bu **quantization** — hər ölçümün yapışa biləcəyi səviyyələrin sayı, yəni "ölçü başına neçə bit", yəni 2-ci Dərsdəki `2ⁿ`. Daha çox sıra, daha yumşaq yuvarlaqlaşdırma.
+- **Sütunlar** nə qədər sıxdır? Bu, **sampling**-dir — ölçünü nə qədər tez-tez götürdüyünüz (səs üçün saniyədə, şəkil üçün millimetrdə). Daha sıx sütunlar daha sürətli dalğalanmaları izləyir.
+- **Sətirlər** nə qədər sıxdır? Bu, **quantization**-dır — hər ölçünün neçə səviyyəyə oturuşa biləcəyi, yəni tam olaraq "hər ölçüyə neçə bit", yəni tam olaraq Dərs 2-nin `2ⁿ`-i. Daha çox sətir, daha yumşaq yuvarlaqlaşdırma.
 
-<Diagram name="color-image-audio/sampling_quantization" height={360} width={720} alt="A smooth sine-like curve drawn in muted gray over a faint grid of 16 horizontal level lines. Vertical dashed lines mark 13 evenly spaced sample instants; at each instant a blue dot sits at the grid intersection nearest to the curve, and a blue staircase-like polyline connects the dots. Two annotations: a horizontal arrow along the bottom labeled 'sampling: slice time into columns', and a vertical arrow on the right labeled 'quantization: snap each slice to one of 2 to the n levels (here 4 bits, 16 levels)'.">
+<Diagram name="color-image-audio/sampling_quantization" height={360} width={720} alt="16 üfüqi səviyyə xəttindən ibarət solğun tor üzərində boz rənglə çəkilmiş hamar sinusabənzər əyri. Şaquli qırıq xətlər 13 bərabər aralıqlı sample anını qeyd edir; hər anda mavi nöqtə əyriyə ən yaxın tor kəsişməsində oturur və mavi pilləkənvari sınıq xətt nöqtələri birləşdirir. İki annotasiya: aşağıda üfüqi ox 'sampling: zamanı sütunlara dilimlə' etiketi ilə, sağda şaquli ox 'quantization: hər dilimi 2 üstü n səviyyədən birinə oturt (burada 4 bit, 16 səviyyə)' etiketi ilə.">
 
-Rəqəmsal medianın hamısı bir şəkildə: hamar əyri, şəbəkə kəsişmə nöqtələrinə endirilmiş. Hər nöqtə bir integer-dir; nöqtələr arasındakı məkan yox olub.
+Bütün rəqəmsal media bir şəkildə: hamar əyri, tor kəsişmələrinə endirilmiş. Hər nöqtə bir tam ədəddir; nöqtələr arasındakı boşluq yoxdur.
 
 </Diagram>
 
-Hər iki qərar *qəsdən itkilidir*. Nöqtələr əyri deyil; onlar integer xülasəsidirlər — insan gözünün və qulağının illüziya quracaq qədər yaxşı seçilmiş. Rəqəmsal media gerçəkliyin surəti deyil — **gerçəkliyin hansı ölçülərinin saxlanmağa dəyər olduğuna dair bir müqavilədir** və 1-ci Dərsdən bəri hər müqavilə kimi onun rəqəmləri komitələr tərəfindən dondurulur, sonra da hamıdan uzun yaşayır. Bu dərsin qalanı həmin reseptin iki dəfə tətbiqidir: bir dəfə işığa, bir dəfə havaya.
+Hər iki qərar *qəsdən itkilidir (lossy)*. Nöqtələr əyri deyil; onlar əyrinin sonlu tam-ədəd xülasəsidir — insan gözünün və ya qulağının illüziyanı yenidən qura biləcəyi qədər yaxşı seçilmiş. Rəqəmsal media reallığın kopyası deyil — o, **reallığın hansı ölçülərinin saxlanmağa dəyər olduğu haqqında müqavilədir** və Dərs 1-dən bəri hər müqavilə kimi, rəqəmləri komitələr tərəfindən dondurulur, sonra otaqdakı hər kəsdən uzun yaşayır. Dərsin qalanı sadəcə bu reseptin iki dəfə tətbiqidir: bir dəfə işığa, bir dəfə havaya.
 
 ## Rəng: gözünüzün inandığı üç rəqəm {/*color-three-numbers-your-eye-believes*/}
 
-Bir işıq nöqtəsindən başlayaq. Fiziki olaraq onun rəngi bütöv bir *spektrdir* — dalğa uzunluqları boyunca enerjinin davamlı əyrisi, sonsuz ölçülü bir obyekt. Bunu saxlamaq ümidsizdir. Xoşbəxtlikdən siz spektrlər görmürsünüz. Göz torpağınız işığı tam olaraq **üç növ konuslu hüceyrə** ilə nümunələndirir, təxminən uzun, orta və qısa dalğa uzunluqlarına uyğunlaşdırılmış — "rəng" adlandırdığınız hər şey yalnız bu hüceyrələrin yuxarıya göndərdiyi üç rəqəmli hesabatdır. Təkamül Intel-dən əvvəl rəngi quantization etdi.
+Tək bir işıq nöqtəsindən başlayaq. Fiziki olaraq onun rəngi bütöv bir *spektrdir* — dalğa uzunluqları boyunca enerjinin kəsilməz əyrisi, sonsuz ölçülü obyekt. Bunu saxlamaq ümidsiz olardı. Xoşbəxtlikdən, siz spektrləri görmürsünüz. Torlu qişanız işığı düz **üç növ konus hüceyrəsi (cone)** ilə sample edir — təqribən uzun, orta və qısa dalğa uzunluqlarına köklənmiş — və "rəng" adlandırdığınız hər şey sadəcə o konusların yuxarıya göndərdiyi üç-rəqəmli hesabatdır. Təkamül rəngi Intel-dən əvvəl quantize etdi.
 
-Bu bioloji təsadüf **RGB**-nin bütün əsasıdır: əgər göz hər spektri üç rəqəmə endirirsə, ekranın idarə etməli olduğu da yalnız üç rəqəmdir. Hər kanala — qırmızı, yaşıl, mavi — bir byte verin, 0-dan 255-ə qədər, ve pixel üç integer-ə çevrilir:
+Həmin bioloji təsadüf **RGB**-nin bütün əsasıdır: göz hər spektri üç rəqəmə endirirsə, ekranın idarə etməli olduğu da elə üç rəqəmdir. Hər kanala — red, green, blue — bir bayt verin, 0-dan 255-ə, və piksel üç tam ədədə çevrilir:
 
 ```
-#FF5733            ← 2-ci Dərsdəki sirli byte-lar, nəhayət deşifr edildi
+#FF5733            ← Dərs 2-nin sirli baytları, nəhayət dekodlanır
 
-FF → R = 255       (qırmızı kanal tavana çatıb)
-57 → G =  87       (bir az yaşıl)
-33 → B =  51       (az miqdarda mavi)
+FF → R = 255       (red kanalı tavana dirənib)
+57 → G =  87       (bir az green)
+33 → B =  51       (azca blue)
 
-Nəticə: günbatımının isti narıncısı — 3 byte, 24 bit.
+Nəticə: günəş batımının isti narıncısı — 3 bayt, 24 bit.
 ```
 
-Hex rəng kodu heç vaxt xüsusi "veb şeyi" olmayıb: o **hex geyimli üç byte-dır** və artıq bu modulun hər bacarığı ona tətbiq olunur. Ümumi palitra: 2²⁴ = **16,777,216 rəng** — monitor marketinqinin "16.7 milyon rəng"i yalnız 2-ci Dərsdəki ikilik qüvvət cədvəlinin reklam sferasında karyera qurmasıdır. **Alpha** (şəffaflıq) üçün dördüncü byte əlavə etsəniz, hər brauzer, GPU və dizayn aləti push edən 32-bitlik RGBA pixel-iniz olur.
+Hex rəng kodu heç vaxt xüsusi "veb şeyi" olmayıb: o, **hex paltarı geymiş üç baytdır** və indi bu modulun hər bacarığı ona tətbiq olunur. Ümumi palitra: 2²⁴ = **16.777.216 rəng** — monitor marketinqinin "16,7 milyon rəngi" sadəcə Dərs 2-nin ikinin qüvvətləri cədvəlinin reklamda karyera qurmasıdır. Dördüncü bayt — **alpha** (qeyri-şəffaflıq) əlavə edin və hər brauzerin, GPU-nun və dizayn alətinin əslində o tərəf-bu tərəfə ötürdüyü 32-bitlik RGBA pikselini alırsınız.
 
-Kanallar integer daxilindəki bit sahələri olduğundan, onları çıxarmaq 5-ci Dərsdəki shift və masking-dir, canlı:
+Və kanallar tam ədədin içindəki bit sahələrindən başqa bir şey olmadığı üçün, onları çıxarmaq Dərs 5-in shift və mask əməliyyatlarıdır, canlı:
 
 ```js
 const c = 0xFF5733;
@@ -69,21 +69,21 @@ const c = 0xFF5733;
 
 <Note>
 
-RGB *sizin* hardware-ınızdakı bir hiylə, işığın qanunu deyil. Xalis spektral sarı ilə uyğun qırmızı + yaşıl işıq qarışığı fiziki olaraq fərqli spektrlərdir — amma üç konusunuzu eyni şəkildə həyəcanlandırır, siz onları ayırd edə bilmirsiniz, bu fenomenə metamerizm deyilir. Ekranlar onu çərçivə başına milyardlarla dəfə istismar edir. İnterprerasiya qatı byte-ların üstündə şanlı şəkildə etibarsız qalmağa davam edir: 2015-ci ilin fevralında bir elbisənin tək fotoşəkli interneti böldü — on milyonlarla insan *eyni RGB byte-larına* baxdı, bəziləri ağ-qızıl, bəziləri qara-mavi gördü, çünki beyin fərqli şəkildə fərz edilən işıqlandırma üçün düzəliş edir. Mükəmməl müqavilə ilə belə, "byte-ların mənası yoxdur" başa qədər çatır.
+RGB işığın qanunu deyil, *sizin* hardware-inizə qurulmuş hiylədir. Təmiz spektral sarı ilə uyğun red + green işıq qarışığı fiziki olaraq fərqli spektrlərdir — amma üç konusunuzu eyni cür həyəcanlandırır, ona görə onları ayıra bilmirsiniz; bu fenomen metamerizm adlanır. Ekranlar ondan hər kadrda milyardlarla dəfə istifadə edir. Baytların üstündəki interpretasiya qatı isə möhtəşəm dərəcədə etibarsız qalır: 2015-ci ilin fevralında bir donun tək fotosu interneti ikiyə böldü — on milyonlarla insan *eyni RGB baytlarına* baxırdı, kimisi ağ-qızılı, kimisi qara-göy görürdü, çünki beyinlər fərz edilən işıqlandırmanı fərqli düzəldir. Mükəmməl müqavilə ilə belə, "baytların mənası yoxdur" prinsipi kəllənin lap içinə qədər uzanır.
 
 </Note>
 
-## Şəkillər: pixel-lərin cədvəli {/*images-a-spreadsheet-of-pixels*/}
+## Şəkillər: piksellərdən ibarət cədvəl {/*images-a-spreadsheet-of-pixels*/}
 
-Sıxışdırılmamış şəkil artıq demək olar ki antikulminasiyalıdır: **pixel-lər şəbəkəsi**, hər pixel üç (və ya dörd) byte, ardıcıl sıralar halında saxlanılır — hər hüceyrənin bir rəng olduğu cədvəl. Sampling *çözünürlük* kimi yenidən meydana çıxır (səhnəni sütunlara və sıralara nə qədər incə böldüyünüz), quantization isə *bit depth* kimi (hər kanalın nə qədər incə yuvarlaqlaşdırıldığı).
+Sıxılmamış şəkil artıq az qala antiklimaksdır: **piksel toru**, hər piksel üç (və ya dörd) bayt, sətir-sətir saxlanmış — hər xanası bir rəng olan cədvəl. Sampling burada *resolution* kimi yenidən görünür (səhnəni sütun və sətirlərə nə qədər incə dilimlədiyiniz), quantization isə *bit depth* kimi (hər kanalın nə qədər incə yuvarlaqlaşdırdığı).
 
-<Diagram name="color-image-audio/pixel_zoom" height={340} width={720} alt="Three stages left to right. First, a rounded rectangle labeled 'photo, 4000 by 3000 pixels' with a simple mountain-and-sun line drawing inside and a small square marked on it. Zoom lines lead to the second stage: an 8 by 8 grid of cells representing that square magnified, with one cell highlighted in blue. Zoom lines continue to the third stage: three byte boxes labeled R 255, G 87, B 51 with hex values FF, 57, 33 beneath, captioned 'one pixel = 3 bytes'.">
+<Diagram name="color-image-audio/pixel_zoom" height={340} width={720} alt="Soldan sağa üç mərhələ. Birincisi, içində sadə dağ-və-günəş cizgisi olan, 'foto, 4000-ə 3000 piksel' etiketli yumru künclü düzbucaqlı və üstündə işarələnmiş kiçik kvadrat. Zoom xətləri ikinci mərhələyə aparır: həmin kvadratın böyüdülməsini təmsil edən 8-ə 8 xana toru, bir xana mavi ilə vurğulanıb. Zoom xətləri üçüncü mərhələyə davam edir: R 255, G 87, B 51 etiketli üç bayt qutusu, altında FF, 57, 33 hex dəyərləri, 'bir piksel = 3 bayt' alt yazısı ilə.">
 
-İstənilən fotoşəkilə yetərince zoom etsəniz, cədvələ çatırsınız: üç integer-dən ibarət hüceyrə sıralar. Aşağıda başqa bir şey yoxdur.
+İstənilən fotoşəkilə kifayət qədər zoom edin — cədvələ çatacaqsınız: xana sıraları, hər birində üç tam ədəd. Orada, aşağıda başqa heç nə yoxdur.
 
 </Diagram>
 
-Format o qədər sadədir ki əl ilə hazırlamaq olar. Köhnə PPM image format sadəcə kiçik bir ASCII başlıqdır ("P6, genişlik, hündürlük, maksimum dəyər") arkasından xam RGB byte-lar gəlir, yəni yalnız 2-ci Dərsdəki byte-lardan istifadə edərək bir image faylını *əl ilə yaza bilərsiniz*:
+Format həqiqətən bu qədər sadədir — əllə saxtalaşdırıla biləcək qədər sadə. Qocaman PPM şəkil formatı sadəcə balaca ASCII header-dir ("P6, width, height, max value") və ardınca raw RGB baytları — bu o deməkdir ki, Dərs 2-nin baytlarından başqa heç nə işlətmədən *şəkil faylını klaviaturada yazıb var edə bilərsiniz*:
 
 <TerminalBlock>
 
@@ -93,87 +93,89 @@ xxd pixel.ppm
 
 </TerminalBlock>
 
-On dörd byte və hər image viewer onu açacaq: 2-ci Dərsin günbatımı narıncısının bir piksellik şəkli — başlıq mətn müqaviləsindədir (ASCII sütununda `P6 1 1 255` var), pixel rəng müqaviləsindədir (`ff 57 33`), iki müqavilə bir faylı açıq şəkildə paylaşır.
+On dörd bayt — və istənilən şəkil görüntüləyicisi onu açacaq: Dərs 2-nin günbatımı narıncısında bir-piksellik şəkil — header mətn müqaviləsində (ASCII sütununda `P6 1 1 255` görünür), piksel rəng müqaviləsində (`ff 57 33`) — iki müqavilə bir faylı göz qabağında bölüşür.
 
-Bu o deməkdir ki şəkil saxlama *vurmaqdır* və hər zaman alətlərə güvənməzdən əvvəl etməlisiniz:
+Bu isə o deməkdir ki, şəkil saxlanması *vurma əməlidir* və hər hansı alətə etibar etməzdən əvvəl onu həmişə özünüz etməlisiniz:
 
 ```
-12 meqapiksellik telefon fotoşəkli, xam:
-  4000 × 3000 pixel        = 12,000,000 pixel
-  × 3 byte (R, G, B)       = 36,000,000 byte  ≈ 36 MB
+12 meqapiksellik telefon fotosu, raw:
+  4000 × 3000 piksel        = 12.000.000 piksel
+  × 3 bayt (R, G, B)        = 36.000.000 bayt  ≈ 36 MB
 
-Bir 1080p ekran kadrı, xam:
-  1920 × 1080               = 2,073,600 pixel
-  × 3 byte                  ≈ 6.2 MB
+Bir 1080p ekran kadrı, raw:
+  1920 × 1080               = 2.073.600 piksel
+  × 3 bayt                  ≈ 6,2 MB
   × saniyədə 60 kadr        ≈ hər saniyə 373 MB  (!)
 ```
 
-İndi məhsuldar şok: telefondakı fotoşəkil ~3 MB-dır, 36 deyil. Xam video 373 MB/s-də saxlama və şəbəkəni dərhal dolduracaq, lakin siz 100 dəfə yavaş bir bağlantı üzərindən 1080p stream edirsiniz. *Xam* ilə *faktiki* arasındakı fərq **sıxışdırma**dır — artıqlığı tapıb çıxarma sənəti — o qədər vacibdir ki iki addım sonra öz dərsini alacaq. Bu gün xam rəqəmi mərkəz nöqtəniz kimi saxlayın: müqavilənin dürüst qiymətidir, hər ağıllı formatın aşağıya danışdığı tavan.
+İndi məhsuldar şok: telefonunuzdakı foto ~3 MB-dır, 36 yox. Saniyədə 373 MB-lıq raw video storage-ı və şəbəkələri dərhal doldurardı, siz isə 1080p-ni bundan yüz dəfə yavaş bağlantı üzərindən stream edirsiniz. *Raw* ilə *faktiki* arasındakı uçurum **compression**-dır — redundancy-ni tapıb qovmaq sənəti — və o qədər həlledicidir ki, iki dayanacaq sonra öz dərsini alır. Bu gün üçün raw rəqəmi lövbəriniz kimi saxlayın: o, müqavilənin vicdanlı qiymətidir — hər ağıllı formatın aşağıya doğru sövdələşdiyi tavan.
 
-Bit depth-in öz görünən uğursuzluq rejimi var. Kanal başına səkkiz bit 256 parlaqlıq səviyyəsi deməkdir və böyük hamar bir gradiyentdə — açıq göy, studiya fonu — göz yuvarlaqlaşdırmanı *tuta bilər*: **banding** adlı solğun zolaqlıq, şəbəkəli kağızın sıralarının izin içindən görünməsi. 10-bitlik "HDR" pipeline-larının mühəndislik əsası budur: kanal başına 1,024 səviyyə (2³⁰ ≈ 1.07 milyard rəng), sıralar pilləkən yenidən yox olana qədər kifayət qədər incə.
+Bit depth-in öz görünən uğursuzluq rejimi var. Kanala səkkiz bit 256 parlaqlıq səviyyəsi deməkdir və böyük hamar qradiyentdə — açıq səma, studiya fonu — göz yuvarlaqlaşdırmanı tuta *bilir*: **banding** adlanan zəif zolaqlar — görünən hala gəlmiş quantization, millimetrlik kağızın sətirlərinin cizginin altından boylanması. 10-bitlik "HDR" pipeline-larının əsl mühəndislik əsası da budur: kanala 1.024 səviyyə (2³⁰ ≈ 1,07 milyard rəng) — sətirləri o qədər sıxlaşdırır ki, pilləkən yenidən yox olur.
 
-## Səs: saniyədə 44,100 ölçü {/*sound-44100-rulers-per-second*/}
+## Səs: saniyədə 44.100 xətkeş {/*sound-44100-rulers-per-second*/}
 
-Səs bir təzyiq dalğasıdır — zamanla hava təzyiqinin tək bir davamlı əyrisi (stereo: iki əyri). Mikrofon təzyiqi gərginliyə çevirir; sonra şəbəkəli kağız resepti dəvralır və hər iki düyməsi məşhur dəyərləri alır.
+Səs təzyiq dalğasıdır — zamana qarşı hava təzyiqinin tək kəsilməz əyrisi (stereo: iki əyri). Mikrofon təzyiqi gərginliyə çevirir; sonra millimetrlik kağız resepti işə düşür və onun hər iki tənzimləyicisi məşhur qiymətlər alır.
 
-**Sütunlar — nə qədər tez-tez ölçmək lazımdır?** Burada bu dərsin yeganə teoremi yaşayır, **Nyquist–Shannon sampling qaydası**: saniyədə *f* dəfə titrəyən bir dalğanı tutmaq üçün onu saniyədə **2 × f-dən çox** ölçmək lazımdır — titreme başına ən azı iki nöqtə, ya da titrəmə sütunlar arasından tamamilə sürüşür. İnsan eşitməsi ~20,000 Hz-ə qədər çatır (bu da gənc insan üçündür; tavan yaşla aşınır), buna görə audio saniyədə 40,000-dən bir az çox nümunə tələb edir. Faktiki seçilmiş rəqəm — bu dərsin açılış anı — **44,100** idi; bunu gloriyalı romantik olmayan bir səbəbə görə: ilk rəqəmsal yazıcıların istifadə etdiyi video lent formatlarına bölündüyü üçün: rəqəmsal audionun fundamental sabiti NTSC və PAL televiziyasının fosilidir.
+**Sütunlar — nə qədər tez-tez ölçmək?** Bu dərsin yeganə teoremi burada yaşayır — **Nyquist–Shannon sampling qaydası**: saniyədə *f* dəfəyə qədər dalğalanan dalğanı tutmaq üçün onu saniyədə **2 × f-dən çox** sample etməlisiniz — hər dalğalanmaya ən azı iki nöqtə, yoxsa dalğalanma sütunlarınızın arasından bütünlüklə sürüşüb keçər. İnsan eşitməsi təxminən 20.000 Hz-də bitir (bu, gənc insandır; tavan yaşla aşınır), deməli audio saniyədə 40.000-dən bir qədər çox sample tələb edir. Faktiki seçilən rəqəm — bu dərsin giriş hekayəsinin düyün nöqtəsi — **44.100** oldu, möhtəşəm dərəcədə qeyri-romantik səbəbdən: o, ilk rəqəmsal yazıcıların borc aldığı video lent formatlarına qalıqsız bölünürdü — rəqəmsal audionun fundamental sabiti NTSC və PAL televiziyasının fosildir. (Şirkət əfsanəsi əlavə edir ki, diskin 74 dəqiqəlik tutumu Bethovenin Doqquzuncu simfoniyası bir üzə sığsın deyə seçilmişdi; tarixçilər detalları mübahisələndirir, amma Sony-nin öz rəhbərləri bu hekayəni onilliklər boyu danışdılar.)
 
-**Sıralar — nə qədər incə yuvarlaqlaşdırmaq lazımdır?** Red Book müharibəsi **nümunə başına 16 bit**-də qərar verdi: 65,536 təzyiq səviyyəsi — 2¹⁶, 2-ci Dərsdən bəri hesablaya bildiyiniz rəqəm. Hər əlavə bit səviyyələri iki dəfə artırır və musiqini yuvarlaqlaşdırma xışıltısından ayıran məsafəyə təxminən **6 dB** əlavə edir; 16 bit ~96 dB verir, vinyl-in ~70 dB-dən rahatca üstündür. Studiyalar eyni səbəbdən 24 bitlə (~144 dB nəzəri hüdud) yazır ki siz `double`-da hesablayıb `float`-da göndərirsiniz: data üzərindən riyaziyyat edərkən ehtiyat dəqiqlik saxlayın — 4-cü Dərsdən artıq etibar etdiyiniz qayda.
+**Sətirlər — nə qədər incə yuvarlaqlaşdırmaq?** Red Book müharibəsi **sample başına 16 bitdə** qərarlaşdı: 65.536 təzyiq səviyyəsi — 2¹⁶, Dərs 2-dən bəri hesablaya bildiyiniz rəqəm. Hər əlavə bit səviyyələri ikiqat artırır və musiqi ilə yuvarlaqlaşdırma xətasının fısıltısı arasında təqribən **6 dB** məsafə alır; 16 bit ~96 dB verir — vinilin ~70-indən və əksər dinləmə otaqlarından rahat yuxarı. Studiyalar 24 bitdə yazır (~144 dB nəzəri ehtiyat) — eyni səbəbdən ki, siz `double`-da hesablayıb `float`-da təhvil verirsiniz: data üzərində hələ hesab apararkən ehtiyat dəqiqlik saxla — Dərs 4-dən artıq etibar etdiyiniz qayda.
 
-İndi dərsin onurğası — bir saniyəlik musiqini byte-lara çevirən hesab, heç bir alət yoxdur, yalnız vurma:
+Və indi dərsin onurğası — bir saniyə musiqini bayta çevirən hesab, nə alət, nə benchmark, sadəcə vurma:
 
 ```
-CD audio-nun bir saniyəsi:
-  44,100 nümunə/saniyə
-  × nümunə başına 2 byte  (16 bit)
+Bir saniyə CD audio:
+  saniyədə 44.100 sample
+  × sample başına 2 bayt  (16 bit)
   × 2 kanal               (stereo)
-  = 176,400 byte/saniyə     ≈ 1.4 Mbit/s
+  = saniyədə 176.400 bayt     ≈ 1,4 Mbit/s
 
-Bir dəqiqə:   × 60  ≈ 10.6 MB
-74 dəqiqə:    × 4,440 s ≈ 783,000,000 byte ≈ 750 MiB
+Bir dəqiqə:   × 60  ≈ 10,6 MB
+74 dəqiqə:    × 4.440 s ≈ 783.000.000 bayt ≈ 750 MiB
 ```
 
-Sonuncu sətir *compact disc-dir*: 12 sm plastik üzərində ~783 MB xam audio — disc əslində bundan xeyli çox xam bit saxlayır, çünki audio cızıq və barmaq izlərindən sağ çıxmasına imkan verən qalın səhv düzəltmə artıqlığı qatlarına sarılıb. Zədəli bir disc-in mükəmməl ifa etməsi bu dərsin işi deyil; bu tam olaraq *sonrakı* dərsin işidir.
+O son sətir *elə kompakt diskin özüdür*: 12 sm-lik boşqabda ~783 MB raw audio — və disk əslində bundan xeyli çox raw bit saxlayır, çünki audio onu cızıqlardan və barmaq izlərindən sağ çıxaran qalın error-correcting redundancy qatlarına bükülüb. Əzilmiş diskin necə qüsursuz səsləndiyi bu dərsin işi deyil; o, məhz *növbəti* dərsin işidir.
 
-Eyni üç faktorlu vurma hər audio müqaviləsini izah edir. Telefon şəbəkələri öz rəqəmlərini CD-dən onillər əvvəl dondurdu: **saniyədə 8,000 nümunə, 8 bit, bir kanal = 64,000 bit/saniyə** — o zaman mis bant genişliyi qızıl qiymətindəydi. Nyquist dərhal tavan göstərir: 8,000 nümunə/s 4,000 Hz-dən yuxarı heç nə təmsil edə bilmir — real telefon ~3,400 Hz-ə qədər filtr edir. Nitq sağ çıxır (güclüklə; ona görə ki 'F' ilə 'S' zəngdə seçilməzdir). Musiqi, həyatı 4 kHz-in üstündəki harmoniklər olan musiqi... hər dəfə gözləmə musiqisi eşidəndə tam nə olduğunu eşitmisiniz.
+Eyni üç-vuruqlu vurma qarşınıza çıxacaq hər audio müqaviləsini izah edir — dəhşətlilərini də. Telefon şəbəkələri *öz* rəqəmlərini CD-dən onilliklər əvvəl dondurdu: **saniyədə 8.000 sample, hər biri 8 bit, bir kanal = saniyədə 64.000 bit** — mis kabelin bandwidth-inin qızıl qiymətində olduğu vaxt seçilmiş sürət. Nyquist tavanı dərhal deyir: 8.000 sample/s 4.000 Hz-dən yuxarı heç nəyi təmsil edə bilməz — real telefoniya isə ~3.400 Hz-də filtrləyir. Nitq sağ qalır (güclə; telefonda 'F' ilə 'S'-in ayırd edilməməsinin və hər dəstək xəttinin "F as in Foxtrot"-a əl atmasının səbəbi budur). Həyatı 4 kHz-dən yuxarı harmonikalarda olan musiqi isə... musiqiyə nə olduğunu dəqiq eşitmisiniz — hər dəfə sizi gözləmə rejimində saxlayanda.
 
 <DeepDive>
 
-#### Aliasing: datanızdakı vaqon təkəri {/*aliasing-the-wagon-wheel*/}
+#### Aliasing: datanızdakı araba təkəri {/*aliasing-the-wagon-wheel*/}
 
-Çox yavaş sampling etdikdə *nə olur* tam olaraq? Dalğalar sadəcə nəzakətlə yox olmur — onlar **yalan söyləyir**. Çəkilmiş vaqon təkərinə ya helikopter rotorunə baxın: saniyədə 24 kadrda, çarx çubuq mövqeyi başına bir kadrdan bir az yavaş fırlanarsa, yavaşca *geriyə* döndüyü görünür. Kameranın sampling şəbəkəsi gerçəkdən sürətli irəli hərəkatı yavaş geriyə hərəkatdan ayırd edə bilmir — hər ikisi eyni nöqtələri verir.
+Çox yavaş sample edəndə *dəqiq* nə xarab olur? Dalğalanmalar nəzakətlə yoxa çıxmır — **yalan danışır**. Lentə alınmış araba təkərinə və ya helikopter pərinə baxın: saniyədə 24 kadrda, kadr başına bir pər-mövqeyindən bir az yavaş fırlanan təkər yavaş-yavaş *geriyə* fırlanan kimi görünür. Kameranın sampling toru sürətli irəli hərəkəti yavaş geri hərəkətdən həqiqətən ayıra bilmir — hər ikisi eyni nöqtələri verir.
 
-<Diagram name="color-image-audio/nyquist_alias" height={320} width={720} alt="A fast sine wave with eleven full cycles drawn in muted gray across the width. Twelve evenly spaced sample points are marked as red dots on the fast wave. A slow red sine wave completing exactly one cycle passes smoothly through all twelve dots. Caption inside the figure: both waves produce identical samples — after sampling, the fast wave is indistinguishable from the slow impostor.">
+<Diagram name="color-image-audio/nyquist_alias" height={320} width={720} alt="Eni boyunca boz rəngdə çəkilmiş, on bir tam dövrü olan sürətli sinus dalğası. Sürətli dalğanın üstündə qırmızı nöqtələr kimi on iki bərabər aralıqlı sample nöqtəsi qeyd edilib. Düz bir dövr tamamlayan yavaş qırmızı sinus dalğası on iki nöqtənin hamısından hamar keçir. Fiqurun içindəki alt yazı: hər iki dalğa eyni sample-ları verir — sampling-dən sonra sürətli dalğa yavaş fırıldaqçıdan ayırd edilə bilmir.">
 
-On bir dövr on iki dəfə nümunələndi: nöqtələr bir dövrlik saxtakara mükəmməl uyğun gəlir. Nyquist sürətinin altında nümunə götürmək sürətli dalğanı itirmir — onu yavaş bir saxtakara *çevirir*.
+On bir dövr, on iki dəfə sample edilib: nöqtələr bir-dövrlü fırıldaqçıya mükəmməl oturur. Nyquist sürətindən aşağı sampling sürətli dalğanı itirmir — onu yalançı yavaş dalğaya *çevirir*.
 
 </Diagram>
 
-Bu **aliasing**-dir: nümunə sürətinin yarısından yuxarı istənilən tezlik datada daha aşağı birinin "ləqəbi" altında yenidən girir. Ona görə audio hardware sampler-dan əvvəl analog *anti-aliasing filter* işlədir — Nyquist-dən yuxarı hər şeyi kobud şəkildə silir, çünki saxtakar nöqtələrin içinə girəndən sonra riyazi olaraq həqiqətdən fərqsizdir. Ona görə incə zolaqlı köynəklər kamerada burulğanlı **moiré** şəklindədir (parçanın məkan tezliyi sensor-un pixel şəbəkəsinə qarşı döyünür), ona görə oyun mühərrikləri eyni səbəbdən "anti-aliasing"ə böyük çalışma sərf edir. Qayda ümumilləşir: **əvvəl filtr et, sonra nümunə götür — sampling tutamadığını atmır; onu saxtalaşdırır.**
+Bu, **aliasing**-dir: sample rate-in yarısından yuxarı istənilən tezlik dataya daha aşağı tezliyin maskasında ("alias-ı altında") yenidən daxil olur. Audio hardware-in sampler-dən əvvəl analoq *anti-aliasing filter* işlətməsinin səbəbi budur — Nyquist-dən yuxarı hər şeyi əvvəlcədən amansızca silmək, çünki fırıldaqçı nöqtələrə girdisə, riyazi olaraq həqiqətdən ayırd edilə bilməz. Nazik zolaqlı köynəklərin kamerada burulğanlı **moiré**-yə partlamasının (parçanın fəza tezliyi sensorun piksel toru ilə döyüşür), oyun mühərriklərinin piksel səviyyəsində eyni səbəbdən "anti-aliasing"-ə nəhəng qüvvə sərf etməsinin və hər audio kitabxanasındakı resampling kodunun decimate etməzdən əvvəl filtrləməsinin səbəbi də budur. Qayda saxlamağa dəyər şüara ümumiləşir: **əvvəl filtrlə, sonra sample et — çünki sampling tuta bilmədiyini atmır; saxtalaşdırır.**
 
 </DeepDive>
 
 <Pitfall>
 
-**İtirilmiş məlumat heç vaxt geri gəlmir.**
+**İtirilmiş informasiya geri qayıtmır. Heç vaxt.**
 
-Hər "yaxşılaşdırma" fantaziyası bu qayaya çarpır. 640×480 şəkli 4K-ya böyütmək pixel-lər icad edir; heç vaxt çəkilməyənləri bərpa edə bilmir — "enhance!" filmindəki trope şəbəkəli kağızdan heç vaxt etmədiyi işarələri istəyir. 128 kbps MP3-ü WAV və ya FLAC-a çevirmək daha böyük bir qabda *zərərin bit-mükəmməl surəti* verir. JPEG-i "keyfiyyət 100"-də yenidən saxlamaq ilk saxlamanın atdığını bərpa etmir. Hər pipeline-da **ən dar müqavilə qalib gəlir** və heç bir yuxarı axar keyfiyyəti ondan sağ çıxa bilmir. Bu siz 6-cı Dərsdə gördünüz: `utf8mb3` sütunu tətbiqin sadaqətlə çatdırdığını kəsdi. Keyfiyyət qərarları birtərəfli qapılardır; onları mümkün olan *ən son* mərhələdə verin və orijinalı saxlayın.
+Hər "yaxşılaşdırma" fantaziyası bu qayada ölür. 640×480 şəkli 4K-ya upscale etmək piksel uydurur; heç vaxt çəkilməmiş pikselləri bərpa edə bilməz — təhlükəsizlik kamerası fotosuna "enhance!" deyə qışqıran kino ştampı millimetrlik kağızdan heç vaxt qoymadığı işarələri istəməkdir. 128 kbps MP3-ü WAV və ya FLAC-a çevirmək *zədənin bit-mükəmməl kopyasını* daha böyük qutuda verir. JPEG-i "quality 100" ilə yenidən saxlamaq ilk saxlamanın atdığını qaytarmır (hər nəsil sakitcə daha çox itirir). Studiya-səviyyəli audionu telefon codec-indən keçirmək onu bundan sonra əbədi olaraq telefonun müqaviləsi ilə məhdudlaşdırır — istənilən pipeline-da **ən dar müqavilə qalib gəlir** və heç bir yuxarı axın keyfiyyəti ondan sağ çıxmır. Bu formanın eynisi ilə keçən dərs tanış oldunuz: `utf8mb3` sütunu application-ın sədaqətlə çatdırdığını kəsdi. Keyfiyyət qərarları birtərəfli qapılardır; onları mümkün olan *ən son* mərhələdə verin və orijinalı saxlayın.
+
+(Vicdanlı ulduzcuq: müasir AI upscaler-lər inandırıcı detal istehsal edir — amma *inandırıcı* düzgün sözdür. Onlar boşluğun üstünə savadlı təxmin çəkirlər — tətil fotosu üçün tam istədiyiniz, sübut, tibb və ya ölçmə üçün isə heç vaxt qəbul etməməli olduğunuz şey.)
 
 </Pitfall>
 
 <DeepDive>
 
-#### Niyə üç rəng kifayətdir — nə vaxt kifayət etmir {/*why-three-colors-are-enough*/}
+#### Üç rəng niyə bəsdir — və nə vaxt bəs deyil {/*why-three-colors-are-enough*/}
 
-RGB-nin niyə işlədiyinin dərin səbəbi dəqiq ifadə edilməyə dəyər, çünki bu da *sampling* hekayəsidir: insan gözü dalğa uzunluğu spektrini yalnız üç geniş, üst-üstə düşən sensorla nümunələndirir. Rəng görüşü sonsuz ölçülü siqnalın üç ölçülü proyeksiyasudur. Ekranlar işığın spektrini bərpa etmir; *konus hüceyrələrinin cavabını* bərpa edir, bu isə çox daha ucuz bir problemdir. Üç emitter, üç byte, tamamdır.
+RGB-nin işləməsinin dərin səbəbini dəqiq ifadə etməyə dəyər, çünki bu da bir *sampling* hekayəsidir: insan gözü dalğa uzunluğu spektrini cəmi üç geniş, üst-üstə düşən sensorla sample edir. Rəng görməsi sonsuz ölçülü siqnalın üçölçülü proyeksiyasıdır — təkamülün öz lossy codec-i, milyonlarla il ərzində əhəmiyyət daşıyan tezliklərə köklənmiş (yarpaqlar arasında yetişmiş meyvə, dərinin altında qan). Ekranlar işığın spektrini reproduksiya etmir; ona *konuslarınızın reaksiyasını* reproduksiya edir — qat-qat ucuz problem. Üç şüalandırıcı, üç bayt, vəssalam.
 
-Hiylənin kənarları onun fərziyyələrinin sındığı yerdə görünür. Çap işığı əks etdirmə yolu ilə çatdırır, buna görə mürəkkəb çıxarıcı işləyir — buna görə **CMYK**, dörd kanal, və ekran rənglərinin kağızda dəyişdiyi əbədi dizayner iztirabı: iki fərqli müqavilə. Quşlar və mantis karideslər dörd-on altı konuslu tiplər daşıyır — onlar üçün inşa edilmiş hər ekran ağlagəlməz derecede yanlışdır. Kişilərin ~8%-i iki effektiv konuslu tiplə bir ölçü aşağıda yaşayır; kritik vəziyyəti yalnız qırmızı-yaşıl çalarla kodlaşdıran interfeys onlar üçün görünməz mürəkkəblə kodlaşdırır. Əlçatımlılıq qaydalarının "heç vaxt yalnız rəngə güvənmə" tövsiyəsi nəzakət deyil — bu, sahədəki heterogen deşifr hardware üçün mühəndislikdir.
+Hiylənin kənarları fərziyyələri pozulan yerdə görünür. Çap işığı şüalandırmaq əvəzinə əks etdirir, ona görə mürəkkəb subtraktiv işləyir — buradan **CMYK**, dörd kanal və ekrandakı rənglərin kağızda sürüşməsinin əbədi dizayner dərdi: iki fərqli müqavilə, sərhəd itkiləri daxil — artıq yuxuda belə danışa biləcəyiniz hekayə. Quşlar və mantis krevetkaları dörddən on altıya qədər konus növü daşıyır — onlar üçün indiyə qədər qurulmuş hər ekran zövqsüzcəsinə, gülünc dərəcədə yanlışdır. Və insan kişilərinin təqribən 8%-i, iki effektiv konus növü ilə, bir ölçü aşağıda yaşayır; kritik vəziyyəti sırf red-vs-green çalarında kodlayan interfeys onlar üçün onu görünməz mürəkkəblə kodlayır. Accessibility qaydalarının "heç vaxt yalnız rəngə arxalanma"sı nəzakət deyil — sahədəki heterogen dekodlama hardware-i üçün mühəndislikdir.
 
 </DeepDive>
 
 ## Quantization laboratoriyası {/*the-quantization-lab*/}
 
-Şəbəkəli kağızın sıralarını birbaşa hiss etmə vaxtı. Aşağıda 1-ci Dərsin açar paneli ruhunun rəng masası kimi yenidən doğulması var: üç kanal slider (üç byte — günbatımı narıncısı `#FF5733` əvvəlcədən yüklenib), üstəlik **kanal başına bit** idarəetməsi. Sağdakı swatch rənginizi daha az sıraya quantize etdikdən sonra göstərir. Qırmızı slider-i yavaşca 8 bitdə, sonra 2-də sürükləyin, *banding-in barmağınızın altında baş verdiyini izləyin* — hamar hərəkətin uzaq rənglər arasında sıçraması. Kanal başına 1 bitdə 1980-ci illərin ev kompüterlərinin 8 rəngli paletlərini yenidən kəşf etdiniz:
+Millimetrlik kağızın sətirlərini birbaşa hiss etmə vaxtıdır. Aşağıda Dərs 1-in açar-paneli ruhu rəng masası kimi yenidən doğulub: üç kanal slider-i (üç bayt — günbatımı narıncısı `#FF5733` əvvəlcədən yüklənib), üstəlik **bits-per-channel** idarəsi. Sağdakı nümunə rənginizi daha az sətrə quantize edildikdən sonra göstərir. Red slider-i 8 bitdə yavaş-yavaş çəkin, sonra 2-də — və *banding-in barmağınızın altında baş verməsinə baxın*: hamar hərəkət uzaq rənglər arasında sıçrayır. Kanala 1 bitdə 1980-lərin ev kompüterlərinin 8-rəngli palitralarını yenidən kəşf etmisiniz:
 
 <Sandpack>
 
@@ -206,7 +208,7 @@ export default function ColorLab() {
         </div>
       ))}
       <p style={{ fontFamily: 'system-ui' }}>
-        bits per channel:{' '}
+        kanala bit sayı:{' '}
         {[1, 2, 3, 4, 8].map((b) => (
           <button key={b} onClick={() => setBits(b)}
             style={{ fontWeight: b === bits ? 'bold' : 'normal',
@@ -219,7 +221,7 @@ export default function ColorLab() {
         <div>
           <div style={{ width: 120, height: 76, background: hex(rgb),
                         borderRadius: 8 }} />
-          <p>true: {hex(rgb)}</p>
+          <p>həqiqi: {hex(rgb)}</p>
         </div>
         <div>
           <div style={{ width: 120, height: 76, background: hex(q),
@@ -229,7 +231,7 @@ export default function ColorLab() {
         </div>
       </div>
       <p style={{ fontFamily: 'system-ui' }}>
-        {levels} levels per channel → {(levels ** 3).toLocaleString()} colors
+        kanala {levels} səviyyə → {(levels ** 3).toLocaleString()} rəng
       </p>
     </div>
   );
@@ -238,82 +240,82 @@ export default function ColorLab() {
 
 </Sandpack>
 
-Aşağıdakı sayğac bütün hekayəni bir sətirdə anlatır: 8 bit → 16,777,216 rəng; 1 bit → 8. Eyni slider, eyni işıq, eyni göz — yalnız şəbəkəli kağızdakı sıralar dəyişdi.
+Aşağıdakı sayğac bütün hekayəni bir sətirdə deyir: 8 bit → 16.777.216 rəng; 1 bit → 8. Eyni slider, eyni işıq, eyni göz — dəyişən yalnız millimetrlik kağızdakı sətirlərin sayıdır.
 
 <Recap>
 
-- Gerçəkliyi rəqəmsallaşdırma hər yerdə bir reseptdir: **sample** edin (davamlılığı sütunlara bölün) və **quantize** edin (hər dilimi 2ⁿ sıradan birinə yapışdırın). Nöqtələr integer xülasəsidir; aralarındakı məkan *qəsdən* atılır.
-- **Rəng** bioloji hiylərdir: gözün üç konuslu tipi sonsuz spektrləri üç rəqəmə endirir, buna görə pixel üç byte-dır — `#FF5733` = R 255, G 87, B 51 — 2²⁴ = **16,777,216 rəng** verir. Kanallar 5-ci Dərsdəki shift və mask-larla çıxarılır.
-- **Şəkillər** pixel cədvəlləridir: xam dəyər = en × boy × byte/pixel. 12 MP foto **xam olaraq 36 MB**-dır; 1080p60 video **xam olaraq 373 MB/s**-dir — gerçəkliyə qədər olan fərq sıxışdırmadır (iki dərs sonra). Az sıralar **banding** kimi görünür; 10-bitlik HDR dərmandır.
-- **Səs**: **Nyquist qaydası** ən yüksək tezliyin 2 qatından yuxarı sampling tələb edir; eşitmə ~20 kHz-də bitir, buna görə CD-lər **44,100 Hz**-də (video lent geometriyasının fosili, 1980-ci ildə dondurulmuş) **16 bitdə** (65,536 səviyyə, ~96 dB) nümunə götürür.
-- Onurğa hesabı: **44,100 × 2 byte × 2 kanal = 176,400 B/s** ≈ 1.4 Mbit/s ≈ 74 dəqiqəlik disc üçün 750 MiB. Telefonun müqaviləsi — 8,000 Hz × 8 bit = **64 kbit/s**, ~3.4 kHz-dən yuxarı heç bir şey — gözləmə musiqisinin niyə öldüyünü izah edir.
-- **Aliasing**: Nyquist-dən yuxarı tezliklər yox olmur, daha aşağı olanları *saxtalaşdırır* (vaqon təkərləri, moiré) — əvvəl filtr et, sonra sample götür.
-- **İtirilmiş məlumat heç vaxt geri gəlmir**: böyütmə ixtira edir, MP3→FLAC zərəri kopyalayır, hər pipeline-da ən dar müqavilə qalib gəlir. Keyfiyyəti ən son mərhələdə seçin; orijinalları saxlayın.
+- Reallığı rəqəmsallaşdırmaq hər yerdə bir reseptdir: **sample et** (kəsilməzliyi sütunlara dilimlə) və **quantize et** (hər dilimi 2ⁿ sətirdən birinə oturt). Nöqtələr sonlu tam-ədəd xülasəsidir; aralarındakı boşluq *qəsdən* atılır.
+- **Rəng** bioloji hiylədir: gözün üç konus növü sonsuz spektrləri üç rəqəmə endirir, deməli piksel üç baytdır — `#FF5733` = R 255, G 87, B 51 — nəticə 2²⁴ = **16.777.216 rəng** (+ qeyri-şəffaflıq üçün alpha baytı). Kanallar Dərs 5-in shift və mask-ları ilə çıxarılır.
+- **Şəkillər** piksel cədvəlləridir: raw qiymət = en × hündürlük × pikselə-bayt. 12 MP foto **raw halda 36 MB**; 1080p60 video **raw halda 373 MB/s** — reallıqla fərq compression-dır (iki dərs sonra). Çox az sətir **banding** kimi üzə çıxır; dərman 10-bitlik HDR-dır.
+- **Səs**: **Nyquist qaydası** ən yüksək tezliyin 2 mislindən yuxarı sampling tələb edir; eşitmə ~20 kHz-də bitir, ona görə CD-lər **44.100 Hz-də** (video lent həndəsəsinin fosili, 1980-də dondurulub), **16 bitdə** (65.536 səviyyə, ~96 dB; bitə ~6 dB) sample edir.
+- Onurğa hesabı: **44.100 × 2 bayt × 2 kanal = 176.400 B/s** ≈ 1,4 Mbit/s ≈ 74 dəqiqəlik diskə ≈ 750 MiB. Telefoniyanın müqaviləsi — 8.000 Hz × 8 bit = **64 kbit/s**, ~3,4 kHz-dən yuxarı heç nə — gözləmə musiqisinin ölməsinin və 'F'-in 'Foxtrot'a möhtac qalmasının səbəbidir.
+- **Aliasing**: Nyquist-dən yuxarı tezliklər yox olmur, daha aşağılarını *saxtalaşdırır* (araba təkərləri, moiré) — əvvəl filtrlə, sonra sample et.
+- **İtirilmiş informasiya heç vaxt qayıtmır**: upscaling uydurur, MP3→FLAC zədəni kopyalayır və istənilən pipeline-da ən dar müqavilə qalib gəlir. Keyfiyyət qərarını son mərhələdə verin; orijinalları saxlayın.
 
 </Recap>
 
 <Challenges>
 
-#### DodgerBlue-nu deşifrə et {/*decode-dodgerblue*/}
+#### DodgerBlue-nu dekodla {/*decode-dodgerblue*/}
 
-CSS `DodgerBlue` adlı bir rəng daşıyır, hex kodu `#1E90FF`. Hər üç kanalı onluq sistemə deşifrə edin, kanalları gücə görə sıralayın, cavab verin: bu dərsin oyuncağının 1-bitlik rejimi 16,777,216 mümkün 24-bitlik rəngdən yaxlaşıq hansı *fraksiyasını* qaldırdı?
+CSS-də `DodgerBlue` adlı rəng var, hex-i `#1E90FF`. Hər üç kanalı onluq sistemə dekodlayın, kanalları gücünə görə sıralayın və cavablandırın: mümkün 16.777.216 24-bitlik rəngdən bu dərsin oyuncağının 1-bit rejimi sizə təqribən hansı *payı* saxladı?
 
 <Hint>
 
-Hər hex cütü bir byte-dır — 2-ci Dərsdəki qayda: birinci rəqəm × 16 + ikinci rəqəm. Fraksiya üçün: kanal başına 1 bit 2 səviyyə deməkdir, 3 kanal.
+Hər hex cütü bir baytdır — Dərs 2 qaydaları: birinci rəqəm × 16 + ikinci rəqəm. Pay üçün: kanala 1 bit — kanala 2 səviyyə, 3 kanal deməkdir.
 
 </Hint>
 
 <Solution>
 
 ```
-1E → 1×16 + 14 = 30      (R: demək olar ki qırmızı yoxdur)
-90 → 9×16 + 0  = 144     (G: sağlam orta yaşıl)
-FF → 15×16 + 15 = 255    (B: tavan səviyyəsindəki mavi)
+1E → 1×16 + 14 = 30      (R: red demək olar yoxdur)
+90 → 9×16 + 0  = 144     (G: möhkəm orta green)
+FF → 15×16 + 15 = 255    (B: blue tavanda)
 ```
 
-B > G > R — maksimum mavi, orta yaşıl, qırmızı pıçıltısı: parlaq doymuş göy mavisi, tam swatchın göstərdiyi rəng. 1-bitlik palitra: 2³ = **8 rəng** 16,777,216-dan — yaxlaşıq **1 / 2.1 milyonda** fraksiya (2³/2²⁴ = 2⁻²¹). 1980-ci illərin ev kompüteri estetikasının hər rəngi həmin 2⁻²¹ dilimindəydi — gözünüz hər sprite-ı tanıdı, bu müqavilənin nə qədərinin *fidelity*-dən deyil, *struktur*dan daşındığını göstərir.
+B > G > R — maksimum blue, orta green, pıçıltı qədər red: parlaq, doymuş səma-mavisi — nümunənin göstərdiyi də elə odur. 1-bitlik palitra: 16.777.216-dan 2³ = **8 rəng** — təqribən **2,1 milyonda 1** pay (2³/2²⁴ = 2⁻²¹). 1980-lərin ev kompüteri estetikasının hər rəngi o 2⁻²¹ dilimində yaşayırdı — və gözünüz yenə hər sprite-ı tanıyırdı; bu, müqavilənin nə qədərinin dəqiqliklə yox, *strukturla* daşındığı haqqında dərin bir şey deyir.
 
 </Solution>
 
-#### Studio klipini büdcələ {/*budget-a-studio-clip*/}
+#### Studiya klipinin büdcəsi {/*budget-a-studio-clip*/}
 
-Video post-production audio 48,000 Hz, 24-bit, stereo-da işləyir. Əsas prinsiplərindən hesablayın: (a) 10 saniyəlik klip neçə byte-dır, (b) kbit/s cinsindən bitrate nədir, (c) bir müqayisə — bu eyni 10 saniyənin telefon keyfiyyətindəkinə nisbəti nə qədərdir?
+Video post-production audiosu 48.000 Hz, 24-bit, stereo işləyir. İlk prinsiplərdən hesablayın: (a) 10 saniyəlik klipdəki baytlar, (b) kbit/s ilə bitrate və (c) bir müqayisə — bu, eyni 10 saniyənin telefon keyfiyyətindən neçə dəfə böyükdür?
 
 <Solution>
 
 ```
-(a)  48,000 nümunə/s × 3 byte × 2 kanal = 288,000 B/s
-     × 10 s = 2,880,000 byte ≈ 2.88 MB
+(a)  48.000 sample/s × 3 bayt × 2 kanal = 288.000 B/s
+     × 10 s = 2.880.000 bayt ≈ 2,88 MB
 
-(b)  288,000 B/s × 8 = 2,304,000 bit/s = 2,304 kbit/s
+(b)  288.000 B/s × 8 = 2.304.000 bit/s = 2.304 kbit/s
 
-(c)  Telefon: 8,000 × 1 byte × 1 kanal = 64,000 bit/s
-     2,304 / 64 = 36× böyük
+(c)  Telefon: 8.000 × 1 bayt × 1 kanal = 64.000 bit/s
+     2.304 / 64 = 36 dəfə böyük
 ```
 
-Üç faktor, xalis vurma — rate × depth × kanal — və istənilən audio müqaviləsinin qiymətini bir baxışda hesablaya bilirsiniz. 36×-in *haradan* gəldiyinə diqqət yetirin: 6× sample rate-dən, 3× bit depth-dən, 2× stereo-dan. Media xərclərini azaltmağınız istəniləndə, bu faktorizasiya sizin seçimlər menyusuzdur.
+Üç vuruq, təmiz vurma — rate × depth × kanallar — və indi istənilən audio müqaviləsini bir baxışla qiymətləndirə bilirsiniz: podcast masterləri, oyun asset büdcələri, voice-chat bandwidth-i. 36 dəfənin *haradan* gəldiyinə diqqət edin: 6 dəfə sample rate-dən, 3 dəfə bit depth-dən, 2 dəfə stereodan. Sizdən media xərclərini kəsmək istənəndə, o vuruqlara ayırma elə *seçimlər menyusunun özüdür* — hər birinin bu gün öyrəndiyiniz məlum qavrama qiyməti var (rate → tezlik tavanı, depth → səs-küy döşəməsi, kanallar → məkan).
 
 </Solution>
 
-#### Gözləmə musiqisi tiketi {/*the-hold-music-ticket*/}
+#### Gözləmə musiqisi ticket-i {/*the-hold-music-ticket*/}
 
-Köçürmə tapşırığı. Müştəri-təcrübə komandası bir tiket göndərir: *"Dəstək xəttimiz üçün gözəl bir orkestr parçasına lisenziya aldıq və studio master-ini yüklədik (48 kHz / 24-bit FLAC, 2,304 kbit/s!). Zəng edənlər deyir ki musiqi sanki divar arxasından eşidilir. 320 kbps-də yenidən ixrac etməyə, hətta FLAC-ı WAV kimi yenidən yükləməyə çalışdıq — heç bir dəyişiklik yoxdur. Telefon provayderimiz faylı korladı?" Nə olduğunu iki həlledici rəqəmlə izah edin; niyə heç bir yenidən ixrac heç vaxt kömək edə bilməyəcəyini izah edin; düzgün gözlənti qoyun və bir real tövsiyə yazın.*
+Transfer tapşırığı. Müştəri-təcrübəsi komandasından ticket: *"Dəstək xəttimiz üçün gözəl orkestr treki lisenziyaladıq və studiya masterini yüklədik (48 kHz / 24-bit FLAC, 2.304 kbit/s!). Zəng edənlər deyir ki, sanki divar arxasından səslənir. 320 kbps-də yenidən export etməyi və hətta FLAC-ı WAV kimi yenidən yükləməyi sınadıq — dəyişiklik yoxdur. Telefoniya vendorumuz faylımızı korlayır?"* Əslində nə baş verdiyini işi həll edən iki rəqəmlə izah edin; *heç bir* yenidən export-un niyə heç vaxt kömək edə bilməyəcəyini izah edin; və düzgün gözləntilər quran, üstəlik bir həqiqətən faydalı tövsiyə verən cavabı yazın.
 
 <Solution>
 
-**Nə olur:** heç nə korlanmadı — audio telefon şəbəkəsinin müqaviləsinə keçir: **saniyədə 8,000 nümunə**, Nyquist-ə görə bu pipeline 4,000 Hz-dən yuxarı heç nə daşıya bilmir (praktikada ~3,400 Hz). Orkestrin parlaqlığı — sim harmonikləri, zil şaqqıltısı, "hava" — demək olar ki tamamilə bu xətin üstündədir; kodek onu boğmur, *silir*, sonra qalan hissəni 8-bitlik telefon səviyyəsinə (cəmi 64 kbit/s) quantize edir. "Divar arxasından" tam doğru persepsiyadır: divarlar da aşağı keçirici filtrlərdir.
+**Nə baş verir:** heç nə korlanmır — audio telefon şəbəkəsinin müqaviləsinə keçir: **saniyədə 8.000 sample**, və Nyquist-ə görə o pipeline 4.000 Hz-dən yuxarı heç bir tezliyi daşıya bilməz (praktikada ~3.400 Hz). Orkestrin parıltısı — simlərin oberton­ları, sinc kasaların şəfəqi, "hava" — demək olar tamamilə o xəttin üstündə yaşayır; codec onu boğmur, *silir*, sonra qalanı 8-bitlik telefon səviyyələrinə quantize edir (cəmi 64 kbit/s). "Divar arxasından" hərfi mənada düzgün qavrayışdır: divarlar da low-pass filtrlərdir.
 
-**Niyə yenidən ixrac kömək etmir:** zərər yükləndiklərindən *aşağı axarda* baş verir. Pipeline-daki ən dar müqavilə qalib gəlir, zəng edənin qulağına çatan son addımdır; 2,304 kbit/s master və 64 kbit/s boru hələ 64-də görüşür. Daha yaxşı fayllar yükləmək 4K poster göndərməkdir faks maşınına — məlumat müqavilənin tuta bilmədiyi yerdə yox olmur, heç vaxt keçmir.
+**Yenidən export niyə kömək edə bilməz:** zədə onların yüklədiyi hər şeydən *aşağı axında* baş verir. Pipeline-dakı ən dar müqavilə qalib gəlir və o, zəng edənin qulağına gedən son hop-dur; 2.304 kbit/s-lik master ilə 64 kbit/s-lik boru yenə 64-də görüşür. Daha yaxşı fayllar yükləmək faks maşınına 4K poster göndərməkdir — və bu, Pitfall-dakı birtərəfli qapının eynisidir: müqavilənin tuta bilmədiyi informasiya harasa yığılıb gözləmir; heç vaxt o tərəfə keçmir.
 
-**Cavab:** *"Telefon şəbəkəsi köhnə, sabit bir standartla məhdudlaşır (saniyədə 8,000 ölçü — fizika daha sonra audioyu ~3.4 kHz ilə məhdudlaşdırır, master-inizin məzmununun yaxlaşıq onda biri), buna görə heç bir mənbə faylı standart zəngdə daha yaxşı eşidilə bilməz; provayder tam olaraq mediumun icazə verdiyi şeyi çatdırır. Tövsiyə: ~3 kHz-dən aşağı yerləşən gözləmə musiqisi seçin və ya sifariş verin — tək piano, akustik gitar, nitq öndə olan parçalar bu müqavilədən çox az itkilərlə keçir; platformanızın HD-voice/VoIP kodekləri (16 kHz+) dəstəklədiyini öyrənin, çünki bu boruyu genişlədən yeganə leverage-dır."* ✓
+**Cavab:** *"Telefon şəbəkəsinin özü köhnə, sabit standartla məhdudlaşıb (saniyədə 8.000 ölçü — fizika bundan sonra audionu ~3,4 kHz-lə tavanlayır, masterinizin ehtiva etdiyinin təqribən onda biri), ona görə heç bir mənbə faylı, heç bir keyfiyyətdə, standart zəngdə daha yaxşı səslənə bilməz; vendor mühitin icazə verdiyinin tam olaraq özünü çatdırır. Tövsiyə: ~3 kHz-dən aşağıda yaşayan gözləmə audiosu seçin və ya sifariş edin — orta registrdə solo piano, akustik gitara, vokal-önlü parçalar — bu müqavilədən xeyli az itki ilə keçirlər; platformanız HD-voice/VoIP codec-lərini (16 kHz+) dəstəkləyirsə, onları aktivləşdirin — borunu həqiqətən genişləndirən yeganə qol budur."* ✓
 
 </Solution>
 
 </Challenges>
 
-<LearnMore title="Data Integrity: Parity, Checksums, CRC" path="/learn/faza-0/modul-0-1/checksum-crc">
+<LearnMore title="Data Bütövlüyü: Parity, Checksum-lar, CRC" path="/learn/faza-0/modul-0-1/checksum-crc">
 
-İndi bilirsiniz ki CD cızılan, kirlənən və düşən bir discdə ~750 MB audio integer-i daşıyır — lakin *mükəmməl* ifa edir, nota nota. Bu möcüzənin bir mexanizmi var. Növbəti dərsdə: bitlər döndüyündə nə olur — kosmik şüalar, ölən kabellar, toz — və zərər verməyin qarşısını ala bilmədiyiniz zaman onu fark etməyin, hətta *bərpa etməyin* gözəl riyaziyyatı: parity, checksum-lar və hər ZIP faylı, Ethernet frame-i və PNG-nin içindəki CRC.
+İndi bilirsiniz ki, CD cızılan, ləkələnən və yerə düşən diskdə ~750 MB audio tam ədədi daşıyır — və yenə də *qüsursuz*, notu-notuna səslənir. O möcüzənin mexanizmi var. Növbəti dərs: bitlər çevriləndə nə baş verir — kosmik şüalar, can verən kabellər, toz — və qarşısını ala bilmədiyiniz zədəni sezməyin, hətta *təmir etməyin* gözəl riyaziyyatı: parity, checksum-lar və toxunduğunuz hər ZIP faylında, Ethernet frame-ində və PNG-də gizlənən CRC.
 
 </LearnMore>
