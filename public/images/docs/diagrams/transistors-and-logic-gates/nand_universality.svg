@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" font-family="system-ui, sans-serif">
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F">every gate, from one gate</text>
+<rect x="24" y="48" width="212" height="212" rx="12" fill="none" stroke="#99A1B3" stroke-width="1.4" stroke-opacity="0.55"/>
+<text x="130" y="72" text-anchor="middle" font-size="15" fill="#23272F">NOT</text>
+<text x="130" y="284" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1 gate</text>
+<path d="M 108 130 L 134.0 130 A 20.0 20.0 0 0 1 134.0 170 L 108 170 Z" fill="#087EA4" fill-opacity="0.10" stroke="#087EA4" stroke-width="2"/>
+<circle cx="159" cy="150.0" r="5" fill="none" stroke="#087EA4" stroke-width="2"/>
+<path d="M 60 150 L 86 150" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 86 150 L 86 141 L 108 141" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 86 150 L 86 159 L 108 159" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="52" y="155" text-anchor="end" font-size="15" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">A</text>
+<path d="M 164 150 L 196 150" fill="none" stroke="#087EA4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="204" y="155" text-anchor="start" font-size="13" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">not A</text>
+<rect x="254" y="48" width="212" height="212" rx="12" fill="none" stroke="#99A1B3" stroke-width="1.4" stroke-opacity="0.55"/>
+<text x="360" y="72" text-anchor="middle" font-size="15" fill="#23272F">AND</text>
+<text x="360" y="284" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">2 gates</text>
+<path d="M 300 118 L 326.0 118 A 20.0 20.0 0 0 1 326.0 158 L 300 158 Z" fill="#087EA4" fill-opacity="0.10" stroke="#087EA4" stroke-width="2"/>
+<circle cx="351" cy="138.0" r="5" fill="none" stroke="#087EA4" stroke-width="2"/>
+<path d="M 276 129 L 300 129" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 276 147 L 300 147" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="270" y="134" text-anchor="end" font-size="14" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">A</text>
+<text x="270" y="152" text-anchor="end" font-size="14" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">B</text>
+<path d="M 386 176 L 412.0 176 A 20.0 20.0 0 0 1 412.0 216 L 386 216 Z" fill="#087EA4" fill-opacity="0.10" stroke="#087EA4" stroke-width="2"/>
+<circle cx="437" cy="196.0" r="5" fill="none" stroke="#087EA4" stroke-width="2"/>
+<path d="M 356 138 L 372 138 L 372 158 L 378 158 L 378 187 L 386 187" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 372 138 L 372 205 L 386 205" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 442 196 L 452 196" fill="none" stroke="#087EA4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="452" y="186" text-anchor="middle" font-size="13" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">A and B</text>
+<rect x="484" y="48" width="212" height="212" rx="12" fill="none" stroke="#99A1B3" stroke-width="1.4" stroke-opacity="0.55"/>
+<text x="590" y="72" text-anchor="middle" font-size="15" fill="#23272F">OR</text>
+<text x="590" y="284" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">3 gates</text>
+<path d="M 516 92 L 538.0 92 A 16.0 16.0 0 0 1 538.0 124 L 516 124 Z" fill="#087EA4" fill-opacity="0.10" stroke="#087EA4" stroke-width="2"/>
+<circle cx="559" cy="108.0" r="5" fill="none" stroke="#087EA4" stroke-width="2"/>
+<path d="M 506 101 L 516 101" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 506 115 L 516 115" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="500" y="110" text-anchor="end" font-size="13" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">A</text>
+<path d="M 516 168 L 538.0 168 A 16.0 16.0 0 0 1 538.0 200 L 516 200 Z" fill="#087EA4" fill-opacity="0.10" stroke="#087EA4" stroke-width="2"/>
+<circle cx="559" cy="184.0" r="5" fill="none" stroke="#087EA4" stroke-width="2"/>
+<path d="M 506 177 L 516 177" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 506 191 L 516 191" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="500" y="186" text-anchor="end" font-size="13" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">B</text>
+<path d="M 604 130 L 626.0 130 A 16.0 16.0 0 0 1 626.0 162 L 604 162 Z" fill="#087EA4" fill-opacity="0.10" stroke="#087EA4" stroke-width="2"/>
+<circle cx="647" cy="146.0" r="5" fill="none" stroke="#087EA4" stroke-width="2"/>
+<path d="M 564 108 L 592 108 L 592 139 L 604 139" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 564 184 L 592 184 L 592 153 L 604 153" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 652 146 L 668 146" fill="none" stroke="#087EA4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="664" y="134" text-anchor="middle" font-size="13" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">A or B</text>
+<text x="360" y="310" text-anchor="middle" font-size="13" fill="#99A1B3">a factory that can print one part can build any circuit that has ever existed</text>
+</svg>

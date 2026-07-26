@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="system-ui, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="arm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="16" fill="#F6F7F9">harvest once, expand forever</text>
+<rect x="22" y="58" width="196" height="40" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="120" y="82" text-anchor="middle" font-size="12.5" fill="#F6F7F9">key + mouse timing</text>
+<line x1="224" y1="78" x2="270" y2="150" stroke="#99A1B3" stroke-width="1.4" marker-end="url(#arm)" opacity="0.75"/>
+<rect x="22" y="110" width="196" height="40" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="120" y="134" text-anchor="middle" font-size="12.5" fill="#F6F7F9">disk and network jitter</text>
+<line x1="224" y1="130" x2="270" y2="150" stroke="#99A1B3" stroke-width="1.4" marker-end="url(#arm)" opacity="0.75"/>
+<rect x="22" y="162" width="196" height="40" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="120" y="186" text-anchor="middle" font-size="12.5" fill="#F6F7F9">chip thermal noise</text>
+<line x1="224" y1="182" x2="270" y2="150" stroke="#99A1B3" stroke-width="1.4" marker-end="url(#arm)" opacity="0.75"/>
+<rect x="22" y="214" width="196" height="40" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="120" y="238" text-anchor="middle" font-size="12.5" fill="#F6F7F9">a wall of lava lamps</text>
+<line x1="224" y1="234" x2="270" y2="150" stroke="#99A1B3" stroke-width="1.4" marker-end="url(#arm)" opacity="0.75"/>
+<text x="120" y="272" text-anchor="middle" font-size="12" fill="#99A1B3">unpredictable physical events</text>
+<rect x="278" y="104" width="128" height="96" rx="12" fill="#149ECA" fill-opacity="0.12" stroke="#149ECA" stroke-width="2"/>
+<text x="342" y="134" text-anchor="middle" font-size="13" fill="#149ECA">entropy pool</text>
+<text x="342" y="162" text-anchor="middle" font-size="20" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">256 bits</text>
+<text x="342" y="184" text-anchor="middle" font-size="12" fill="#99A1B3">of real surprise</text>
+<line x1="412" y1="152" x2="454" y2="152" stroke="#F6F7F9" stroke-width="2" marker-end="url(#ar)"/>
+<rect x="460" y="104" width="140" height="96" rx="12" fill="#E06C60" fill-opacity="0.12" stroke="#E06C60" stroke-width="2"/>
+<text x="530" y="134" text-anchor="middle" font-size="13" fill="#E06C60">CSPRNG</text>
+<text x="530" y="160" text-anchor="middle" font-size="14" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">one-way</text>
+<text x="530" y="182" text-anchor="middle" font-size="12" fill="#99A1B3">no rewind</text>
+<line x1="606" y1="152" x2="646" y2="152" stroke="#F6F7F9" stroke-width="2" marker-end="url(#ar)"/>
+<text x="676" y="132" text-anchor="middle" font-size="12" fill="#99A1B3">endless</text>
+<text x="676" y="150" text-anchor="middle" font-size="12" fill="#99A1B3">keys and</text>
+<text x="676" y="168" text-anchor="middle" font-size="12" fill="#99A1B3">tokens</text>
+<text x="360" y="238" text-anchor="middle" font-size="13" fill="#F6F7F9">2²⁵⁶ possible starting points — no one can search them, and the output cannot be run backwards</text>
+<text x="360" y="262" text-anchor="middle" font-size="13" fill="#E06C60">the whole edifice rests on the pool being genuinely unpredictable</text>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340" font-family="system-ui, sans-serif">
+<text x="170" y="30" text-anchor="middle" font-size="17" fill="#F6F7F9">two switches side by side</text>
+<text x="170" y="52" text-anchor="middle" font-size="13" fill="#99A1B3">parallel wiring</text>
+<line x1="37" y1="195" x2="37" y2="225" stroke="#99A1B3" stroke-width="2.6"/>
+<line x1="48" y1="202" x2="48" y2="218" stroke="#99A1B3" stroke-width="2.6"/>
+<path d="M 37 195 L 37 96" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 37 96 L 98 96" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 37 96 L 37 148 L 98 148" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="98" cy="96" r="3.4" fill="#149ECA"/>
+<circle cx="150" cy="96" r="3.4" fill="#149ECA"/>
+<line x1="98" y1="96" x2="150" y2="96" stroke="#149ECA" stroke-width="2.6" stroke-linecap="round"/>
+<circle cx="98" cy="148" r="3.4" fill="#99A1B3"/>
+<circle cx="150" cy="148" r="3.4" fill="#99A1B3"/>
+<line x1="98" y1="148" x2="144" y2="130" stroke="#99A1B3" stroke-width="2.6" stroke-linecap="round"/>
+<text x="124" y="86" text-anchor="middle" font-size="15" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">A</text>
+<text x="124" y="176" text-anchor="middle" font-size="15" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">B</text>
+<path d="M 150 96 L 208 96" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150 148 L 208 148 L 208 96" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 208 96 L 262 96 L 262 186" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="262" cy="210" r="19" fill="#149ECA" fill-opacity="0.18" stroke="#149ECA" stroke-width="2.2"/>
+<path d="M 252 200 L 272 220 M 272 200 L 252 220" stroke="#149ECA" stroke-width="2"/>
+<line x1="286.0" y1="210.0" x2="292.0" y2="210.0" stroke="#149ECA" stroke-width="2" stroke-linecap="round"/>
+<line x1="279.0" y1="227.0" x2="283.2" y2="231.2" stroke="#149ECA" stroke-width="2" stroke-linecap="round"/>
+<line x1="262.0" y1="234.0" x2="262.0" y2="240.0" stroke="#149ECA" stroke-width="2" stroke-linecap="round"/>
+<line x1="245.0" y1="227.0" x2="240.8" y2="231.2" stroke="#149ECA" stroke-width="2" stroke-linecap="round"/>
+<line x1="238.0" y1="210.0" x2="232.0" y2="210.0" stroke="#149ECA" stroke-width="2" stroke-linecap="round"/>
+<line x1="245.0" y1="193.0" x2="240.8" y2="188.8" stroke="#149ECA" stroke-width="2" stroke-linecap="round"/>
+<line x1="262.0" y1="186.0" x2="262.0" y2="180.0" stroke="#149ECA" stroke-width="2" stroke-linecap="round"/>
+<line x1="279.0" y1="193.0" x2="283.2" y2="188.8" stroke="#149ECA" stroke-width="2" stroke-linecap="round"/>
+<path d="M 262 234 L 262 272 L 48 272 L 48 218" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="170" y="308" text-anchor="middle" font-size="15" fill="#149ECA">either closed → lamp on</text>
+</svg>
