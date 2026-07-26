@@ -216,10 +216,10 @@ On any Unix machine the pool has a filename, and reading it gives you sixteen by
 <TerminalBlock>
 
 head -c 16 /dev/urandom | od -A x -t x1z
-000000 fd ee 99 38 e9 cc 33 03 45 50 0f a4 12 a9 07 96  >...8..3.EP......<
+000000 fd ee 99 38 e9 cc 33 03 45 50 0f a4 12 a9 07 96  >...8..3.EP......&lt;
 
 head -c 16 /dev/urandom | od -A x -t x1z
-000000 a0 0d 85 ec ab 19 9e 53 e0 7c c6 cd 45 2a d6 17  >.......S.|..E*..<
+000000 a0 0d 85 ec ab 19 9e 53 e0 7c c6 cd 45 2a d6 17  >.......S.|..E*..&lt;
 
 </TerminalBlock>
 
