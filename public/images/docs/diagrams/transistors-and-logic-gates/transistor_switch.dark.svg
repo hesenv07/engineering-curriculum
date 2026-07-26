@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="system-ui, sans-serif">
+<text x="360" y="28" text-anchor="middle" font-size="17" fill="#F6F7F9">a switch whose handle is another wire</text>
+<rect x="26" y="56" width="206" height="250" rx="12" fill="none" stroke="#99A1B3" stroke-width="1.4" stroke-opacity="0.55"/>
+<text x="129" y="80" text-anchor="middle" font-size="14" fill="#F6F7F9">inside one transistor</text>
+<rect x="56" y="150" width="146" height="52" rx="7" fill="#99A1B3" fill-opacity="0.14" stroke="#99A1B3" stroke-width="2"/>
+<rect x="60" y="154" width="34" height="44" rx="5" fill="#99A1B3" fill-opacity="0.35" stroke="none"/>
+<rect x="164" y="154" width="34" height="44" rx="5" fill="#99A1B3" fill-opacity="0.35" stroke="none"/>
+<rect x="100" y="128" width="58" height="12" rx="4" fill="#E06C60" fill-opacity="0.25" stroke="#E06C60" stroke-width="2"/>
+<path d="M 129 128 L 129 104" fill="none" stroke="#E06C60" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="129" y="98" text-anchor="middle" font-size="13" fill="#E06C60">gate</text>
+<line x1="94" y1="176" x2="164" y2="176" stroke="#149ECA" stroke-width="3" stroke-dasharray="6 5"/>
+<text x="129" y="222" text-anchor="middle" font-size="12" fill="#149ECA">channel</text>
+<path d="M 77 202 L 77 240" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 181 202 L 181 240" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="77" y="258" text-anchor="middle" font-size="12" fill="#99A1B3">source</text>
+<text x="181" y="258" text-anchor="middle" font-size="12" fill="#99A1B3">drain</text>
+<text x="129" y="288" text-anchor="middle" font-size="12" fill="#99A1B3">voltage on the gate opens</text>
+<text x="129" y="303" text-anchor="middle" font-size="12" fill="#99A1B3">or closes the channel</text>
+<rect x="250" y="56" width="216" height="250" rx="12" fill="none" stroke="#99A1B3" stroke-width="1.4" stroke-opacity="0.55"/>
+<text x="284" y="80" text-anchor="start" font-size="14" fill="#99A1B3">gate = 0</text>
+<line x1="275" y1="185" x2="275" y2="215" stroke="#99A1B3" stroke-width="2.6"/>
+<line x1="286" y1="192" x2="286" y2="208" stroke="#99A1B3" stroke-width="2.6"/>
+<path d="M 275 185 L 275 128 L 308 128" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="308" cy="128" r="3.4" fill="#99A1B3"/>
+<circle cx="366" cy="128" r="3.4" fill="#99A1B3"/>
+<line x1="308" y1="128" x2="360" y2="110" stroke="#99A1B3" stroke-width="2.6" stroke-linecap="round"/>
+<path d="M 366 128 L 416 128 L 416 176" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="416" cy="200" r="19" fill="none" stroke="#99A1B3" stroke-width="2.2"/>
+<path d="M 406 190 L 426 210 M 426 190 L 406 210" stroke="#99A1B3" stroke-width="2"/>
+<path d="M 416 224 L 416 256 L 286 256 L 286 208" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 337 92 L 337 118" fill="none" stroke="#E06C60" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="446" y="80" text-anchor="end" font-size="12" fill="#E06C60">control wire</text>
+<text x="358" y="292" text-anchor="middle" font-size="13" fill="#99A1B3">open — no current</text>
+<rect x="478" y="56" width="216" height="250" rx="12" fill="none" stroke="#99A1B3" stroke-width="1.4" stroke-opacity="0.55"/>
+<text x="512" y="80" text-anchor="start" font-size="14" fill="#149ECA">gate = 1</text>
+<line x1="503" y1="185" x2="503" y2="215" stroke="#99A1B3" stroke-width="2.6"/>
+<line x1="514" y1="192" x2="514" y2="208" stroke="#99A1B3" stroke-width="2.6"/>
+<path d="M 503 185 L 503 128 L 536 128" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="536" cy="128" r="3.4" fill="#149ECA"/>
+<circle cx="594" cy="128" r="3.4" fill="#149ECA"/>
+<line x1="536" y1="128" x2="594" y2="128" stroke="#149ECA" stroke-width="2.6" stroke-linecap="round"/>
+<path d="M 594 128 L 644 128 L 644 176" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="644" cy="200" r="19" fill="#149ECA" fill-opacity="0.18" stroke="#149ECA" stroke-width="2.2"/>
+<path d="M 634 190 L 654 210 M 654 190 L 634 210" stroke="#149ECA" stroke-width="2"/>
+<line x1="668.0" y1="200.0" x2="674.0" y2="200.0" stroke="#149ECA" stroke-width="2" stroke-linecap="round"/>
+<line x1="661.0" y1="217.0" x2="665.2" y2="221.2" stroke="#149ECA" stroke-width="2" stroke-linecap="round"/>
+<line x1="644.0" y1="224.0" x2="644.0" y2="230.0" stroke="#149ECA" stroke-width="2" stroke-linecap="round"/>
+<line x1="627.0" y1="217.0" x2="622.8" y2="221.2" stroke="#149ECA" stroke-width="2" stroke-linecap="round"/>
+<line x1="620.0" y1="200.0" x2="614.0" y2="200.0" stroke="#149ECA" stroke-width="2" stroke-linecap="round"/>
+<line x1="627.0" y1="183.0" x2="622.8" y2="178.8" stroke="#149ECA" stroke-width="2" stroke-linecap="round"/>
+<line x1="644.0" y1="176.0" x2="644.0" y2="170.0" stroke="#149ECA" stroke-width="2" stroke-linecap="round"/>
+<line x1="661.0" y1="183.0" x2="665.2" y2="178.8" stroke="#149ECA" stroke-width="2" stroke-linecap="round"/>
+<path d="M 644 224 L 644 256 L 514 256 L 514 208" fill="none" stroke="#99A1B3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 565 92 L 565 118" fill="none" stroke="#E06C60" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="674" y="80" text-anchor="end" font-size="12" fill="#E06C60">control wire</text>
+<text x="586" y="292" text-anchor="middle" font-size="13" fill="#149ECA">closed — current flows</text>
+<text x="360" y="338" text-anchor="middle" font-size="13" fill="#99A1B3">no moving parts, nothing to wear out — and it flips billions of times a second</text>
+</svg>

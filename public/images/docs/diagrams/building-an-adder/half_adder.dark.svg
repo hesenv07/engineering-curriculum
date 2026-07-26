@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340"><defs><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker></defs>
+<text x="360" y="30" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">the half adder: two gates, and you can add</text>
+<text x="118" y="113" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">A</text>
+<text x="118" y="237" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">B</text>
+<path d="M 300 86 Q 335 86 358 109 Q 335 132 300 132 Q 315 109 300 86 Z" fill="#149ECA" fill-opacity="0.10" stroke="#149ECA" stroke-width="2"/>
+<path d="M 291 86 Q 306 109 291 132" fill="none" stroke="#149ECA" stroke-width="2"/>
+<text x="330" y="113" text-anchor="middle" font-size="12" fill="#149ECA" font-family="system-ui, sans-serif">XOR</text>
+<path d="M 300 210 H 335.0 A 23.0 23.0 0 0 1 335.0 256 H 300 Z" fill="#149ECA" fill-opacity="0.10" stroke="#149ECA" stroke-width="2"/>
+<text x="330" y="237" text-anchor="middle" font-size="12" fill="#149ECA" font-family="system-ui, sans-serif">AND</text>
+<path d="M 132 108 L 150 108" fill="none" stroke="#F6F7F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="150" cy="108" r="4" fill="#F6F7F9"/>
+<path d="M 150 108 L 291 99" fill="none" stroke="#F6F7F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 150 108 L 150 223 L 300 223" fill="none" stroke="#F6F7F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 132 232 L 176 232" fill="none" stroke="#F6F7F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="176" cy="232" r="4" fill="#F6F7F9"/>
+<path d="M 176 232 L 300 243" fill="none" stroke="#F6F7F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 176 232 L 176 119 L 291 119" fill="none" stroke="#F6F7F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 358 109 L 520 109" fill="none" stroke="#149ECA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a3)"/>
+<text x="560" y="114" text-anchor="middle" font-size="17" fill="#149ECA" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">sum</text>
+<path d="M 358 233 L 520 233" fill="none" stroke="#E06C60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a2)"/>
+<text x="566" y="238" text-anchor="middle" font-size="17" fill="#E06C60" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">carry</text>
+<text x="596" y="300" text-anchor="middle" font-size="14" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1 + 1 = 10</text>
+<text x="360" y="322" text-anchor="middle" font-size="14" fill="#99A1B3" font-family="system-ui, sans-serif">the sum column is XOR · the carry column is AND</text>
+</svg>
