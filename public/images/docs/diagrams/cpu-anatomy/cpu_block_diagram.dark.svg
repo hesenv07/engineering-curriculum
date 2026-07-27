@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460"><defs><marker id="m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="m2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="m3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="m4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">everything inside the box</text>
+<rect x="30" y="48" width="460" height="380" rx="14" fill="none" stroke="#F6F7F9" stroke-width="2.4"/>
+<text x="46" y="70" text-anchor="start" font-size="15" fill="#F6F7F9" font-family="system-ui, sans-serif" font-weight="bold">CPU</text>
+<rect x="56" y="92" width="174" height="96" rx="10" fill="#E06C60" fill-opacity="0.10" stroke="#E06C60" stroke-width="2"/>
+<text x="143" y="122" text-anchor="middle" font-size="14" fill="#E06C60" font-family="system-ui, sans-serif">control unit</text>
+<text x="143" y="146" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">reads the instruction,</text>
+<text x="143" y="162" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">sets every switch</text>
+<rect x="258" y="92" width="100" height="42" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="308" y="118" text-anchor="middle" font-size="15" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">PC</text>
+<rect x="372" y="92" width="100" height="42" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="422" y="118" text-anchor="middle" font-size="15" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">IR</text>
+<text x="308" y="152" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">where we are</text>
+<text x="422" y="152" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">what we're doing</text>
+<rect x="56" y="216" width="174" height="108" rx="10" fill="#149ECA" fill-opacity="0.10" stroke="#149ECA" stroke-width="2"/>
+<text x="143" y="246" text-anchor="middle" font-size="14" fill="#149ECA" font-family="system-ui, sans-serif">register file</text>
+<text x="143" y="270" text-anchor="middle" font-size="14" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">R0 R1 R2 R3 …</text>
+<text x="143" y="296" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">flip-flops from</text>
+<text x="143" y="311" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">the last lesson</text>
+<path d="M 300 216 L 450 216 L 450 256 L 418 270 L 450 284 L 450 324 L 300 324 L 332 270 Z" fill="#149ECA" fill-opacity="0.10" stroke="#149ECA" stroke-width="2"/>
+<text x="388" y="260" text-anchor="middle" font-size="15" fill="#149ECA" font-family="system-ui, sans-serif">ALU</text>
+<text x="388" y="282" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">you built this</text>
+<text x="388" y="302" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">two lessons ago</text>
+<rect x="300" y="348" width="150" height="40" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="375" y="373" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">flags  Z N C V</text>
+<path d="M 230.0 140.0 L 252.0 140.0" fill="none" stroke="#E06C60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m2)"/>
+<path d="M 230.0 258.0 L 294.0 258.0" fill="none" stroke="#149ECA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m3)"/>
+<path d="M 230.0 290.0 L 294.0 290.0" fill="none" stroke="#149ECA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m3)"/>
+<path d="M 450.0 270.0 L 470.0 270.0 L 470.0 340.0 L 140.0 340.0 L 140.0 330.0" fill="none" stroke="#149ECA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m3)"/>
+<text x="300" y="336" text-anchor="middle" font-size="11" fill="#149ECA" font-family="system-ui, sans-serif">result written back</text>
+<path d="M 143.0 192.0 L 143.0 210.0" fill="none" stroke="#E06C60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m2)" stroke-dasharray="4 3"/>
+<path d="M 360.0 192.0 L 360.0 210.0" fill="none" stroke="#E06C60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m2)" stroke-dasharray="4 3"/>
+<text x="240" y="202" text-anchor="middle" font-size="11" fill="#E06C60" font-family="system-ui, sans-serif">control lines</text>
+<rect x="556" y="92" width="134" height="232" rx="12" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="2"/>
+<text x="623" y="118" text-anchor="middle" font-size="15" fill="#F6F7F9" font-family="system-ui, sans-serif">memory</text>
+<rect x="574" y="138" width="98" height="22" rx="4" fill="none" stroke="#99A1B3" stroke-width="1.2"/>
+<text x="623" y="154" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">• • • • • • • •</text>
+<rect x="574" y="166" width="98" height="22" rx="4" fill="none" stroke="#99A1B3" stroke-width="1.2"/>
+<text x="623" y="182" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">• • • • • • • •</text>
+<rect x="574" y="194" width="98" height="22" rx="4" fill="none" stroke="#99A1B3" stroke-width="1.2"/>
+<text x="623" y="210" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">• • • • • • • •</text>
+<rect x="574" y="222" width="98" height="22" rx="4" fill="none" stroke="#99A1B3" stroke-width="1.2"/>
+<text x="623" y="238" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">• • • • • • • •</text>
+<rect x="574" y="250" width="98" height="22" rx="4" fill="none" stroke="#99A1B3" stroke-width="1.2"/>
+<text x="623" y="266" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">• • • • • • • •</text>
+<rect x="574" y="278" width="98" height="22" rx="4" fill="none" stroke="#99A1B3" stroke-width="1.2"/>
+<text x="623" y="294" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">• • • • • • • •</text>
+<text x="623" y="342" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">instructions and data,</text>
+<text x="623" y="357" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">side by side</text>
+<path d="M 492.0 140.0 L 550.0 140.0" fill="none" stroke="#F6F7F9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m1)"/>
+<text x="521" y="130" text-anchor="middle" font-size="11" fill="#F6F7F9" font-family="system-ui, sans-serif">address</text>
+<path d="M 550.0 200.0 L 492.0 200.0" fill="none" stroke="#F6F7F9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m1)"/>
+<text x="521" y="190" text-anchor="middle" font-size="11" fill="#F6F7F9" font-family="system-ui, sans-serif">data</text>
+<text x="360" y="412" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">five parts, a bundle of control wires, and two buses to the outside world</text>
+<text x="360" y="438" text-anchor="middle" font-size="14" fill="#F6F7F9" font-family="system-ui, sans-serif">that is a processor — all of it</text>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="28" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">the loop that never stops</text>
+<rect x="276" y="68" width="168" height="68" rx="12" fill="#149ECA" fill-opacity="0.10" stroke="#149ECA" stroke-width="2"/>
+<text x="360" y="96" text-anchor="middle" font-size="16" fill="#149ECA" font-family="system-ui, sans-serif" font-weight="bold">FETCH</text>
+<text x="360" y="116" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">read the byte</text>
+<text x="360" y="130" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">the PC points at</text>
+<rect x="378" y="245" width="168" height="68" rx="12" fill="#E06C60" fill-opacity="0.10" stroke="#E06C60" stroke-width="2"/>
+<text x="462" y="273" text-anchor="middle" font-size="16" fill="#E06C60" font-family="system-ui, sans-serif" font-weight="bold">DECODE</text>
+<text x="462" y="293" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">work out which</text>
+<text x="462" y="307" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">switches to set</text>
+<rect x="174" y="245" width="168" height="68" rx="12" fill="#149ECA" fill-opacity="0.10" stroke="#149ECA" stroke-width="2"/>
+<text x="258" y="273" text-anchor="middle" font-size="16" fill="#149ECA" font-family="system-ui, sans-serif" font-weight="bold">EXECUTE</text>
+<text x="258" y="293" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">actually do it,</text>
+<text x="258" y="307" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">then move the PC</text>
+<path d="M 429.0 131.7 A 112 112 0 0 1 472.0 220.0" fill="none" stroke="#99A1B3" stroke-width="2.4" marker-end="url(#g)"/>
+<path d="M 402.0 323.8 A 112 112 0 0 1 304.0 317.0" fill="none" stroke="#99A1B3" stroke-width="2.4" marker-end="url(#g)"/>
+<path d="M 249.1 204.4 A 112 112 0 0 1 304.0 123.0" fill="none" stroke="#99A1B3" stroke-width="2.4" marker-end="url(#g)"/>
+<rect x="298" y="188" width="124" height="64" rx="10" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="360" y="214" text-anchor="middle" font-size="18" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">PC</text>
+<text x="360" y="236" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">the only state</text>
+<text x="360" y="250" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">that carries over</text>
+<text x="360" y="388" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">billions of times a second, from power-on until power-off</text>
+<text x="360" y="412" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">the CPU has no idle state — “doing nothing” is also a program</text>
+</svg>

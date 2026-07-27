@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="28" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">what a loop looks like from the PC's point of view</text>
+<path d="M 74.0 300.0 L 664.0 300.0" fill="none" stroke="#99A1B3" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 5"/>
+<text x="62" y="305" text-anchor="end" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<path d="M 74.0 266.9 L 664.0 266.9" fill="none" stroke="#99A1B3" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 5"/>
+<text x="62" y="272" text-anchor="end" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1</text>
+<path d="M 74.0 233.7 L 664.0 233.7" fill="none" stroke="#99A1B3" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 5"/>
+<text x="62" y="239" text-anchor="end" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">2</text>
+<path d="M 74.0 200.6 L 664.0 200.6" fill="none" stroke="#99A1B3" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 5"/>
+<text x="62" y="206" text-anchor="end" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">3</text>
+<path d="M 74.0 167.4 L 664.0 167.4" fill="none" stroke="#99A1B3" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 5"/>
+<text x="62" y="172" text-anchor="end" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">4</text>
+<path d="M 74.0 134.3 L 664.0 134.3" fill="none" stroke="#99A1B3" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 5"/>
+<text x="62" y="139" text-anchor="end" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">5</text>
+<path d="M 74.0 101.1 L 664.0 101.1" fill="none" stroke="#99A1B3" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 5"/>
+<text x="62" y="106" text-anchor="end" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">6</text>
+<path d="M 74.0 68.0 L 664.0 68.0" fill="none" stroke="#99A1B3" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 5"/>
+<text x="62" y="73" text-anchor="end" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">7</text>
+<text x="30" y="184" text-anchor="middle" font-size="14" fill="#F6F7F9" font-family="system-ui, sans-serif">PC</text>
+<path d="M 74.0 300.0 L 103.5 266.9 L 133.0 233.7 L 162.5 200.6 L 192.0 167.4 L 221.5 266.9 L 251.0 233.7 L 280.5 200.6 L 310.0 167.4 L 339.5 266.9 L 369.0 233.7 L 398.5 200.6 L 428.0 167.4 L 457.5 266.9 L 487.0 233.7 L 516.5 200.6 L 546.0 167.4 L 575.5 266.9 L 605.0 233.7 L 634.5 200.6 L 664.0 101.1" fill="none" stroke="#149ECA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="74.0" cy="300.0" r="4" fill="#149ECA"/>
+<circle cx="103.5" cy="266.9" r="4" fill="#149ECA"/>
+<circle cx="133.0" cy="233.7" r="4" fill="#149ECA"/>
+<circle cx="162.5" cy="200.6" r="4" fill="#149ECA"/>
+<circle cx="192.0" cy="167.4" r="4" fill="#149ECA"/>
+<circle cx="221.5" cy="266.9" r="4" fill="#E06C60"/>
+<circle cx="251.0" cy="233.7" r="4" fill="#149ECA"/>
+<circle cx="280.5" cy="200.6" r="4" fill="#149ECA"/>
+<circle cx="310.0" cy="167.4" r="4" fill="#149ECA"/>
+<circle cx="339.5" cy="266.9" r="4" fill="#E06C60"/>
+<circle cx="369.0" cy="233.7" r="4" fill="#149ECA"/>
+<circle cx="398.5" cy="200.6" r="4" fill="#149ECA"/>
+<circle cx="428.0" cy="167.4" r="4" fill="#149ECA"/>
+<circle cx="457.5" cy="266.9" r="4" fill="#E06C60"/>
+<circle cx="487.0" cy="233.7" r="4" fill="#149ECA"/>
+<circle cx="516.5" cy="200.6" r="4" fill="#149ECA"/>
+<circle cx="546.0" cy="167.4" r="4" fill="#149ECA"/>
+<circle cx="575.5" cy="266.9" r="4" fill="#E06C60"/>
+<circle cx="605.0" cy="233.7" r="4" fill="#149ECA"/>
+<circle cx="634.5" cy="200.6" r="4" fill="#149ECA"/>
+<circle cx="664.0" cy="101.1" r="4" fill="#149ECA"/>
+<path d="M 192.0 167.4 L 221.5 266.9" fill="none" stroke="#E06C60" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 310.0 167.4 L 339.5 266.9" fill="none" stroke="#E06C60" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 428.0 167.4 L 457.5 266.9" fill="none" stroke="#E06C60" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 546.0 167.4 L 575.5 266.9" fill="none" stroke="#E06C60" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="360" y="330" text-anchor="middle" font-size="13" fill="#E06C60" font-family="system-ui, sans-serif">each red drop is one JMP 1 — the PC being written instead of incremented</text>
+<text x="74" y="348" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">start</text>
+<text x="664" y="348" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">HLT</text>
+<text x="360" y="378" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">the program has 7 instructions; the processor executed 21 of them</text>
+<text x="360" y="402" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">a loop is not a structure in memory — it is a shape the PC traces over time</text>
+</svg>

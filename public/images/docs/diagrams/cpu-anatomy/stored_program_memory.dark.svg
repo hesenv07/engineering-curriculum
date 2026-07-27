@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470"><defs><marker id="m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="m2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="m3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="m4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">one memory, and nothing in it is labelled</text>
+<rect x="150" y="58" width="150" height="44" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="136" y="86" text-anchor="end" font-size="13" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">00</text>
+<text x="225" y="86" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">00011011</text>
+<rect x="150" y="108" width="150" height="44" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="136" y="136" text-anchor="end" font-size="13" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">01</text>
+<text x="225" y="136" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">01000110</text>
+<rect x="150" y="158" width="150" height="44" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="136" y="186" text-anchor="end" font-size="13" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">02</text>
+<text x="225" y="186" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">11101100</text>
+<rect x="150" y="208" width="150" height="44" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="136" y="236" text-anchor="end" font-size="13" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">03</text>
+<text x="225" y="236" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">00000101</text>
+<rect x="150" y="258" width="150" height="44" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="136" y="286" text-anchor="end" font-size="13" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">04</text>
+<text x="225" y="286" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">10010110</text>
+<rect x="150" y="308" width="150" height="44" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="136" y="336" text-anchor="end" font-size="13" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">05</text>
+<text x="225" y="336" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">00000000</text>
+<text x="225" y="46" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">memory</text>
+<text x="118" y="46" text-anchor="end" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">address</text>
+<path d="M 56.0 80.0 L 106.0 80.0" fill="none" stroke="#E06C60" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m2)"/>
+<text x="52" y="85" text-anchor="end" font-size="16" fill="#E06C60" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">PC</text>
+<text x="60" y="106" text-anchor="start" font-size="11" fill="#E06C60" font-family="system-ui, sans-serif">the CPU is looking here</text>
+<rect x="372" y="64" width="316" height="118" rx="10" fill="#149ECA" fill-opacity="0.10" stroke="#149ECA" stroke-width="2"/>
+<text x="530" y="88" text-anchor="middle" font-size="14" fill="#149ECA" font-family="system-ui, sans-serif">read as an instruction</text>
+<text x="530" y="118" text-anchor="middle" font-size="19" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">00 01 10 11</text>
+<text x="530" y="142" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">op  rd  rs1 rs2</text>
+<text x="530" y="168" text-anchor="middle" font-size="16" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">ADD R1, R2, R3</text>
+<rect x="372" y="198" width="316" height="90" rx="10" fill="#E06C60" fill-opacity="0.10" stroke="#E06C60" stroke-width="2"/>
+<text x="530" y="222" text-anchor="middle" font-size="14" fill="#E06C60" font-family="system-ui, sans-serif">read as a number</text>
+<text x="530" y="254" text-anchor="middle" font-size="19" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">00011011  =  27</text>
+<text x="530" y="276" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">just a byte, like any other</text>
+<path d="M 308.0 80.0 L 364.0 100.0" fill="none" stroke="#149ECA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m3)"/>
+<path d="M 308.0 88.0 L 364.0 232.0" fill="none" stroke="#E06C60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m2)"/>
+<text x="360" y="386" text-anchor="middle" font-size="14" fill="#F6F7F9" font-family="system-ui, sans-serif">the byte does not change — only which part of the CPU is looking at it</text>
+<text x="360" y="412" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">an instruction is not a special kind of data; it is data the PC happens to point at</text>
+<text x="360" y="446" text-anchor="middle" font-size="14" fill="#149ECA" font-family="system-ui, sans-serif">bytes have no meaning — contracts do</text>
+</svg>

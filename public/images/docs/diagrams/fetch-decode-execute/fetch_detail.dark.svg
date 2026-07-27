@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="28" text-anchor="middle" font-size="17" fill="#149ECA" font-family="system-ui, sans-serif">FETCH: go and get the byte</text>
+<rect x="40" y="96" width="116" height="58" rx="9" fill="#E06C60" fill-opacity="0.10" stroke="#E06C60" stroke-width="2"/>
+<text x="98" y="122" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">PC</text>
+<text x="98" y="142" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">= 2</text>
+<rect x="236" y="96" width="200" height="58" rx="9" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="336" y="130" text-anchor="middle" font-size="14" fill="#F6F7F9" font-family="system-ui, sans-serif">address bus</text>
+<rect x="512" y="74" width="168" height="168" rx="11" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="2"/>
+<text x="596" y="100" text-anchor="middle" font-size="15" fill="#F6F7F9" font-family="system-ui, sans-serif">memory</text>
+<rect x="526" y="116" width="140" height="24" rx="5" fill="none" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="596" y="133" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">01010101</text>
+<rect x="526" y="146" width="140" height="24" rx="5" fill="none" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="596" y="163" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">11100000</text>
+<rect x="526" y="176" width="140" height="24" rx="5" fill="#E06C60" fill-opacity="0.10" stroke="#E06C60" stroke-width="1.4"/>
+<text x="596" y="193" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">00111111</text>
+<rect x="526" y="206" width="140" height="24" rx="5" fill="none" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="596" y="223" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">10000110</text>
+<path d="M 162.0 125.0 L 230.0 125.0" fill="none" stroke="#E06C60" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#r)"/>
+<path d="M 442.0 125.0 L 506.0 125.0" fill="none" stroke="#E06C60" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#r)"/>
+<text x="336" y="168" text-anchor="middle" font-size="12" fill="#E06C60" font-family="system-ui, sans-serif">“what is at address 2?”</text>
+<rect x="236" y="246" width="200" height="58" rx="9" fill="#149ECA" fill-opacity="0.10" stroke="#149ECA" stroke-width="2"/>
+<text x="336" y="280" text-anchor="middle" font-size="14" fill="#F6F7F9" font-family="system-ui, sans-serif">data bus</text>
+<path d="M 506.0 200.0 L 452.0 200.0 L 452.0 275.0 L 442.0 275.0" fill="none" stroke="#149ECA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#b)"/>
+<rect x="40" y="246" width="116" height="58" rx="9" fill="#149ECA" fill-opacity="0.10" stroke="#149ECA" stroke-width="2"/>
+<text x="98" y="272" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">IR</text>
+<text x="98" y="292" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">00111111</text>
+<path d="M 230.0 275.0 L 162.0 275.0" fill="none" stroke="#149ECA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#b)"/>
+<path d="M 98.0 160.0 L 98.0 196.0 L 196.0 196.0 L 196.0 130.0 L 206.0 130.0" fill="none" stroke="#99A1B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)" stroke-dasharray="4 3"/>
+<text x="150" y="214" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">PC ← PC + 1</text>
+<text x="360" y="340" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">the byte at the address in the PC is copied into the instruction register</text>
+<text x="360" y="364" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">and the PC quietly steps forward, before anyone has looked at what arrived</text>
+</svg>

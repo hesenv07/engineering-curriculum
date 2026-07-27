@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380"><defs><marker id="m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="m2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="m3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="m4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">the register file: a very small, very fast filing cabinet</text>
+<rect x="250" y="62" width="220" height="240" rx="12" fill="#087EA4" fill-opacity="0.10" stroke="#087EA4" stroke-width="2"/>
+<rect x="276" y="88" width="168" height="38" rx="6" fill="none" stroke="#23272F" stroke-width="1.6"/>
+<text x="302" y="113" text-anchor="middle" font-size="15" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">R0</text>
+<text x="390" y="113" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0 1 1 0 1 0 0 1</text>
+<rect x="276" y="138" width="168" height="38" rx="6" fill="none" stroke="#23272F" stroke-width="1.6"/>
+<text x="302" y="163" text-anchor="middle" font-size="15" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">R1</text>
+<text x="390" y="163" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0 1 1 0 1 0 0 1</text>
+<rect x="276" y="188" width="168" height="38" rx="6" fill="none" stroke="#23272F" stroke-width="1.6"/>
+<text x="302" y="213" text-anchor="middle" font-size="15" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">R2</text>
+<text x="390" y="213" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0 1 1 0 1 0 0 1</text>
+<rect x="276" y="238" width="168" height="38" rx="6" fill="none" stroke="#23272F" stroke-width="1.6"/>
+<text x="302" y="263" text-anchor="middle" font-size="15" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">R3</text>
+<text x="390" y="263" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0 1 1 0 1 0 0 1</text>
+<path d="M 250.0 110.0 L 150.0 110.0" fill="none" stroke="#087EA4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m3)"/>
+<text x="142" y="100" text-anchor="end" font-size="12" fill="#087EA4" font-family="system-ui, sans-serif">read port 1</text>
+<path d="M 150.0 140.0 L 250.0 140.0" fill="none" stroke="#99A1B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m4)"/>
+<text x="142" y="144" text-anchor="end" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">which register?</text>
+<path d="M 250.0 170.0 L 150.0 170.0" fill="none" stroke="#087EA4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m3)"/>
+<text x="142" y="160" text-anchor="end" font-size="12" fill="#087EA4" font-family="system-ui, sans-serif">read port 2</text>
+<path d="M 150.0 200.0 L 250.0 200.0" fill="none" stroke="#99A1B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m4)"/>
+<text x="142" y="204" text-anchor="end" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">which register?</text>
+<path d="M 150.0 262.0 L 250.0 262.0" fill="none" stroke="#C1554D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m2)"/>
+<text x="142" y="266" text-anchor="end" font-size="12" fill="#C1554D" font-family="system-ui, sans-serif">write port</text>
+<path d="M 470.0 262.0 L 600.0 262.0" fill="none" stroke="#C1554D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m2)" stroke-dasharray="4 3"/>
+<text x="604" y="266" text-anchor="start" font-size="11" fill="#C1554D" font-family="system-ui, sans-serif">write enable</text>
+<text x="588" y="110" text-anchor="middle" font-size="12" fill="#087EA4" font-family="system-ui, sans-serif">two values out</text>
+<text x="588" y="132" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">at the same time</text>
+<path d="M 470.0 110.0 L 560.0 110.0" fill="none" stroke="#087EA4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m3)"/>
+<text x="360" y="330" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">two reads and one write, every single cycle — which is exactly what  R1 = R2 + R3  needs</text>
+<text x="360" y="356" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">each register is just 8, 32 or 64 flip-flops standing in a row</text>
+</svg>

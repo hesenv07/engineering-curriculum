@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400"><defs><marker id="m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="m2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="m3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="m4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">one instruction in, a fistful of switch settings out</text>
+<rect x="210" y="56" width="74" height="46" rx="7" fill="#149ECA" fill-opacity="0.10" stroke="#149ECA" stroke-width="2"/>
+<text x="247" y="85" text-anchor="middle" font-size="19" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">00</text>
+<text x="247" y="118" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">op</text>
+<rect x="290" y="56" width="74" height="46" rx="7" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="2"/>
+<text x="327" y="85" text-anchor="middle" font-size="19" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">01</text>
+<text x="327" y="118" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">rd</text>
+<rect x="370" y="56" width="74" height="46" rx="7" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="2"/>
+<text x="407" y="85" text-anchor="middle" font-size="19" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">10</text>
+<text x="407" y="118" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">rs1</text>
+<rect x="450" y="56" width="74" height="46" rx="7" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="2"/>
+<text x="487" y="85" text-anchor="middle" font-size="19" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">11</text>
+<text x="487" y="118" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">rs2</text>
+<text x="194" y="85" text-anchor="end" font-size="16" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">IR</text>
+<text x="360" y="140" text-anchor="middle" font-size="15" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">ADD R1, R2, R3</text>
+<rect x="240" y="162" width="240" height="52" rx="10" fill="#E06C60" fill-opacity="0.10" stroke="#E06C60" stroke-width="2"/>
+<text x="360" y="194" text-anchor="middle" font-size="15" fill="#E06C60" font-family="system-ui, sans-serif">control unit</text>
+<path d="M 360.0 148.0 L 360.0 158.0" fill="none" stroke="#F6F7F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m1)"/>
+<rect x="76" y="262" width="190" height="38" rx="8" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="171" y="286" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">RegRead1 = 10</text>
+<path d="M 360.0 218.0 L 171.0 258.0" fill="none" stroke="#E06C60" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m2)" stroke-dasharray="3 3"/>
+<rect x="292" y="262" width="190" height="38" rx="8" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="387" y="286" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">RegRead2 = 11</text>
+<path d="M 360.0 218.0 L 387.0 258.0" fill="none" stroke="#E06C60" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m2)" stroke-dasharray="3 3"/>
+<rect x="508" y="262" width="190" height="38" rx="8" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="603" y="286" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">ALUop = ADD</text>
+<path d="M 360.0 218.0 L 603.0 258.0" fill="none" stroke="#E06C60" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m2)" stroke-dasharray="3 3"/>
+<rect x="76" y="318" width="190" height="38" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="171" y="342" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">UseConstant = 0</text>
+<path d="M 360.0 218.0 L 171.0 314.0" fill="none" stroke="#99A1B3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m4)" stroke-dasharray="3 3"/>
+<rect x="292" y="318" width="190" height="38" rx="8" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="387" y="342" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">RegWrite = 1</text>
+<path d="M 360.0 218.0 L 387.0 314.0" fill="none" stroke="#E06C60" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m2)" stroke-dasharray="3 3"/>
+<rect x="508" y="318" width="190" height="38" rx="8" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="603" y="342" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">WriteAddr = 01</text>
+<path d="M 360.0 218.0 L 603.0 314.0" fill="none" stroke="#E06C60" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m2)" stroke-dasharray="3 3"/>
+<text x="360" y="384" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">these wires are not data — they are the levers that steer the data</text>
+</svg>

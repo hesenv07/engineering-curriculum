@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="28" text-anchor="middle" font-size="17" fill="#E06C60" font-family="system-ui, sans-serif">DECODE: work out what it means</text>
+<rect x="208" y="62" width="148" height="52" rx="8" fill="#149ECA" fill-opacity="0.10" stroke="#149ECA" stroke-width="2"/>
+<text x="282" y="94" text-anchor="middle" font-size="20" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0011</text>
+<rect x="364" y="62" width="148" height="52" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="438" y="94" text-anchor="middle" font-size="20" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1111</text>
+<text x="194" y="94" text-anchor="end" font-size="16" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">IR</text>
+<text x="282" y="132" text-anchor="middle" font-size="13" fill="#149ECA" font-family="system-ui, sans-serif">opcode = SUB</text>
+<text x="438" y="132" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">operand = 15</text>
+<rect x="250" y="162" width="220" height="54" rx="10" fill="#E06C60" fill-opacity="0.10" stroke="#E06C60" stroke-width="2"/>
+<text x="360" y="195" text-anchor="middle" font-size="15" fill="#E06C60" font-family="system-ui, sans-serif">control unit</text>
+<path d="M 282.0 142.0 L 330.0 156.0" fill="none" stroke="#F6F7F9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a)"/>
+<path d="M 438.0 142.0 L 392.0 156.0" fill="none" stroke="#F6F7F9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a)"/>
+<rect x="60" y="256" width="186" height="36" rx="8" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="153" y="279" text-anchor="middle" font-size="12.5" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">MemRead = 1</text>
+<path d="M 360.0 220.0 L 153.0 252.0" fill="none" stroke="#E06C60" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#r)" stroke-dasharray="3 3"/>
+<rect x="270" y="256" width="186" height="36" rx="8" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="363" y="279" text-anchor="middle" font-size="12.5" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">MemAddr = 15</text>
+<path d="M 360.0 220.0 L 363.0 252.0" fill="none" stroke="#E06C60" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#r)" stroke-dasharray="3 3"/>
+<rect x="480" y="256" width="186" height="36" rx="8" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="573" y="279" text-anchor="middle" font-size="12.5" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">ALUop = SUB</text>
+<path d="M 360.0 220.0 L 573.0 252.0" fill="none" stroke="#E06C60" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#r)" stroke-dasharray="3 3"/>
+<rect x="60" y="308" width="186" height="36" rx="8" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="153" y="331" text-anchor="middle" font-size="12.5" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">AccWrite = 1</text>
+<path d="M 360.0 220.0 L 153.0 304.0" fill="none" stroke="#E06C60" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#r)" stroke-dasharray="3 3"/>
+<rect x="270" y="308" width="186" height="36" rx="8" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="363" y="331" text-anchor="middle" font-size="12.5" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">SetFlags = 1</text>
+<path d="M 360.0 220.0 L 363.0 304.0" fill="none" stroke="#E06C60" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#r)" stroke-dasharray="3 3"/>
+<rect x="480" y="308" width="186" height="36" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="573" y="331" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">PCload = 0</text>
+<path d="M 360.0 220.0 L 573.0 304.0" fill="none" stroke="#99A1B3" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)" stroke-dasharray="3 3"/>
+<text x="360" y="368" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">one byte in, a fistful of switch settings out — pure combinational logic</text>
+</svg>
