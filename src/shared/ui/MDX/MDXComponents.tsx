@@ -3,6 +3,7 @@ import * as React from "react";
 import { Link } from "@/i18n/navigation";
 
 import { Wip } from "./Wip";
+import { Term } from "./Term";
 import { Note } from "./Note";
 import { Intro } from "./Intro";
 import { Recap } from "./Recap";
@@ -229,6 +230,7 @@ export const MDXComponents = {
   YouWillLearnCard,
   ConsoleBlockMulti,
   IllustrationBlock,
+  Term,
 };
 
 for (const key of Object.keys(MDXComponents)) {

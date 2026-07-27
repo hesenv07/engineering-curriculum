@@ -4,7 +4,7 @@ title: "Negative Numbers: Two's Complement"
 
 <Intro>
 
-On June 4, 1996, the European Space Agency launched the first Ariane 5 — a rocket that had taken a decade and about $7 billion to develop, carrying four Cluster science satellites worth roughly $370 million. Thirty-seven seconds into the flight, it swerved violently off course and triggered its own self-destruct system. The cause was not an engine, a tank, or a sensor. Deep in the guidance software, a 64-bit velocity value was converted into a **16-bit signed integer** — a box that can hold nothing larger than 32,767. Ariane 5 accelerated faster than its predecessor, the number didn't fit, the conversion raised an exception, and the guidance computer shut down. The backup computer took over, ran the *exact same code* on the exact same data, and died the same death 72 milliseconds earlier. Half a billion dollars of hardware was destroyed by a number that wouldn't fit in a box — a *signed* box. Last lesson you overflowed unsigned counters; this lesson you'll learn what "signed" means, why it's one of the most elegant tricks in all of engineering, and where its sharp edges still cut today.
+On June 4, 1996, the European Space Agency launched the first Ariane 5 — a rocket that had taken a decade and about $7 billion to develop, carrying four Cluster science satellites worth roughly $370 million. Thirty-seven seconds into the flight, it swerved violently off course and triggered its own self-destruct system. The cause was not an engine, a tank, or a sensor. Deep in the guidance software, a 64-bit velocity value was converted into a **16-bit <Term definition="A number that can be positive, negative, or zero. The most significant bit acts as a sign flag: 0 means positive, 1 means negative. This halves the positive range — a 16-bit signed integer holds −32,768 to +32,767 instead of 0 to 65,535. The standard encoding is two's complement, so the same adder circuit handles both signed and unsigned arithmetic without modification.">signed integer</Term>** — a box that can hold nothing larger than 32,767. Ariane 5 accelerated faster than its predecessor, the number didn't fit, the conversion raised an exception, and the guidance computer shut down. The backup computer took over, ran the *exact same code* on the exact same data, and died the same death 72 milliseconds earlier. Half a billion dollars of hardware was destroyed by a number that wouldn't fit in a box — a *signed* box. Last lesson you overflowed unsigned counters; this lesson you'll learn what "signed" means, why it's one of the most elegant tricks in all of engineering, and where its sharp edges still cut today.
 
 </Intro>
 
@@ -51,7 +51,17 @@ The fatal one: **addition breaks.** Feed +5 and −5 into a plain binary adder �
 Expected: 0.  Got: −10.
 ```
 
-The adder did its job perfectly; the *contract* produced nonsense, because under sign-magnitude, adding a negative number is not the same mechanical motion as adding a positive one. To make arithmetic work you'd need a second circuit: compare the signs, if they differ then subtract the smaller magnitude from the larger, then copy the sign of the larger... That's real hardware that early machines actually built — and paid for.
+The adder did its job perfectly; the *contract* produced nonsense, because under sign-magnitude, adding a negative number is not the same mechanical motion as adding a positive one. To make arithmetic work you'd need a second circuit that follows a different path: compare the sign bits — same or different? If they differ, strip the sign bits, subtract the smaller magnitude from the larger, then attach the sign of the bigger one. Here's what that procedure looks like on `(+5) + (−3)`:
+
+```
+    0 0000101      +5   ┐
+  + 1 0000011      −3   ┘  signs differ → subtraction path
+
+  |+5| > |−3|, so:  0000101 − 0000011 = 0000010
+  larger (+5) wins the sign  →  0 0000010  =  +2  ✓
+```
+
+That is not the adder doing three things at once — it is a comparator deciding which path to take, then a subtractor running the path, then logic pinning the right sign bit onto the result. Three separate circuits, wired in alongside the original adder. That's real hardware that early machines actually built — and paid for.
 
 ## Attempt 2: one's complement {/*attempt-2-ones-complement*/}
 

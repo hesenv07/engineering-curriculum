@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300"><defs><marker id="c1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="c2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="c3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#E06C60" stroke-width="2.4" opacity="0.5"/></pattern></defs>
+<text x="360" y="28" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">the clock: a wire that says NOW</text>
+<path d="M 70.0 156.0 L 70.0 96.0 L 134.0 96.0 L 134.0 156.0 L 198.0 156.0 L 198.0 96.0 L 262.0 96.0 L 262.0 156.0 L 326.0 156.0 L 326.0 96.0 L 390.0 96.0 L 390.0 156.0 L 454.0 156.0 L 454.0 96.0 L 518.0 96.0 L 518.0 156.0 L 582.0 156.0" fill="none" stroke="#149ECA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="54" y="102" text-anchor="end" font-size="14" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1</text>
+<text x="54" y="162" text-anchor="end" font-size="14" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<path d="M 198.0 178.0 L 326.0 178.0" fill="none" stroke="#F6F7F9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c1)"/>
+<path d="M 326.0 178.0 L 198.0 178.0" fill="none" stroke="#F6F7F9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c1)"/>
+<path d="M 198.0 90.0 L 198.0 186.0" fill="none" stroke="#99A1B3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<path d="M 326.0 90.0 L 326.0 186.0" fill="none" stroke="#99A1B3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<text x="262" y="198" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">one period T</text>
+<circle cx="70" cy="96" r="5" fill="#E06C60"/>
+<path d="M 70.0 62.0 L 70.0 86.0" fill="none" stroke="#E06C60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c2)"/>
+<circle cx="198" cy="96" r="5" fill="#E06C60"/>
+<path d="M 198.0 62.0 L 198.0 86.0" fill="none" stroke="#E06C60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c2)"/>
+<circle cx="326" cy="96" r="5" fill="#E06C60"/>
+<path d="M 326.0 62.0 L 326.0 86.0" fill="none" stroke="#E06C60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c2)"/>
+<circle cx="454" cy="96" r="5" fill="#E06C60"/>
+<path d="M 454.0 62.0 L 454.0 86.0" fill="none" stroke="#E06C60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c2)"/>
+<text x="326" y="54" text-anchor="middle" font-size="13" fill="#E06C60" font-family="system-ui, sans-serif">rising edge — every register looks at its input</text>
+<text x="360" y="240" text-anchor="middle" font-size="15" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">frequency = 1 / T</text>
+<text x="360" y="268" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1 GHz = 1000 ps per tick  ·  3 GHz = 333 ps  ·  4 GHz = 250 ps</text>
+</svg>

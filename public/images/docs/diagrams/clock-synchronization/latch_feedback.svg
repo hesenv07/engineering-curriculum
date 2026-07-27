@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340"><defs><marker id="c1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="c2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="c3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#C1554D" stroke-width="2.4" opacity="0.5"/></pattern></defs>
+<text x="360" y="28" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">add one loop and the circuit remembers</text>
+<path d="M 300 72 Q 338 72 364 96 Q 338 120 300 120 Q 317 96 300 72 Z" fill="#087EA4" fill-opacity="0.10" stroke="#087EA4" stroke-width="2"/>
+<circle cx="369" cy="96" r="5" fill="none" stroke="#087EA4" stroke-width="2"/>
+<text x="332" y="100" text-anchor="middle" font-size="11" fill="#087EA4" font-family="system-ui, sans-serif">NOR</text>
+<path d="M 300 196 Q 338 196 364 220 Q 338 244 300 244 Q 317 220 300 196 Z" fill="#087EA4" fill-opacity="0.10" stroke="#087EA4" stroke-width="2"/>
+<circle cx="369" cy="220" r="5" fill="none" stroke="#087EA4" stroke-width="2"/>
+<text x="332" y="224" text-anchor="middle" font-size="11" fill="#087EA4" font-family="system-ui, sans-serif">NOR</text>
+<text x="196" y="90" text-anchor="middle" font-size="16" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">R</text>
+<path d="M 210.0 85.4 L 300.0 85.4" fill="none" stroke="#23272F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="196" y="236" text-anchor="middle" font-size="16" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">S</text>
+<path d="M 210.0 230.6 L 300.0 230.6" fill="none" stroke="#23272F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 374.0 96.0 L 492.0 96.0" fill="none" stroke="#23272F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="512" y="101" text-anchor="start" font-size="16" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">Q</text>
+<path d="M 374.0 220.0 L 492.0 220.0" fill="none" stroke="#23272F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="512" y="225" text-anchor="start" font-size="16" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">not Q</text>
+<circle cx="452" cy="96" r="4" fill="#C1554D"/>
+<circle cx="452" cy="220" r="4" fill="#C1554D"/>
+<path d="M 452.0 96.0 L 452.0 150.0 L 262.0 150.0 L 262.0 209.4 L 300.0 209.4" fill="none" stroke="#C1554D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c2)"/>
+<path d="M 452.0 220.0 L 452.0 172.0 L 240.0 172.0 L 240.0 106.6 L 300.0 106.6" fill="none" stroke="#C1554D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#c2)"/>
+<text x="360" y="300" text-anchor="middle" font-size="13" fill="#C1554D" font-family="system-ui, sans-serif">each output is wired back into the other gate — the pair holds its own state</text>
+<text x="360" y="322" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">no clock yet, and already this circuit has a past</text>
+</svg>

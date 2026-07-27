@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400"><defs><marker id="c1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="c2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="c3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#E06C60" stroke-width="2.4" opacity="0.5"/></pattern></defs>
+<text x="360" y="28" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">one tick, millions of listeners</text>
+<circle cx="72" cy="196" r="9" fill="#E06C60"/>
+<text x="72" y="230" text-anchor="middle" font-size="12" fill="#E06C60" font-family="system-ui, sans-serif">clock source</text>
+<path d="M 72.0 196.0 L 170.0 196.0" fill="none" stroke="#E06C60" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 170.0 106.0 L 170.0 286.0" fill="none" stroke="#E06C60" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 170.0 106.0 L 330.0 106.0" fill="none" stroke="#E06C60" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 170.0 286.0 L 330.0 286.0" fill="none" stroke="#E06C60" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 330.0 66.0 L 330.0 146.0" fill="none" stroke="#E06C60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 330.0 66.0 L 470.0 66.0" fill="none" stroke="#E06C60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 330.0 146.0 L 470.0 146.0" fill="none" stroke="#E06C60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 330.0 246.0 L 330.0 326.0" fill="none" stroke="#E06C60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 330.0 246.0 L 470.0 246.0" fill="none" stroke="#E06C60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 330.0 326.0 L 470.0 326.0" fill="none" stroke="#E06C60" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="470" y="51" width="74" height="30" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="507" y="71" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">FF</text>
+<text x="566" y="71" text-anchor="start" font-size="12" fill="#149ECA" font-family="system-ui, sans-serif">arrives at 0 ps</text>
+<rect x="470" y="131" width="74" height="30" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="507" y="151" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">FF</text>
+<text x="566" y="151" text-anchor="start" font-size="12" fill="#149ECA" font-family="system-ui, sans-serif">arrives at 0 ps</text>
+<rect x="470" y="231" width="74" height="30" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="507" y="251" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">FF</text>
+<text x="566" y="251" text-anchor="start" font-size="12" fill="#149ECA" font-family="system-ui, sans-serif">arrives at 0 ps</text>
+<rect x="470" y="311" width="74" height="30" rx="7" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="507" y="331" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">FF</text>
+<text x="566" y="331" text-anchor="start" font-size="12" fill="#E06C60" font-family="system-ui, sans-serif">arrives at 25 ps</text>
+<text x="360" y="362" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">the last flip-flop hears the whistle 25 ps late — that gap is clock skew,</text>
+<text x="360" y="380" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">and every picosecond of it is stolen from the logic budget</text>
+</svg>

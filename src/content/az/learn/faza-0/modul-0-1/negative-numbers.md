@@ -4,7 +4,7 @@ title: "Mənfi Rəqəmlər: Two's Complement"
 
 <Intro>
 
-1996-cı il iyunun 4-də Avropa Kosmik Agentliyi ilk Ariane 5-i buraxdı — hazırlanması on il və təxminən 7 milyard dollar çəkmiş raket, üstündə təqribən 370 milyon dollarlıq dörd Cluster elmi peyki. Uçuşun otuz yeddinci saniyəsində raket kəskin şəkildə kursdan çıxdı və öz özünüməhvetmə sistemini işə saldı. Səbəb nə mühərrik idi, nə çən, nə də sensor. İdarəetmə proqramının dərinliyində 64-bitlik sürət dəyəri **16-bitlik signed tam ədədə** çevrilirdi — 32.767-dən böyük heç nə tuta bilməyən qutuya. Ariane 5 sələfindən sürətli yüksəlirdi, rəqəm sığmadı, çevirmə exception qaldırdı və idarəetmə kompüteri söndü. Ehtiyat kompüter işi götürdü, *eyni datanın* üstündə *eyni kodun özünü* işlətdi və 72 millisaniyə əvvəl eyni ölümlə öldü. Yarım milyard dollarlıq hardware qutuya sığmayan bir rəqəmlə məhv edildi — özü də *signed* qutuya. Keçən dərs unsigned sayğacları daşırdınız; bu dərs "signed"in nə demək olduğunu, onun niyə bütün mühəndisliyin ən zərif fəndlərindən biri olduğunu və iti kənarlarının bu gün hələ də harada kəsdiyini öyrənəcəksiniz.
+1996-cı il iyunun 4-də Avropa Kosmik Agentliyi ilk Ariane 5-i buraxdı — hazırlanması on il və təxminən 7 milyard dollar çəkmiş raket, üstündə təqribən 370 milyon dollarlıq dörd Cluster elmi peyki. Uçuşun otuz yeddinci saniyəsində raket kəskin şəkildə kursdan çıxdı və öz özünüməhvetmə sistemini işə saldı. Səbəb nə mühərrik idi, nə çən, nə də sensor. İdarəetmə proqramının dərinliyində 64-bitlik sürət dəyəri **16-bitlik <Term definition="Həm müsbət, həm mənfi, həm də sıfır ola bilən rəqəm tipi. Ən böyük bit (sign bit) işarə bayrağı kimi işləyir: 0 müsbət, 1 mənfi deməkdir. Bu müsbət aralığı yarıya endirir — 16-bitlik signed tam ədəd 0–65.535 əvəzinə −32.768-dən +32.767-ə qədər dəyərləri saxlayır. Standart kodlaşdırma two's complement-dir: eyni adder sxemi həm signed, həm unsigned toplama əməliyyatını yerinə yetirir, əlavə sxem tələb etmədən.">signed tam ədədə</Term>** çevrilirdi — 32.767-dən böyük heç nə tuta bilməyən qutuya. Ariane 5 sələfindən sürətli yüksəlirdi, rəqəm sığmadı, çevirmə exception qaldırdı və idarəetmə kompüteri söndü. Ehtiyat kompüter işi götürdü, *eyni datanın* üstündə *eyni kodun özünü* işlətdi və 72 millisaniyə əvvəl eyni ölümlə öldü. Yarım milyard dollarlıq hardware qutuya sığmayan bir rəqəmlə məhv edildi — özü də *signed* qutuya. Keçən dərs unsigned sayğacları daşırdınız; bu dərs "signed"in nə demək olduğunu, onun niyə bütün mühəndisliyin ən zərif fəndlərindən biri olduğunu və iti kənarlarının bu gün hələ də harada kəsdiyini öyrənəcəksiniz.
 
 </Intro>
 
@@ -51,7 +51,17 @@ Bu, **sign-magnitude** adlanır və iki qüsuru var — biri çirkin, biri ölü
 Gözlənilən: 0.  Alınan: −10.
 ```
 
-Adder öz işini mükəmməl gördü; cəfəngiyatı *müqavilə* istehsal etdi, çünki sign-magnitude altında mənfi rəqəm əlavə etmək müsbət əlavə etməklə eyni mexaniki hərəkət deyil. Hesabı işlətmək üçün ikinci sxem lazım olardı: işarələri müqayisə et, fərqlidirsə kiçik qiyməti böyükdən çıx, sonra böyüyün işarəsini kopyala... Bu, erkən maşınların həqiqətən qurduğu — və pulunu ödədiyi — real hardware-dir.
+Adder öz işini mükəmməl gördü; cəfəngiyatı *müqavilə* istehsal etdi, çünki sign-magnitude altında mənfi rəqəm əlavə etmək müsbət əlavə etməklə eyni mexaniki hərəkət deyil. Hesabı işlətmək üçün fərqli bir yol izləyən ikinci bir sxem lazım olardı: işarə bitlərini müqayisə et — eynidirlərmi, fərqlidirlərmi? Fərqlidirsə, işarə bitlərini kənara qoy, kiçik qiyməti böyükdən çıx, böyüyün işarəsini nəticəyə yapışdır. `(+5) + (−3)` üzərində bu prosedurun nə etdiyinə baxın:
+
+```
+    0 0000101      +5   ┐
+  + 1 0000011      −3   ┘  işarələr fərqlidir → çıxma yoluna keç
+
+  |+5| > |−3|, deməli:  0000101 − 0000011 = 0000010
+  böyük (+5) işarəni alır  →  0 0000010  =  +2  ✓
+```
+
+Bu, adder-in eyni anda üç iş gördüyü deyil — hansı yolu seçəcəyini müəyyən edən müqayisəçi, həmin yolu işlədən subtractor, sonra düzgün işarə bitini nəticəyə bağlayan məntiq. Üç ayrı sxem, orijinal adder-ə əlavə olaraq. Erkən maşınların həqiqətən qurduğu — və pulunu ödədiyi — real hardware.
 
 ## Cəhd 2: one's complement {/*attempt-2-ones-complement*/}
 
