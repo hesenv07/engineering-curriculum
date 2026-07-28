@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="28" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">the ISA is a promise, and both sides build against it</text>
+<rect x="26" y="60" width="156" height="44" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="104" y="88" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">your C code</text>
+<path d="M 104.0 108.0 L 104.0 152.0" fill="none" stroke="#99A1B3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<rect x="198" y="60" width="156" height="44" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="276" y="88" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">a Rust program</text>
+<path d="M 276.0 108.0 L 276.0 152.0" fill="none" stroke="#99A1B3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<rect x="370" y="60" width="156" height="44" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="448" y="88" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">a JavaScript JIT</text>
+<path d="M 448.0 108.0 L 448.0 152.0" fill="none" stroke="#99A1B3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<rect x="542" y="60" width="156" height="44" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="620" y="88" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">hand-written assembly</text>
+<path d="M 620.0 108.0 L 620.0 152.0" fill="none" stroke="#99A1B3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<text x="360" y="130" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">compilers translate down to…</text>
+<rect x="96" y="158" width="528" height="92" rx="12" fill="#087EA4" fill-opacity="0.10" stroke="#087EA4" stroke-width="2.6"/>
+<text x="360" y="188" text-anchor="middle" font-size="16" fill="#087EA4" font-family="system-ui, sans-serif" font-weight="bold">the instruction set architecture</text>
+<text x="360" y="212" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">which instructions exist · how they are encoded · how many registers</text>
+<text x="360" y="234" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">what each one is guaranteed to do</text>
+<path d="M 104.0 258.0 L 104.0 300.0" fill="none" stroke="#99A1B3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<rect x="26" y="304" width="156" height="56" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="104" y="328" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">a 1995 Pentium</text>
+<text x="104" y="346" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">3.1 million transistors</text>
+<path d="M 276.0 258.0 L 276.0 300.0" fill="none" stroke="#99A1B3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<rect x="198" y="304" width="156" height="56" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="276" y="328" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">a 2015 server chip</text>
+<text x="276" y="346" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">billions, 18 cores</text>
+<path d="M 448.0 258.0 L 448.0 300.0" fill="none" stroke="#99A1B3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<rect x="370" y="304" width="156" height="56" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="448" y="328" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">a phone SoC</text>
+<text x="448" y="346" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">runs off a battery</text>
+<path d="M 620.0 258.0 L 620.0 300.0" fill="none" stroke="#99A1B3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<rect x="542" y="304" width="156" height="56" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="620" y="328" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">an emulator</text>
+<text x="620" y="346" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">no silicon at all</text>
+<text x="360" y="282" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">…and every one of these keeps the same promise</text>
+<text x="360" y="390" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">the ISA says WHAT. how a particular chip pulls it off is its own business.</text>
+</svg>

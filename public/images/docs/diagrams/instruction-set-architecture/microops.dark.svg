@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="28" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">what modern x86 actually does with a complicated instruction</text>
+<rect x="40" y="74" width="226" height="66" rx="10" fill="#E06C60" fill-opacity="0.10" stroke="#E06C60" stroke-width="2"/>
+<text x="153" y="102" text-anchor="middle" font-size="16" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">add %eax, (%rbx)</text>
+<text x="153" y="124" text-anchor="middle" font-size="12" fill="#E06C60" font-family="system-ui, sans-serif">one CISC instruction</text>
+<path d="M 272.0 107.0 L 322.0 107.0" fill="none" stroke="#F6F7F9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a)"/>
+<rect x="328" y="74" width="150" height="66" rx="10" fill="none" stroke="#F6F7F9" stroke-width="2"/>
+<text x="403" y="100" text-anchor="middle" font-size="14" fill="#F6F7F9" font-family="system-ui, sans-serif">decoder</text>
+<text x="403" y="122" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">splits it up</text>
+<rect x="328" y="176" width="292" height="42" rx="8" fill="#149ECA" fill-opacity="0.10" stroke="#149ECA" stroke-width="2"/>
+<text x="474" y="202" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">load  from memory</text>
+<path d="M 403.0 146.0 L 340.0 172.0" fill="none" stroke="#99A1B3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)" stroke-dasharray="3 3"/>
+<rect x="328" y="230" width="292" height="42" rx="8" fill="#149ECA" fill-opacity="0.10" stroke="#149ECA" stroke-width="2"/>
+<text x="474" y="256" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">add   the two values</text>
+<path d="M 403.0 146.0 L 340.0 226.0" fill="none" stroke="#99A1B3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)" stroke-dasharray="3 3"/>
+<rect x="328" y="284" width="292" height="42" rx="8" fill="#149ECA" fill-opacity="0.10" stroke="#149ECA" stroke-width="2"/>
+<text x="474" y="310" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">store the result back</text>
+<path d="M 403.0 146.0 L 340.0 280.0" fill="none" stroke="#99A1B3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)" stroke-dasharray="3 3"/>
+<text x="474" y="160" text-anchor="middle" font-size="12" fill="#149ECA" font-family="system-ui, sans-serif">three micro-ops</text>
+<text x="152" y="214" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">the CPU core underneath</text>
+<text x="152" y="234" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">only ever runs simple,</text>
+<text x="152" y="254" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">uniform operations —</text>
+<text x="152" y="274" text-anchor="middle" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">which is to say, it is</text>
+<text x="152" y="294" text-anchor="middle" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">a RISC machine wearing</text>
+<text x="152" y="314" text-anchor="middle" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">a CISC costume.</text>
+<text x="360" y="360" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">the old argument ended in a truce: CISC on the outside, RISC on the inside</text>
+</svg>

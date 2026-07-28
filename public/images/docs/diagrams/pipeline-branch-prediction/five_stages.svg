@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="28" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">one instruction, cut into five jobs</text>
+<rect x="26.0" y="66.0" width="124.0" height="130.0" rx="10" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="88" y="96" text-anchor="middle" font-size="20" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="bold">IF</text>
+<text x="88" y="120" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">fetch</text>
+<text x="88" y="152" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">read the byte</text>
+<text x="88" y="168" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">the PC points at</text>
+<path d="M 152.0 131.0 L 162.0 131.0" fill="none" stroke="#99A1B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<rect x="165.0" y="66.0" width="124.0" height="130.0" rx="10" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="227" y="96" text-anchor="middle" font-size="20" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="bold">ID</text>
+<text x="227" y="120" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">decode</text>
+<text x="227" y="152" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">split the fields,</text>
+<text x="227" y="168" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">read the registers</text>
+<path d="M 291.0 131.0 L 301.0 131.0" fill="none" stroke="#99A1B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<rect x="304.0" y="66.0" width="124.0" height="130.0" rx="10" fill="#23272F" fill-opacity="0.14" stroke="#23272F" stroke-width="2"/>
+<text x="366" y="96" text-anchor="middle" font-size="20" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="bold">EX</text>
+<text x="366" y="120" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">execute</text>
+<text x="366" y="152" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">the ALU does</text>
+<text x="366" y="168" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">its one job</text>
+<path d="M 430.0 131.0 L 440.0 131.0" fill="none" stroke="#99A1B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<rect x="443.0" y="66.0" width="124.0" height="130.0" rx="10" fill="#99A1B3" fill-opacity="0.14" stroke="#99A1B3" stroke-width="2"/>
+<text x="505" y="96" text-anchor="middle" font-size="20" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="bold">MEM</text>
+<text x="505" y="120" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">memory</text>
+<text x="505" y="152" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">load or store,</text>
+<text x="505" y="168" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">if the instruction asks</text>
+<path d="M 569.0 131.0 L 579.0 131.0" fill="none" stroke="#99A1B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<rect x="582.0" y="66.0" width="124.0" height="130.0" rx="10" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="644" y="96" text-anchor="middle" font-size="20" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="bold">WB</text>
+<text x="644" y="120" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">write back</text>
+<text x="644" y="152" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">put the result</text>
+<text x="644" y="168" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">into a register</text>
+<path d="M 156.5 62.0 L 156.5 200.0" fill="none" stroke="#C1554D" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<path d="M 295.5 62.0 L 295.5 200.0" fill="none" stroke="#C1554D" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<path d="M 434.5 62.0 L 434.5 200.0" fill="none" stroke="#C1554D" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<path d="M 573.5 62.0 L 573.5 200.0" fill="none" stroke="#C1554D" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
+<text x="360" y="226" text-anchor="middle" font-size="12.5" fill="#C1554D" font-family="system-ui, sans-serif">between every pair of stages sits a register that holds the half-finished work</text>
+<text x="360" y="262" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">these dividers are the whole trick: they let five instructions occupy the</text>
+<text x="360" y="284" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">five stages at the same time without treading on each other</text>
+<text x="360" y="318" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">the stages are exactly the phases of the last two lessons — only now they are separate rooms</text>
+</svg>

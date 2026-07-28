@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">the guess, and how it learns</text>
+<rect x="18.0" y="110.0" width="148.0" height="62.0" rx="10" fill="#99A1B3" fill-opacity="0.14" stroke="#99A1B3" stroke-width="2"/>
+<text x="92" y="136" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">strongly</text>
+<text x="92" y="156" text-anchor="middle" font-size="14" fill="#99A1B3" font-family="system-ui, sans-serif" font-weight="bold">not taken</text>
+<text x="92" y="98" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">00</text>
+<rect x="194.0" y="110.0" width="148.0" height="62.0" rx="10" fill="#99A1B3" fill-opacity="0.14" stroke="#99A1B3" stroke-width="2"/>
+<text x="268" y="136" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">weakly</text>
+<text x="268" y="156" text-anchor="middle" font-size="14" fill="#99A1B3" font-family="system-ui, sans-serif" font-weight="bold">not taken</text>
+<text x="268" y="98" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">01</text>
+<rect x="370.0" y="110.0" width="148.0" height="62.0" rx="10" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="444" y="136" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">weakly</text>
+<text x="444" y="156" text-anchor="middle" font-size="14" fill="#087EA4" font-family="system-ui, sans-serif" font-weight="bold">taken</text>
+<text x="444" y="98" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">10</text>
+<rect x="546.0" y="110.0" width="148.0" height="62.0" rx="10" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="620" y="136" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">strongly</text>
+<text x="620" y="156" text-anchor="middle" font-size="14" fill="#087EA4" font-family="system-ui, sans-serif" font-weight="bold">taken</text>
+<text x="620" y="98" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">11</text>
+<path d="M 166.0 130.0 L 190.0 130.0" fill="none" stroke="#087EA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#b)"/>
+<path d="M 190.0 156.0 L 166.0 156.0" fill="none" stroke="#99A1B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<path d="M 342.0 130.0 L 366.0 130.0" fill="none" stroke="#087EA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#b)"/>
+<path d="M 366.0 156.0 L 342.0 156.0" fill="none" stroke="#99A1B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<path d="M 518.0 130.0 L 542.0 130.0" fill="none" stroke="#087EA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#b)"/>
+<path d="M 542.0 156.0 L 518.0 156.0" fill="none" stroke="#99A1B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<text x="360" y="76" text-anchor="middle" font-size="12" fill="#087EA4" font-family="system-ui, sans-serif">branch was taken → shift right</text>
+<text x="360" y="202" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">branch was not taken ← shift left</text>
+<text x="360" y="258" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">predict TAKEN on the right two states, NOT TAKEN on the left two</text>
+<text x="360" y="292" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">two bits, not one, so a single surprise does not flip the prediction —</text>
+<text x="360" y="314" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">a loop that runs a thousand times is mispredicted once, at the end, not twice</text>
+<text x="360" y="354" text-anchor="middle" font-size="13" fill="#087EA4" font-family="system-ui, sans-serif">real predictors are far cleverer than this, and get well over 95% right</text>
+</svg>

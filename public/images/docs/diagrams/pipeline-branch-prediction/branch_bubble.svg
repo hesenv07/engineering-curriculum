@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">problem 2: which instruction comes next?</text>
+<text x="210" y="68" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">c1</text>
+<text x="278" y="68" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">c2</text>
+<text x="346" y="68" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">c3</text>
+<text x="414" y="68" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">c4</text>
+<text x="482" y="68" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">c5</text>
+<text x="550" y="68" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">c6</text>
+<text x="618" y="68" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">c7</text>
+<text x="164" y="100" text-anchor="end" font-size="12.5" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">beq  r1, r2, far</text>
+<rect x="177.0" y="78.0" width="66.0" height="34.0" rx="5" fill="#087EA4" fill-opacity="0.18" stroke="#087EA4" stroke-width="1.6"/>
+<text x="210" y="99" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">IF</text>
+<rect x="245.0" y="78.0" width="66.0" height="34.0" rx="5" fill="#5aa9c4" fill-opacity="0.18" stroke="#5aa9c4" stroke-width="1.6"/>
+<text x="278" y="99" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">ID</text>
+<rect x="313.0" y="78.0" width="66.0" height="34.0" rx="5" fill="#C1554D" fill-opacity="0.18" stroke="#C1554D" stroke-width="1.6"/>
+<text x="346" y="99" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">EX</text>
+<rect x="381.0" y="78.0" width="66.0" height="34.0" rx="5" fill="#99A1B3" fill-opacity="0.18" stroke="#99A1B3" stroke-width="1.6"/>
+<text x="414" y="99" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">MEM</text>
+<rect x="449.0" y="78.0" width="66.0" height="34.0" rx="5" fill="#087EA4" fill-opacity="0.18" stroke="#087EA4" stroke-width="1.6"/>
+<text x="482" y="99" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">WB</text>
+<text x="346" y="130" text-anchor="middle" font-size="11.5" fill="#C1554D" font-family="system-ui, sans-serif">the answer is known here</text>
+<text x="164" y="172" text-anchor="end" font-size="12.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">???</text>
+<rect x="245.0" y="150.0" width="66.0" height="34.0" rx="5" fill="none" stroke="#99A1B3" stroke-width="1.4" stroke-dasharray="4 3"/>
+<text x="278" y="172" text-anchor="middle" font-size="15" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">?</text>
+<text x="332" y="172" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">which address should this fetch from?</text>
+<text x="164" y="236" text-anchor="end" font-size="12.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">???</text>
+<rect x="313.0" y="214.0" width="66.0" height="34.0" rx="5" fill="none" stroke="#99A1B3" stroke-width="1.4" stroke-dasharray="4 3"/>
+<text x="346" y="236" text-anchor="middle" font-size="15" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">?</text>
+<text x="400" y="236" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">which address should this fetch from?</text>
+<text x="360" y="290" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">the branch does not know where it is going until cycle 3, but the fetch stage</text>
+<text x="360" y="314" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">needs an address in cycle 2. the pipeline has to do something with cycles it cannot fill.</text>
+<text x="360" y="348" text-anchor="middle" font-size="12.5" fill="#C1554D" font-family="system-ui, sans-serif">waiting costs two cycles on this five-stage pipe — and far more on a real one</text>
+</svg>

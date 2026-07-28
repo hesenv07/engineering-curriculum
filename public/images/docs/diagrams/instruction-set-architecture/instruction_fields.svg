@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">one real ARM64 instruction, opened up</text>
+<text x="360" y="50" text-anchor="middle" font-size="18" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0x11000421</text>
+<rect x="40" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="49" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="60" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="69" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="80" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="89" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="100" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="109" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1</text>
+<rect x="120" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="129" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="140" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="149" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="160" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="169" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="180" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="189" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1</text>
+<rect x="200" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="209" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="220" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="229" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="240" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="249" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="260" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="269" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="280" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="289" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="300" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="309" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="320" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="329" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="340" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="349" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="360" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="369" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="380" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="389" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="400" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="409" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="420" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="429" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="440" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="449" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="460" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="469" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1</text>
+<rect x="480" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="489" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="500" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="509" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="520" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="529" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="540" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="549" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="560" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="569" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1</text>
+<rect x="580" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="589" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="600" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="609" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="620" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="629" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="640" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="649" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="660" y="70" width="18" height="26" rx="3" fill="none" stroke="#99A1B3" stroke-width="1"/>
+<text x="669" y="89" text-anchor="middle" font-size="12" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1</text>
+<text x="32" y="89" text-anchor="end" font-size="10" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">31</text>
+<text x="680" y="89" text-anchor="start" font-size="10" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="40" y="112" width="198" height="26" rx="5" fill="#087EA4" fill-opacity="0.16" stroke="#087EA4" stroke-width="1.8"/>
+<text x="139" y="130" text-anchor="middle" font-size="11.5" fill="#087EA4" font-family="system-ui, sans-serif">opcode + format</text>
+<text x="139" y="156" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">10 bits</text>
+<text x="139" y="172" text-anchor="middle" font-size="10.5" fill="#23272F" font-family="system-ui, sans-serif">“add an immediate, 32-bit”</text>
+<rect x="240" y="112" width="238" height="26" rx="5" fill="#C1554D" fill-opacity="0.16" stroke="#C1554D" stroke-width="1.8"/>
+<text x="359" y="130" text-anchor="middle" font-size="11.5" fill="#C1554D" font-family="system-ui, sans-serif">imm12</text>
+<text x="359" y="156" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">12 bits</text>
+<text x="359" y="172" text-anchor="middle" font-size="10.5" fill="#23272F" font-family="system-ui, sans-serif">the constant: 1</text>
+<rect x="480" y="112" width="98" height="26" rx="5" fill="#99A1B3" fill-opacity="0.16" stroke="#99A1B3" stroke-width="1.8"/>
+<text x="529" y="130" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">Rn</text>
+<text x="529" y="156" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">5 bits</text>
+<text x="529" y="172" text-anchor="middle" font-size="10.5" fill="#23272F" font-family="system-ui, sans-serif">source: w1</text>
+<rect x="580" y="112" width="98" height="26" rx="5" fill="#99A1B3" fill-opacity="0.16" stroke="#99A1B3" stroke-width="1.8"/>
+<text x="629" y="130" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">Rd</text>
+<text x="629" y="156" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">5 bits</text>
+<text x="629" y="172" text-anchor="middle" font-size="10.5" fill="#23272F" font-family="system-ui, sans-serif">destination: w1</text>
+<text x="360" y="226" text-anchor="middle" font-size="20" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">add  w1, w1, #1</text>
+<text x="360" y="268" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">the budget: 32 bits, and every field is taken from the same purse</text>
+<rect x="96" y="288" width="165" height="34" rx="5" fill="#087EA4" fill-opacity="0.20" stroke="#087EA4" stroke-width="1.6"/>
+<text x="178" y="310" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="system-ui, sans-serif">format</text>
+<rect x="261" y="288" width="198" height="34" rx="5" fill="#C1554D" fill-opacity="0.20" stroke="#C1554D" stroke-width="1.6"/>
+<text x="360" y="310" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="system-ui, sans-serif">constant</text>
+<rect x="459" y="288" width="82" height="34" rx="5" fill="#99A1B3" fill-opacity="0.20" stroke="#99A1B3" stroke-width="1.6"/>
+<text x="500" y="310" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="system-ui, sans-serif">Rn</text>
+<rect x="542" y="288" width="82" height="34" rx="5" fill="#99A1B3" fill-opacity="0.20" stroke="#99A1B3" stroke-width="1.6"/>
+<text x="583" y="310" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="system-ui, sans-serif">Rd</text>
+<text x="360" y="348" text-anchor="middle" font-size="13" fill="#C1554D" font-family="system-ui, sans-serif">12 bits for the constant means the biggest number you can add in one</text>
+<text x="360" y="370" text-anchor="middle" font-size="13" fill="#C1554D" font-family="system-ui, sans-serif">instruction is 4,095. Want 5,000? That takes two instructions.</text>
+</svg>

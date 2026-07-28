@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="28" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">one register, forty-five years of sediment</text>
+<rect x="80" y="74" width="440" height="52" rx="8" fill="#149ECA" fill-opacity="0.10" stroke="#149ECA" stroke-width="2"/>
+<text x="300" y="106" text-anchor="middle" font-size="16" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">RAX</text>
+<text x="536" y="106" text-anchor="start" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">64 bits, added 2003</text>
+<rect x="270" y="140" width="250" height="52" rx="8" fill="#149ECA" fill-opacity="0.10" stroke="#149ECA" stroke-width="2"/>
+<text x="395" y="172" text-anchor="middle" font-size="16" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">EAX</text>
+<text x="536" y="172" text-anchor="start" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">32 bits, added 1985</text>
+<rect x="380" y="206" width="140" height="52" rx="8" fill="#E06C60" fill-opacity="0.10" stroke="#E06C60" stroke-width="2"/>
+<text x="450" y="238" text-anchor="middle" font-size="16" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">AX</text>
+<text x="536" y="238" text-anchor="start" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">16 bits, added 1978</text>
+<rect x="444" y="272" width="76" height="52" rx="8" fill="#E06C60" fill-opacity="0.10" stroke="#E06C60" stroke-width="2"/>
+<text x="482" y="304" text-anchor="middle" font-size="16" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">AL</text>
+<text x="536" y="304" text-anchor="start" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">8 bits, added 1978</text>
+<text x="360" y="336" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">the 8-bit AL of the 1978 8086 is still there, still addressable, inside the 64-bit register</text>
+<text x="360" y="360" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">nothing was ever removed, because removing it would break software that still runs</text>
+</svg>

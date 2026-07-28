@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="28" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">faster, but not in the way you might expect</text>
+<rect x="50.0" y="66.0" width="290.0" height="92.0" rx="11" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="2"/>
+<text x="195" y="96" text-anchor="middle" font-size="16" fill="#C1554D" font-family="system-ui, sans-serif" font-weight="bold">latency</text>
+<text x="195" y="122" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">how long ONE instruction takes</text>
+<text x="195" y="144" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">unchanged — still 5 cycles. Slightly worse,</text>
+<rect x="380.0" y="66.0" width="290.0" height="92.0" rx="11" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="525" y="96" text-anchor="middle" font-size="16" fill="#087EA4" font-family="system-ui, sans-serif" font-weight="bold">throughput</text>
+<text x="525" y="122" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">how many finish per second</text>
+<text x="525" y="144" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">up to 5× better — this is the whole prize</text>
+<text x="195" y="176" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">in fact, because of the dividers between stages</text>
+<text x="360" y="226" text-anchor="middle" font-size="13.5" fill="#23272F" font-family="system-ui, sans-serif">the assembly line did not make one car faster to build</text>
+<text x="360" y="250" text-anchor="middle" font-size="13.5" fill="#23272F" font-family="system-ui, sans-serif">it made cars come out more often</text>
+<text x="360" y="292" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">this distinction matters: a pipelined chip has the same or worse response time</text>
+<text x="360" y="312" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">for a single operation, and far more work done per second overall</text>
+</svg>
