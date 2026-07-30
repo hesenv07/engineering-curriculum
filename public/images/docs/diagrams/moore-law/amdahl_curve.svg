@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="16.5" fill="#23272F" font-family="system-ui, sans-serif">Amdahl's law: the part you cannot parallelise sets the ceiling</text>
+<path d="M 92.0 336.0 L 596.0 336.0" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="82" y="341" text-anchor="end" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1×</text>
+<path d="M 92.0 278.3 L 596.0 278.3" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="82" y="283" text-anchor="end" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">5×</text>
+<path d="M 92.0 206.2 L 596.0 206.2" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="82" y="211" text-anchor="end" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">10×</text>
+<path d="M 92.0 134.1 L 596.0 134.1" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="82" y="139" text-anchor="end" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">15×</text>
+<path d="M 92.0 62.0 L 596.0 62.0" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="82" y="67" text-anchor="end" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">20×</text>
+<text x="92" y="356" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1</text>
+<text x="155" y="356" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">2</text>
+<text x="218" y="356" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">4</text>
+<text x="281" y="356" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">8</text>
+<text x="344" y="356" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">16</text>
+<text x="407" y="356" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">32</text>
+<text x="470" y="356" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">64</text>
+<text x="533" y="356" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">128</text>
+<text x="596" y="356" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">256</text>
+<text x="360" y="378" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">number of cores</text>
+<text x="30" y="199" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">speedup</text>
+<path d="M 92.0 336.0 L 155.0 321.9 L 218.0 294.4 L 281.0 242.6 L 344.0 149.8 L 407.0 62.0 L 470.0 62.0 L 533.0 62.0 L 596.0 62.0" fill="none" stroke="#C1554D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="606" y="66" text-anchor="start" font-size="12" fill="#C1554D" font-family="system-ui, sans-serif">99% parallel</text>
+<path d="M 92.0 336.0 L 155.0 323.0 L 218.0 300.3 L 281.0 265.0 L 344.0 218.6 L 407.0 169.5 L 470.0 128.0 L 533.0 99.3 L 596.0 81.9" fill="none" stroke="#087EA4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="606" y="86" text-anchor="start" font-size="12" fill="#087EA4" font-family="system-ui, sans-serif">95%</text>
+<path d="M 92.0 336.0 L 155.0 324.2 L 218.0 306.0 L 281.0 282.6 L 344.0 258.1 L 407.0 237.9 L 470.0 224.0 L 533.0 215.7 L 596.0 211.1" fill="none" stroke="#23272F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="606" y="215" text-anchor="start" font-size="12" fill="#23272F" font-family="system-ui, sans-serif">90%</text>
+<path d="M 92.0 336.0 L 155.0 327.3 L 218.0 317.5 L 281.0 308.5 L 344.0 301.8 L 407.0 297.7 L 470.0 295.3 L 533.0 294.1 L 596.0 293.4" fill="none" stroke="#99A1B3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="606" y="297" text-anchor="start" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">75%</text>
+<path d="M 92.0 336.0 L 155.0 331.2 L 218.0 327.3 L 281.0 324.8 L 344.0 323.3 L 407.0 322.5 L 470.0 322.0 L 533.0 321.8 L 596.0 321.7" fill="none" stroke="#99A1B3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="606" y="326" text-anchor="start" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">50%</text>
+<text x="360" y="400" text-anchor="middle" font-size="13.5" fill="#23272F" font-family="system-ui, sans-serif">even at 95% parallel, 256 cores give you 19× — not 256×</text>
+<text x="360" y="426" text-anchor="middle" font-size="13" fill="#C1554D" font-family="system-ui, sans-serif">the 5% that must run alone is what you are actually paying for</text>
+</svg>

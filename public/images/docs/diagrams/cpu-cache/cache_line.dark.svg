@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">you asked for one byte. you got sixty-four.</text>
+<text x="360" y="56" text-anchor="middle" font-size="15" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">int x = data[0];</text>
+<text x="360" y="78" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">your program wants 4 bytes</text>
+<path d="M 360.0 88.0 L 360.0 112.0" fill="none" stroke="#F6F7F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a)"/>
+<rect x="44.0" y="120.0" width="37.0" height="46.0" rx="5" fill="#149ECA" fill-opacity="0.30" stroke="#149ECA" stroke-width="1.4"/>
+<text x="62" y="149" text-anchor="middle" font-size="10.5" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">0</text>
+<rect x="84.0" y="120.0" width="37.0" height="46.0" rx="5" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="102" y="149" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">4</text>
+<rect x="124.0" y="120.0" width="37.0" height="46.0" rx="5" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="142" y="149" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">8</text>
+<rect x="164.0" y="120.0" width="37.0" height="46.0" rx="5" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="182" y="149" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">12</text>
+<rect x="204.0" y="120.0" width="37.0" height="46.0" rx="5" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="222" y="149" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">16</text>
+<rect x="244.0" y="120.0" width="37.0" height="46.0" rx="5" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="262" y="149" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">20</text>
+<rect x="284.0" y="120.0" width="37.0" height="46.0" rx="5" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="302" y="149" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">24</text>
+<rect x="324.0" y="120.0" width="37.0" height="46.0" rx="5" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="342" y="149" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">28</text>
+<rect x="364.0" y="120.0" width="37.0" height="46.0" rx="5" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="382" y="149" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">32</text>
+<rect x="404.0" y="120.0" width="37.0" height="46.0" rx="5" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="422" y="149" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">36</text>
+<rect x="444.0" y="120.0" width="37.0" height="46.0" rx="5" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="462" y="149" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">40</text>
+<rect x="484.0" y="120.0" width="37.0" height="46.0" rx="5" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="502" y="149" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">44</text>
+<rect x="524.0" y="120.0" width="37.0" height="46.0" rx="5" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="542" y="149" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">48</text>
+<rect x="564.0" y="120.0" width="37.0" height="46.0" rx="5" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="582" y="149" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">52</text>
+<rect x="604.0" y="120.0" width="37.0" height="46.0" rx="5" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="622" y="149" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">56</text>
+<rect x="644.0" y="120.0" width="37.0" height="46.0" rx="5" fill="#99A1B3" fill-opacity="0.10" stroke="#99A1B3" stroke-width="1.4"/>
+<text x="662" y="149" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">60</text>
+<text x="360" y="186" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">but memory is only ever moved in 64-byte blocks called cache lines</text>
+<text x="64" y="108" text-anchor="middle" font-size="11" fill="#149ECA" font-family="system-ui, sans-serif">wanted</text>
+<text x="420" y="108" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">came along for free</text>
+<rect x="44.0" y="210.0" width="632.0" height="44.0" rx="9" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="360" y="238" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">one 64-byte cache line — the smallest thing a cache can hold or move</text>
+<text x="360" y="292" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">this is why walking an array in order is so fast: the first access pays for</text>
+<text x="360" y="314" text-anchor="middle" font-size="13" fill="#149ECA" font-family="system-ui, sans-serif">the trip, and the next fifteen are already sitting in the cache</text>
+<text x="360" y="356" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">and why jumping around is so slow: every jump pays full price for 64 bytes,</text>
+<text x="360" y="378" text-anchor="middle" font-size="12.5" fill="#E06C60" font-family="system-ui, sans-serif">and then throws away the 60 it did not want</text>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">three walls, arriving at once</text>
+<rect x="26.0" y="62.0" width="218.0" height="200.0" rx="12" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="135" y="92" text-anchor="middle" font-size="15" fill="#E06C60" font-family="system-ui, sans-serif" font-weight="bold">the power wall</text>
+<text x="135" y="128" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">raising the clock needs</text>
+<text x="135" y="154" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">more voltage, and power</text>
+<text x="135" y="180" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">grows with V squared</text>
+<text x="135" y="206" text-anchor="middle" font-size="12" fill="#E06C60" font-family="system-ui, sans-serif">→ the chip melts</text>
+<rect x="259.0" y="62.0" width="218.0" height="200.0" rx="12" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="368" y="92" text-anchor="middle" font-size="15" fill="#E06C60" font-family="system-ui, sans-serif" font-weight="bold">the ILP wall</text>
+<text x="368" y="128" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">pipelines, prediction and</text>
+<text x="368" y="154" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">out-of-order all extract</text>
+<text x="368" y="180" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">parallelism from one stream</text>
+<text x="368" y="206" text-anchor="middle" font-size="12" fill="#E06C60" font-family="system-ui, sans-serif">→ the stream ran dry</text>
+<rect x="492.0" y="62.0" width="218.0" height="200.0" rx="12" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="601" y="92" text-anchor="middle" font-size="15" fill="#E06C60" font-family="system-ui, sans-serif" font-weight="bold">the memory wall</text>
+<text x="601" y="128" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">cores got 1000× faster;</text>
+<text x="601" y="154" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">memory latency barely</text>
+<text x="601" y="180" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">improved at all</text>
+<text x="601" y="206" text-anchor="middle" font-size="12" fill="#E06C60" font-family="system-ui, sans-serif">→ waiting, not computing</text>
+<text x="360" y="306" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">any one of these would have slowed progress. all three landed within a few years.</text>
+<text x="360" y="336" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">the only resource still growing was transistors — so the answer had to be</text>
+<text x="360" y="358" text-anchor="middle" font-size="13" fill="#149ECA" font-family="system-ui, sans-serif">something you could buy with transistors instead of with frequency</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">not all cores are the same any more</text>
+<rect x="40.0" y="56.0" width="300.0" height="210.0" rx="12" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="2"/>
+<text x="190" y="84" text-anchor="middle" font-size="15" fill="#C1554D" font-family="system-ui, sans-serif" font-weight="bold">performance cores</text>
+<rect x="62.0" y="100.0" width="116.0" height="62.0" rx="8" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="1.6"/>
+<text x="120" y="137" text-anchor="middle" font-size="15" fill="#23272F" font-family="system-ui, sans-serif">P0</text>
+<rect x="194.0" y="100.0" width="116.0" height="62.0" rx="8" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="1.6"/>
+<text x="252" y="137" text-anchor="middle" font-size="15" fill="#23272F" font-family="system-ui, sans-serif">P1</text>
+<rect x="62.0" y="174.0" width="116.0" height="62.0" rx="8" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="1.6"/>
+<text x="120" y="211" text-anchor="middle" font-size="15" fill="#23272F" font-family="system-ui, sans-serif">P2</text>
+<rect x="194.0" y="174.0" width="116.0" height="62.0" rx="8" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="1.6"/>
+<text x="252" y="211" text-anchor="middle" font-size="15" fill="#23272F" font-family="system-ui, sans-serif">P3</text>
+<text x="190" y="244" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="system-ui, sans-serif">big, deep, power-hungry —</text>
+<text x="190" y="260" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="system-ui, sans-serif">for the task you are waiting on</text>
+<rect x="380.0" y="56.0" width="300.0" height="210.0" rx="12" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="530" y="84" text-anchor="middle" font-size="15" fill="#087EA4" font-family="system-ui, sans-serif" font-weight="bold">efficiency cores</text>
+<rect x="398.0" y="100.0" width="62.0" height="62.0" rx="8" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="1.6"/>
+<text x="429" y="137" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">E0</text>
+<rect x="468.0" y="100.0" width="62.0" height="62.0" rx="8" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="1.6"/>
+<text x="499" y="137" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">E1</text>
+<rect x="538.0" y="100.0" width="62.0" height="62.0" rx="8" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="1.6"/>
+<text x="569" y="137" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">E2</text>
+<rect x="608.0" y="100.0" width="62.0" height="62.0" rx="8" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="1.6"/>
+<text x="639" y="137" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">E3</text>
+<rect x="398.0" y="174.0" width="62.0" height="62.0" rx="8" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="1.6"/>
+<text x="429" y="211" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">E4</text>
+<rect x="468.0" y="174.0" width="62.0" height="62.0" rx="8" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="1.6"/>
+<text x="499" y="211" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">E5</text>
+<rect x="538.0" y="174.0" width="62.0" height="62.0" rx="8" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="1.6"/>
+<text x="569" y="211" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">E6</text>
+<rect x="608.0" y="174.0" width="62.0" height="62.0" rx="8" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="1.6"/>
+<text x="639" y="211" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">E7</text>
+<text x="530" y="244" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="system-ui, sans-serif">small, simple, sip power —</text>
+<text x="530" y="260" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="system-ui, sans-serif">for everything in the background</text>
+<text x="360" y="304" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">if most of the chip has to stay dark, you want the option of lighting the cheap thing</text>
+<text x="360" y="332" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">and now the scheduler has a genuinely hard question: which kind of core does this thread deserve?</text>
+<text x="360" y="368" text-anchor="middle" font-size="13" fill="#087EA4" font-family="system-ui, sans-serif">“four cores” stopped being a useful description of a processor</text>
+</svg>

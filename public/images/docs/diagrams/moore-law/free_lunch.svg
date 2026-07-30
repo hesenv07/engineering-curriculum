@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">what the turn did to software</text>
+<rect x="40.0" y="68.0" width="300.0" height="152.0" rx="12" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="190" y="96" text-anchor="middle" font-size="15" fill="#087EA4" font-family="system-ui, sans-serif" font-weight="bold">before 2005</text>
+<text x="190" y="126" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">write single-threaded code</text>
+<text x="190" y="150" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">wait eighteen months</text>
+<text x="190" y="174" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">it runs twice as fast</text>
+<text x="190" y="198" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">change nothing</text>
+<rect x="380.0" y="68.0" width="300.0" height="152.0" rx="12" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="2"/>
+<text x="530" y="96" text-anchor="middle" font-size="15" fill="#C1554D" font-family="system-ui, sans-serif" font-weight="bold">after 2005</text>
+<text x="530" y="126" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">write single-threaded code</text>
+<text x="530" y="150" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">wait eighteen months</text>
+<text x="530" y="174" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">it runs about as fast</text>
+<text x="530" y="198" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">the extra cores sit idle</text>
+<path d="M 346.0 144.0 L 374.0 144.0" fill="none" stroke="#23272F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a)"/>
+<text x="360" y="262" text-anchor="middle" font-size="13.5" fill="#23272F" font-family="system-ui, sans-serif">Herb Sutter named this in March 2005: “The Free Lunch Is Over”</text>
+<text x="360" y="290" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">performance stopped being something hardware handed you</text>
+<text x="360" y="312" text-anchor="middle" font-size="13" fill="#087EA4" font-family="system-ui, sans-serif">and became something your program had to go and earn</text>
+</svg>

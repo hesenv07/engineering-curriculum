@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">the two habits that make caching work</text>
+<rect x="30.0" y="54.0" width="320.0" height="150.0" rx="11" fill="#149ECA" fill-opacity="0.14" stroke="#149ECA" stroke-width="2"/>
+<text x="190" y="82" text-anchor="middle" font-size="15" fill="#149ECA" font-family="system-ui, sans-serif" font-weight="bold">used it recently?</text>
+<text x="190" y="104" text-anchor="middle" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">you will probably use it again</text>
+<text x="190" y="138" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">total = total + price[i]</text>
+<text x="190" y="162" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">total is touched on every single</text>
+<text x="190" y="178" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">pass through the loop</text>
+<text x="190" y="224" text-anchor="middle" font-size="13.5" fill="#149ECA" font-family="system-ui, sans-serif" font-weight="bold">temporal locality</text>
+<text x="190" y="244" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">“again, soon”</text>
+<rect x="370.0" y="54.0" width="320.0" height="150.0" rx="11" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="530" y="82" text-anchor="middle" font-size="15" fill="#E06C60" font-family="system-ui, sans-serif" font-weight="bold">used address 1000?</text>
+<text x="530" y="104" text-anchor="middle" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">you will probably use 1004 next</text>
+<text x="530" y="138" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">for (i = 0; i &lt; n; i++)</text>
+<text x="530" y="162" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">array elements sit next to each</text>
+<text x="530" y="178" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">other, and you walk them in order</text>
+<text x="530" y="224" text-anchor="middle" font-size="13.5" fill="#E06C60" font-family="system-ui, sans-serif" font-weight="bold">spatial locality</text>
+<text x="530" y="244" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">“nearby, soon”</text>
+<text x="360" y="296" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">neither is a law. they are habits of real programs — and they are so reliable that</text>
+<text x="360" y="318" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">a small cache holding recent and nearby data catches the great majority of accesses</text>
+<text x="360" y="366" text-anchor="middle" font-size="12.5" fill="#149ECA" font-family="system-ui, sans-serif">the first habit says: keep what was just used</text>
+<text x="360" y="388" text-anchor="middle" font-size="12.5" fill="#E06C60" font-family="system-ui, sans-serif">the second says: when you fetch something, grab its neighbours too</text>
+<text x="360" y="410" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">every cache design follows from those two sentences</text>
+</svg>

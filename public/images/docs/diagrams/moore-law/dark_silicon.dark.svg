@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">you can build it, but you cannot switch it all on</text>
+<rect x="200.0" y="60.0" width="320.0" height="200.0" rx="12" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="360" y="50" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">one chip</text>
+<rect x="205.0" y="65.0" width="70.0" height="40.0" rx="6" fill="#149ECA" fill-opacity="0.24" stroke="#149ECA" stroke-width="1.5"/>
+<text x="240" y="89" text-anchor="middle" font-size="11" fill="#F6F7F9" font-family="system-ui, sans-serif">on</text>
+<rect x="285.0" y="65.0" width="70.0" height="40.0" rx="6" fill="#149ECA" fill-opacity="0.24" stroke="#149ECA" stroke-width="1.5"/>
+<text x="320" y="89" text-anchor="middle" font-size="11" fill="#F6F7F9" font-family="system-ui, sans-serif">on</text>
+<rect x="365.0" y="65.0" width="70.0" height="40.0" rx="6" fill="#99A1B3" fill-opacity="0.06" stroke="#99A1B3" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="400" y="89" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">off</text>
+<rect x="445.0" y="65.0" width="70.0" height="40.0" rx="6" fill="#99A1B3" fill-opacity="0.06" stroke="#99A1B3" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="480" y="89" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">off</text>
+<rect x="205.0" y="115.0" width="70.0" height="40.0" rx="6" fill="#149ECA" fill-opacity="0.24" stroke="#149ECA" stroke-width="1.5"/>
+<text x="240" y="139" text-anchor="middle" font-size="11" fill="#F6F7F9" font-family="system-ui, sans-serif">on</text>
+<rect x="285.0" y="115.0" width="70.0" height="40.0" rx="6" fill="#99A1B3" fill-opacity="0.06" stroke="#99A1B3" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="320" y="139" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">off</text>
+<rect x="365.0" y="115.0" width="70.0" height="40.0" rx="6" fill="#149ECA" fill-opacity="0.24" stroke="#149ECA" stroke-width="1.5"/>
+<text x="400" y="139" text-anchor="middle" font-size="11" fill="#F6F7F9" font-family="system-ui, sans-serif">on</text>
+<rect x="445.0" y="115.0" width="70.0" height="40.0" rx="6" fill="#99A1B3" fill-opacity="0.06" stroke="#99A1B3" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="480" y="139" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">off</text>
+<rect x="205.0" y="165.0" width="70.0" height="40.0" rx="6" fill="#99A1B3" fill-opacity="0.06" stroke="#99A1B3" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="240" y="189" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">off</text>
+<rect x="285.0" y="165.0" width="70.0" height="40.0" rx="6" fill="#149ECA" fill-opacity="0.24" stroke="#149ECA" stroke-width="1.5"/>
+<text x="320" y="189" text-anchor="middle" font-size="11" fill="#F6F7F9" font-family="system-ui, sans-serif">on</text>
+<rect x="365.0" y="165.0" width="70.0" height="40.0" rx="6" fill="#99A1B3" fill-opacity="0.06" stroke="#99A1B3" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="400" y="189" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">off</text>
+<rect x="445.0" y="165.0" width="70.0" height="40.0" rx="6" fill="#149ECA" fill-opacity="0.24" stroke="#149ECA" stroke-width="1.5"/>
+<text x="480" y="189" text-anchor="middle" font-size="11" fill="#F6F7F9" font-family="system-ui, sans-serif">on</text>
+<rect x="205.0" y="215.0" width="70.0" height="40.0" rx="6" fill="#99A1B3" fill-opacity="0.06" stroke="#99A1B3" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="240" y="239" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">off</text>
+<rect x="285.0" y="215.0" width="70.0" height="40.0" rx="6" fill="#99A1B3" fill-opacity="0.06" stroke="#99A1B3" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="320" y="239" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">off</text>
+<rect x="365.0" y="215.0" width="70.0" height="40.0" rx="6" fill="#149ECA" fill-opacity="0.24" stroke="#149ECA" stroke-width="1.5"/>
+<text x="400" y="239" text-anchor="middle" font-size="11" fill="#F6F7F9" font-family="system-ui, sans-serif">on</text>
+<rect x="445.0" y="215.0" width="70.0" height="40.0" rx="6" fill="#99A1B3" fill-opacity="0.06" stroke="#99A1B3" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="480" y="239" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">off</text>
+<text x="92" y="120" text-anchor="middle" font-size="13" fill="#149ECA" font-family="system-ui, sans-serif">powered</text>
+<text x="92" y="140" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">and working</text>
+<text x="628" y="120" text-anchor="middle" font-size="13" fill="#99A1B3" font-family="system-ui, sans-serif">present in</text>
+<text x="628" y="140" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">the silicon,</text>
+<text x="628" y="158" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">switched off</text>
+<text x="360" y="300" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">Moore's law still delivers the transistors; the power budget does not grow with them</text>
+<text x="360" y="326" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">so a growing share of every chip sits dark — and design becomes a question of</text>
+<text x="360" y="348" text-anchor="middle" font-size="12.5" fill="#149ECA" font-family="system-ui, sans-serif">which specialised block is worth waking up for this particular job</text>
+</svg>

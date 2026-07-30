@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">the same machine, measured two ways</text>
+<text x="360" y="48" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">time for one memory access, as the data grows</text>
+<path d="M 96.0 320.0 L 596.0 320.0" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="86" y="324" text-anchor="end" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1 ns</text>
+<path d="M 96.0 272.6 L 596.0 272.6" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="86" y="277" text-anchor="end" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">3 ns</text>
+<path d="M 96.0 220.7 L 596.0 220.7" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="86" y="225" text-anchor="end" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">10 ns</text>
+<path d="M 96.0 173.3 L 596.0 173.3" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="86" y="177" text-anchor="end" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">30 ns</text>
+<path d="M 96.0 121.4 L 596.0 121.4" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="86" y="125" text-anchor="end" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">100 ns</text>
+<path d="M 96.0 74.0 L 596.0 74.0" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="86" y="78" text-anchor="end" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">300 ns</text>
+<path d="M 96.0 74.0 L 96.0 320.0" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="96" y="340" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">4 KB</text>
+<path d="M 183.2 74.0 L 183.2 320.0" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="183" y="340" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">32 KB</text>
+<path d="M 328.6 74.0 L 328.6 320.0" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="329" y="340" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1 MB</text>
+<path d="M 474.0 74.0 L 474.0 320.0" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="474" y="340" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">32 MB</text>
+<path d="M 590.3 74.0 L 590.3 320.0" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="590" y="340" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">512 MB</text>
+<path d="M 183.2 68.0 L 183.2 320.0" fill="none" stroke="#23272F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4"/>
+<text x="183" y="62" text-anchor="middle" font-size="10.5" fill="#23272F" font-family="system-ui, sans-serif">L1 ends</text>
+<path d="M 328.6 68.0 L 328.6 320.0" fill="none" stroke="#23272F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4"/>
+<text x="329" y="62" text-anchor="middle" font-size="10.5" fill="#23272F" font-family="system-ui, sans-serif">L2 ends</text>
+<path d="M 475.3 68.0 L 475.3 320.0" fill="none" stroke="#23272F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4"/>
+<text x="475" y="62" text-anchor="middle" font-size="10.5" fill="#23272F" font-family="system-ui, sans-serif">L3 ends</text>
+<path d="M 125.1 302.5 L 183.2 302.5 L 241.4 259.1 L 328.6 222.0 L 386.8 176.9 L 474.0 114.8 L 532.2 109.7 L 590.3 102.2" fill="none" stroke="#C1554D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="125.1" cy="302.5" r="4" fill="#C1554D"/>
+<circle cx="183.2" cy="302.5" r="4" fill="#C1554D"/>
+<circle cx="241.4" cy="259.1" r="4" fill="#C1554D"/>
+<circle cx="328.6" cy="222.0" r="4" fill="#C1554D"/>
+<circle cx="386.8" cy="176.9" r="4" fill="#C1554D"/>
+<circle cx="474.0" cy="114.8" r="4" fill="#C1554D"/>
+<circle cx="532.2" cy="109.7" r="4" fill="#C1554D"/>
+<circle cx="590.3" cy="102.2" r="4" fill="#C1554D"/>
+<text x="600" y="106" text-anchor="start" font-size="11.5" fill="#C1554D" font-family="system-ui, sans-serif">156 ns</text>
+<text x="260" y="143" text-anchor="start" font-size="13" fill="#C1554D" font-family="system-ui, sans-serif">jumping about randomly</text>
+<path d="M 96.0 289.9 L 154.2 281.5 L 183.2 281.5 L 212.3 287.0 L 270.5 287.2 L 328.6 286.0 L 386.8 286.2 L 444.9 283.9 L 503.1 254.1 L 561.3 246.2" fill="none" stroke="#087EA4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="96.0" cy="289.9" r="4" fill="#087EA4"/>
+<circle cx="154.2" cy="281.5" r="4" fill="#087EA4"/>
+<circle cx="183.2" cy="281.5" r="4" fill="#087EA4"/>
+<circle cx="212.3" cy="287.0" r="4" fill="#087EA4"/>
+<circle cx="270.5" cy="287.2" r="4" fill="#087EA4"/>
+<circle cx="328.6" cy="286.0" r="4" fill="#087EA4"/>
+<circle cx="386.8" cy="286.2" r="4" fill="#087EA4"/>
+<circle cx="444.9" cy="283.9" r="4" fill="#087EA4"/>
+<circle cx="503.1" cy="254.1" r="4" fill="#087EA4"/>
+<circle cx="561.3" cy="246.2" r="4" fill="#087EA4"/>
+<text x="289" y="307" text-anchor="middle" font-size="13" fill="#087EA4" font-family="system-ui, sans-serif">walking in order</text>
+<text x="121" y="291" text-anchor="middle" font-size="11" fill="#C1554D" font-family="system-ui, sans-serif">1.5 ns</text>
+<text x="360" y="372" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">the red line is the real cost of memory: 1.5 ns when it fits in L1, 156 ns when it does not.</text>
+<text x="360" y="396" text-anchor="middle" font-size="12.5" fill="#087EA4" font-family="system-ui, sans-serif">the blue line is the same machine reading the same amount of data — in order.</text>
+<text x="360" y="424" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">your data size decides which caches can hold it.</text>
+<text x="360" y="446" text-anchor="middle" font-size="13.5" fill="#23272F" font-family="system-ui, sans-serif" font-weight="bold">your access pattern decides whether that matters.</text>
+</svg>

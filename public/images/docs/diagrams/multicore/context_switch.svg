@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">how one core runs two threads: it takes turns</text>
+<rect x="40.0" y="58.0" width="180.0" height="88.0" rx="10" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="130" y="88" text-anchor="middle" font-size="13" fill="#087EA4" font-family="system-ui, sans-serif">thread 1 running</text>
+<text x="130" y="112" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">registers, PC and</text>
+<text x="130" y="128" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">flags are all in the core</text>
+<rect x="270.0" y="58.0" width="180.0" height="88.0" rx="10" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="2"/>
+<text x="360" y="82" text-anchor="middle" font-size="13.5" fill="#C1554D" font-family="system-ui, sans-serif" font-weight="bold">the switch</text>
+<text x="360" y="104" text-anchor="middle" font-size="11" fill="#23272F" font-family="system-ui, sans-serif">1. save thread 1's state</text>
+<text x="360" y="121" text-anchor="middle" font-size="11" fill="#23272F" font-family="system-ui, sans-serif">2. load thread 2's state</text>
+<text x="360" y="138" text-anchor="middle" font-size="11" fill="#23272F" font-family="system-ui, sans-serif">3. jump to where it was</text>
+<rect x="500.0" y="58.0" width="180.0" height="88.0" rx="10" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="590" y="88" text-anchor="middle" font-size="13" fill="#087EA4" font-family="system-ui, sans-serif">thread 2 running</text>
+<text x="590" y="112" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">the core has no memory</text>
+<text x="590" y="128" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">of thread 1 at all</text>
+<path d="M 226.0 102.0 L 264.0 102.0" fill="none" stroke="#23272F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a)"/>
+<path d="M 456.0 102.0 L 494.0 102.0" fill="none" stroke="#23272F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a)"/>
+<text x="360" y="184" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">what triggers it: a timer interrupt — the hardware jump from two lessons ago</text>
+<rect x="90.0" y="214.0" width="540.0" height="108.0" rx="11" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="2"/>
+<text x="360" y="240" text-anchor="middle" font-size="14" fill="#C1554D" font-family="system-ui, sans-serif" font-weight="bold">the cost is not the copying</text>
+<text x="360" y="264" text-anchor="middle" font-size="12" fill="#23272F" font-family="system-ui, sans-serif">saving a few dozen registers is fast. the expensive part is that the caches are now</text>
+<text x="360" y="284" text-anchor="middle" font-size="12" fill="#23272F" font-family="system-ui, sans-serif">full of thread 1's data, and thread 2 has to fault it all back in from memory —</text>
+<text x="360" y="304" text-anchor="middle" font-size="12" fill="#23272F" font-family="system-ui, sans-serif">which the memory ladder says costs around 200 cycles a time.</text>
+<text x="360" y="356" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">this is why 16 threads on 1 core is not faster than 1 thread:</text>
+<text x="360" y="380" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">the work is the same, and now you are paying for the turns as well</text>
+</svg>

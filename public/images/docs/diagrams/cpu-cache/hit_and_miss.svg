@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 450"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">two things that can happen when you read memory</text>
+<rect x="30.0" y="52.0" width="320.0" height="152.0" rx="11" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="190" y="78" text-anchor="middle" font-size="16" fill="#087EA4" font-family="system-ui, sans-serif" font-weight="bold">a HIT</text>
+<text x="190" y="106" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">1.  the CPU asks the cache</text>
+<text x="190" y="130" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">2.  the cache has it</text>
+<text x="190" y="154" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">3.  hand it over</text>
+<text x="190" y="186" text-anchor="middle" font-size="13" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">about 4 cycles</text>
+<rect x="370.0" y="52.0" width="320.0" height="152.0" rx="11" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="2"/>
+<text x="530" y="78" text-anchor="middle" font-size="16" fill="#C1554D" font-family="system-ui, sans-serif" font-weight="bold">a MISS</text>
+<text x="530" y="100" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="system-ui, sans-serif">1.  the CPU asks the cache</text>
+<text x="530" y="119" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="system-ui, sans-serif">2.  the cache has not got it</text>
+<text x="530" y="138" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="system-ui, sans-serif">3.  ask the next level down</text>
+<text x="530" y="157" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="system-ui, sans-serif">4.  wait… wait…</text>
+<text x="530" y="176" text-anchor="middle" font-size="11.5" fill="#23272F" font-family="system-ui, sans-serif">5.  store the line, then hand it over</text>
+<text x="530" y="200" text-anchor="middle" font-size="13" fill="#C1554D" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">up to 400+ cycles</text>
+<text x="360" y="244" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">the fraction of accesses that hit is the hit rate, and it is usually astonishingly high</text>
+<rect x="96.0" y="268.0" width="528.0" height="96.0" rx="10" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="360" y="292" text-anchor="middle" font-size="13.5" fill="#23272F" font-family="system-ui, sans-serif" font-weight="bold">why 95% is not good enough</text>
+<text x="360" y="316" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">95 hits × 4 cycles  +  5 misses × 200 cycles  =  380 + 1000 = 1380</text>
+<text x="360" y="340" text-anchor="middle" font-size="12.5" fill="#C1554D" font-family="system-ui, sans-serif">the 5% of accesses that missed used 72% of the total time</text>
+<text x="360" y="404" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">this is why cache behaviour dominates performance: the misses are so much more</text>
+<text x="360" y="428" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">expensive than the hits that a small change in hit rate moves everything</text>
+</svg>

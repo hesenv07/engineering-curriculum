@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">three things that all get called “thread”</text>
+<rect x="30.0" y="60.0" width="660.0" height="96.0" rx="11" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="52" y="90" text-anchor="start" font-size="16" fill="#E06C60" font-family="system-ui, sans-serif" font-weight="bold">a core</text>
+<text x="52" y="112" text-anchor="start" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">physical hardware</text>
+<text x="52" y="134" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">an actual set of transistors that</text>
+<text x="52" y="150" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">can fetch, decode and execute</text>
+<rect x="30.0" y="168.0" width="660.0" height="96.0" rx="11" fill="#149ECA" fill-opacity="0.14" stroke="#149ECA" stroke-width="2"/>
+<text x="52" y="198" text-anchor="start" font-size="16" fill="#149ECA" font-family="system-ui, sans-serif" font-weight="bold">a hardware thread</text>
+<text x="52" y="220" text-anchor="start" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">an illusion the core provides</text>
+<text x="52" y="242" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">one extra copy of the registers, so the</text>
+<text x="52" y="258" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">core can hold two jobs half-done at once</text>
+<rect x="30.0" y="276.0" width="660.0" height="96.0" rx="11" fill="#99A1B3" fill-opacity="0.14" stroke="#99A1B3" stroke-width="2"/>
+<text x="52" y="306" text-anchor="start" font-size="16" fill="#99A1B3" font-family="system-ui, sans-serif" font-weight="bold">an OS thread</text>
+<text x="52" y="328" text-anchor="start" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">a software object</text>
+<text x="52" y="350" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">a stack, a saved register set and a place in a queue —</text>
+<text x="52" y="366" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">you can have thousands, on any number of cores</text>
+<text x="360" y="388" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">only the first one can do work. the other two are ways of organising who gets to use it.</text>
+</svg>

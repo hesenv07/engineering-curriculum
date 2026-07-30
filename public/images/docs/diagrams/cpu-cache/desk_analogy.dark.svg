@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">your desk, your shelf, the library</text>
+<rect x="40.0" y="62.0" width="120.0" height="76.0" rx="10" fill="#149ECA" fill-opacity="0.14" stroke="#149ECA" stroke-width="2"/>
+<text x="100" y="90" text-anchor="middle" font-size="13.5" fill="#149ECA" font-family="system-ui, sans-serif" font-weight="bold">your desk</text>
+<text x="100" y="112" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">3 books</text>
+<text x="178" y="92" text-anchor="start" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">reach out your hand</text>
+<text x="178" y="112" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">instant</text>
+<rect x="40.0" y="158.0" width="250.0" height="76.0" rx="10" fill="#149ECA" fill-opacity="0.14" stroke="#149ECA" stroke-width="2"/>
+<text x="165" y="186" text-anchor="middle" font-size="13.5" fill="#149ECA" font-family="system-ui, sans-serif" font-weight="bold">the shelf behind you</text>
+<text x="165" y="208" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">50 books</text>
+<text x="308" y="188" text-anchor="start" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">stand up and turn round</text>
+<text x="308" y="208" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">a few seconds</text>
+<rect x="40.0" y="254.0" width="470.0" height="76.0" rx="10" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="275" y="282" text-anchor="middle" font-size="13.5" fill="#E06C60" font-family="system-ui, sans-serif" font-weight="bold">the city library</text>
+<text x="275" y="304" text-anchor="middle" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">everything</text>
+<text x="528" y="284" text-anchor="start" font-size="12" fill="#F6F7F9" font-family="system-ui, sans-serif">put your coat on and travel</text>
+<text x="528" y="304" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">half an hour</text>
+<text x="360" y="344" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">nobody plans which three books go on the desk. whatever you just used stays there.</text>
+<text x="360" y="372" text-anchor="middle" font-size="13" fill="#149ECA" font-family="system-ui, sans-serif">that is the entire idea of a cache, and the reason it needs no help from you</text>
+</svg>

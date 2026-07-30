@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">the problem SMT was invented to fix</text>
+<text x="360" y="48" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">a wide core can issue 4 instructions per cycle. here is what it usually gets to do.</text>
+<text x="218" y="70" text-anchor="middle" font-size="14" fill="#23272F" font-family="system-ui, sans-serif">one thread</text>
+<rect x="126.0" y="96.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="170.0" y="96.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="214.0" y="96.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="258.0" y="96.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="126.0" y="130.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="170.0" y="130.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="214.0" y="130.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="258.0" y="130.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="126.0" y="164.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="170.0" y="164.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="214.0" y="164.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="258.0" y="164.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="126.0" y="198.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="170.0" y="198.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="214.0" y="198.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="258.0" y="198.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="126.0" y="232.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="170.0" y="232.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="214.0" y="232.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="258.0" y="232.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="126.0" y="266.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="170.0" y="266.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="214.0" y="266.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="258.0" y="266.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="126.0" y="300.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="170.0" y="300.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="214.0" y="300.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="258.0" y="300.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="126.0" y="334.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="170.0" y="334.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="214.0" y="334.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="258.0" y="334.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="218" y="390" text-anchor="middle" font-size="12.5" fill="#C1554D" font-family="system-ui, sans-serif">gaps everywhere: stalls on cache</text>
+<text x="218" y="410" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">9 of 32 slots used</text>
+<text x="502" y="70" text-anchor="middle" font-size="14" fill="#23272F" font-family="system-ui, sans-serif">two threads sharing the core</text>
+<rect x="410.0" y="96.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="454.0" y="96.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="498.0" y="96.0" width="40.0" height="30.0" rx="4" fill="#5aa9c4" fill-opacity="0.34" stroke="#5aa9c4" stroke-width="1.2"/>
+<rect x="542.0" y="96.0" width="40.0" height="30.0" rx="4" fill="#5aa9c4" fill-opacity="0.34" stroke="#5aa9c4" stroke-width="1.2"/>
+<rect x="410.0" y="130.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="454.0" y="130.0" width="40.0" height="30.0" rx="4" fill="#5aa9c4" fill-opacity="0.34" stroke="#5aa9c4" stroke-width="1.2"/>
+<rect x="498.0" y="130.0" width="40.0" height="30.0" rx="4" fill="#5aa9c4" fill-opacity="0.34" stroke="#5aa9c4" stroke-width="1.2"/>
+<rect x="542.0" y="130.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="410.0" y="164.0" width="40.0" height="30.0" rx="4" fill="#5aa9c4" fill-opacity="0.34" stroke="#5aa9c4" stroke-width="1.2"/>
+<rect x="454.0" y="164.0" width="40.0" height="30.0" rx="4" fill="#5aa9c4" fill-opacity="0.34" stroke="#5aa9c4" stroke-width="1.2"/>
+<rect x="498.0" y="164.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="542.0" y="164.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="410.0" y="198.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="454.0" y="198.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="498.0" y="198.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="542.0" y="198.0" width="40.0" height="30.0" rx="4" fill="#5aa9c4" fill-opacity="0.34" stroke="#5aa9c4" stroke-width="1.2"/>
+<rect x="410.0" y="232.0" width="40.0" height="30.0" rx="4" fill="#5aa9c4" fill-opacity="0.34" stroke="#5aa9c4" stroke-width="1.2"/>
+<rect x="454.0" y="232.0" width="40.0" height="30.0" rx="4" fill="#5aa9c4" fill-opacity="0.34" stroke="#5aa9c4" stroke-width="1.2"/>
+<rect x="498.0" y="232.0" width="40.0" height="30.0" rx="4" fill="#5aa9c4" fill-opacity="0.34" stroke="#5aa9c4" stroke-width="1.2"/>
+<rect x="542.0" y="232.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="410.0" y="266.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="454.0" y="266.0" width="40.0" height="30.0" rx="4" fill="#5aa9c4" fill-opacity="0.34" stroke="#5aa9c4" stroke-width="1.2"/>
+<rect x="498.0" y="266.0" width="40.0" height="30.0" rx="4" fill="#5aa9c4" fill-opacity="0.34" stroke="#5aa9c4" stroke-width="1.2"/>
+<rect x="542.0" y="266.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="410.0" y="300.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="454.0" y="300.0" width="40.0" height="30.0" rx="4" fill="#087EA4" fill-opacity="0.34" stroke="#087EA4" stroke-width="1.2"/>
+<rect x="498.0" y="300.0" width="40.0" height="30.0" rx="4" fill="#5aa9c4" fill-opacity="0.34" stroke="#5aa9c4" stroke-width="1.2"/>
+<rect x="542.0" y="300.0" width="40.0" height="30.0" rx="4" fill="#5aa9c4" fill-opacity="0.34" stroke="#5aa9c4" stroke-width="1.2"/>
+<rect x="410.0" y="334.0" width="40.0" height="30.0" rx="4" fill="#5aa9c4" fill-opacity="0.34" stroke="#5aa9c4" stroke-width="1.2"/>
+<rect x="454.0" y="334.0" width="40.0" height="30.0" rx="4" fill="#5aa9c4" fill-opacity="0.34" stroke="#5aa9c4" stroke-width="1.2"/>
+<rect x="498.0" y="334.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="542.0" y="334.0" width="40.0" height="30.0" rx="4" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="502" y="390" text-anchor="middle" font-size="12.5" fill="#087EA4" font-family="system-ui, sans-serif">the second thread fills them</text>
+<text x="502" y="410" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">25 of 32 slots used</text>
+<text x="360" y="448" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">the 1995 SMT paper measured this: even an 8-issue core could not sustain 1.5 instructions per cycle</text>
+</svg>

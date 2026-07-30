@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">the cache also guesses ahead</text>
+<text x="360" y="58" text-anchor="middle" font-size="13.5" fill="#087EA4" font-family="system-ui, sans-serif">you read line 5, then 6, then 7…</text>
+<rect x="74.0" y="78.0" width="58.0" height="40.0" rx="5" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="103" y="103" text-anchor="middle" font-size="13" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">5</text>
+<rect x="136.0" y="78.0" width="58.0" height="40.0" rx="5" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="165" y="103" text-anchor="middle" font-size="13" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">6</text>
+<rect x="198.0" y="78.0" width="58.0" height="40.0" rx="5" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="227" y="103" text-anchor="middle" font-size="13" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">7</text>
+<rect x="260.0" y="78.0" width="58.0" height="40.0" rx="5" fill="#087EA4" fill-opacity="0.06" stroke="#087EA4" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text x="289" y="103" text-anchor="middle" font-size="13" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">8</text>
+<rect x="322.0" y="78.0" width="58.0" height="40.0" rx="5" fill="#087EA4" fill-opacity="0.06" stroke="#087EA4" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text x="351" y="103" text-anchor="middle" font-size="13" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">9</text>
+<rect x="384.0" y="78.0" width="58.0" height="40.0" rx="5" fill="#087EA4" fill-opacity="0.06" stroke="#087EA4" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text x="413" y="103" text-anchor="middle" font-size="13" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">10</text>
+<rect x="446.0" y="78.0" width="58.0" height="40.0" rx="5" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="475" y="103" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">11</text>
+<rect x="508.0" y="78.0" width="58.0" height="40.0" rx="5" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="537" y="103" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">12</text>
+<rect x="570.0" y="78.0" width="58.0" height="40.0" rx="5" fill="none" stroke="#99A1B3" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="599" y="103" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">13</text>
+<text x="164" y="138" text-anchor="middle" font-size="11.5" fill="#087EA4" font-family="system-ui, sans-serif">already read</text>
+<text x="354" y="138" text-anchor="middle" font-size="11.5" fill="#087EA4" font-family="system-ui, sans-serif">fetched before you asked</text>
+<text x="360" y="184" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">the hardware spots the pattern and starts the trip to memory early,</text>
+<text x="360" y="206" text-anchor="middle" font-size="13" fill="#087EA4" font-family="system-ui, sans-serif">so by the time you ask, the data has already arrived</text>
+<rect x="60.0" y="236.0" width="280.0" height="104.0" rx="10" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="200" y="262" text-anchor="middle" font-size="13.5" fill="#087EA4" font-family="system-ui, sans-serif" font-weight="bold">predictable pattern</text>
+<text x="200" y="286" text-anchor="middle" font-size="12" fill="#23272F" font-family="system-ui, sans-serif">sequential, or a fixed stride</text>
+<text x="200" y="310" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">prefetcher hides almost all</text>
+<text x="200" y="326" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">of the memory latency</text>
+<rect x="380.0" y="236.0" width="280.0" height="104.0" rx="10" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="2"/>
+<text x="520" y="262" text-anchor="middle" font-size="13.5" fill="#C1554D" font-family="system-ui, sans-serif" font-weight="bold">unpredictable pattern</text>
+<text x="520" y="286" text-anchor="middle" font-size="12" fill="#23272F" font-family="system-ui, sans-serif">pointer chasing, random jumps</text>
+<text x="520" y="310" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">nothing to predict, so you pay</text>
+<text x="520" y="326" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">the full latency every time</text>
+<text x="360" y="380" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">this is why the two measured lines were so far apart: same data, one guessable, one not</text>
+</svg>
