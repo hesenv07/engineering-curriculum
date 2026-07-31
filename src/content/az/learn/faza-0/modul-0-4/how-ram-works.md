@@ -12,7 +12,7 @@ title: "RAM Necə İşləyir"
 
 - RAM-ın bir biti fiziki olaraq necə saxlanılır və niyə məhz iki komponent tələb olunur
 - Niyə yaddaş saniyədə minlərlə dəfə **təzələnməlidir (refresh)** və bunun qiyməti nədir
-- Niyə bir bayt oxumaq bütöv bir **sətri (row)** açmaq deməkdir — və bunu prosesdə məhv etmək
+- Niyə bir bayt oxumaq bütöv bir **sətri** açmaq deməkdir — və bunu prosesdə məhv etmək
 - Niyə eyni sətrə ikinci müraciət birincidən dəfələrlə ucuz olur
 - `DDR4-3200 CL16` nə deməkdir, nanosaniyələrə tərcümə olunmuş
 - Niyə yaddaşın **bant genişliyi (bandwidth)** çox artıb, amma **gecikmə (latency)** demək olar ki, yerində qalıb
