@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 466"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">where one running program's data actually is</text>
+<rect x="34.0" y="58.0" width="650.0" height="38.0" rx="7" fill="#149ECA" fill-opacity="0.14" stroke="#149ECA" stroke-width="1.4"/>
+<text x="52" y="83" text-anchor="start" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">the loop counter you just incremented</text>
+<text x="666" y="83" text-anchor="end" font-size="12.5" fill="#149ECA" font-family="system-ui, sans-serif" font-weight="bold">a register</text>
+<rect x="34.0" y="102.0" width="650.0" height="38.0" rx="7" fill="#149ECA" fill-opacity="0.14" stroke="#149ECA" stroke-width="1.4"/>
+<text x="52" y="127" text-anchor="start" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">the array element you read last</text>
+<text x="666" y="127" text-anchor="end" font-size="12.5" fill="#149ECA" font-family="system-ui, sans-serif" font-weight="bold">L1 cache</text>
+<rect x="34.0" y="146.0" width="650.0" height="38.0" rx="7" fill="#149ECA" fill-opacity="0.14" stroke="#149ECA" stroke-width="1.4"/>
+<text x="52" y="171" text-anchor="start" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">the rest of that array</text>
+<text x="666" y="171" text-anchor="end" font-size="12.5" fill="#149ECA" font-family="system-ui, sans-serif" font-weight="bold">L2 or L3</text>
+<rect x="34.0" y="190.0" width="650.0" height="38.0" rx="7" fill="#F6F7F9" fill-opacity="0.14" stroke="#F6F7F9" stroke-width="1.4"/>
+<text x="52" y="215" text-anchor="start" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">the objects your program allocated</text>
+<text x="666" y="215" text-anchor="end" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif" font-weight="bold">main memory</text>
+<rect x="34.0" y="234.0" width="650.0" height="38.0" rx="7" fill="#F6F7F9" fill-opacity="0.14" stroke="#F6F7F9" stroke-width="1.4"/>
+<text x="52" y="259" text-anchor="start" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">the file you opened a moment ago</text>
+<text x="666" y="259" text-anchor="end" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif" font-weight="bold">the page cache, in RAM</text>
+<rect x="34.0" y="278.0" width="650.0" height="38.0" rx="7" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="1.4"/>
+<text x="52" y="303" text-anchor="start" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">the file you have not touched yet</text>
+<text x="666" y="303" text-anchor="end" font-size="12.5" fill="#E06C60" font-family="system-ui, sans-serif" font-weight="bold">the SSD</text>
+<rect x="34.0" y="322.0" width="650.0" height="38.0" rx="7" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="1.4"/>
+<text x="52" y="347" text-anchor="start" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">last year's logs</text>
+<text x="666" y="347" text-anchor="end" font-size="12.5" fill="#E06C60" font-family="system-ui, sans-serif" font-weight="bold">a disk somewhere else</text>
+<rect x="34.0" y="366.0" width="650.0" height="38.0" rx="7" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="1.4"/>
+<text x="52" y="391" text-anchor="start" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">the API response you are waiting for</text>
+<text x="666" y="391" text-anchor="end" font-size="12.5" fill="#E06C60" font-family="system-ui, sans-serif" font-weight="bold">another continent</text>
+<text x="360" y="428" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">nothing in your source code says which row a variable is on —</text>
+<text x="360" y="452" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">and yet that row decides almost everything about how fast the program runs</text>
+</svg>

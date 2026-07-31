@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="16.5" fill="#F6F7F9" font-family="system-ui, sans-serif">all of it on one line — note that the line is logarithmic</text>
+<text x="360" y="48" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">every point below was measured on this machine</text>
+<path d="M 56.0 168.0 L 664.0 168.0" fill="none" stroke="#99A1B3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 96.6 161.0 L 96.6 175.0" fill="none" stroke="#99A1B3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="97" y="194" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1 ns</text>
+<path d="M 329.8 161.0 L 329.8 175.0" fill="none" stroke="#99A1B3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="330" y="194" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1 µs</text>
+<path d="M 562.9 161.0 L 562.9 175.0" fill="none" stroke="#99A1B3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="563" y="194" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1 ms</text>
+<path d="M 640.6 161.0 L 640.6 175.0" fill="none" stroke="#99A1B3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="641" y="194" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">10 ms</text>
+<path d="M 65.7 168.0 L 65.7 134.0" fill="none" stroke="#149ECA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="65.7" cy="168" r="4.5" fill="#149ECA"/>
+<text x="66" y="128" text-anchor="middle" font-size="11.5" fill="#149ECA" font-family="system-ui, sans-serif">register</text>
+<path d="M 110.3 168.0 L 110.3 202.0" fill="none" stroke="#149ECA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="110.3" cy="168" r="4.5" fill="#149ECA"/>
+<text x="110" y="218" text-anchor="middle" font-size="11.5" fill="#149ECA" font-family="system-ui, sans-serif">L1</text>
+<path d="M 144.3 168.0 L 144.3 134.0" fill="none" stroke="#149ECA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="144.3" cy="168" r="4.5" fill="#149ECA"/>
+<text x="144" y="128" text-anchor="middle" font-size="11.5" fill="#149ECA" font-family="system-ui, sans-serif">L2</text>
+<path d="M 208.6 168.0 L 208.6 202.0" fill="none" stroke="#149ECA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="208.6" cy="168" r="4.5" fill="#149ECA"/>
+<text x="209" y="218" text-anchor="middle" font-size="11.5" fill="#149ECA" font-family="system-ui, sans-serif">L3</text>
+<path d="M 267.1 168.0 L 267.1 134.0" fill="none" stroke="#F6F7F9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="267.1" cy="168" r="4.5" fill="#F6F7F9"/>
+<text x="267" y="128" text-anchor="middle" font-size="11.5" fill="#F6F7F9" font-family="system-ui, sans-serif">RAM</text>
+<path d="M 333.0 168.0 L 333.0 202.0" fill="none" stroke="#F6F7F9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="333.0" cy="168" r="4.5" fill="#F6F7F9"/>
+<text x="333" y="218" text-anchor="middle" font-size="11.5" fill="#F6F7F9" font-family="system-ui, sans-serif">page cache</text>
+<path d="M 474.8 168.0 L 474.8 134.0" fill="none" stroke="#E06C60" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="474.8" cy="168" r="4.5" fill="#E06C60"/>
+<text x="475" y="128" text-anchor="middle" font-size="11.5" fill="#E06C60" font-family="system-ui, sans-serif">SSD</text>
+<path d="M 490.2 168.0 L 490.2 202.0" fill="none" stroke="#E06C60" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="490.2" cy="168" r="4.5" fill="#E06C60"/>
+<text x="490" y="218" text-anchor="middle" font-size="11.5" fill="#E06C60" font-family="system-ui, sans-serif">localhost</text>
+<path d="M 578.8 168.0 L 578.8 134.0" fill="none" stroke="#E06C60" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="578.8" cy="168" r="4.5" fill="#E06C60"/>
+<text x="579" y="128" text-anchor="middle" font-size="11.5" fill="#E06C60" font-family="system-ui, sans-serif">nearby server</text>
+<path d="M 651.0 168.0 L 651.0 202.0" fill="none" stroke="#E06C60" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="651.0" cy="168" r="4.5" fill="#E06C60"/>
+<text x="651" y="218" text-anchor="middle" font-size="11.5" fill="#E06C60" font-family="system-ui, sans-serif">far server</text>
+<text x="360" y="262" text-anchor="middle" font-size="14" fill="#F6F7F9" font-family="system-ui, sans-serif" font-weight="bold">from one end to the other is a factor of about 34,000,000</text>
+<text x="360" y="292" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">which is why “where is the data?” matters more than “how fast is the CPU?”</text>
+<text x="360" y="320" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">for almost every slow program you will ever meet</text>
+</svg>

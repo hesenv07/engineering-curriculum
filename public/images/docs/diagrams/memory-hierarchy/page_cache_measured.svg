@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">the operating system runs a cache too</text>
+<rect x="40.0" y="58.0" width="250.0" height="66.0" rx="10" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="165" y="84" text-anchor="middle" font-size="13.5" fill="#23272F" font-family="system-ui, sans-serif">your program</text>
+<text x="165" y="106" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">read(file, 4096 bytes)</text>
+<path d="M 296.0 91.0 L 348.0 91.0" fill="none" stroke="#23272F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a)"/>
+<rect x="354.0" y="58.0" width="250.0" height="66.0" rx="10" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="479" y="84" text-anchor="middle" font-size="13.5" fill="#087EA4" font-family="system-ui, sans-serif" font-weight="bold">the page cache</text>
+<text x="479" y="106" text-anchor="middle" font-size="11" fill="#23272F" font-family="system-ui, sans-serif">a slice of RAM holding file data</text>
+<path d="M 479.0 130.0 L 479.0 176.0" fill="none" stroke="#C1554D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#r)"/>
+<text x="560" y="156" text-anchor="start" font-size="11.5" fill="#C1554D" font-family="system-ui, sans-serif">only on a miss</text>
+<rect x="354.0" y="180.0" width="250.0" height="56.0" rx="10" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="2"/>
+<text x="479" y="214" text-anchor="middle" font-size="13.5" fill="#C1554D" font-family="system-ui, sans-serif" font-weight="bold">the SSD</text>
+<text x="200" y="190" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">measured, 3,000 random</text>
+<text x="200" y="208" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">4 KB reads of one file:</text>
+<text x="208" y="262" text-anchor="end" font-size="12" fill="#087EA4" font-family="system-ui, sans-serif">from the page cache</text>
+<rect x="216.0" y="246.0" width="12.0" height="24.0" rx="4" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="1.4"/>
+<text x="236" y="263" text-anchor="start" font-size="12.5" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1.1 µs</text>
+<text x="208" y="306" text-anchor="end" font-size="12" fill="#C1554D" font-family="system-ui, sans-serif">from the SSD</text>
+<rect x="216.0" y="290.0" width="400.0" height="24.0" rx="4" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="1.4"/>
+<text x="626" y="307" text-anchor="start" font-size="12.5" fill="#C1554D" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">73.5 µs</text>
+<text x="360" y="350" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">65 times faster, for a file that has not moved and a program that did not change</text>
+<text x="360" y="378" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">this is why the second time you open an application it starts so much quicker —</text>
+<text x="360" y="400" text-anchor="middle" font-size="12.5" fill="#C1554D" font-family="system-ui, sans-serif">and why a benchmark you run twice lies to you the second time</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">and then there is the bill</text>
+<text x="360" y="50" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">roughly what a gigabyte costs, in orders of magnitude</text>
+<text x="190" y="110" text-anchor="end" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">SRAM (cache)</text>
+<rect x="204.0" y="90.0" width="300.0" height="32.0" rx="6" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="1.5"/>
+<text x="518" y="112" text-anchor="start" font-size="12.5" fill="#C1554D" font-family="system-ui, sans-serif">thousands of dollars</text>
+<text x="190" y="162" text-anchor="end" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">DRAM (main memory)</text>
+<rect x="204.0" y="142.0" width="100.0" height="32.0" rx="6" fill="#23272F" fill-opacity="0.14" stroke="#23272F" stroke-width="1.5"/>
+<text x="318" y="164" text-anchor="start" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">a few dollars</text>
+<text x="190" y="214" text-anchor="end" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">SSD</text>
+<rect x="204.0" y="194.0" width="30.0" height="32.0" rx="6" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="1.5"/>
+<text x="248" y="216" text-anchor="start" font-size="12.5" fill="#087EA4" font-family="system-ui, sans-serif">a few cents</text>
+<text x="190" y="266" text-anchor="end" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">hard disk</text>
+<rect x="204.0" y="246.0" width="10.0" height="32.0" rx="6" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="1.5"/>
+<text x="228" y="268" text-anchor="start" font-size="12.5" fill="#087EA4" font-family="system-ui, sans-serif">a fraction of a cent</text>
+<text x="360" y="306" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">this is the real reason the hierarchy exists. if cache memory were cheap,</text>
+<text x="360" y="330" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">your computer would be one enormous cache and this module would be one page.</text>
+<text x="360" y="364" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">prices move constantly — the ratios between them move far more slowly</text>
+</svg>

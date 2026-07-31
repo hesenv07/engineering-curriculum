@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">the same trick, over and over, all the way down</text>
+<rect x="40.0" y="60.0" width="200.0" height="46.0" rx="8" fill="#149ECA" fill-opacity="0.14" stroke="#149ECA" stroke-width="2"/>
+<text x="140" y="89" text-anchor="middle" font-size="13.5" fill="#149ECA" font-family="system-ui, sans-serif" font-weight="bold">L1</text>
+<path d="M 246.0 83.0 L 300.0 83.0" fill="none" stroke="#99A1B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<text x="273" y="74" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">caches</text>
+<rect x="306.0" y="60.0" width="220.0" height="46.0" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="416" y="89" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">L2</text>
+<text x="546" y="89" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">hardware</text>
+<rect x="40.0" y="116.0" width="200.0" height="46.0" rx="8" fill="#149ECA" fill-opacity="0.14" stroke="#149ECA" stroke-width="2"/>
+<text x="140" y="145" text-anchor="middle" font-size="13.5" fill="#149ECA" font-family="system-ui, sans-serif" font-weight="bold">L3</text>
+<path d="M 246.0 139.0 L 300.0 139.0" fill="none" stroke="#99A1B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<text x="273" y="130" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">caches</text>
+<rect x="306.0" y="116.0" width="220.0" height="46.0" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="416" y="145" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">main memory</text>
+<text x="546" y="145" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">hardware</text>
+<rect x="40.0" y="172.0" width="200.0" height="46.0" rx="8" fill="#F6F7F9" fill-opacity="0.14" stroke="#F6F7F9" stroke-width="2"/>
+<text x="140" y="201" text-anchor="middle" font-size="13.5" fill="#F6F7F9" font-family="system-ui, sans-serif" font-weight="bold">main memory</text>
+<path d="M 246.0 195.0 L 300.0 195.0" fill="none" stroke="#99A1B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<text x="273" y="186" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">caches</text>
+<rect x="306.0" y="172.0" width="220.0" height="46.0" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="416" y="201" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">the SSD</text>
+<text x="546" y="201" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">the operating system</text>
+<rect x="40.0" y="228.0" width="200.0" height="46.0" rx="8" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="140" y="257" text-anchor="middle" font-size="13.5" fill="#E06C60" font-family="system-ui, sans-serif" font-weight="bold">your app's cache</text>
+<path d="M 246.0 251.0 L 300.0 251.0" fill="none" stroke="#99A1B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<text x="273" y="242" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">caches</text>
+<rect x="306.0" y="228.0" width="220.0" height="46.0" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="416" y="257" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">the database</text>
+<text x="546" y="257" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">your code</text>
+<rect x="40.0" y="284.0" width="200.0" height="46.0" rx="8" fill="#E06C60" fill-opacity="0.14" stroke="#E06C60" stroke-width="2"/>
+<text x="140" y="313" text-anchor="middle" font-size="13.5" fill="#E06C60" font-family="system-ui, sans-serif" font-weight="bold">the browser cache</text>
+<path d="M 246.0 307.0 L 300.0 307.0" fill="none" stroke="#99A1B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<text x="273" y="298" text-anchor="middle" font-size="10.5" fill="#99A1B3" font-family="system-ui, sans-serif">caches</text>
+<rect x="306.0" y="284.0" width="220.0" height="46.0" rx="8" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<text x="416" y="313" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">a server far away</text>
+<text x="546" y="313" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">the browser</text>
+<text x="546" y="46" text-anchor="start" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">managed by</text>
+<rect x="96.0" y="352.0" width="528.0" height="62.0" rx="10" fill="#149ECA" fill-opacity="0.14" stroke="#149ECA" stroke-width="2"/>
+<text x="360" y="376" text-anchor="middle" font-size="13.5" fill="#149ECA" font-family="system-ui, sans-serif" font-weight="bold">every one of them answers the same four questions</text>
+<text x="360" y="400" text-anchor="middle" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">what to keep · how to find it · what to throw out · what to fetch early</text>
+</svg>
