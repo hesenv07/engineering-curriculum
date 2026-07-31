@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">reading one byte takes four steps and destroys a row</text>
+<rect x="40.0" y="58.0" width="640.0" height="74.0" rx="10" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="62" y="86" text-anchor="start" font-size="14" fill="#087EA4" font-family="system-ui, sans-serif" font-weight="bold">1. ACTIVATE</text>
+<text x="210" y="86" text-anchor="start" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">open the row you want</text>
+<text x="62" y="112" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">the whole row's charges spill onto the sense lines</text>
+<rect x="40.0" y="142.0" width="640.0" height="74.0" rx="10" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="62" y="170" text-anchor="start" font-size="14" fill="#087EA4" font-family="system-ui, sans-serif" font-weight="bold">2. SENSE</text>
+<text x="210" y="170" text-anchor="start" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">amplify what spilled</text>
+<text x="62" y="196" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">tiny charges become clean 1s and 0s in the row buffer</text>
+<rect x="40.0" y="226.0" width="640.0" height="74.0" rx="10" fill="#23272F" fill-opacity="0.14" stroke="#23272F" stroke-width="2"/>
+<text x="62" y="254" text-anchor="start" font-size="14" fill="#23272F" font-family="system-ui, sans-serif" font-weight="bold">3. READ</text>
+<text x="210" y="254" text-anchor="start" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">take your column</text>
+<text x="62" y="280" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">only now does the byte you asked for come out</text>
+<rect x="40.0" y="310.0" width="640.0" height="74.0" rx="10" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="2"/>
+<text x="62" y="338" text-anchor="start" font-size="14" fill="#C1554D" font-family="system-ui, sans-serif" font-weight="bold">4. PRECHARGE</text>
+<text x="210" y="338" text-anchor="start" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">write the row back</text>
+<text x="62" y="364" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">reading emptied the capacitors — they must be restored</text>
+<text x="360" y="408" text-anchor="middle" font-size="13" fill="#C1554D" font-family="system-ui, sans-serif">step 4 is the surprising one: a DRAM read is destructive, so every read</text>
+<text x="360" y="430" text-anchor="middle" font-size="13" fill="#C1554D" font-family="system-ui, sans-serif">is really a read followed by a rewrite of an entire row</text>
+<text x="360" y="452" text-anchor="middle" font-size="12.5" fill="#087EA4" font-family="system-ui, sans-serif">and this is why a row, once open, is cheap to read again</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="16.5" fill="#F6F7F9" font-family="system-ui, sans-serif">measured: walking 512 MB with a growing gap between accesses</text>
+<path d="M 92.0 287.8 L 620.0 287.8" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="82" y="292" text-anchor="end" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">2</text>
+<path d="M 92.0 263.1 L 620.0 263.1" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="82" y="267" text-anchor="end" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">5</text>
+<path d="M 92.0 222.0 L 620.0 222.0" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="82" y="226" text-anchor="end" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">10</text>
+<path d="M 92.0 180.9 L 620.0 180.9" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="82" y="185" text-anchor="end" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">15</text>
+<path d="M 92.0 139.8 L 620.0 139.8" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="82" y="144" text-anchor="end" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">20</text>
+<path d="M 92.0 98.7 L 620.0 98.7" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="82" y="103" text-anchor="end" font-size="10.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">25</text>
+<text x="40" y="185" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">ns per</text>
+<text x="40" y="201" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">access</text>
+<text x="92" y="318" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">4 B</text>
+<text x="243" y="318" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">64 B</text>
+<text x="394" y="318" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1 KB</text>
+<text x="620" y="318" text-anchor="middle" font-size="11" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">64 KB</text>
+<path d="M 242.9 68.0 L 242.9 296.0" fill="none" stroke="#F6F7F9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4"/>
+<text x="243" y="62" text-anchor="middle" font-size="11.5" fill="#F6F7F9" font-family="system-ui, sans-serif">one cache line</text>
+<path d="M 469.1 68.0 L 469.1 296.0" fill="none" stroke="#F6F7F9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4"/>
+<text x="469" y="62" text-anchor="middle" font-size="11.5" fill="#F6F7F9" font-family="system-ui, sans-serif">one page</text>
+<path d="M 92.0 287.4 L 167.4 284.4 L 205.1 278.3 L 242.9 253.9 L 280.6 220.4 L 318.3 210.0 L 356.0 213.1 L 393.7 206.8 L 431.4 198.6 L 469.1 176.1 L 506.9 182.0 L 544.6 145.9 L 620.0 95.0" fill="none" stroke="#149ECA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="92.0" cy="287.4" r="4" fill="#149ECA"/>
+<circle cx="167.4" cy="284.4" r="4" fill="#149ECA"/>
+<circle cx="205.1" cy="278.3" r="4" fill="#149ECA"/>
+<circle cx="242.9" cy="253.9" r="4" fill="#149ECA"/>
+<circle cx="280.6" cy="220.4" r="4" fill="#149ECA"/>
+<circle cx="318.3" cy="210.0" r="4" fill="#149ECA"/>
+<circle cx="356.0" cy="213.1" r="4" fill="#149ECA"/>
+<circle cx="393.7" cy="206.8" r="4" fill="#149ECA"/>
+<circle cx="431.4" cy="198.6" r="4" fill="#149ECA"/>
+<circle cx="469.1" cy="176.1" r="4" fill="#149ECA"/>
+<circle cx="506.9" cy="182.0" r="4" fill="#149ECA"/>
+<circle cx="544.6" cy="145.9" r="4" fill="#149ECA"/>
+<circle cx="620.0" cy="95.0" r="4" fill="#149ECA"/>
+<text x="217" y="271" text-anchor="start" font-size="11" fill="#149ECA" font-family="system-ui, sans-serif">16 reads share one line</text>
+<text x="299" y="226" text-anchor="start" font-size="11.5" fill="#E06C60" font-family="system-ui, sans-serif">one read per line</text>
+<text x="411" y="115" text-anchor="start" font-size="11.5" fill="#99A1B3" font-family="system-ui, sans-serif">the prefetcher gives up</text>
+<text x="360" y="348" text-anchor="middle" font-size="13" fill="#F6F7F9" font-family="system-ui, sans-serif">3.15 ns at a 32-byte gap, 6.12 ns at 64 — the cost doubles exactly where</text>
+<text x="360" y="370" text-anchor="middle" font-size="13" fill="#149ECA" font-family="system-ui, sans-serif">a second cache line becomes necessary for every access</text>
+<text x="360" y="406" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">then a slow climb as the prefetcher, the row buffer and the address</text>
+<text x="360" y="428" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">translation tables each run out of usefulness in turn</text>
+</svg>

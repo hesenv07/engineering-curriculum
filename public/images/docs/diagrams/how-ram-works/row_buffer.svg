@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">the row that is already open</text>
+<rect x="40.0" y="56.0" width="320.0" height="300.0" rx="12" fill="none" stroke="#087EA4" stroke-width="2"/>
+<text x="200" y="82" text-anchor="middle" font-size="15" fill="#087EA4" font-family="system-ui, sans-serif" font-weight="bold">same row again</text>
+<text x="200" y="104" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">a row buffer hit</text>
+<text x="200" y="142" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">the row is already sensed</text>
+<text x="200" y="168" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">just pick a different column</text>
+<text x="200" y="194" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">no activate, no precharge</text>
+<rect x="76.0" y="230.0" width="248.0" height="52.0" rx="9" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="200" y="262" text-anchor="middle" font-size="18" fill="#087EA4" font-family="system-ui, sans-serif" font-weight="bold">fast</text>
+<text x="200" y="314" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">sequential access lands here</text>
+<text x="200" y="336" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">again and again</text>
+<rect x="400.0" y="56.0" width="280.0" height="300.0" rx="12" fill="none" stroke="#C1554D" stroke-width="2"/>
+<text x="540" y="82" text-anchor="middle" font-size="15" fill="#C1554D" font-family="system-ui, sans-serif" font-weight="bold">a different row</text>
+<text x="540" y="104" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">a row buffer miss</text>
+<text x="540" y="142" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">close the open row first</text>
+<text x="540" y="168" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">activate the new one</text>
+<text x="540" y="194" text-anchor="middle" font-size="12.5" fill="#23272F" font-family="system-ui, sans-serif">sense it, then read</text>
+<rect x="428.0" y="230.0" width="224.0" height="52.0" rx="9" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="2"/>
+<text x="540" y="262" text-anchor="middle" font-size="18" fill="#C1554D" font-family="system-ui, sans-serif" font-weight="bold">slow</text>
+<text x="540" y="314" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">random access lands here</text>
+<text x="540" y="336" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">every single time</text>
+<text x="360" y="392" text-anchor="middle" font-size="13" fill="#23272F" font-family="system-ui, sans-serif">the cache line argument again, one level lower down — memory rewards</text>
+<text x="360" y="414" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">anyone who keeps asking for things that are near each other</text>
+</svg>

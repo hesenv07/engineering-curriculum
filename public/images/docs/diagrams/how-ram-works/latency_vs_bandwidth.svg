@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="16.5" fill="#23272F" font-family="system-ui, sans-serif">four generations of memory: one number moved, the other did not</text>
+<path d="M 118.0 74.0 L 118.0 300.0" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="118" y="322" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">DDR3-1600</text>
+<path d="M 277.3 74.0 L 277.3 300.0" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="277" y="322" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">DDR4-2400</text>
+<path d="M 436.7 74.0 L 436.7 300.0" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="437" y="322" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">DDR4-3200</text>
+<path d="M 596.0 74.0 L 596.0 300.0" fill="none" stroke="#99A1B3" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6"/>
+<text x="596" y="322" text-anchor="middle" font-size="11.5" fill="#99A1B3" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">DDR5-6000</text>
+<path d="M 118.0 244.4 L 277.3 216.6 L 436.7 188.7 L 596.0 91.4" fill="none" stroke="#087EA4" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="118" cy="244" r="5" fill="#087EA4"/>
+<text x="118" y="230" text-anchor="middle" font-size="11.5" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">12.8</text>
+<circle cx="277" cy="217" r="5" fill="#087EA4"/>
+<text x="277" y="203" text-anchor="middle" font-size="11.5" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">19.2</text>
+<circle cx="437" cy="189" r="5" fill="#087EA4"/>
+<text x="437" y="175" text-anchor="middle" font-size="11.5" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">25.6</text>
+<circle cx="596" cy="91" r="5" fill="#087EA4"/>
+<text x="596" y="77" text-anchor="middle" font-size="11.5" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">48.0</text>
+<text x="106" y="187" text-anchor="end" font-size="12.5" fill="#087EA4" font-family="system-ui, sans-serif">bandwidth</text>
+<text x="106" y="203" text-anchor="end" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">GB/s</text>
+<path d="M 118.0 144.1 L 277.3 139.5 L 436.7 187.0 L 596.0 187.0" fill="none" stroke="#C1554D" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="118" cy="144" r="5" fill="#C1554D"/>
+<text x="118" y="164" text-anchor="middle" font-size="11.5" fill="#C1554D" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">13.8</text>
+<circle cx="277" cy="140" r="5" fill="#C1554D"/>
+<text x="277" y="160" text-anchor="middle" font-size="11.5" fill="#C1554D" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">14.2</text>
+<circle cx="437" cy="187" r="5" fill="#C1554D"/>
+<text x="437" y="207" text-anchor="middle" font-size="11.5" fill="#C1554D" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">10.0</text>
+<circle cx="596" cy="187" r="5" fill="#C1554D"/>
+<text x="596" y="207" text-anchor="middle" font-size="11.5" fill="#C1554D" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">10.0</text>
+<text x="610" y="177" text-anchor="start" font-size="12.5" fill="#C1554D" font-family="system-ui, sans-serif">CAS latency</text>
+<text x="610" y="193" text-anchor="start" font-size="11" fill="#99A1B3" font-family="system-ui, sans-serif">ns</text>
+<text x="360" y="350" text-anchor="middle" font-size="14" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">bandwidth  12.8  →  48.0 GB/s        ×3.8</text>
+<text x="360" y="378" text-anchor="middle" font-size="14" fill="#C1554D" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">latency    13.8  →  10.0 ns          ×0.7</text>
+<text x="360" y="414" text-anchor="middle" font-size="13.5" fill="#23272F" font-family="system-ui, sans-serif">you can widen a road. you cannot easily shorten it.</text>
+</svg>

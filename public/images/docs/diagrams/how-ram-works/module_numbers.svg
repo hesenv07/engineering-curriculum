@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#23272F"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#C1554D"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#087EA4"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#23272F" font-family="system-ui, sans-serif">what the numbers on a memory stick mean</text>
+<text x="360" y="58" text-anchor="middle" font-size="24" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">DDR4-3200  CL16</text>
+<text x="150" y="96" text-anchor="end" font-size="13" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="bold">DDR</text>
+<text x="166" y="96" text-anchor="start" font-size="12" fill="#23272F" font-family="system-ui, sans-serif">Double Data Rate — it moves data on both edges of the clock</text>
+<text x="150" y="130" text-anchor="end" font-size="13" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="bold">3200</text>
+<text x="166" y="130" text-anchor="start" font-size="12" fill="#23272F" font-family="system-ui, sans-serif">3,200 million transfers per second — so the clock is 1,600 MHz</text>
+<text x="150" y="164" text-anchor="end" font-size="13" fill="#087EA4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="bold">CL16</text>
+<text x="166" y="164" text-anchor="start" font-size="12" fill="#23272F" font-family="system-ui, sans-serif">16 clock cycles from asking for a column to getting data</text>
+<rect x="96.0" y="190.0" width="528.0" height="92.0" rx="11" fill="#087EA4" fill-opacity="0.14" stroke="#087EA4" stroke-width="2"/>
+<text x="360" y="214" text-anchor="middle" font-size="13.5" fill="#087EA4" font-family="system-ui, sans-serif" font-weight="bold">turning CL16 into real time</text>
+<text x="360" y="240" text-anchor="middle" font-size="13" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">clock 1,600 MHz → one cycle = 0.625 ns</text>
+<text x="360" y="264" text-anchor="middle" font-size="14" fill="#23272F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="bold">16 cycles × 0.625 ns = 10.0 ns</text>
+<rect x="96.0" y="300.0" width="528.0" height="92.0" rx="11" fill="#C1554D" fill-opacity="0.14" stroke="#C1554D" stroke-width="2"/>
+<text x="360" y="324" text-anchor="middle" font-size="13.5" fill="#C1554D" font-family="system-ui, sans-serif" font-weight="bold">but a real random access measured 156 ns on this machine</text>
+<text x="360" y="348" text-anchor="middle" font-size="12" fill="#23272F" font-family="system-ui, sans-serif">because CL is only the last step. add row activate, precharge,</text>
+<text x="360" y="366" text-anchor="middle" font-size="12" fill="#23272F" font-family="system-ui, sans-serif">address translation, the memory controller's queue, and the trip</text>
+<text x="360" y="384" text-anchor="middle" font-size="12" fill="#23272F" font-family="system-ui, sans-serif">across the bus — CL16 does not mean 16 ns memory.</text>
+<text x="360" y="424" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">peak bandwidth is easier: 3,200 MT/s × 8 bytes = 25.6 GB/s per channel</text>
+</svg>

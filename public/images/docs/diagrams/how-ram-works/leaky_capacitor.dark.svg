@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#F6F7F9"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#E06C60"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#149ECA"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 9 5 L 0 9 z" fill="#99A1B3"/></marker></defs>
+<text x="360" y="26" text-anchor="middle" font-size="17" fill="#F6F7F9" font-family="system-ui, sans-serif">the bucket has a hole in it</text>
+<rect x="46.0" y="66.0" width="128.0" height="130.0" rx="9" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<rect x="80" y="84" width="60" height="106" rx="3" fill="#149ECA" fill-opacity="0.32" stroke="#149ECA" stroke-width="1.6"/>
+<text x="110" y="214" text-anchor="middle" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">just written</text>
+<text x="110" y="232" text-anchor="middle" font-size="11.5" fill="#149ECA" font-family="system-ui, sans-serif">a clear 1</text>
+<path d="M 180.0 131.0 L 208.0 131.0" fill="none" stroke="#99A1B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<rect x="214.0" y="66.0" width="128.0" height="130.0" rx="9" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<rect x="248" y="114" width="60" height="76" rx="3" fill="#149ECA" fill-opacity="0.32" stroke="#149ECA" stroke-width="1.6"/>
+<text x="278" y="214" text-anchor="middle" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">a moment later</text>
+<text x="278" y="232" text-anchor="middle" font-size="11.5" fill="#149ECA" font-family="system-ui, sans-serif">still readable</text>
+<path d="M 348.0 131.0 L 376.0 131.0" fill="none" stroke="#99A1B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<rect x="382.0" y="66.0" width="128.0" height="130.0" rx="9" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<rect x="416" y="142" width="60" height="48" rx="3" fill="#E06C60" fill-opacity="0.32" stroke="#E06C60" stroke-width="1.6"/>
+<text x="446" y="214" text-anchor="middle" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">later still</text>
+<text x="446" y="232" text-anchor="middle" font-size="11.5" fill="#E06C60" font-family="system-ui, sans-serif">getting doubtful</text>
+<path d="M 516.0 131.0 L 544.0 131.0" fill="none" stroke="#99A1B3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#g)"/>
+<rect x="550.0" y="66.0" width="128.0" height="130.0" rx="9" fill="none" stroke="#99A1B3" stroke-width="2"/>
+<rect x="584" y="177" width="60" height="13" rx="3" fill="#E06C60" fill-opacity="0.32" stroke="#E06C60" stroke-width="1.6"/>
+<text x="614" y="214" text-anchor="middle" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">too late</text>
+<text x="614" y="232" text-anchor="middle" font-size="11.5" fill="#E06C60" font-family="system-ui, sans-serif">indistinguishable from 0</text>
+<rect x="96.0" y="262.0" width="528.0" height="74.0" rx="11" fill="#149ECA" fill-opacity="0.14" stroke="#149ECA" stroke-width="2"/>
+<text x="360" y="288" text-anchor="middle" font-size="14" fill="#149ECA" font-family="system-ui, sans-serif" font-weight="bold">so every row is read and written back, over and over, forever</text>
+<text x="360" y="312" text-anchor="middle" font-size="12.5" fill="#F6F7F9" font-family="system-ui, sans-serif">each row must be refreshed within 64 milliseconds of the last time</text>
+<text x="360" y="330" text-anchor="middle" font-size="12" fill="#99A1B3" font-family="system-ui, sans-serif">which is where the D in DRAM comes from: dynamic</text>
+<text x="360" y="376" text-anchor="middle" font-size="12.5" fill="#99A1B3" font-family="system-ui, sans-serif">cache memory needs none of this — six transistors hold their state as long as there is power</text>
+</svg>
